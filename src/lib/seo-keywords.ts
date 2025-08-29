@@ -14,6 +14,86 @@ export const YOGA_KEYWORDS = {
     "yoga instructor training"
   ],
 
+  // Ancient masters and lineages - Deep spiritual SEO
+  masters: [
+    "sage vashishta yoga",
+    "yoga vashishta teachings",
+    "vashishta samhita",
+    "vashishta ramayana",
+    "lord shiva yoga",
+    "adiyogi shiva",
+    "shiva meditation",
+    "nataraja yoga",
+    "shiva consciousness",
+    "mahadev teachings",
+    "maharishi patanjali",
+    "patanjali yoga sutras",
+    "classical raja yoga",
+    "sage patanjali meditation",
+    "ancient yoga masters",
+    "traditional yoga lineage",
+    "vedic yoga teachers",
+    "himalayan yoga masters"
+  ],
+
+  // Classical texts and scriptures - Authority building
+  scriptures: [
+    "yoga vashishta ramayana",
+    "hatha yoga pradipika",
+    "gheranda samhita", 
+    "shiva samhita",
+    "patanjali yoga sutras",
+    "bhagavad gita yoga",
+    "upanishads meditation",
+    "vedic yoga texts",
+    "ancient yoga scriptures",
+    "classical yoga literature",
+    "sanskrit yoga mantras",
+    "yoga philosophy books",
+    "spiritual yoga texts",
+    "traditional yoga wisdom"
+  ],
+
+  // Dhyana meditation - Deep practice keywords
+  dhyana: [
+    "dhyana meditation",
+    "dhyana yoga practice", 
+    "classical meditation techniques",
+    "raja yoga meditation",
+    "samadhi meditation",
+    "dharana concentration",
+    "pratyahara sense withdrawal",
+    "transcendental meditation",
+    "vipassana meditation",
+    "zen meditation practice",
+    "yoga nidra deep relaxation",
+    "mindfulness meditation",
+    "silent meditation retreat",
+    "spiritual meditation",
+    "consciousness meditation",
+    "inner awareness practice",
+    "contemplative meditation",
+    "meditative absorption"
+  ],
+
+  // Advanced Hatha Yoga practices
+  hatha: [
+    "traditional hatha yoga",
+    "classical hatha practices",
+    "hatha yoga asanas",
+    "hatha pranayama",
+    "hatha yoga mudras",
+    "hatha yoga bandhas",
+    "shatkarma cleansing",
+    "hatha yoga philosophy",
+    "gorakshanath hatha yoga",
+    "matsyendranath teachings",
+    "nath sampradaya yoga",
+    "tantric hatha yoga",
+    "kundalini hatha yoga",
+    "traditional yoga postures"
+  ],
+
   // Location-based keywords
   location: [
     "yoga teacher training india",

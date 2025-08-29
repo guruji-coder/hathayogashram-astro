@@ -12,14 +12,15 @@
 // ===========================================
 
 // Import specific constants you need
-import {
-	HEADER_BRANDING,
-	HEADER_CONTACT,
-	HEADER_SOCIAL_MEDIA,
-	HEADER_NAVIGATION_ITEMS,
-	HEADER_CTA_BUTTON,
-	HEADER_STYLES
-} from './headerConstants';
+// Uncomment the imports you actually use in your components:
+// import {
+//   HEADER_BRANDING,
+//   HEADER_CONTACT,
+//   HEADER_SOCIAL_MEDIA,
+//   HEADER_NAVIGATION_ITEMS,
+//   HEADER_CTA_BUTTON,
+//   HEADER_STYLES
+// } from './headerConstants';
 
 // ===========================================
 // USAGE EXAMPLES IN COMPONENTS

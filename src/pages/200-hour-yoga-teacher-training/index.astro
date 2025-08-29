@@ -14,22 +14,6 @@ const seoContent = generateSEOContent({
 
 // Generate schemas for course page
 const courseSchemas = pageSchemas.courses();
-
-// Advanced SEO configuration
-const seoConfig = {
-  pageType: 'course' as const,
-  primaryKeyword: '200 hour yoga teacher training rishikesh',
-  secondaryKeywords: [
-    'yoga teacher certification india',
-    'hatha yoga training course',
-    'ashtanga yoga teacher training',
-    'residential yoga program',
-    'yoga alliance ryt 200'
-  ],
-  location: 'rishikesh',
-  courseLevel: '200hour',
-  targetAudience: 'beginner' as const
-};
 ---
 
 <Layout
@@ -38,7 +22,6 @@ const seoConfig = {
   canonical="https://hathayogashram.com/200-hour-yoga-teacher-training/"
   image="https://hathayogashram.com/200-hour-yoga-training.jpg"
   additionalSchemas={courseSchemas}
-  seoConfig={seoConfig}
 >
   <article>
     <header>

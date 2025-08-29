@@ -20,10 +20,8 @@ export function generateAdvancedMetaTags(config: AdvancedSEOConfig): MetaData[] 
   const {
     pageType,
     primaryKeyword,
-    secondaryKeywords = [],
     location = 'rishikesh',
     courseLevel = '',
-    targetAudience = 'all',
     season
   } = config;
 
@@ -93,12 +91,12 @@ export function generateAdvancedMetaTags(config: AdvancedSEOConfig): MetaData[] 
     
     // Advanced keyword variations
     { name: "keyword-variations", content: generateKeywordVariations(primaryKeyword, location) },
-    { name: "semantic-keywords", content: generateSemanticKeywords(primaryKeyword) },
+    { name: "semantic-keywords", content: generateSemanticKeywords() },
     { name: "long-tail-keywords", content: generateLongTailKeywords(primaryKeyword, location) }
   ];
 
   // Page-type specific tags
-  const pageSpecificTags = getPageSpecificTags(pageType, primaryKeyword, location);
+  const pageSpecificTags = getPageSpecificTags(pageType, location);
   
   return [...baseTags, ...pageSpecificTags];
 }
@@ -122,7 +120,7 @@ function generateKeywordVariations(keyword: string, location: string): string {
 }
 
 // Generate semantic keywords related to yoga
-function generateSemanticKeywords(keyword: string): string {
+function generateSemanticKeywords(): string {
   const semanticTerms = [
     'mindfulness meditation',
     'spiritual awakening',
@@ -163,7 +161,7 @@ function generateLongTailKeywords(keyword: string, location: string): string {
 }
 
 // Get page-type specific meta tags
-function getPageSpecificTags(pageType: string, keyword: string, location: string): MetaData[] {
+function getPageSpecificTags(pageType: string, location: string): MetaData[] {
   switch (pageType) {
     case 'homepage':
       return [
