@@ -1,0 +1,26 @@
+<script lang="ts">
+	import { FOUNDER_SECTION } from '../../../constants/homePageConstants';
+</script>
+
+<div class="mt-16">
+	<h3 class="mb-8 text-center text-xl font-bold text-purple-900 sm:text-2xl lg:text-3xl">
+		Awards & Honours
+	</h3>
+
+	<div class="mx-auto max-w-4xl">
+		<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+			{#each FOUNDER_SECTION.AWARDS as award}
+				<div class="text-center">
+					<div
+						class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full {award.bgColor}"
+					>
+						<div class="text-3xl">{award.icon}</div>
+					</div>
+					<h4 class="mb-2 text-sm font-semibold text-gray-800 sm:text-base">
+						{award.title}
+					</h4>
+				</div>
+			{/each}
+		</div>
+	</div>
+</div>

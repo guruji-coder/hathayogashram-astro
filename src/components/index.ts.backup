@@ -1,0 +1,22 @@
+// Layout components
+export { default as Footer } from './layout/Footer.svelte';
+export { default as Header } from './layout/Header.svelte';
+
+// Navigation components
+export { Navigation } from './navigation';
+
+// UI components
+export { default as Button } from './ui/Button.svelte';
+export { default as FocusCards } from './ui/FocusCards.svelte';
+
+// Feature components
+export { default as CertificateCarousel } from './CertificateCarousel.svelte';
+export { default as CourseCard } from './CourseCard.svelte';
+export { default as FaqSection } from './FaqSection.svelte';
+export { default as FounderSection } from './features/founder/FounderSection.svelte';
+export { default as HeroCarousel } from './HeroCarousel.svelte';
+export { default as ReviewsSection } from './ReviewsSection.svelte';
+export { default as TeacherCard } from './TeacherCard.svelte';
+export { default as TeachersCarousel } from './TeachersCarousel.svelte';
+// Other components
+export { default as Notification } from './Notification.svelte';

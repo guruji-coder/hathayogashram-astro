@@ -1,0 +1,83 @@
+export const coursesSchema = {
+  "@context": "https://schema.org",
+  "@type": "OfferCatalog",
+  "name": "Yoga Teacher Training Programs",
+  "itemListElement": [
+    {
+      "@type": "Course",
+      "name": "200 Hour Traditional Yoga Teacher Training",
+      "description": "Comprehensive training covering Hatha Yoga (42 asanas), Ashtanga Primary Series, Patanjali's 8 limbs, Sanskrit pronunciation, 15+ pranayama techniques, philosophy from Yoga Sutras & Bhagavad Gita, anatomy, and teaching methodology.",
+      "provider": { 
+        "@type": "Organization", 
+        "name": "Hatha Yogashram"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "Residential",
+        "duration": "P25D",
+        "inLanguage": ["en", "hi"],
+        "courseWorkload": "PT200H"
+      },
+      "teaches": [
+        "Surya Namaskar A & B",
+        "Chandra Namaskar",
+        "42 Classical Hatha Yoga Asanas",
+        "Ashtanga Primary Series",
+        "Pranayama: Nadi Shodhana, Bhastrika, Kapalabhati",
+        "Sanskrit Mantras & Chanting",
+        "Yoga Sutras of Patanjali",
+        "Bhagavad Gita Chapter 2-6",
+        "Meditation Techniques",
+        "Yoga Nidra"
+      ],
+      "coursePrerequisites": "Basic yoga practice for 6 months",
+      "educationalCredentialAwarded": "Yoga Alliance RYT 200 Certification",
+      "offers": {
+        "@type": "Offer",
+        "price": "1299",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2024-01-01",
+        "category": "Yoga Teacher Training"
+      }
+    },
+    {
+      "@type": "Course", 
+      "name": "300 Hour Advanced Yoga Teacher Training",
+      "description": "Advanced training covering 84 classical asanas, Ashtanga Intermediate Series, advanced pranayama & kriyas, in-depth study of Hatha Yoga Pradipika, Gheranda Samhita, Shiva Samhita, Sanskrit study, advanced philosophy, and specialized teaching skills.",
+      "provider": { 
+        "@type": "Organization", 
+        "name": "Hatha Yogashram"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "Residential",
+        "duration": "P28D", 
+        "inLanguage": ["en", "hi", "sa"],
+        "courseWorkload": "PT300H"
+      },
+      "teaches": [
+        "84 Classical Asanas",
+        "Ashtanga Intermediate Series",
+        "Advanced Pranayama: Bhramari, Sheetali, Moorcha",
+        "Shatkarmas (6 Cleansing Techniques)",
+        "Bandhas & Mudras",
+        "Hatha Yoga Pradipika Complete Study",
+        "Gheranda Samhita",
+        "Sanskrit Slokas & Pronunciation", 
+        "Kundalini Awakening Practices",
+        "Advanced Teaching Methodology"
+      ],
+      "coursePrerequisites": "RYT 200 Certification",
+      "educationalCredentialAwarded": "Yoga Alliance RYT 500 Certification",
+      "offers": {
+        "@type": "Offer",
+        "price": "1599",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2024-01-01",
+        "category": "Advanced Yoga Teacher Training"
+      }
+    }
+  ]
+};
