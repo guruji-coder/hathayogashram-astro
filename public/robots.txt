@@ -1,21 +1,34 @@
 User-agent: *
 Allow: /
 
-# Important pages for yoga teacher training
-Allow: /
-Allow: /courses
-Allow: /about
-Allow: /contact
-Allow: /gallery
-Allow: /reviews
+# High priority pages for yoga teacher training
+Allow: /200-hour-yoga-teacher-training/
+Allow: /300-hour-yoga-teacher-training/
+Allow: /our-team/
+Allow: /accommodation/
+Allow: /gallery/
+Allow: /testimonials/
+Allow: /contact/
+Allow: /courses/
+Allow: /about/
+Allow: /reviews/
 
 # Disallow admin or private areas
-Disallow: /admin
-Disallow: /.svelte-kit/
+Disallow: /admin/
+Disallow: /_astro/
+Disallow: /api/
 Disallow: /node_modules/
 
 # Sitemap location
-Sitemap: https://hathayogashram.com/sitemap.xml
+Sitemap: https://hathayogashram.com/sitemap-index.xml
+Sitemap: https://hathayogashram.com/sitemap-0.xml
 
-# Crawl delay for respectful crawling
+# Crawl delay for different bots
+User-agent: Googlebot
 Crawl-delay: 1
+
+User-agent: Bingbot
+Crawl-delay: 2
+
+User-agent: Slurp
+Crawl-delay: 2

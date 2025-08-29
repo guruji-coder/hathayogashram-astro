@@ -2,9 +2,19 @@
 import Layout from "../components/layout/Layout.astro";
 import HeroCarousel from "../components/HeroCarousel.svelte";
 import ReviewsSection from "../components/ReviewsSection.svelte";
+import { pageSchemas } from "../schemas";
+
+// Generate schemas for home page
+const homeSchemas = pageSchemas.home();
 ---
 
-<Layout title="Hatha Yogashram - Yoga Teacher Training">
+<Layout 
+  title="Best Yoga Teacher Training in Rishikesh, India - Hatha Yogashram"
+  description="Join authentic 200/300 hour Yoga Teacher Training in Rishikesh with Hatha Yogashram. Yoga Alliance RYS certified residential courses with Indian masters. Traditional Hatha & Ashtanga Yoga, Sanskrit mantras, philosophy from ancient texts."
+  canonical="https://hathayogashram.com/"
+  image="https://hathayogashram.com/yogaschoolpic.jpg"
+  additionalSchemas={homeSchemas}
+>
   <HeroCarousel client:load />
   <ReviewsSection client:visible />
   <!-- Your other components -->
