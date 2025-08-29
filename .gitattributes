@@ -1,0 +1,26 @@
+# Set default behavior to automatically normalize line endings
+* text=auto
+
+# Handle large SEO constant files specially
+src/lib/*keywords.ts -diff
+src/lib/*keywords.ts merge=ours
+src/lib/yoga-seo-constants.ts -diff
+src/lib/yoga-seo-constants.ts merge=ours
+
+# JS and TS files should be handled as text
+*.js text
+*.ts text
+*.json text
+*.md text
+*.svelte text
+
+# Images should be treated as binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
+*.webp binary
+
+# Make sure GitHub linguist properly identifies these files
+*.ts linguist-language=TypeScript
+*.svelte linguist-language=Svelte

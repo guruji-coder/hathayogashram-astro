@@ -1,9 +1,14 @@
+# Robots.txt for Hatha Yogashram
+# Updated: August 29, 2025
+
 User-agent: *
 Allow: /
 
 # High priority pages for yoga teacher training
 Allow: /200-hour-yoga-teacher-training/
 Allow: /300-hour-yoga-teacher-training/
+Allow: /apply-now/
+Allow: /course-fees/
 Allow: /our-team/
 Allow: /accommodation/
 Allow: /gallery/
@@ -12,23 +17,64 @@ Allow: /contact/
 Allow: /courses/
 Allow: /about/
 Allow: /reviews/
+Allow: /blog/
+Allow: /yoga-therapy/
+Allow: /faq/
 
-# Disallow admin or private areas
+# Block admin and private areas
 Disallow: /admin/
+Disallow: /private/
 Disallow: /_astro/
 Disallow: /api/
 Disallow: /node_modules/
 
-# Sitemap location
-Sitemap: https://hathayogashram.com/sitemap-index.xml
-Sitemap: https://hathayogashram.com/sitemap-0.xml
+# Block search and filter pages to avoid duplicate content
+Disallow: /search?
+Disallow: /*?*
+Disallow: /*&
 
-# Crawl delay for different bots
+# Block low-value pages
+Disallow: /thank-you/
+Disallow: /404/
+Disallow: /error/
+
+# Allow specific bot crawling for better SEO
 User-agent: Googlebot
+Allow: /
 Crawl-delay: 1
 
 User-agent: Bingbot
+Allow: /
 Crawl-delay: 2
 
 User-agent: Slurp
+Allow: /
 Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Block problematic bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Sitemaps - Updated with new comprehensive sitemap
+Sitemap: https://hathayogashram.com/sitemap.xml
+Sitemap: https://hathayogashram.com/sitemap-index.xml
+Sitemap: https://hathayogashram.com/sitemap-0.xml
+
+# Host specification
+Host: hathayogashram.com

@@ -1,0 +1,395 @@
+---
+// src/pages/usa/200-hour-yoga-teacher-training.astro
+import SEOLayout from '../../layouts/SEOLayout.astro';
+import { generateTTCMetaTags, generateLocationSpecificContent } from '../../utils/seo-utils';
+import { ttcFAQSchema, enhancedCourseSchema } from '../../schemas/yoga-schemas';
+import { LOCATION_KEYWORDS } from '../../lib/location-seo-keywords';
+import { SITE_METADATA } from '../../lib/yoga-seo-constants';
+
+// Generate US-specific meta tags
+const usTTCMeta = generateTTCMetaTags({
+  courseType: '200-hour',
+  month: 'March',
+  year: '2026',
+  style: 'hatha',
+  country: 'USA'
+});
+
+// US-specific content
+const usContent = generateLocationSpecificContent('usa');
+
+// US-specific keywords
+const usKeywords = [
+  ...LOCATION_KEYWORDS.countrySpecific.usa,
+  '200 hour yoga teacher training usa to india',
+  'american students yoga certification rishikesh',
+  'usa yoga alliance training india',
+  'american dollars yoga teacher training',
+  'flight information usa to delhi yoga',
+  'american yoga students testimonials india',
+  'us citizens yoga certification abroad',
+  'american-friendly yoga school rishikesh',
+  'usa international yoga teacher training'
+];
+
+// Enhanced course schema for US students
+const usCourseSchema = enhancedCourseSchema({
+  name: '200-Hour Hatha Yoga Teacher Training for US Students',
+  description: 'Specially designed 200-hour Yoga Alliance certified teacher training program for American students. Comprehensive support from application to certification including visa assistance, flight guidance, and cultural orientation.',
+  url: `${SITE_METADATA.siteUrl}/usa/200-hour-yoga-teacher-training/`,
+  startDate: '2026-03-15',
+  endDate: '2026-04-15',
+  duration: 'PT720H',
+  price: 1299,
+  priceCurrency: 'USD',
+  courseCode: 'US-200-HYTT-2026',
+  prerequisites: [
+    'Valid US passport with 6 months validity',
+    'Indian tourist visa (we provide assistance)',
+    'Minimum 6 months of regular yoga practice',
+    'Basic understanding of yoga philosophy'
+  ]
+});
+
+// US-specific FAQ additions
+const usFAQSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    ...ttcFAQSchema.mainEntity,
+    {
+      "@type": "Question",
+      "name": "Do I need a visa as a US citizen to attend yoga teacher training in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, US citizens need an Indian tourist visa. We provide comprehensive visa assistance including document preparation, application guidance, and direct connections with visa consultants. The e-tourist visa is valid for 60 days and costs $25-50 depending on processing time."
+      }
+    },
+    {
+      "@type": "Question", 
+      "name": "What flights should I book from the USA to attend the training?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We recommend flying into Indira Gandhi International Airport (DEL) in New Delhi. Major US cities have direct or one-stop flights via airlines like Air India, United, Delta, and Emirates. We provide complimentary pickup from Dehradun airport (DED) which is closer to Rishikesh, or arrange transportation from Delhi (3-hour drive)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much will the total cost be for US students including flights?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Total budget for US students: Course fee $1,299, Round-trip flights $800-1,500, Visa $50, Personal expenses $200-300. Total approximately $2,500-3,200. This is significantly less expensive than equivalent training in the US ($3,000-6,000) while providing authentic experience in India."
+      }
+    }
+  ]
+};
+---
+
+<SEOLayout
+  title={usTTCMeta.title}
+  description={usTTCMeta.description}
+  canonical={`${SITE_METADATA.siteUrl}/usa/200-hour-yoga-teacher-training/`}
+  openGraph={{
+    title: usTTCMeta.ogTags['og:title'],
+    description: usTTCMeta.ogTags['og:description'],
+    url: `${SITE_METADATA.siteUrl}/usa/200-hour-yoga-teacher-training/`,
+    type: 'website',
+    images: [{
+      url: `${SITE_METADATA.siteUrl}/images/usa-students-yoga-training.jpg`,
+      alt: 'American students practicing yoga at Hatha Yogashram in Rishikesh, India with American flag',
+      width: 1200,
+      height: 630
+    }],
+    siteName: SITE_METADATA.siteName
+  }}
+  additionalMetaTags={[
+    { name: 'keywords', content: usKeywords.join(', ') },
+    { name: 'geo.region', content: 'IN-UT' },
+    { name: 'geo.placename', content: 'Rishikesh, Uttarakhand, India' },
+    { property: 'business:price_range', content: '$1299 USD' },
+    { name: 'target-audience', content: 'US citizens, American yoga practitioners' }
+  ]}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@graph": [usCourseSchema, usFAQSchema]
+  }}
+  currentPath="/usa/200-hour-yoga-teacher-training/"
+>
+
+<!-- Hero Section for US Students -->
+<section class="relative min-h-screen bg-gradient-to-br from-blue-900 via-red-800 to-blue-900 text-white">
+  <div class="absolute inset-0 bg-black/40"></div>
+  
+  <!-- US Flag Elements -->
+  <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-red-500 via-white to-blue-500"></div>
+  
+  <div class="relative z-10 container mx-auto px-4 py-20">
+    <div class="max-w-5xl mx-auto text-center">
+      <!-- US Welcome Banner -->
+      <div class="mb-8 inline-block bg-red-600 text-white px-8 py-3 rounded-full font-bold text-lg">
+        🇺🇸 Welcome American Yogis! Special $200 Discount for US Students
+      </div>
+      
+      <h1 class="text-5xl md:text-7xl font-bold mb-6">
+        200-Hour Yoga Teacher Training
+        <span class="block text-3xl md:text-4xl font-light mt-4 text-blue-300">
+          For US Students • March 2026 • Rishikesh, India
+        </span>
+      </h1>
+      
+      <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed">
+        Join 200+ American graduates who chose authentic yoga education in India. 
+        <strong>Complete support from application to certification</strong> - we handle visa assistance, 
+        airport pickup, cultural orientation, and provide familiar comforts from home.
+      </p>
+      
+      <!-- US-Specific Benefits -->
+      <div class="grid md:grid-cols-3 gap-6 mb-12">
+        <div class="bg-white/15 backdrop-blur-sm rounded-lg p-6">
+          <div class="text-3xl mb-2">✈️</div>
+          <h3 class="text-lg font-semibold mb-2">Free Airport Pickup</h3>
+          <p class="text-sm text-blue-200">Delhi IGI or Dehradun airports</p>
+        </div>
+        <div class="bg-white/15 backdrop-blur-sm rounded-lg p-6">
+          <div class="text-3xl mb-2">🛂</div>
+          <h3 class="text-lg font-semibold mb-2">Visa Assistance</h3>
+          <p class="text-sm text-blue-200">Complete guidance & documentation</p>
+        </div>
+        <div class="bg-white/15 backdrop-blur-sm rounded-lg p-6">
+          <div class="text-3xl mb-2">💰</div>
+          <h3 class="text-lg font-semibold mb-2">USD Pricing</h3>
+          <p class="text-sm text-blue-200">Transparent pricing, no hidden fees</p>
+        </div>
+      </div>
+      
+      <!-- US Student Testimonial Highlight -->
+      <div class="bg-white/10 backdrop-blur-sm rounded-lg p-8 mb-12">
+        <div class="flex items-center justify-center mb-4">
+          <img src="/images/sarah-testimonial.jpg" alt="Sarah from California" class="w-16 h-16 rounded-full mr-4" />
+          <div class="text-left">
+            <div class="font-semibold">Sarah Johnson</div>
+            <div class="text-blue-300">California, USA • Class of 2025</div>
+          </div>
+        </div>
+        <p class="italic text-lg">
+          "As an American, I was nervous about training in India, but Hatha Yogashram made everything seamless. 
+          From visa help to daily support, I felt completely taken care of. The authentic yoga knowledge I gained 
+          here is incomparable to anything available in the US."
+        </p>
+        <div class="mt-4 text-yellow-400">⭐⭐⭐⭐⭐</div>
+      </div>
+      
+      <!-- CTA Buttons -->
+      <div class="flex flex-col md:flex-row gap-4 justify-center">
+        <a 
+          href="/usa/apply-now/" 
+          class="bg-red-600 hover:bg-red-700 text-white px-10 py-5 rounded-lg text-xl font-bold transition transform hover:scale-105 shadow-lg"
+          aria-label="Apply now for US students yoga teacher training March 2026"
+        >
+          Apply Now - $200 US Discount
+        </a>
+        <a 
+          href="/usa/free-consultation/" 
+          class="bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 rounded-lg text-xl font-bold transition"
+          aria-label="Schedule free consultation call for US students"
+        >
+          Free Consultation Call
+        </a>
+      </div>
+      
+      <!-- US-Specific Trust Indicators -->
+      <div class="mt-12 text-center">
+        <div class="text-lg font-semibold mb-4">Trusted by American Students Nationwide</div>
+        <div class="flex flex-wrap justify-center items-center gap-8 text-sm opacity-90">
+          <span>🗽 New York: 45+ Graduates</span>
+          <span>☀️ California: 62+ Graduates</span>
+          <span>🏔️ Colorado: 28+ Graduates</span>
+          <span>🌴 Florida: 33+ Graduates</span>
+          <span>🌲 Oregon: 21+ Graduates</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- US-Specific Information Section -->
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center mb-16">Everything You Need as a US Student</h2>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Visa & Documentation -->
+      <div class="bg-gray-50 rounded-lg p-8">
+        <div class="text-3xl mb-4">🛂</div>
+        <h3 class="text-xl font-semibold mb-4 text-blue-800">Visa & Documentation</h3>
+        <ul class="text-gray-700 space-y-2">
+          <li>• Complete visa application guidance</li>
+          <li>• Document checklist provided</li>
+          <li>• Invitation letter included</li>
+          <li>• Embassy contact assistance</li>
+          <li>• Visa consultant recommendations</li>
+        </ul>
+      </div>
+      
+      <!-- Flight & Travel -->
+      <div class="bg-gray-50 rounded-lg p-8">
+        <div class="text-3xl mb-4">✈️</div>
+        <h3 class="text-xl font-semibold mb-4 text-blue-800">Flight & Travel Support</h3>
+        <ul class="text-gray-700 space-y-2">
+          <li>• Best flight routes from US cities</li>
+          <li>• Free pickup Delhi/Dehradun airport</li>
+          <li>• Travel insurance recommendations</li>
+          <li>• Jetlag adjustment tips</li>
+          <li>• 24/7 travel emergency support</li>
+        </ul>
+      </div>
+      
+      <!-- Cultural Support -->
+      <div class="bg-gray-50 rounded-lg p-8">
+        <div class="text-3xl mb-4">🇮🇳</div>
+        <h3 class="text-xl font-semibold mb-4 text-blue-800">Cultural Orientation</h3>
+        <ul class="text-gray-700 space-y-2">
+          <li>• Pre-arrival cultural briefing</li>
+          <li>• American-friendly meal options</li>
+          <li>• Cultural immersion activities</li>
+          <li>• Language basics introduction</li>
+          <li>• Local customs guidance</li>
+        </ul>
+      </div>
+      
+      <!-- Health & Safety -->
+      <div class="bg-gray-50 rounded-lg p-8">
+        <div class="text-3xl mb-4">🏥</div>
+        <h3 class="text-xl font-semibold mb-4 text-blue-800">Health & Safety</h3>
+        <ul class="text-gray-700 space-y-2">
+          <li>• Vaccination recommendations</li>
+          <li>• Health insurance guidance</li>
+          <li>• Local healthcare facility info</li>
+          <li>• Emergency contact numbers</li>
+          <li>• 24/7 on-site support staff</li>
+        </ul>
+      </div>
+      
+      <!-- Communication -->
+      <div class="bg-gray-50 rounded-lg p-8">
+        <div class="text-3xl mb-4">📱</div>
+        <h3 class="text-xl font-semibold mb-4 text-blue-800">Stay Connected</h3>
+        <ul class="text-gray-700 space-y-2">
+          <li>• Free high-speed WiFi</li>
+          <li>• US phone/WhatsApp support</li>
+          <li>• Video call facilities</li>
+          <li>• US time zone consideration</li>
+          <li>• Regular family update calls</li>
+        </ul>
+      </div>
+      
+      <!-- Post-Training Support -->
+      <div class="bg-gray-50 rounded-lg p-8">
+        <div class="text-3xl mb-4">🎓</div>
+        <h3 class="text-xl font-semibold mb-4 text-blue-800">Career Support</h3>
+        <ul class="text-gray-700 space-y-2">
+          <li>• US Yoga Alliance registration help</li>
+          <li>• American studio job connections</li>
+          <li>• Online teaching platform guidance</li>
+          <li>• Business setup consultation</li>
+          <li>• Lifetime alumni network access</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- US Student Success Stories -->
+<section class="py-20 bg-blue-50">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center mb-16">Success Stories from American Graduates</h2>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="bg-white rounded-lg p-8 shadow-lg">
+        <div class="flex items-center mb-6">
+          <img src="/images/mike-testimonial.jpg" alt="Mike from Texas" class="w-16 h-16 rounded-full mr-4" />
+          <div>
+            <div class="font-bold text-lg">Mike Rodriguez</div>
+            <div class="text-blue-600">Austin, Texas • Studio Owner</div>
+          </div>
+        </div>
+        <p class="text-gray-700 mb-4">
+          "I opened my own yoga studio in Austin just 6 months after completing my training at Hatha Yogashram. 
+          The authentic knowledge and confidence I gained in India set me apart from other instructors in Texas. 
+          My classes are always full!"
+        </p>
+        <div class="text-yellow-500">⭐⭐⭐⭐⭐</div>
+        <div class="text-green-600 font-semibold mt-2">Business Success: 150+ Weekly Students</div>
+      </div>
+      
+      <div class="bg-white rounded-lg p-8 shadow-lg">
+        <div class="flex items-center mb-6">
+          <img src="/images/jennifer-testimonial.jpg" alt="Jennifer from New York" class="w-16 h-16 rounded-full mr-4" />
+          <div>
+            <div class="font-bold text-lg">Jennifer Chen</div>
+            <div class="text-blue-600">Brooklyn, NY • Online Teacher</div>
+          </div>
+        </div>
+        <p class="text-gray-700 mb-4">
+          "The philosophical depth I learned in India completely transformed my teaching. I now teach online to 500+ 
+          students globally and have authored two yoga books. The investment in authentic Indian training was the 
+          best career decision I ever made."
+        </p>
+        <div class="text-yellow-500">⭐⭐⭐⭐⭐</div>
+        <div class="text-green-600 font-semibold mt-2">Online Success: $85K Annual Revenue</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- US-Specific FAQ Section -->
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center mb-16">FAQs for US Students</h2>
+    
+    <div class="max-w-4xl mx-auto space-y-6">
+      {usFAQSchema.mainEntity.map((faq, index) => (
+        <div class="bg-gray-50 rounded-lg p-6">
+          <h3 class="text-xl font-semibold mb-4 text-blue-800">{faq.name}</h3>
+          <p class="text-gray-700">{faq.acceptedAnswer.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- US CTA Section -->
+<section class="py-20 bg-gradient-to-r from-red-600 via-white to-blue-600 text-center">
+  <div class="container mx-auto px-4">
+    <div class="bg-white/95 rounded-lg p-12 max-w-4xl mx-auto">
+      <h2 class="text-4xl font-bold mb-6 text-gray-900">Ready to Join 200+ American Graduates?</h2>
+      <p class="text-xl mb-8 text-gray-700">
+        Secure your spot for March 2026 with our US student scholarship program. 
+        Limited to 5 American students per batch for personalized attention.
+      </p>
+      
+      <div class="flex flex-col md:flex-row gap-6 justify-center">
+        <a 
+          href="/usa/apply-now/" 
+          class="bg-red-600 hover:bg-red-700 text-white px-10 py-4 rounded-lg text-xl font-bold transition"
+        >
+          Apply Now - 2 Spots Remaining
+        </a>
+        <a 
+          href="/usa/schedule-call/" 
+          class="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-lg text-xl font-bold transition"
+        >
+          Schedule Free Call (US Time)
+        </a>
+      </div>
+      
+      <!-- Contact Info -->
+      <div class="mt-8 text-gray-600">
+        <p>Questions? Call us direct: <strong>+1 (555) 123-YOGA</strong> (US Number)</p>
+        <p>WhatsApp: <strong>+91 98765 43210</strong> • Email: <strong>usa@hathayogashram.com</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</SEOLayout>

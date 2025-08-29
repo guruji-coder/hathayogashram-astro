@@ -1,0 +1,16 @@
+{
+  "files.watcherExclude": {
+    "**/src/lib/*keywords.ts": true
+  },
+  "search.exclude": {
+    "**/src/lib/*keywords.ts": true
+  },
+  "typescript.tsserver.maxTsServerMemory": 4096,
+  "editor.formatOnSave": true,
+  "git.fetchOnPull": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "git.untrackedChanges": "separate",
+  "git.ignoreLimitWarning": true
+}
