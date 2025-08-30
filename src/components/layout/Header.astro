@@ -1,5 +1,4 @@
 ---
-import { HEADER_STYLES } from '../../constants/headerConstants';
 import TopBar from '../navigation/TopBar.astro';
 import Logo from '../navigation/Logo.astro';
 import DesktopNavigation from '../navigation/DesktopNavigation.astro';
@@ -8,11 +7,11 @@ import MobileMenu from '../navigation/MobileMenu.astro';
 import MobileMenuScript from '../navigation/MobileMenuScript.astro';
 ---
 
-<header class={HEADER_STYLES.HEADER_BACKGROUND}>
+<header class="bg-white shadow-lg sticky top-0 z-50">
   <TopBar />
 
   <!-- Main Navigation -->
-  <nav class={HEADER_STYLES.NAV_CONTAINER}>
+  <nav class="container mx-auto px-4 py-4">
     <div class="flex items-center justify-between">
       <Logo />
       <DesktopNavigation />
