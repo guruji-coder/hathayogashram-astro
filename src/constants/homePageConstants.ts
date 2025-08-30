@@ -109,13 +109,15 @@ export const HOME_STYLES = {
 	HIGHLIGHT_GRID: 'grid md:grid-cols-2 gap-6 mb-12 max-w-4xl mx-auto',
 	HIGHLIGHT_BOX:
 		'border-2 border-purple-900 bg-purple-50 p-6 rounded-lg flex items-center justify-start text-left',
-	HIGHLIGHT_ICON: 'text-purple-900 text-3xl mr-4 flex-shrink-0',
-	HIGHLIGHT_TEXT: 'text-sm sm:text-base lg:text-lg font-semibold text-gray-800 flex-1',
+	HIGHLIGHT_ICON: 'text-purple-900 text-2xl mr-4 flex-shrink-0',
+	HIGHLIGHT_TEXT: 'text-sm font-semibold text-gray-800 flex-1',
 
 	// Content styles
 	CONTENT_CONTAINER: 'space-y-4 sm:space-y-6',
 	CONTENT_PARAGRAPH: 'text-gray-700 leading-relaxed text-sm sm:text-[15px] text-justify',
 	INTRO_PARAGRAPH: 'text-gray-700 leading-relaxed text-sm sm:text-[15px] text-justify mb-8',
+	// Certification section paragraph style
+	CERTIFICATION_PARAGRAPH: 'text-justify leading-relaxed text-gray-700 font-medium',
 
 	// Two column layout styles
 	TWO_COLUMN_GRID: 'grid lg:grid-cols-2 gap-8 lg:gap-12 items-start mt-8',

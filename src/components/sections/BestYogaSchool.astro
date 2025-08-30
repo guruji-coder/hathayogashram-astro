@@ -1,0 +1,109 @@
+---
+import { HOME_HERO, HOME_HIGHLIGHTS, HOME_CONTENT, HOME_GALLERY, HOME_COURSES, HOME_STYLES } from '../../constants/homePageConstants';
+import { BUTTON_STYLES } from '../../constants/uiConstants';
+import SectionHeader from '../ui/SectionHeader.astro';
+---
+
+<!-- Welcome Section with Decorative Styling -->
+<section class={`${HOME_STYLES.SECTION_PADDING} bg-white`}>
+	<div class={HOME_STYLES.CONTAINER}>
+		<!-- Main Heading with Decorative Underline -->
+		<SectionHeader 
+			title={HOME_HERO.TITLE}
+			titleClass={HOME_STYLES.HERO_TITLE}
+			svgWidth={200}
+			svgHeight={20}
+			containerClass="mb-8 text-center"
+		/>
+
+		<!-- Rating and Welcome Message -->
+		<div class="mb-8 text-center">
+			<div class="mb-4 flex items-center justify-center">
+				<span class={HOME_STYLES.RATING_NUMBER}>{HOME_HERO.RATING.STARS}</span>
+				<i class="fas fa-star mr-2 text-xl text-yellow-400"></i>
+				<span class={HOME_STYLES.RATING_TEXT}>{HOME_HERO.RATING.TEXT}</span>
+			</div>
+			<p class={HOME_STYLES.HERO_SUBTITLE}>
+				{HOME_HERO.SUBTITLE}
+			</p>
+		</div>
+
+		<!-- Highlight Boxes Grid -->
+		<div class={HOME_STYLES.HIGHLIGHT_GRID}>
+			{HOME_HIGHLIGHTS.map(highlight => (
+				<div class={HOME_STYLES.HIGHLIGHT_BOX}>
+					<i class={`${highlight.ICON} ${HOME_STYLES.HIGHLIGHT_ICON}`}></i>
+					<p class={HOME_STYLES.HIGHLIGHT_TEXT}>
+						{highlight.TEXT}
+					</p>
+				</div>
+			))}
+		</div>
+
+		<!-- Intro Paragraph -->
+		<div class="mx-auto max-w-6xl">
+			<p class={HOME_STYLES.INTRO_PARAGRAPH}>
+				{HOME_CONTENT.INTRO_PARAGRAPH}
+			</p>
+		</div>
+
+		<!-- Two Column Layout: Content + Images -->
+		<div class="mx-auto max-w-6xl">
+			<div class={HOME_STYLES.TWO_COLUMN_GRID}>
+				<!-- Left Column: Description Paragraphs -->
+				<div class={HOME_STYLES.CONTENT_CONTAINER}>
+					<!-- First Paragraph -->
+					<p class={HOME_STYLES.CONTENT_PARAGRAPH}>
+						{HOME_CONTENT.PARAGRAPHS[0]}
+					</p>
+
+					<!-- Mobile Images (shown after first paragraph on mobile only) -->
+					<div class={`lg:hidden ${HOME_STYLES.IMAGE_GRID} mb-6`}>
+						{HOME_GALLERY.IMAGES.map((image, index) => (
+							<div class={HOME_STYLES.IMAGE_ITEM}>
+								<img
+									src={image}
+									alt={`${HOME_GALLERY.ALT_TEXT} - Image ${index + 1}`}
+									class={HOME_STYLES.IMAGE_STYLING}
+									loading="lazy"
+								/>
+							</div>
+						))}
+					</div>
+
+					<!-- Remaining Paragraphs -->
+					{HOME_CONTENT.PARAGRAPHS.slice(1).map(paragraph => (
+						<p class={HOME_STYLES.CONTENT_PARAGRAPH}>
+							{paragraph}
+						</p>
+					))}
+
+					<!-- Course Buttons -->
+					<div class={HOME_STYLES.COURSE_BUTTONS_CONTAINER}>
+						{HOME_COURSES.map(course => (
+							<a href={course.URL} class={`${BUTTON_STYLES.BASE} ${BUTTON_STYLES.VARIANTS.PRIMARY}`}>
+								{course.TITLE}
+							</a>
+						))}
+					</div>
+				</div>
+
+				<!-- Right Column: Image Gallery (desktop only) -->
+				<div class="hidden lg:block">
+					<div class={HOME_STYLES.IMAGE_GRID}>
+						{HOME_GALLERY.IMAGES.map((image, index) => (
+							<div class={HOME_STYLES.IMAGE_ITEM}>
+								<img
+									src={image}
+									alt={`${HOME_GALLERY.ALT_TEXT} - Image ${index + 1}`}
+									class={HOME_STYLES.IMAGE_STYLING}
+									loading="lazy"
+								/>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

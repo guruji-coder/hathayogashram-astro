@@ -1,0 +1,54 @@
+---
+export interface Props {
+  title: string;
+  titleClass?: string;
+  svgWidth?: number;
+  svgHeight?: number;
+  svgColor?: string;
+  containerClass?: string;
+}
+
+const { 
+  title,
+  titleClass = "mb-4 text-xl font-bold text-purple-900 sm:text-2xl lg:text-3xl",
+  svgWidth = 300,
+  svgHeight = 30,
+  svgColor = "text-purple-900",
+  containerClass = "mb-12 text-center"
+} = Astro.props;
+---
+
+<!-- Section Header with Decorative Underline -->
+<div class={containerClass}>
+  <h2 class={titleClass}>
+    {title}
+  </h2>
+
+  <!-- Decorative Underline SVG -->
+  <div class="mb-6 flex justify-center">
+    <svg 
+      width={svgWidth} 
+      height={svgHeight} 
+      viewBox={`0 0 ${svgWidth} ${svgHeight}`} 
+      class={svgColor}
+    >
+      <path 
+        d={`M${svgWidth * 0.067} ${svgHeight * 0.5} Q ${svgWidth * 0.5} ${svgHeight * 0.267} ${svgWidth * 0.933} ${svgHeight * 0.5}`} 
+        stroke="currentColor" 
+        stroke-width="2" 
+        fill="none" 
+      />
+      <circle 
+        cx={svgWidth * 0.5} 
+        cy={svgHeight * 0.4} 
+        r={svgHeight * 0.4} 
+        fill="currentColor" 
+      />
+      <path 
+        d={`M${svgWidth * 0.473} ${svgHeight * 0.4} L${svgWidth * 0.487} ${svgHeight * 0.533} L${svgWidth * 0.527} ${svgHeight * 0.133} L${svgWidth * 0.54} ${svgHeight * 0.4}`} 
+        fill="white" 
+        stroke="none" 
+      />
+    </svg>
+  </div>
+</div>

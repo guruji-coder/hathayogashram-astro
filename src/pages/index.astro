@@ -1,8 +1,9 @@
 ---
 import Layout from "../components/layout/Layout.astro";
-  import HeroSection from "../components/sections/HeroSection.astro";
-import ReviewsSection from "../components/ReviewsSection.svelte";
+import HeroSection from "../components/sections/HeroSection.astro";
+import CertificationsSection from "../components/sections/CertificationsSection.astro";
 import { pageSchemas } from "../schemas";
+import BestYogaSchool from "$components/sections/BestYogaSchool.astro";
 
 // Generate schemas for home page
 const homeSchemas = pageSchemas.home();
@@ -17,7 +18,11 @@ const homeSchemas = pageSchemas.home();
 >
   <HeroSection />
   
+  <!-- Best Yoga School Section -->
+  <BestYogaSchool />
   
-  <!-- ReviewsSection will be added back when we fix Svelte issues -->
-  <!-- <ReviewsSection client:visible /> -->
+  <!-- Certifications & Accreditations Section -->
+  <CertificationsSection />
+  
+
 </Layout>
