@@ -1,6 +1,6 @@
 ---
 import Layout from "../components/layout/Layout.astro";
-import HeroCarousel from "../components/HeroCarousel.svelte";
+  import HeroSection from "../components/sections/HeroSection.astro";
 import ReviewsSection from "../components/ReviewsSection.svelte";
 import { pageSchemas } from "../schemas";
 
@@ -15,7 +15,9 @@ const homeSchemas = pageSchemas.home();
   image="https://hathayogashram.com/yogaschoolpic.jpg"
   additionalSchemas={homeSchemas}
 >
-  <HeroCarousel client:load />
-  <ReviewsSection client:visible />
-  <!-- Your other components -->
+  <HeroSection />
+  
+  
+  <!-- ReviewsSection will be added back when we fix Svelte issues -->
+  <!-- <ReviewsSection client:visible /> -->
 </Layout>

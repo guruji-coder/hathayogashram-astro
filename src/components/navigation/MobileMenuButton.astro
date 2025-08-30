@@ -1,0 +1,28 @@
+---
+import { HEADER_STYLES, HEADER_ACCESSIBILITY, HEADER_ANIMATIONS } from '../../constants/headerConstants';
+---
+
+<!-- Mobile Menu Button -->
+<button id="mobile-menu-button" class={HEADER_STYLES.MOBILE_MENU_BUTTON} aria-label={HEADER_ACCESSIBILITY.MOBILE_MENU_TOGGLE}>
+  <div class="space-y-1">
+    <div class={`hamburger-line ${HEADER_STYLES.HAMBURGER_LINE}`}></div>
+    <div class={`hamburger-line ${HEADER_STYLES.HAMBURGER_LINE}`}></div>
+    <div class={`hamburger-line ${HEADER_STYLES.HAMBURGER_LINE}`}></div>
+  </div>
+</button>
+
+<style>
+  .hamburger-line {
+    transition: all 0.3s ease;
+  }
+  /* Transform hamburger into cross when open */
+  #mobile-menu-button.open .hamburger-line:nth-child(1) {
+    transform: translate(0, 6px) rotate(45deg);
+  }
+  #mobile-menu-button.open .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+  #mobile-menu-button.open .hamburger-line:nth-child(3) {
+    transform: translate(0, -6px) rotate(-45deg);
+  }
+</style>

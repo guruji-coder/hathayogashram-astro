@@ -5,7 +5,13 @@ export default {
     './public/**/*.html',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        space: ['"Space Grotesk"', 'sans-serif'],
+        kaushan: ['"Kaushan Script"', 'cursive'],
+        quicksand: ['"Quicksand"', 'sans-serif'],
+      },
+    },
   },
   plugins: [
     require('@tailwindcss/forms'),

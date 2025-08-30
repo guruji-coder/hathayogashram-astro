@@ -9,11 +9,6 @@ export interface CarouselSlide {
 		href: string;
 		variant: 'primary' | 'secondary';
 	};
-	secondaryButton?: {
-		text: string;
-		href: string;
-		variant: 'primary' | 'secondary';
-	};
 }
 
 export const carouselSlides: CarouselSlide[] = [
@@ -29,11 +24,6 @@ export const carouselSlides: CarouselSlide[] = [
 			href: '/courses',
 			variant: 'primary'
 		},
-		secondaryButton: {
-			text: 'Enroll Now',
-			href: '/contact',
-			variant: 'secondary'
-		}
 	},
 	{
 		id: 2,
@@ -47,11 +37,6 @@ export const carouselSlides: CarouselSlide[] = [
 			href: '/courses',
 			variant: 'primary'
 		},
-		secondaryButton: {
-			text: 'Learn More',
-			href: '/about',
-			variant: 'secondary'
-		}
 	},
 	{
 		id: 3,
@@ -64,11 +49,6 @@ export const carouselSlides: CarouselSlide[] = [
 			text: 'Start Your Journey',
 			href: '/courses/200-hour-yoga-teacher-training',
 			variant: 'primary'
-		},
-		secondaryButton: {
-			text: 'View Schedule',
-			href: '/courses',
-			variant: 'secondary'
 		}
 	}
 ];

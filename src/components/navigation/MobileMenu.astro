@@ -1,0 +1,47 @@
+---
+import { HEADER_NAVIGATION_ITEMS, HEADER_CTA_BUTTON, HEADER_STYLES, HEADER_ANIMATIONS } from '../../constants/headerConstants';
+---
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="lg:hidden" style="display: none;">
+  <div class="mt-4 py-4 border-t border-gray-200">
+    {HEADER_NAVIGATION_ITEMS.map(item => (
+      item.items ? (
+        <div class="mobile-dropdown">
+          <button class={`mobile-dropdown-button w-full flex justify-between items-center py-3 px-2 text-left ${HEADER_STYLES.NAV_LINK_COLORS} focus:outline-none`}>
+            {item.label}
+            <svg class={`dropdown-chevron h-4 w-4 ${HEADER_ANIMATIONS.MOBILE_DROPDOWN_TRANSITION}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="mobile-dropdown-content hidden pl-4">
+            {item.items.map(subItem => (
+              <a href={subItem.href} class={`block py-2 text-gray-600 ${HEADER_STYLES.NAV_LINK_COLORS}`}>
+                {subItem.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <a href={item.href} class={`block py-3 px-2 ${HEADER_STYLES.NAV_LINK_COLORS}`}>
+          {item.label}
+        </a>
+      )
+    ))}
+    <div class="mt-4 pt-4 border-t border-gray-200">
+      <a href={HEADER_CTA_BUTTON.URL} class={`block w-full text-center ${HEADER_CTA_BUTTON.MOBILE_CLASSES}`}>
+        {HEADER_CTA_BUTTON.TEXT}
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .dropdown-chevron {
+    transition: transform 0.2s ease;
+  }
+  
+  .rotate-180 {
+    transform: rotate(180deg);
+  }
+</style>

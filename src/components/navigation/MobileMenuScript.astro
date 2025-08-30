@@ -1,0 +1,117 @@
+---
+---
+
+<script is:inline>
+  // Mobile menu functionality
+  (function() {
+    function initMobileMenu() {
+      console.log('Initializing mobile menu...');
+      
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      console.log('Found elements:', {
+        mobileMenuButton: !!mobileMenuButton,
+        mobileMenu: !!mobileMenu
+      });
+      
+      if (!mobileMenuButton || !mobileMenu) {
+        console.error('Mobile menu elements not found');
+        return;
+      }
+      
+      let isMenuOpen = false;
+      
+      mobileMenuButton.addEventListener('click', function(e) {
+        console.log('Mobile menu button clicked');
+        e.preventDefault();
+        e.stopPropagation();
+        
+        isMenuOpen = !isMenuOpen;
+        
+        if (isMenuOpen) {
+          mobileMenu.style.display = 'block';
+          mobileMenuButton.classList.add('open');
+          console.log('Mobile menu opened');
+        } else {
+          mobileMenu.style.display = 'none';
+          mobileMenuButton.classList.remove('open');
+          console.log('Mobile menu closed');
+        }
+      });
+      
+      // Handle dropdown buttons
+      const dropdownButtons = mobileMenu.querySelectorAll('.mobile-dropdown-button');
+      console.log('Found dropdown buttons:', dropdownButtons.length);
+      
+      dropdownButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          const dropdown = button.parentElement;
+          const content = dropdown.querySelector('.mobile-dropdown-content');
+          const chevron = dropdown.querySelector('.dropdown-chevron');
+          
+          if (content && chevron) {
+            const isOpen = !content.classList.contains('hidden');
+            
+            if (isOpen) {
+              content.classList.add('hidden');
+              chevron.classList.remove('rotate-180');
+            } else {
+              content.classList.remove('hidden');
+              chevron.classList.add('rotate-180');
+            }
+            
+            console.log('Dropdown toggled:', !isOpen);
+          }
+        });
+      });
+      
+      // Close menu when clicking links
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      console.log('Found mobile links:', mobileLinks.length);
+      
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          console.log('Mobile link clicked - closing menu');
+          isMenuOpen = false;
+          mobileMenu.style.display = 'none';
+          mobileMenuButton.classList.remove('open');
+        });
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', function(e) {
+        if (isMenuOpen && !mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+          console.log('Clicked outside - closing menu');
+          isMenuOpen = false;
+          mobileMenu.style.display = 'none';
+          mobileMenuButton.classList.remove('open');
+        }
+      });
+      
+      // Close mobile menu automatically when viewport is at lg or above
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1024 && isMenuOpen) {
+          isMenuOpen = false;
+          mobileMenu.style.display = 'none';
+          mobileMenuButton.classList.remove('open');
+          console.log('Viewport >= lg - mobile menu closed automatically');
+        }
+      });
+      
+      console.log('Mobile menu initialization complete');
+    }
+    
+    // Initialize
+    if (document.readyState === 'loading') {
+      console.log('DOM loading - waiting for DOMContentLoaded');
+      document.addEventListener('DOMContentLoaded', initMobileMenu);
+    } else {
+      console.log('DOM ready - initializing immediately');
+      initMobileMenu();
+    }
+  })();
+</script>

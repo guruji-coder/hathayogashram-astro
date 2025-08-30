@@ -1,0 +1,12 @@
+---
+import { HEADER_BRANDING, HEADER_ACCESSIBILITY } from '../../constants/headerConstants';
+---
+
+<a href="/" class="flex items-center" aria-label={HEADER_ACCESSIBILITY.LOGO_FOCUS_TEXT}>
+  <img 
+    src={HEADER_BRANDING.LOGO_IMAGE_PATH} 
+    alt={HEADER_BRANDING.LOGO_ALT_TEXT} 
+    class={`w-12 mr-3 ${HEADER_BRANDING.LOGO_HEIGHT_DESKTOP}`} 
+  />
+  <!-- <span class="text-xl font-bold text-gray-800">Hatha Yogashram</span> -->
+</a>

@@ -4,6 +4,7 @@ export const CONTACT_INFO = {
 			id: 1,
 			location: 'Rishikesh, India',
 			address: 'Balaknath Street, Upper Tapovan, Laxman Jhula, Rishikesh, Uttarakhand 249192',
+			href: 'https://www.google.com/maps/search/?api=1&query=Balaknath+Street,+Upper+Tapovan,+Laxman+Jhula,+Rishikesh,+Uttarakhand+249192',
 			icon: 'fas fa-map-marker-alt'
 		}
 	],
@@ -24,7 +25,7 @@ export const CONTACT_INFO = {
 		{
 			id: 1,
 			name: 'Instagram',
-			url: 'https://www.instagram.com/vinyasayogashalarishikesh/',
+			url: 'https://www.instagram.com/hathayogashram/',
 			icon: 'fab fa-instagram',
 			label: 'Follow us on Instagram'
 		},

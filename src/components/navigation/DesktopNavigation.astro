@@ -1,0 +1,35 @@
+---
+import { HEADER_NAVIGATION_ITEMS, HEADER_CTA_BUTTON, HEADER_STYLES, HEADER_DROPDOWN_WIDTHS, HEADER_ANIMATIONS } from '../../constants/headerConstants';
+---
+
+<!-- Desktop Navigation -->
+<div class={HEADER_STYLES.NAV_DESKTOP_SPACING}>
+  {HEADER_NAVIGATION_ITEMS.map(item => (
+    item.items ? (
+      <div class="relative group">
+        <button class={`${HEADER_STYLES.NAV_LINK_COLORS} flex items-center`}>
+          {item.label}
+          <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class={`absolute top-full left-0 mt-2 ${HEADER_DROPDOWN_WIDTHS[item.label as keyof typeof HEADER_DROPDOWN_WIDTHS] || 'w-64'} bg-white rounded-lg shadow-lg border invisible opacity-0 ${HEADER_ANIMATIONS.DESKTOP_DROPDOWN_TRANSITION}`}>
+          <div class="py-2">
+            {item.items.map(subItem => (
+              <a href={subItem.href} class={`block px-4 py-2 ${HEADER_STYLES.NAV_LINK_COLORS} hover:bg-gray-50`}>
+                {subItem.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    ) : (
+      <a href={item.href} class={HEADER_STYLES.NAV_LINK_COLORS}>
+        {item.label}
+      </a>
+    )
+  ))}
+  <a href={HEADER_CTA_BUTTON.URL} class={HEADER_CTA_BUTTON.DESKTOP_CLASSES}>
+    {HEADER_CTA_BUTTON.TEXT}
+  </a>
+</div>

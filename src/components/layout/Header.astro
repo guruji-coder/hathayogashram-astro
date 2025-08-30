@@ -1,0 +1,25 @@
+---
+import { HEADER_STYLES } from '../../constants/headerConstants';
+import TopBar from '../navigation/TopBar.astro';
+import Logo from '../navigation/Logo.astro';
+import DesktopNavigation from '../navigation/DesktopNavigation.astro';
+import MobileMenuButton from '../navigation/MobileMenuButton.astro';
+import MobileMenu from '../navigation/MobileMenu.astro';
+import MobileMenuScript from '../navigation/MobileMenuScript.astro';
+---
+
+<header class={HEADER_STYLES.HEADER_BACKGROUND}>
+  <TopBar />
+
+  <!-- Main Navigation -->
+  <nav class={HEADER_STYLES.NAV_CONTAINER}>
+    <div class="flex items-center justify-between">
+      <Logo />
+      <DesktopNavigation />
+      <MobileMenuButton />
+    </div>
+    <MobileMenu />
+  </nav>
+</header>
+
+<MobileMenuScript />
