@@ -8,16 +8,8 @@
  */
 
 import { CONTACT_INFO } from './contactConstants';
+import type { MenuItem } from '../types';
 
-// ===========================================
-// TYPES
-// ===========================================
-
-export interface MenuItem {
-	label: string;
-	href?: string;
-	items?: MenuItem[];
-}
 
 // ===========================================
 // BRANDING & LOGO CONSTANTS

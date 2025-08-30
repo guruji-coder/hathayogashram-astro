@@ -44,10 +44,10 @@
 
 {#if href}
 	<a {href} class={classes} role="button">
-		{@render children()}
+<slot />
 	</a>
 {:else}
 	<button {type} {disabled} class={classes} {onclick}>
-		{@render children()}
+<slot />
 	</button>
 {/if}

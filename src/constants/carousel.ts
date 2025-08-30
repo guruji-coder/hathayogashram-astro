@@ -1,16 +1,4 @@
-export interface CarouselSlide {
-	id: number;
-	image: string;
-	title: string;
-	subtitle: string;
-	description?: string;
-	primaryButton: {
-		text: string;
-		href: string;
-		variant: 'primary' | 'secondary';
-	};
-}
-
+import type { CarouselSlide } from '../types';
 export const carouselSlides: CarouselSlide[] = [
 	{
 		id: 1,

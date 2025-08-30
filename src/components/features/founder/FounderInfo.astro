@@ -1,7 +1,7 @@
-<script lang="ts">
-	import { HOME_STYLES, FOUNDER_SECTION } from '../../../constants/homePageConstants';
-	import { BUTTON_STYLES } from '../../../constants/uiConstants';
-</script>
+---
+import { HOME_STYLES, FOUNDER_SECTION } from '../../../constants/homePageConstants';
+import { BUTTON_STYLES } from '../../../constants/uiConstants';
+---
 
 <div class="flex flex-col lg:w-1/2">
 	<!-- Philosophy Text -->
@@ -31,7 +31,7 @@
 
 		<!-- Know More Button -->
 		<div class="mt-8 text-center">
-			<a href="/founder" class="{BUTTON_STYLES.BASE} {BUTTON_STYLES.VARIANTS.PRIMARY}">
+			<a href="/founder" class={`${BUTTON_STYLES.BASE} ${BUTTON_STYLES.VARIANTS.PRIMARY}`}>
 				Know More About Founder
 			</a>
 		</div>

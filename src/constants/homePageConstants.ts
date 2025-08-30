@@ -114,8 +114,8 @@ export const HOME_STYLES = {
 
 	// Content styles
 	CONTENT_CONTAINER: 'space-y-4 sm:space-y-6',
-	CONTENT_PARAGRAPH: 'text-gray-700 leading-relaxed text-sm sm:text-[15px] text-justify',
-	INTRO_PARAGRAPH: 'text-gray-700 leading-relaxed text-sm sm:text-[15px] text-justify mb-8',
+	CONTENT_PARAGRAPH: 'text-gray-700 leading-relaxed text-sm  text-justify ',
+	INTRO_PARAGRAPH: 'text-gray-700 leading-relaxed text-sm  text-justify mb-8',
 	// Certification section paragraph style
 	CERTIFICATION_PARAGRAPH: 'text-justify leading-relaxed text-gray-700 font-medium',
 

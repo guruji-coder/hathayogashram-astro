@@ -1,0 +1,60 @@
+---
+import SectionHeader from '../../ui/SectionHeader.astro';
+import CertificateCarousel from '../../CertificateCarousel.astro';
+---
+
+<!-- Trusted Yoga Alliance Registered School Section -->
+<section class="relative flex min-h-screen items-center justify-center overflow-hidden py-16">
+	<!-- Background Image with Overlay -->
+	<div
+		class="trusted-yoga-alliance absolute inset-0 bg-cover bg-fixed bg-top"
+		style="background-image: url('/bg-certificate.png'); background-size: cover; background-position: top; background-attachment: fixed;"
+	></div>
+
+	<!-- Content -->
+	<div class="relative z-10 container mx-auto px-4 text-center text-white">
+		<!-- Main Heading with Custom White Decorative Underline -->
+		<div class="mb-8">
+			<h2 class="mb-4 text-3xl font-bold sm:text-4xl lg:text-5xl">
+				Trusted Yoga Alliance Registered School
+			</h2>
+
+		</div>
+
+		<!-- Subtitle -->
+		<h3 class="mb-8 text-xl font-semibold text-yellow-300 sm:text-2xl lg:text-3xl">
+			Certification for International Yoga Instructor
+		</h3>
+
+		<!-- Description Paragraphs -->
+		<div class="mx-auto mb-12 max-w-4xl space-y-6">
+			<p class="text-base leading-relaxed lg:text-lg">
+				Hatha Yoga Ashram in Rishikesh offers a comprehensive certification for becoming an
+				International Yoga Instructor for 100-hour, 200-hour, 300-hour, 500-hour YTTC courses along
+				with short courses like Yin Yoga TTC, Prenatal YTTC, Sound Healing, Reiki Healing, Ayurveda
+				and Aerial Yoga YTTC. Yoga Alliance, USA, recognizes us as we ensure higher and better
+				education and training standards in Yoga.
+			</p>
+			<p class="text-base leading-relaxed lg:text-lg">
+				Graduates from our Yoga School receive this certification, which marks their credibility and
+				makes them eligible to teach worldwide. It opens great career opportunities for students and
+				also fosters a global community of well-trained yoga practitioners who are appreciated for
+				their work.
+			</p>
+		</div>
+
+		<!-- Certification Cards Carousel -->
+		<CertificateCarousel />
+	</div>
+</section>
+
+
+<style>
+	.trusted-yoga-alliance::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.52);
+		z-index: 1;
+	}
+</style>

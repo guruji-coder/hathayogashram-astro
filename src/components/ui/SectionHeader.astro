@@ -1,12 +1,7 @@
 ---
-export interface Props {
-  title: string;
-  titleClass?: string;
-  svgWidth?: number;
-  svgHeight?: number;
-  svgColor?: string;
-  containerClass?: string;
-}
+import type { SectionHeaderProps } from '../../types';
+
+export interface Props extends SectionHeaderProps {}
 
 const { 
   title,
