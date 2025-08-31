@@ -1,19 +1,24 @@
 export const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": ["EducationalOrganization", "LocalBusiness", "SportsActivityLocation"],
-  "name": "Hatha Yogashram",
-  "alternateName": ["Hatha Yogashram Rishikesh", "Traditional Yoga School India"],
-  "url": "https://hathayogashram.com",
-  "logo": "https://hathayogashram.com/hya.jpg",
-  "image": [
+  "@type": [
+    "EducationalOrganization",
+    "LocalBusiness",
+    "SportsActivityLocation",
+  ],
+  name: "Hatha Yogashram",
+  alternateName: ["Hatha Yogashram Rishikesh", "Traditional Yoga School India"],
+  url: "https://hathayogashram.com",
+  logo: "https://hathayogashram.com/hya.jpg",
+  image: [
     "https://hathayogashram.com/yogaschoolpic.jpg",
     "https://hathayogashram.com/yoga-hall.jpg",
-    "https://hathayogashram.com/library.jpg"
+    "https://hathayogashram.com/library.jpg",
   ],
-  "description": "Traditional yoga school in Rishikesh teaching authentic Hatha & Ashtanga Yoga based on classical texts. Our curriculum includes 84 traditional asanas, Patanjali's Yoga Sutras, Hatha Yoga Pradipika, Sanskrit mantras, pranayama, meditation, and Vedic philosophy.",
-  "knowsAbout": [
+  description:
+    "Traditional yoga school in Rishikesh teaching authentic Hatha & Ashtanga Yoga based on classical texts. Our curriculum includes 84 traditional asanas, Patanjali's Yoga Sutras, Hatha Yoga Pradipika, Sanskrit mantras, pranayama, meditation, and Vedic philosophy.",
+  knowsAbout: [
     "Hatha Yoga Pradipika",
-    "Patanjali Yoga Sutras", 
+    "Patanjali Yoga Sutras",
     "Bhagavad Gita",
     "Upanishads",
     "Ashtanga Vinyasa Yoga",
@@ -25,61 +30,81 @@ export const organizationSchema = {
     "Yoga Nidra",
     "Kundalini Yoga",
     "Chakra System",
-    "Ayurveda Basics"
+    "Ayurveda Basics",
   ],
-  "priceRange": "$$",
-  "servesCuisine": "Vegetarian",
-  "currenciesAccepted": "USD, EUR, INR",
-  "paymentAccepted": "Cash, Credit Card, Bank Transfer, PayPal",
-  "address": {
+  priceRange: "$$",
+  servesCuisine: "Vegetarian",
+  currenciesAccepted: "USD, EUR, INR",
+  paymentAccepted: "Cash, Credit Card, Bank Transfer, PayPal",
+  address: {
     "@type": "PostalAddress",
-    "streetAddress": "Near Ram Jhula, Swarg Ashram",
-    "addressLocality": "Rishikesh",
-    "addressRegion": "Uttarakhand",
-    "postalCode": "249201",
-    "addressCountry": "IN"
+    streetAddress: "Near Ram Jhula, Swarg Ashram",
+    addressLocality: "Rishikesh",
+    addressRegion: "Uttarakhand",
+    postalCode: "249201",
+    addressCountry: "IN",
   },
-  "geo": {
+  geo: {
     "@type": "GeoCoordinates",
-    "latitude": 30.0869,
-    "longitude": 78.2676
+    latitude: 30.0869,
+    longitude: 78.2676,
   },
-  "telephone": "+91-XXXXXXXXXX",
-  "email": "info@hathayogashram.com",
-  "openingHoursSpecification": {
+  telephone: "+91-XXXXXXXXXX",
+  email: "info@hathayogashram.com",
+  openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-    "opens": "06:00",
-    "closes": "20:00"
+    dayOfWeek: [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ],
+    opens: "06:00",
+    closes: "20:00",
   },
-  "sameAs": [
+  sameAs: [
     "https://www.facebook.com/hathayogashram",
     "https://www.instagram.com/hathayogashram",
     "https://www.youtube.com/hathayogashram",
-    "https://www.tripadvisor.com/hathayogashram"
+    "https://www.tripadvisor.com/hathayogashram",
   ],
-  "aggregateRating": {
+  aggregateRating: {
     "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "250",
-    "bestRating": "5",
-    "worstRating": "1"
+    ratingValue: "4.9",
+    reviewCount: "250",
+    bestRating: "5",
+    worstRating: "1",
   },
-  "amenityFeature": [
-    { "@type": "LocationFeatureSpecification", "name": "Yoga Hall", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Accommodation", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Vegetarian Meals", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "WiFi", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Library", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Meditation Hall", "value": true }
+  amenityFeature: [
+    { "@type": "LocationFeatureSpecification", name: "Yoga Hall", value: true },
+    {
+      "@type": "LocationFeatureSpecification",
+      name: "Accommodation",
+      value: true,
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      name: "Vegetarian Meals",
+      value: true,
+    },
+    { "@type": "LocationFeatureSpecification", name: "WiFi", value: true },
+    { "@type": "LocationFeatureSpecification", name: "Library", value: true },
+    {
+      "@type": "LocationFeatureSpecification",
+      name: "Meditation Hall",
+      value: true,
+    },
   ],
-  "hasCredential": {
+  hasCredential: {
     "@type": "EducationalOccupationalCredential",
-    "credentialCategory": "Yoga Alliance Registration",
-    "recognizedBy": {
+    credentialCategory: "Yoga Alliance Registration",
+    recognizedBy: {
       "@type": "Organization",
-      "name": "Yoga Alliance USA",
-      "url": "https://www.yogaalliance.org"
-    }
-  }
+      name: "Yoga Alliance USA",
+      url: "https://www.yogaalliance.org",
+    },
+  },
 };

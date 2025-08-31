@@ -1,60 +1,86 @@
 ---
-import Layout from '../../components/layout/Layout.astro';
+import Layout from "../../components/layout/Layout.astro";
 ---
 
-<Layout 
+<Layout
   title="Yoga Blog - Ancient Wisdom for Modern Practice | Hatha Yogashram"
   description="Explore traditional yoga teachings, philosophy, and practices. Learn about Sanskrit mantras, pranayama techniques, and spiritual development from experienced yoga masters in Rishikesh."
   canonical="https://hathayogashram.com/blog/"
 >
-  <div class="min-h-screen bg-gradient-to-br from-orange-50 via-yellow-50 to-white">
+  <div
+    class="min-h-screen bg-gradient-to-br from-orange-50 via-yellow-50 to-white"
+  >
     <!-- Hero Section -->
-    <section class="py-20 px-4">
-      <div class="max-w-4xl mx-auto text-center">
-        <h1 class="text-5xl md:text-6xl font-bold text-orange-800 mb-6">
+    <section class="px-4 py-20">
+      <div class="mx-auto max-w-4xl text-center">
+        <h1 class="mb-6 text-5xl font-bold text-orange-800 md:text-6xl">
           Ancient Wisdom<br />
-          <span class="bg-gradient-to-r from-orange-600 to-yellow-600 bg-clip-text text-transparent">
+          <span
+            class="bg-gradient-to-r from-orange-600 to-yellow-600 bg-clip-text text-transparent"
+          >
             Modern Practice
           </span>
         </h1>
-        <p class="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
-          Discover the depths of traditional yoga through authentic teachings, philosophy, 
-          and practical guidance from experienced masters at Hatha Yogashram, Rishikesh.
+        <p class="mx-auto mb-8 max-w-2xl text-xl text-gray-700">
+          Discover the depths of traditional yoga through authentic teachings,
+          philosophy, and practical guidance from experienced masters at Hatha
+          Yogashram, Rishikesh.
         </p>
         <div class="flex flex-wrap justify-center gap-4 text-sm">
-          <span class="px-4 py-2 bg-orange-100 text-orange-800 rounded-full">Yoga Philosophy</span>
-          <span class="px-4 py-2 bg-yellow-100 text-yellow-800 rounded-full">Sanskrit Mantras</span>
-          <span class="px-4 py-2 bg-green-100 text-green-800 rounded-full">Pranayama</span>
-          <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full">Meditation</span>
+          <span class="rounded-full bg-orange-100 px-4 py-2 text-orange-800"
+            >Yoga Philosophy</span
+          >
+          <span class="rounded-full bg-yellow-100 px-4 py-2 text-yellow-800"
+            >Sanskrit Mantras</span
+          >
+          <span class="rounded-full bg-green-100 px-4 py-2 text-green-800"
+            >Pranayama</span
+          >
+          <span class="rounded-full bg-blue-100 px-4 py-2 text-blue-800"
+            >Meditation</span
+          >
         </div>
       </div>
     </section>
 
     <!-- Blog Posts Grid -->
-    <section class="pb-20 px-4">
-      <div class="max-w-6xl mx-auto">
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          
+    <section class="px-4 pb-20">
+      <div class="mx-auto max-w-6xl">
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           <!-- Post 1: Eight Limbs of Yoga -->
-          <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <div class="h-48 bg-gradient-to-br from-orange-400 to-yellow-500 flex items-center justify-center">
-              <div class="text-white text-6xl">🕉️</div>
+          <article
+            class="overflow-hidden rounded-2xl bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl"
+          >
+            <div
+              class="flex h-48 items-center justify-center bg-gradient-to-br from-orange-400 to-yellow-500"
+            >
+              <div class="text-6xl text-white">🕉️</div>
             </div>
             <div class="p-6">
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span class="px-2 py-1 bg-orange-100 text-orange-800 text-xs rounded-full">Philosophy</span>
-                <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Patanjali</span>
+              <div class="mb-3 flex flex-wrap gap-2">
+                <span
+                  class="rounded-full bg-orange-100 px-2 py-1 text-xs text-orange-800"
+                  >Philosophy</span
+                >
+                <span
+                  class="rounded-full bg-purple-100 px-2 py-1 text-xs text-purple-800"
+                  >Patanjali</span
+                >
               </div>
-              <h2 class="text-xl font-bold text-gray-900 mb-3">
+              <h2 class="mb-3 text-xl font-bold text-gray-900">
                 Understanding the 8 Limbs of Yoga
               </h2>
-              <p class="text-gray-600 mb-4">
-                Deep dive into Patanjali's Yoga Sutras and the classical eight-limbed path of yoga, 
-                from ethical guidelines to ultimate spiritual realization.
+              <p class="mb-4 text-gray-600">
+                Deep dive into Patanjali's Yoga Sutras and the classical
+                eight-limbed path of yoga, from ethical guidelines to ultimate
+                spiritual realization.
               </p>
-              <div class="flex justify-between items-center">
+              <div class="flex items-center justify-between">
                 <span class="text-sm text-gray-500">Jan 15, 2024</span>
-                <a href="/blog/eight-limbs-of-yoga/" class="text-orange-600 hover:text-orange-800 font-medium">
+                <a
+                  href="/blog/eight-limbs-of-yoga/"
+                  class="font-medium text-orange-600 hover:text-orange-800"
+                >
                   Read More →
                 </a>
               </div>
@@ -62,25 +88,39 @@ import Layout from '../../components/layout/Layout.astro';
           </article>
 
           <!-- Post 2: Hatha Yoga Pradipika -->
-          <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <div class="h-48 bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
-              <div class="text-white text-6xl">📿</div>
+          <article
+            class="overflow-hidden rounded-2xl bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl"
+          >
+            <div
+              class="flex h-48 items-center justify-center bg-gradient-to-br from-yellow-400 to-orange-500"
+            >
+              <div class="text-6xl text-white">📿</div>
             </div>
             <div class="p-6">
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">Hatha Yoga</span>
-                <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Classical Texts</span>
+              <div class="mb-3 flex flex-wrap gap-2">
+                <span
+                  class="rounded-full bg-yellow-100 px-2 py-1 text-xs text-yellow-800"
+                  >Hatha Yoga</span
+                >
+                <span
+                  class="rounded-full bg-green-100 px-2 py-1 text-xs text-green-800"
+                  >Classical Texts</span
+                >
               </div>
-              <h2 class="text-xl font-bold text-gray-900 mb-3">
+              <h2 class="mb-3 text-xl font-bold text-gray-900">
                 Hatha Yoga Pradipika: Ancient Manual
               </h2>
-              <p class="text-gray-600 mb-4">
-                Explore the classical text of Hatha Yoga, its relevance for contemporary practice, 
-                and how ancient techniques can transform your yoga journey.
+              <p class="mb-4 text-gray-600">
+                Explore the classical text of Hatha Yoga, its relevance for
+                contemporary practice, and how ancient techniques can transform
+                your yoga journey.
               </p>
-              <div class="flex justify-between items-center">
+              <div class="flex items-center justify-between">
                 <span class="text-sm text-gray-500">Jan 10, 2024</span>
-                <a href="/blog/hatha-yoga-pradipika-guide/" class="text-orange-600 hover:text-orange-800 font-medium">
+                <a
+                  href="/blog/hatha-yoga-pradipika-guide/"
+                  class="font-medium text-orange-600 hover:text-orange-800"
+                >
                   Read More →
                 </a>
               </div>
@@ -88,25 +128,39 @@ import Layout from '../../components/layout/Layout.astro';
           </article>
 
           <!-- Post 3: Pranayama Techniques -->
-          <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <div class="h-48 bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center">
-              <div class="text-white text-6xl">🌬️</div>
+          <article
+            class="overflow-hidden rounded-2xl bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl"
+          >
+            <div
+              class="flex h-48 items-center justify-center bg-gradient-to-br from-green-400 to-blue-500"
+            >
+              <div class="text-6xl text-white">🌬️</div>
             </div>
             <div class="p-6">
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Pranayama</span>
-                <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Beginners</span>
+              <div class="mb-3 flex flex-wrap gap-2">
+                <span
+                  class="rounded-full bg-green-100 px-2 py-1 text-xs text-green-800"
+                  >Pranayama</span
+                >
+                <span
+                  class="rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-800"
+                  >Beginners</span
+                >
               </div>
-              <h2 class="text-xl font-bold text-gray-900 mb-3">
+              <h2 class="mb-3 text-xl font-bold text-gray-900">
                 Pranayama Techniques for Beginners
               </h2>
-              <p class="text-gray-600 mb-4">
-                Learn essential breathing techniques including Nadi Shodhana, Bhramari, and Kapalabhati. 
-                Step-by-step instructions with benefits and precautions.
+              <p class="mb-4 text-gray-600">
+                Learn essential breathing techniques including Nadi Shodhana,
+                Bhramari, and Kapalabhati. Step-by-step instructions with
+                benefits and precautions.
               </p>
-              <div class="flex justify-between items-center">
+              <div class="flex items-center justify-between">
                 <span class="text-sm text-gray-500">Jan 5, 2024</span>
-                <a href="/blog/pranayama-techniques-beginners/" class="text-orange-600 hover:text-orange-800 font-medium">
+                <a
+                  href="/blog/pranayama-techniques-beginners/"
+                  class="font-medium text-orange-600 hover:text-orange-800"
+                >
                   Read More →
                 </a>
               </div>
@@ -114,25 +168,39 @@ import Layout from '../../components/layout/Layout.astro';
           </article>
 
           <!-- Post 4: Sanskrit Mantras -->
-          <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <div class="h-48 bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center">
-              <div class="text-white text-6xl">🎵</div>
+          <article
+            class="overflow-hidden rounded-2xl bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl"
+          >
+            <div
+              class="flex h-48 items-center justify-center bg-gradient-to-br from-purple-400 to-pink-500"
+            >
+              <div class="text-6xl text-white">🎵</div>
             </div>
             <div class="p-6">
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Mantras</span>
-                <span class="px-2 py-1 bg-pink-100 text-pink-800 text-xs rounded-full">Sanskrit</span>
+              <div class="mb-3 flex flex-wrap gap-2">
+                <span
+                  class="rounded-full bg-purple-100 px-2 py-1 text-xs text-purple-800"
+                  >Mantras</span
+                >
+                <span
+                  class="rounded-full bg-pink-100 px-2 py-1 text-xs text-pink-800"
+                  >Sanskrit</span
+                >
               </div>
-              <h2 class="text-xl font-bold text-gray-900 mb-3">
+              <h2 class="mb-3 text-xl font-bold text-gray-900">
                 Sanskrit Mantras: Sacred Sounds
               </h2>
-              <p class="text-gray-600 mb-4">
-                Discover the power of sacred Sanskrit mantras, their meanings, pronunciation, 
-                and how they can enhance your meditation and spiritual practice.
+              <p class="mb-4 text-gray-600">
+                Discover the power of sacred Sanskrit mantras, their meanings,
+                pronunciation, and how they can enhance your meditation and
+                spiritual practice.
               </p>
-              <div class="flex justify-between items-center">
+              <div class="flex items-center justify-between">
                 <span class="text-sm text-gray-500">Dec 28, 2023</span>
-                <a href="/blog/sanskrit-mantras-healing/" class="text-orange-600 hover:text-orange-800 font-medium">
+                <a
+                  href="/blog/sanskrit-mantras-healing/"
+                  class="font-medium text-orange-600 hover:text-orange-800"
+                >
                   Read More →
                 </a>
               </div>
@@ -140,25 +208,39 @@ import Layout from '../../components/layout/Layout.astro';
           </article>
 
           <!-- Post 5: Ashtanga Yoga -->
-          <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <div class="h-48 bg-gradient-to-br from-red-400 to-orange-500 flex items-center justify-center">
-              <div class="text-white text-6xl">🔥</div>
+          <article
+            class="overflow-hidden rounded-2xl bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl"
+          >
+            <div
+              class="flex h-48 items-center justify-center bg-gradient-to-br from-red-400 to-orange-500"
+            >
+              <div class="text-6xl text-white">🔥</div>
             </div>
             <div class="p-6">
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded-full">Ashtanga</span>
-                <span class="px-2 py-1 bg-orange-100 text-orange-800 text-xs rounded-full">Vinyasa</span>
+              <div class="mb-3 flex flex-wrap gap-2">
+                <span
+                  class="rounded-full bg-red-100 px-2 py-1 text-xs text-red-800"
+                  >Ashtanga</span
+                >
+                <span
+                  class="rounded-full bg-orange-100 px-2 py-1 text-xs text-orange-800"
+                  >Vinyasa</span
+                >
               </div>
-              <h2 class="text-xl font-bold text-gray-900 mb-3">
+              <h2 class="mb-3 text-xl font-bold text-gray-900">
                 Ashtanga Yoga: Tradition & Practice
               </h2>
-              <p class="text-gray-600 mb-4">
-                Comprehensive guide to Ashtanga Vinyasa Yoga, its history, primary series, 
-                and how this dynamic practice can transform body and mind.
+              <p class="mb-4 text-gray-600">
+                Comprehensive guide to Ashtanga Vinyasa Yoga, its history,
+                primary series, and how this dynamic practice can transform body
+                and mind.
               </p>
-              <div class="flex justify-between items-center">
+              <div class="flex items-center justify-between">
                 <span class="text-sm text-gray-500">Dec 20, 2023</span>
-                <a href="/blog/ashtanga-yoga-complete-guide/" class="text-orange-600 hover:text-orange-800 font-medium">
+                <a
+                  href="/blog/ashtanga-yoga-complete-guide/"
+                  class="font-medium text-orange-600 hover:text-orange-800"
+                >
                   Read More →
                 </a>
               </div>
@@ -166,54 +248,67 @@ import Layout from '../../components/layout/Layout.astro';
           </article>
 
           <!-- Post 6: Bhagavad Gita -->
-          <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <div class="h-48 bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center">
-              <div class="text-white text-6xl">📖</div>
+          <article
+            class="overflow-hidden rounded-2xl bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl"
+          >
+            <div
+              class="flex h-48 items-center justify-center bg-gradient-to-br from-blue-400 to-indigo-500"
+            >
+              <div class="text-6xl text-white">📖</div>
             </div>
             <div class="p-6">
-              <div class="flex flex-wrap gap-2 mb-3">
-                <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Bhagavad Gita</span>
-                <span class="px-2 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full">Philosophy</span>
+              <div class="mb-3 flex flex-wrap gap-2">
+                <span
+                  class="rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-800"
+                  >Bhagavad Gita</span
+                >
+                <span
+                  class="rounded-full bg-indigo-100 px-2 py-1 text-xs text-indigo-800"
+                  >Philosophy</span
+                >
               </div>
-              <h2 class="text-xl font-bold text-gray-900 mb-3">
+              <h2 class="mb-3 text-xl font-bold text-gray-900">
                 Bhagavad Gita for Modern Life
               </h2>
-              <p class="text-gray-600 mb-4">
-                How the timeless wisdom of the Bhagavad Gita can guide us through modern challenges, 
-                with practical applications of Karma, Bhakti, and Jnana Yoga.
+              <p class="mb-4 text-gray-600">
+                How the timeless wisdom of the Bhagavad Gita can guide us
+                through modern challenges, with practical applications of Karma,
+                Bhakti, and Jnana Yoga.
               </p>
-              <div class="flex justify-between items-center">
+              <div class="flex items-center justify-between">
                 <span class="text-sm text-gray-500">Dec 15, 2023</span>
-                <a href="/blog/bhagavad-gita-modern-application/" class="text-orange-600 hover:text-orange-800 font-medium">
+                <a
+                  href="/blog/bhagavad-gita-modern-application/"
+                  class="font-medium text-orange-600 hover:text-orange-800"
+                >
                   Read More →
                 </a>
               </div>
             </div>
           </article>
-
         </div>
       </div>
     </section>
 
     <!-- Newsletter Signup -->
-    <section class="py-16 px-4 bg-gradient-to-r from-orange-600 to-yellow-600">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-3xl font-bold text-white mb-4">
+    <section class="bg-gradient-to-r from-orange-600 to-yellow-600 px-4 py-16">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="mb-4 text-3xl font-bold text-white">
           Stay Connected with Ancient Wisdom
         </h2>
-        <p class="text-orange-100 mb-8">
-          Get weekly insights on yoga philosophy, meditation techniques, and spiritual practices 
-          delivered directly to your inbox.
+        <p class="mb-8 text-orange-100">
+          Get weekly insights on yoga philosophy, meditation techniques, and
+          spiritual practices delivered directly to your inbox.
         </p>
-        <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-          <input 
-            type="email" 
+        <form class="mx-auto flex max-w-md flex-col gap-4 sm:flex-row">
+          <input
+            type="email"
             placeholder="Enter your email"
-            class="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-white focus:outline-none"
+            class="flex-1 rounded-lg border-0 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white"
           />
-          <button 
+          <button
             type="submit"
-            class="px-6 py-3 bg-white text-orange-600 font-semibold rounded-lg hover:bg-orange-50 transition-colors"
+            class="rounded-lg bg-white px-6 py-3 font-semibold text-orange-600 transition-colors hover:bg-orange-50"
           >
             Subscribe
           </button>
@@ -224,45 +319,45 @@ import Layout from '../../components/layout/Layout.astro';
 </Layout>
 
 <script type="application/ld+json" is:inline>
-{
-  "@context": "https://schema.org",
-  "@type": "Blog",
-  "name": "Hatha Yogashram Blog",
-  "description": "Traditional yoga teachings, philosophy, and practices from experienced masters in Rishikesh",
-  "url": "https://hathayogashram.com/blog/",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://hathayogashram.com/blog/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Hatha Yogashram",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://hathayogashram.com/hya.jpg"
-    }
-  },
-  "blogPost": [
-    {
-      "@type": "BlogPosting",
-      "headline": "Understanding the 8 Limbs of Yoga - Patanjali's Ashtanga Path",
-      "url": "https://hathayogashram.com/blog/eight-limbs-of-yoga/",
-      "datePublished": "2024-01-15",
-      "author": {
-        "@type": "Organization",
-        "name": "Hatha Yogashram"
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Hatha Yogashram Blog",
+    "description": "Traditional yoga teachings, philosophy, and practices from experienced masters in Rishikesh",
+    "url": "https://hathayogashram.com/blog/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://hathayogashram.com/blog/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Hatha Yogashram",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://hathayogashram.com/hya.jpg"
       }
     },
-    {
-      "@type": "BlogPosting",
-      "headline": "Hatha Yoga Pradipika: Ancient Manual for Modern Practitioners",
-      "url": "https://hathayogashram.com/blog/hatha-yoga-pradipika-guide/",
-      "datePublished": "2024-01-10",
-      "author": {
-        "@type": "Organization",
-        "name": "Hatha Yogashram"
+    "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "Understanding the 8 Limbs of Yoga - Patanjali's Ashtanga Path",
+        "url": "https://hathayogashram.com/blog/eight-limbs-of-yoga/",
+        "datePublished": "2024-01-15",
+        "author": {
+          "@type": "Organization",
+          "name": "Hatha Yogashram"
+        }
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Hatha Yoga Pradipika: Ancient Manual for Modern Practitioners",
+        "url": "https://hathayogashram.com/blog/hatha-yoga-pradipika-guide/",
+        "datePublished": "2024-01-10",
+        "author": {
+          "@type": "Organization",
+          "name": "Hatha Yogashram"
+        }
       }
-    }
-  ]
-}
+    ]
+  }
 </script>

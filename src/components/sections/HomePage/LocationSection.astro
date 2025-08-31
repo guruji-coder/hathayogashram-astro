@@ -1,71 +1,82 @@
 ---
-import SectionHeader from '../../ui/SectionHeader.astro';
+import SectionHeader from "../../ui/SectionHeader.astro";
+import {
+  LOCATION_SECTION,
+  LOCATION_STYLES,
+} from "../../../constants/locationConstants";
 ---
 
 <!-- Location Section -->
-<section class="px-4 py-16 bg-gradient-to-br from-blue-50 to-indigo-100">
-	<div class="mx-auto max-w-7xl">
-		<!-- Section Header -->
-		<SectionHeader 
-			title="Visit Us"
-			containerClass="mb-16 text-center"
-			titleClass="text-4xl font-bold text-gray-800"
-			svgWidth={200}
-			svgHeight={20}
-		/>
+<section class={LOCATION_STYLES.SECTION_BACKGROUND}>
+  <div class={LOCATION_STYLES.CONTAINER}>
+    <!-- Section Header -->
+    <SectionHeader
+      title={LOCATION_SECTION.TITLE}
+      containerClass={LOCATION_STYLES.HEADER_CONTAINER}
+      titleClass={LOCATION_STYLES.HEADER_TITLE}
+      svgWidth={200}
+      svgHeight={20}
+    />
 
-		<!-- Main Content - Desktop: 50% width flex, Tablet & Mobile: flex-col -->
-		<div class="flex flex-col lg:flex-row ">
-			<!-- Left Column - Travel Information -->
-			<div class="lg:w-1/2 w-full">
-				<div class="bg-white rounded-2xl shadow-lg p-8">
-					<h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-						<i class="fas fa-plane text-blue-600 mr-3"></i>
-						By Airways
-					</h3>
-					<div class="text-gray-700 leading-relaxed">
-						<p class="mb-4">
-							Rishikesh is well-connected to all the cities, so air travel is a convenient option. 
-						</p>
-						<p class="mb-4">
-							When you reach the <strong>Delhi International Airport</strong>, take a domestic flight to 
-							<strong>Jolly Grant International Airport (Dehradun)</strong> from there, you can book a taxi 
-							or inform us about your arrival, and we can arrange a cab for you from Dehradun Airport to 
-							our school in Rishikesh.
-						</p>
-						<div class="mt-6 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-							<p class="text-sm text-blue-800">
-								<i class="fas fa-info-circle mr-2"></i>
-								<strong>Need transportation assistance?</strong> Contact us with your arrival details and we'll arrange pickup from the airport.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
+    <!-- Main Content - Desktop: 50% width flex, Tablet & Mobile: flex-col -->
+    <div class={LOCATION_STYLES.MAIN_LAYOUT}>
+      <!-- Left Column - Travel Information -->
+      <div class={LOCATION_STYLES.COLUMN_WIDTH}>
+        <div class={LOCATION_STYLES.TRAVEL_CARD}>
+          <h3 class={LOCATION_STYLES.SECTION_TITLE}>
+            <i class="fas fa-route mr-3 text-blue-600"></i>
+            How to Reach Us
+          </h3>
 
-			<!-- Right Column - Google Map -->
-			<div class="lg:w-1/2 w-full">
-				<div class="bg-white rounded-2xl shadow-lg p-6 h-full">
-					<h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-						<i class="fas fa-map-marker-alt text-red-600 mr-3"></i>
-						Find Us
-					</h3>
-					<div class="h-96 lg:h-full min-h-[400px] rounded-xl overflow-hidden">
-						<!-- Google Map Embed for Rishikesh, Uttarakhand -->
-						<iframe
-							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3462.8969449089453!2d78.26767931513097!3d30.086920981884745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3909299cb44a5c8f%3A0x8c0c0b0b0b0b0b0b!2sRishikesh%2C%20Uttarakhand%2C%20India!5e0!3m2!1sen!2sus!4v1640995200000!5m2!1sen!2sus"
-							width="100%"
-							height="100%"
-							style="border:0;"
-							allowfullscreen=""
-							loading="lazy"
-							referrerpolicy="no-referrer-when-downgrade"
-							class="rounded-lg"
-						></iframe>
-					</div>
-				</div>
-			</div>
-		</div>
+          <!-- Travel Methods - Dynamic Loop -->
+          {
+            LOCATION_SECTION.TRAVEL_METHODS.map((method) => (
+              <div class={LOCATION_STYLES.TRAVEL_SECTION}>
+                <h4 class={LOCATION_STYLES.TRAVEL_SECTION_TITLE}>
+                  <i class={`${method.ICON} p-2`} />
+                  {method.TITLE}
+                </h4>
+                <div class={LOCATION_STYLES.TEXT_CONTENT}>
+                  {method.CONTENT.map((paragraph) => (
+                    <p class={LOCATION_STYLES.PARAGRAPH}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+            ))
+          }
 
-	</div>
+          <!-- Assistance Note -->
+          <div class={LOCATION_STYLES.ASSISTANCE_CONTAINER}>
+            <p class={LOCATION_STYLES.ASSISTANCE_TEXT}>
+              <i class={LOCATION_STYLES.ASSISTANCE_ICON}></i>
+              <strong>{LOCATION_SECTION.ASSISTANCE_NOTE.TITLE}</strong>
+              {LOCATION_SECTION.ASSISTANCE_NOTE.TEXT}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column - Google Map -->
+      <div class={LOCATION_STYLES.COLUMN_WIDTH}>
+        <div class={LOCATION_STYLES.MAP_CARD}>
+          <h3 class={LOCATION_STYLES.SECTION_TITLE}>
+            <i class={LOCATION_STYLES.MAP_ICON}></i>
+            {LOCATION_SECTION.MAP_INFO.TITLE}
+          </h3>
+          <div class={LOCATION_STYLES.MAP_CONTAINER}>
+            <!-- Google Map Embed for Rishikesh, Uttarakhand -->
+            <iframe
+              src={LOCATION_SECTION.MAP_INFO.IFRAME_SRC}
+              width="600"
+              height="600"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              class={LOCATION_STYLES.MAP_IFRAME}></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

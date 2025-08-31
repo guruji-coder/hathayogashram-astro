@@ -1,30 +1,31 @@
 ---
-import { CERTIFICATIONS_SECTION, HOME_STYLES } from '$constants/homePageConstants';
-import SectionHeader from '$components/ui/SectionHeader.astro';
+import {
+  CERTIFICATIONS_SECTION,
+  HOME_STYLES,
+} from "$constants/homePageConstants";
+import SectionHeader from "$components/ui/SectionHeader.astro";
 ---
 
 <!-- Certifications & Accreditations Section -->
 <section class={`${HOME_STYLES.SECTION_PADDING} bg-white`}>
   <div class={HOME_STYLES.CONTAINER}>
     <!-- Section Header -->
-    <SectionHeader 
-      title={CERTIFICATIONS_SECTION.TITLE}
-    />
+    <SectionHeader title={CERTIFICATIONS_SECTION.TITLE} />
 
     <!-- Content Paragraphs -->
     <div class="mx-auto mb-12 max-w-4xl space-y-6">
-      {CERTIFICATIONS_SECTION.PARAGRAPHS.slice(0, 4).map(paragraph => (
-        <p class={`${HOME_STYLES.CERTIFICATION_PARAGRAPH}`}>
-          {paragraph}
-        </p>
-      ))}
+      {
+        CERTIFICATIONS_SECTION.PARAGRAPHS.slice(0, 4).map((paragraph) => (
+          <p class={`${HOME_STYLES.CERTIFICATION_PARAGRAPH}`}>{paragraph}</p>
+        ))
+      }
 
       <!-- Yoga Alliance Logo after Guru-Shishya tradition paragraph -->
       <div class="my-8 flex justify-center">
         <div class="transition-transform duration-300 hover:scale-105">
-          <img 
-            src="/yoga-alliance-logo.png" 
-            alt="Yoga Alliance Registered School Logo" 
+          <img
+            src="/yoga-alliance-logo.png"
+            alt="Yoga Alliance Registered School Logo"
             class=""
             loading="lazy"
           />
@@ -32,11 +33,11 @@ import SectionHeader from '$components/ui/SectionHeader.astro';
       </div>
 
       <!-- Remaining paragraphs after the logo -->
-      {CERTIFICATIONS_SECTION.PARAGRAPHS.slice(4).map(paragraph => (
-        <p class={`${HOME_STYLES.CERTIFICATION_PARAGRAPH}`}>
-          {paragraph}
-        </p>
-      ))}
+      {
+        CERTIFICATIONS_SECTION.PARAGRAPHS.slice(4).map((paragraph) => (
+          <p class={`${HOME_STYLES.CERTIFICATION_PARAGRAPH}`}>{paragraph}</p>
+        ))
+      }
     </div>
   </div>
 </section>

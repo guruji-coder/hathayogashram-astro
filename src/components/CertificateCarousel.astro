@@ -1,159 +1,183 @@
 ---
 // Certificate data
 const certificates = [
-	{
-		image: '/yoga-alliance-yttc-certificate.webp',
-		title: 'RYS 200 Yoga Alliance Certificate',
-		label: 'RYS 200'
-	},
-	{
-		image: '/yoga-alliance-yttc-certificate.webp',
-		title: 'RYS 300 Yoga Alliance Certificate',
-		label: 'RYS 300'
-	},
-	{
-		image: '/yoga-alliance-yttc-certificate.webp',
-		title: 'RPYS Yoga Alliance Certificate',
-		label: 'RPYS'
-	},
-	{
-		image: '/yoga-alliance-yttc-certificate.webp',
-		title: 'YACEP Yoga Alliance Certificate',
-		label: 'YACEP'
-	}
+  {
+    image: "/yoga-alliance-yttc-certificate.webp",
+    title: "RYS 200 Yoga Alliance Certificate",
+    label: "RYS 200",
+  },
+  {
+    image: "/yoga-alliance-yttc-certificate.webp",
+    title: "RYS 300 Yoga Alliance Certificate",
+    label: "RYS 300",
+  },
+  {
+    image: "/yoga-alliance-yttc-certificate.webp",
+    title: "RPYS Yoga Alliance Certificate",
+    label: "RPYS",
+  },
+  {
+    image: "/yoga-alliance-yttc-certificate.webp",
+    title: "YACEP Yoga Alliance Certificate",
+    label: "YACEP",
+  },
 ];
 ---
 
 <!-- Certificate Carousel -->
 <div class="mx-auto max-w-6xl">
-	<!-- Mobile: Full-screen carousel -->
-	<div class="md:hidden">
-		<div
-			id="scrollContainer"
-			class="no-scrollbar flex snap-x snap-mandatory overflow-x-auto"
-		>
-			{certificates.map(cert => (
-				<div
-					class="relative flex h-full w-full flex-shrink-0 cursor-pointer snap-start items-center justify-center bg-gray-100"
-					data-image={cert.image}
-					data-title={cert.title}
-					onclick="openModal(this.dataset.image, this.dataset.title)"
-					onkeydown="event.key === 'Enter' && openModal(this.dataset.image, this.dataset.title)"
-					role="button"
-					tabindex="0"
-				>
-					<img
-						src={cert.image}
-						alt={cert.title}
-						class="h-full w-full rounded-lg object-contain shadow-lg"
-					/>
-					<div class="absolute right-4 bottom-6 left-4">
-						<div class="bg-opacity-70 rounded-lg bg-black px-4 py-3 backdrop-blur-sm">
-							<h3 class="text-center text-xl font-bold text-white">{cert.label}</h3>
-						</div>
-					</div>
-				</div>
-			))}
-		</div>
-	</div>
+  <!-- Mobile: Full-screen carousel -->
+  <div class="md:hidden">
+    <div
+      id="scrollContainer"
+      class="no-scrollbar flex snap-x snap-mandatory overflow-x-auto"
+    >
+      {
+        certificates.map((cert) => (
+          <div
+            class="relative flex h-full w-full flex-shrink-0 cursor-pointer snap-start items-center justify-center bg-gray-100"
+            data-image={cert.image}
+            data-title={cert.title}
+            onclick="openModal(this.dataset.image, this.dataset.title)"
+            onkeydown="event.key === 'Enter' && openModal(this.dataset.image, this.dataset.title)"
+            role="button"
+            tabindex="0"
+          >
+            <img
+              src={cert.image}
+              alt={cert.title}
+              class="h-full w-full rounded-lg object-contain shadow-lg"
+            />
+            <div class="absolute bottom-6 left-4 right-4">
+              <div class="rounded-lg bg-black bg-opacity-70 px-4 py-3 backdrop-blur-sm">
+                <h3 class="text-center text-xl font-bold text-white">
+                  {cert.label}
+                </h3>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
 
-	<!-- Desktop: Grid -->
-	<div class="hidden grid-cols-4 gap-6 md:grid">
-		{certificates.map(cert => (
-			<button
-				class="group transform overflow-hidden rounded-lg transition-transform hover:scale-105 focus:scale-105"
-				data-image={cert.image}
-				data-title={cert.title}
-				onclick="openModal(this.dataset.image, this.dataset.title)"
-			>
-				<img src={cert.image} alt={cert.title} class="h-full w-full object-cover" />
-				<p class="mt-2 text-center text-sm font-medium text-white">{cert.label}</p>
-			</button>
-		))}
-	</div>
+  <!-- Desktop: Grid -->
+  <div class="hidden grid-cols-4 gap-6 md:grid">
+    {
+      certificates.map((cert) => (
+        <button
+          class="group transform overflow-hidden rounded-lg transition-transform hover:scale-105 focus:scale-105"
+          data-image={cert.image}
+          data-title={cert.title}
+          onclick="openModal(this.dataset.image, this.dataset.title)"
+        >
+          <img
+            src={cert.image}
+            alt={cert.title}
+            class="h-full w-full object-cover"
+          />
+          <p class="mt-2 text-center text-sm font-medium text-white">
+            {cert.label}
+          </p>
+        </button>
+      ))
+    }
+  </div>
 </div>
 
 <!-- Modal -->
 <div
-	id="certificateModal"
-	class="bg-opacity-90 fixed inset-0 z-50 hidden items-center justify-center bg-black p-4"
-	onclick="closeModal()"
-	onkeydown="event.key === 'Escape' && closeModal()"
-	role="dialog"
-	tabindex="0"
+  id="certificateModal"
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-90 p-4"
+  onclick="closeModal()"
+  onkeydown="event.key === 'Escape' && closeModal()"
+  role="dialog"
+  tabindex="0"
 >
-	<div class="relative max-h-full max-w-4xl" onclick="event.stopPropagation()" role="none">
-		<button
-			class="absolute -top-10 right-0 text-3xl text-white hover:text-gray-300"
-			onclick="closeModal()"
-		>
-			×
-		</button>
-		<img
-			id="modalImage"
-			src=""
-			alt=""
-			class="max-h-[90vh] max-w-full rounded-lg object-contain"
-		/>
-	</div>
+  <div
+    class="relative max-h-full max-w-4xl"
+    onclick="event.stopPropagation()"
+    role="none"
+  >
+    <button
+      class="absolute -top-10 right-0 text-3xl text-white hover:text-gray-300"
+      onclick="closeModal()"
+    >
+      ×
+    </button>
+    <img
+      id="modalImage"
+      src=""
+      alt=""
+      class="max-h-[90vh] max-w-full rounded-lg object-contain"
+    />
+  </div>
 </div>
 
 <style>
-	.no-scrollbar {
-		-ms-overflow-style: none;
-		scrollbar-width: none;
-	}
-	.no-scrollbar::-webkit-scrollbar {
-		display: none;
-	}
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 </style>
 
 <script>
-	// Declare global functions
-	declare global {
-		interface Window {
-			openModal: (imageSrc: string, title: string) => void;
-			closeModal: () => void;
-		}
-	}
+  // Declare global functions
+  declare global {
+    interface Window {
+      openModal: (imageSrc: string, title: string) => void;
+      closeModal: () => void;
+    }
+  }
 
-	// Modal functions
-	function openModal(imageSrc: string, title: string) {
-		const modal = document.getElementById('certificateModal');
-		const modalImage = document.getElementById('modalImage') as HTMLImageElement;
-		
-		if (modal && modalImage) {
-			modalImage.src = imageSrc;
-			modalImage.alt = title;
-			modal.classList.remove('hidden');
-			modal.classList.add('flex');
-			document.body.style.overflow = 'hidden';
-		}
-	}
+  // Modal functions
+  function openModal(imageSrc: string, title: string) {
+    const modal = document.getElementById("certificateModal");
+    const modalImage = document.getElementById(
+      "modalImage",
+    ) as HTMLImageElement;
 
-	function closeModal() {
-		const modal = document.getElementById('certificateModal');
-		if (modal) {
-			modal.classList.add('hidden');
-			modal.classList.remove('flex');
-			document.body.style.overflow = 'auto';
-		}
-	}
+    if (modal && modalImage) {
+      modalImage.src = imageSrc;
+      modalImage.alt = title;
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+      document.body.style.overflow = "hidden";
+    }
+  }
 
-	// Auto-scroll every 5 seconds
-	const scrollContainer = document.getElementById('scrollContainer');
-	if (scrollContainer) {
-		setInterval(() => {
-			if (window.innerWidth < 1024) {
-				scrollContainer.scrollBy({ left: window.innerWidth, behavior: 'smooth' });
-				if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth - window.innerWidth) {
-					scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
-				}
-			}
-		}, 5000);
-	}
+  function closeModal() {
+    const modal = document.getElementById("certificateModal");
+    if (modal) {
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+      document.body.style.overflow = "auto";
+    }
+  }
 
-	// Make functions globally available
-	window.openModal = openModal;
-	window.closeModal = closeModal;
+  // Auto-scroll every 5 seconds
+  const scrollContainer = document.getElementById("scrollContainer");
+  if (scrollContainer) {
+    setInterval(() => {
+      if (window.innerWidth < 1024) {
+        scrollContainer.scrollBy({
+          left: window.innerWidth,
+          behavior: "smooth",
+        });
+        if (
+          scrollContainer.scrollLeft >=
+          scrollContainer.scrollWidth - window.innerWidth
+        ) {
+          scrollContainer.scrollTo({ left: 0, behavior: "smooth" });
+        }
+      }
+    }, 5000);
+  }
+
+  // Make functions globally available
+  window.openModal = openModal;
+  window.closeModal = closeModal;
 </script>

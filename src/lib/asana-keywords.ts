@@ -15,7 +15,7 @@ export const ASANA_KEYWORDS = {
     "utthita trikonasana extended triangle",
     "parsvottanasana pyramid pose",
     "prasarita padottanasana wide-legged forward bend",
-    "utkatasana chair pose"
+    "utkatasana chair pose",
   ],
 
   // Seated Asanas
@@ -29,7 +29,7 @@ export const ASANA_KEYWORDS = {
     "paschimottanasana seated forward bend",
     "janu sirsasana head to knee pose",
     "baddha konasana butterfly pose",
-    "dandasana staff pose"
+    "dandasana staff pose",
   ],
 
   // Inversions
@@ -43,7 +43,7 @@ export const ASANA_KEYWORDS = {
     "salamba sirsasana supported headstand",
     "ardha halasana half plow pose",
     "niralamba sarvangasana unsupported shoulder stand",
-    "mukta hasta sirsasana free hands headstand"
+    "mukta hasta sirsasana free hands headstand",
   ],
 
   // Backbends
@@ -57,7 +57,7 @@ export const ASANA_KEYWORDS = {
     "matsyasana fish pose",
     "salabhasana locust pose",
     "raja kapotasana king pigeon pose",
-    "chakrasana wheel pose"
+    "chakrasana wheel pose",
   ],
 
   // Core Strengthening
@@ -71,7 +71,7 @@ export const ASANA_KEYWORDS = {
     "tolasana scales pose",
     "marichyasana marichi's pose",
     "ardha navasana half boat pose",
-    "paripurna navasana full boat pose"
+    "paripurna navasana full boat pose",
   ],
 
   // Twists
@@ -85,7 +85,7 @@ export const ASANA_KEYWORDS = {
     "bharadvajasana bharadvaja's twist",
     "parivrtta sukhasana simple seated twist",
     "supta matsyendrasana reclined spinal twist",
-    "parivrtta utkatasana revolved chair pose"
+    "parivrtta utkatasana revolved chair pose",
   ],
 
   // Restorative
@@ -99,8 +99,8 @@ export const ASANA_KEYWORDS = {
     "supported matsyasana supported fish",
     "ananda balasana happy baby pose",
     "supta padangusthasana reclined hand to toe pose",
-    "salamba sirsasana supported headstand"
-  ]
+    "salamba sirsasana supported headstand",
+  ],
 };
 
 /**
@@ -118,9 +118,9 @@ export const ASANA_SEQUENCES = {
     "Adho Mukha Svanasana (Downward-Facing Dog Pose)",
     "Uttanasana (Standing Forward Bend)",
     "Urdhva Hastasana (Upward Salute)",
-    "Tadasana (Mountain Pose)"
+    "Tadasana (Mountain Pose)",
   ],
-  
+
   "Moon Salutation": [
     "Tadasana (Mountain Pose)",
     "Urdhva Hastasana (Upward Salute)",
@@ -132,9 +132,9 @@ export const ASANA_SEQUENCES = {
     "Utthita Parsvakonasana (Extended Side Angle Pose)",
     "Prasarita Padottanasana (Wide-Legged Forward Bend)",
     "Repeat on other side",
-    "Tadasana (Mountain Pose)"
+    "Tadasana (Mountain Pose)",
   ],
-  
+
   "Hip Opening Sequence": [
     "Sukhasana (Easy Pose)",
     "Baddha Konasana (Butterfly Pose)",
@@ -145,9 +145,9 @@ export const ASANA_SEQUENCES = {
     "Upavistha Konasana (Wide-Angle Seated Forward Bend)",
     "Malasana (Garland Pose)",
     "Ananda Balasana (Happy Baby Pose)",
-    "Supta Baddha Konasana (Reclined Bound Angle Pose)"
+    "Supta Baddha Konasana (Reclined Bound Angle Pose)",
   ],
-  
+
   "Back Care Sequence": [
     "Balasana (Child's Pose)",
     "Marjaryasana-Bitilasana (Cat-Cow Pose)",
@@ -158,9 +158,9 @@ export const ASANA_SEQUENCES = {
     "Salabhasana (Locust Pose)",
     "Bhujangasana (Cobra Pose)",
     "Ardha Matsyendrasana (Half Lord of the Fishes Pose)",
-    "Savasana (Corpse Pose)"
+    "Savasana (Corpse Pose)",
   ],
-  
+
   "Core Strengthening Sequence": [
     "Phalakasana (Plank Pose)",
     "Vasisthasana (Side Plank Pose)",
@@ -171,8 +171,8 @@ export const ASANA_SEQUENCES = {
     "Jathara Parivartanasana (Revolved Abdomen Pose)",
     "Urdhva Prasarita Padasana (Leg Raises)",
     "Kakasana (Crow Pose)",
-    "Chaturanga Dandasana (Four-Limbed Staff Pose)"
-  ]
+    "Chaturanga Dandasana (Four-Limbed Staff Pose)",
+  ],
 };
 
 /**
@@ -189,9 +189,9 @@ export const ASANA_PROGRESSION = {
     "Setu Bandhasana (Bridge Pose)",
     "Marjaryasana-Bitilasana (Cat-Cow)",
     "Uttanasana (Standing Forward Bend)",
-    "Savasana (Corpse Pose)"
+    "Savasana (Corpse Pose)",
   ],
-  
+
   "Intermediate Level": [
     "Urdhva Dhanurasana (Wheel Pose)",
     "Salamba Sarvangasana (Supported Shoulder Stand)",
@@ -202,9 +202,9 @@ export const ASANA_PROGRESSION = {
     "Eka Pada Rajakapotasana (One-Legged King Pigeon Pose)",
     "Parivrtta Janu Sirsasana (Revolved Head-to-Knee Pose)",
     "Garudasana (Eagle Pose)",
-    "Marichyasana III (Marichi's Pose C)"
+    "Marichyasana III (Marichi's Pose C)",
   ],
-  
+
   "Advanced Level": [
     "Sirsasana (Headstand)",
     "Pincha Mayurasana (Forearm Stand)",
@@ -215,6 +215,6 @@ export const ASANA_PROGRESSION = {
     "Hanumanasana (Monkey Pose/Splits)",
     "Tittibhasana (Firefly Pose)",
     "Padma Mayurasana (Lotus Peacock Pose)",
-    "Kala Bhairavasana (Destroyer of the Universe Pose)"
-  ]
+    "Kala Bhairavasana (Destroyer of the Universe Pose)",
+  ],
 };

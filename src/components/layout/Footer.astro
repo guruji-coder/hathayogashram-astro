@@ -9,106 +9,128 @@ const footerSections = [
       { label: "Our Teachers", href: "/our-team" },
       { label: "Gallery", href: "/gallery" },
       { label: "Blog", href: "/blog" },
-      { label: "Contact", href: "/contact" }
-    ]
+      { label: "Contact", href: "/contact" },
+    ],
   },
   {
     title: "Courses",
     links: [
       { label: "100 Hour YTTC", href: "/courses/100-hour" },
-      { label: "200 Hour YTTC", href: "/courses/200-hour-yoga-teacher-training" },
+      {
+        label: "200 Hour YTTC",
+        href: "/courses/200-hour-yoga-teacher-training",
+      },
       { label: "300 Hour YTTC", href: "/courses/300-hour" },
       { label: "500 Hour YTTC", href: "/courses/500-hour" },
       { label: "Yoga Retreats", href: "/courses/retreat" },
-      { label: "Online Courses", href: "/online/courses" }
-    ]
-  }
+      { label: "Online Courses", href: "/online/courses" },
+    ],
+  },
 ];
 
 const contactInfo = {
   address: "Laxman Jhula, Rishikesh, Uttarakhand, India",
   phone: "+91-9410771660",
-  email: "hathayogashram7@gmail.com"
+  email: "hathayogashram7@gmail.com",
 };
 
 const socialLinks = [
   { name: "Instagram", url: "#", icon: "fab fa-instagram" },
   { name: "YouTube", url: "#", icon: "fab fa-youtube" },
   { name: "WhatsApp", url: "#", icon: "fab fa-whatsapp" },
-  { name: "Facebook", url: "#", icon: "fab fa-facebook" }
+  { name: "Facebook", url: "#", icon: "fab fa-facebook" },
 ];
 ---
 
-<footer class="bg-gray-900 text-white py-12">
+<footer class="bg-gray-900 py-12 text-white">
   <div class="container mx-auto px-4">
     <!-- Main Footer Content -->
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-      
+    <div class="mb-8 grid grid-cols-1 gap-8 md:grid-cols-4">
       <!-- About Section -->
       <div>
         <div class="mb-6">
-          <img src="/hya.jpg" alt="Hatha Yogashram" class="h-12 w-12 rounded-full mb-4" />
-          <h3 class="text-xl font-bold mb-4">Hatha Yogashram</h3>
+          <img
+            src="/hya.jpg"
+            alt="Hatha Yogashram"
+            class="mb-4 h-12 w-12 rounded-full"
+          />
+          <h3 class="mb-4 text-xl font-bold">Hatha Yogashram</h3>
         </div>
-        <p class="text-gray-400 mb-6 leading-relaxed">
-          Hatha Yoga Ashram is one of the best yoga schools in Rishikesh, India. 
-          Our school exists to bring the authentic teachings of yoga back to yoga; 
-          both on and off the mat.
+        <p class="mb-6 leading-relaxed text-gray-400">
+          Hatha Yoga Ashram is one of the best yoga schools in Rishikesh, India.
+          Our school exists to bring the authentic teachings of yoga back to
+          yoga; both on and off the mat.
         </p>
         <!-- Social Links -->
         <div class="flex gap-4">
-          {socialLinks.map(social => (
-            <a 
-              href={social.url} 
-              class="text-gray-400 hover:text-orange-400 transition-colors text-lg"
-              aria-label={social.name}
-            >
-              <i class={social.icon}></i>
-            </a>
-          ))}
+          {
+            socialLinks.map((social) => (
+              <a
+                href={social.url}
+                class="text-lg text-gray-400 transition-colors hover:text-orange-400"
+                aria-label={social.name}
+              >
+                <i class={social.icon} />
+              </a>
+            ))
+          }
         </div>
       </div>
 
       <!-- Quick Links -->
-      {footerSections.map(section => (
-        <div>
-          <h3 class="text-xl font-bold mb-6">
-            {section.title}
-            <div class="h-0.5 w-12 bg-orange-400 mt-2"></div>
-          </h3>
-          <ul class="space-y-3">
-            {section.links.map(link => (
-              <li class="flex items-center">
-                <span class="mr-3 text-sm text-orange-400">ॐ</span>
-                <a href={link.href} class="text-gray-400 hover:text-orange-400 transition-colors">
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+      {
+        footerSections.map((section) => (
+          <div>
+            <h3 class="mb-6 text-xl font-bold">
+              {section.title}
+              <div class="mt-2 h-0.5 w-12 bg-orange-400" />
+            </h3>
+            <ul class="space-y-3">
+              {section.links.map((link) => (
+                <li class="flex items-center">
+                  <span class="mr-3 text-sm text-orange-400">ॐ</span>
+                  <a
+                    href={link.href}
+                    class="text-gray-400 transition-colors hover:text-orange-400"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
 
       <!-- Contact Info -->
       <div>
-        <h3 class="text-xl font-bold mb-6">
+        <h3 class="mb-6 text-xl font-bold">
           Contact Us
-          <div class="h-0.5 w-12 bg-orange-400 mt-2"></div>
+          <div class="mt-2 h-0.5 w-12 bg-orange-400"></div>
         </h3>
         <ul class="space-y-4 text-gray-400">
           <li class="flex items-start">
-            <i class="fas fa-map-marker-alt mt-1 mr-3 text-orange-400 flex-shrink-0"></i>
+            <i
+              class="fas fa-map-marker-alt mr-3 mt-1 flex-shrink-0 text-orange-400"
+            ></i>
             <span>{contactInfo.address}</span>
           </li>
           <li class="flex items-center">
-            <i class="fas fa-phone mt-1 mr-3 text-orange-400 flex-shrink-0"></i>
-            <a href={`tel:${contactInfo.phone}`} class="hover:text-orange-400 transition-colors">
+            <i class="fas fa-phone mr-3 mt-1 flex-shrink-0 text-orange-400"></i>
+            <a
+              href={`tel:${contactInfo.phone}`}
+              class="transition-colors hover:text-orange-400"
+            >
               {contactInfo.phone}
             </a>
           </li>
           <li class="flex items-center">
-            <i class="fas fa-envelope mt-1 mr-3 text-orange-400 flex-shrink-0"></i>
-            <a href={`mailto:${contactInfo.email}`} class="hover:text-orange-400 transition-colors break-all">
+            <i class="fas fa-envelope mr-3 mt-1 flex-shrink-0 text-orange-400"
+            ></i>
+            <a
+              href={`mailto:${contactInfo.email}`}
+              class="break-all transition-colors hover:text-orange-400"
+            >
               {contactInfo.email}
             </a>
           </li>
@@ -118,13 +140,17 @@ const socialLinks = [
 
     <!-- Bottom Bar -->
     <div class="border-t border-gray-800 pt-8">
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <p class="text-gray-400 text-sm mb-4 md:mb-0">
+      <div class="flex flex-col items-center justify-between md:flex-row">
+        <p class="mb-4 text-sm text-gray-400 md:mb-0">
           &copy; {new Date().getFullYear()} Hatha Yogashram. All rights reserved.
         </p>
         <div class="flex gap-6 text-sm text-gray-400">
-          <a href="/privacy" class="hover:text-orange-400 transition-colors">Privacy Policy</a>
-          <a href="/terms" class="hover:text-orange-400 transition-colors">Terms of Service</a>
+          <a href="/privacy" class="transition-colors hover:text-orange-400"
+            >Privacy Policy</a
+          >
+          <a href="/terms" class="transition-colors hover:text-orange-400"
+            >Terms of Service</a
+          >
         </div>
       </div>
     </div>

@@ -15,8 +15,9 @@ Large constant files with extensive keyword collections can cause:
 ### For Developers
 
 1. **Use Git sparse-checkout for focused work**
-   
+
    If you're not actively modifying the SEO constants, use sparse checkout:
+
    ```bash
    git config core.sparseCheckout true
    echo "!src/lib/asana-keywords.ts" >> .git/info/sparse-checkout
@@ -27,8 +28,9 @@ Large constant files with extensive keyword collections can cause:
    ```
 
 2. **Skip Git hooks for SEO files**
-   
+
    Add to your `.git/hooks/pre-commit` script:
+
    ```bash
    # Skip linting large SEO files
    if [[ $file == *"keywords.ts" ]]; then
@@ -54,6 +56,7 @@ Large constant files with extensive keyword collections can cause:
    - Improves both Git and IDE performance
 
 2. **Use Git LFS for keyword files**
+
    ```bash
    git lfs install
    git lfs track "src/lib/*keywords.ts"

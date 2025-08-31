@@ -1,29 +1,53 @@
 ---
-import { HEADER_CONTACT, HEADER_SOCIAL_MEDIA, HEADER_STYLES } from '../../constants/headerConstants';
+import {
+  HEADER_CONTACT,
+  HEADER_SOCIAL_MEDIA,
+  HEADER_STYLES,
+} from "../../constants/headerConstants";
 ---
 
 <!-- Top Bar -->
 <div class={HEADER_STYLES.TOP_BAR_BACKGROUND}>
   <div class="container mx-auto px-4">
-    <div class={`flex justify-between items-center ${HEADER_STYLES.TOP_BAR_TEXT_SIZE} text-gray-600`}>
+    <div
+      class={`flex justify-between items-center ${HEADER_STYLES.TOP_BAR_TEXT_SIZE} text-gray-600`}
+    >
       <div class="flex items-center space-x-4">
-        <a href={HEADER_CONTACT.ADDRESS.GOOGLE_MAPS_URL} target="_blank" rel="noopener noreferrer" class={`flex items-center ${HEADER_STYLES.TOP_BAR_LINK_COLORS}`}>
+        <a
+          href={HEADER_CONTACT.ADDRESS.GOOGLE_MAPS_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={`flex items-center ${HEADER_STYLES.TOP_BAR_LINK_COLORS}`}
+        >
           <i class={`${HEADER_CONTACT.ADDRESS.ICON} mr-2`}></i>
           <span class="inline lg:hidden">LOCATION</span>
           <span class="hidden lg:inline">{HEADER_CONTACT.ADDRESS.TEXT}</span>
         </a>
-        <a href={HEADER_CONTACT.PHONE.WHATSAPP_URL} class={`flex items-center ${HEADER_STYLES.TOP_BAR_LINK_COLORS}`}>
+        <a
+          href={HEADER_CONTACT.PHONE.WHATSAPP_URL}
+          class={`flex items-center ${HEADER_STYLES.TOP_BAR_LINK_COLORS}`}
+        >
           <i class={`${HEADER_CONTACT.PHONE.ICON} mr-2`}></i>
-          <span class="hidden md:inline">{HEADER_CONTACT.PHONE.DISPLAY_TEXT}</span>
+          <span class="hidden md:inline"
+            >{HEADER_CONTACT.PHONE.DISPLAY_TEXT}</span
+          >
           <span class="inline md:hidden">CALL</span>
         </a>
       </div>
       <div class="flex items-center space-x-3">
-        {HEADER_SOCIAL_MEDIA.map(social => (
-          <a href={social.URL} target="_blank" rel="noopener noreferrer" aria-label={social.ARIA_LABEL} class={social.HOVER_COLOR_CLASS}>
-            <i class={social.ICON_CLASS}></i>
-          </a>
-        ))}
+        {
+          HEADER_SOCIAL_MEDIA.map((social) => (
+            <a
+              href={social.URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.ARIA_LABEL}
+              class={social.HOVER_COLOR_CLASS}
+            >
+              <i class={social.ICON_CLASS} />
+            </a>
+          ))
+        }
       </div>
     </div>
   </div>

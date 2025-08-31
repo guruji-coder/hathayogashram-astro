@@ -15,9 +15,9 @@ export const YOGA_PHILOSOPHY_KEYWORDS = {
     "moksha liberation",
     "ahimsa non-violence principle",
     "satya truthfulness practice",
-    "santosha contentment philosophy"
+    "santosha contentment philosophy",
   ],
-  
+
   // Paths of Yoga
   yogaPaths: [
     "raja yoga royal path",
@@ -29,9 +29,9 @@ export const YOGA_PHILOSOPHY_KEYWORDS = {
     "kundalini yoga energy awakening",
     "mantra yoga sound vibration",
     "laya yoga absorption meditation",
-    "kriya yoga purification practices"
+    "kriya yoga purification practices",
   ],
-  
+
   // Subtle Anatomy
   subtleAnatomy: [
     "chakra energy centers",
@@ -43,9 +43,9 @@ export const YOGA_PHILOSOPHY_KEYWORDS = {
     "anahata heart chakra",
     "ajna third eye chakra",
     "sushumna central channel",
-    "ida pingala nadis"
+    "ida pingala nadis",
   ],
-  
+
   // States of Consciousness
   consciousnessStates: [
     "dhyana meditation state",
@@ -57,8 +57,8 @@ export const YOGA_PHILOSOPHY_KEYWORDS = {
     "bahiranga external limbs",
     "viveka discrimination",
     "vairagya detachment",
-    "nirvikalpa samadhi"
-  ]
+    "nirvikalpa samadhi",
+  ],
 };
 
 /**
@@ -76,7 +76,7 @@ export const GURU_KEYWORDS = {
     "dattatreya avadhuta",
     "vyasa vedic sage",
     "agastya muni yoga",
-    "kapila samkhya founder"
+    "kapila samkhya founder",
   ],
 
   // Medieval Masters
@@ -90,7 +90,7 @@ export const GURU_KEYWORDS = {
     "jnaneshwar jnana yoga",
     "akka mahadevi shiva yogini",
     "allama prabhu lingayat yoga",
-    "goswami tulsidas bhakti tradition"
+    "goswami tulsidas bhakti tradition",
   ],
 
   // Modern Masters
@@ -104,7 +104,7 @@ export const GURU_KEYWORDS = {
     "pattabhi jois ashtanga vinyasa",
     "tkv desikachar viniyoga",
     "swami satyananda bihar school",
-    "maharishi mahesh yogi transcendental meditation"
+    "maharishi mahesh yogi transcendental meditation",
   ],
 
   // Lineages
@@ -118,8 +118,8 @@ export const GURU_KEYWORDS = {
     "kundalini yoga lineage",
     "jain yoga tradition",
     "buddhist yoga lineage",
-    "kashmiri shaivism tradition"
-  ]
+    "kashmiri shaivism tradition",
+  ],
 };
 
 /**
@@ -137,7 +137,7 @@ export const YOGA_BOOKS_KEYWORDS = {
     "yoga yajnavalkya sanskrit text",
     "shandilya bhakti sutras",
     "upanishads yoga wisdom",
-    "vivekachudamani advaita yoga"
+    "vivekachudamani advaita yoga",
   ],
 
   // Modern Yoga Books
@@ -151,7 +151,7 @@ export const YOGA_BOOKS_KEYWORDS = {
     "yoga bible christina brown",
     "yoga body mark singleton",
     "the yoga sutras of patanjali sri swami satchidananda",
-    "meditations from the mat rolf gates"
+    "meditations from the mat rolf gates",
   ],
 
   // Yoga Philosophy Books
@@ -165,8 +165,8 @@ export const YOGA_BOOKS_KEYWORDS = {
     "the shambhala guide to yoga feuerstein",
     "the secret of the yoga sutra pandit rajmani tigunait",
     "inner engineering sadhguru",
-    "the heart of yoga desikachar"
-  ]
+    "the heart of yoga desikachar",
+  ],
 };
 
 /**
@@ -179,52 +179,90 @@ export const SACRED_TEXTS = {
     century: "2nd century BCE",
     chapters: 4,
     sutras: 196,
-    description: "Foundational text of Raja Yoga outlining the eight-limbed path to enlightenment",
-    keyTeachings: ["Eight limbs of yoga", "Chitta Vritti Nirodha", "Obstacles to yoga", "Samadhi states"],
-    famous_quote: "Yogas chitta vritti nirodha (Yoga is the stilling of the fluctuations of the mind)"
+    description:
+      "Foundational text of Raja Yoga outlining the eight-limbed path to enlightenment",
+    keyTeachings: [
+      "Eight limbs of yoga",
+      "Chitta Vritti Nirodha",
+      "Obstacles to yoga",
+      "Samadhi states",
+    ],
+    famous_quote:
+      "Yogas chitta vritti nirodha (Yoga is the stilling of the fluctuations of the mind)",
   },
-  
+
   "Hatha Yoga Pradipika": {
     sanskrit: "Hatha Yoga Pradipika",
     author: "Svatmarama",
     century: "15th century CE",
     chapters: 4,
     verses: 390,
-    description: "Classic manual on Hatha Yoga describing asanas, pranayama, mudras, and meditation",
-    keyTeachings: ["Shatkarmas (purification)", "Asana practice", "Pranayama techniques", "Nadis and chakras"],
-    famous_quote: "When the breath wanders, the mind is unsteady, but when the breath is still, so is the mind still"
+    description:
+      "Classic manual on Hatha Yoga describing asanas, pranayama, mudras, and meditation",
+    keyTeachings: [
+      "Shatkarmas (purification)",
+      "Asana practice",
+      "Pranayama techniques",
+      "Nadis and chakras",
+    ],
+    famous_quote:
+      "When the breath wanders, the mind is unsteady, but when the breath is still, so is the mind still",
   },
-  
+
   "Bhagavad Gita": {
     sanskrit: "Bhagavad Gita",
     author: "Attributed to Sage Vyasa",
     century: "5th-2nd century BCE",
     chapters: 18,
     verses: 700,
-    description: "Sacred dialogue between Krishna and Arjuna expounding multiple yoga paths",
-    keyTeachings: ["Karma Yoga", "Bhakti Yoga", "Jnana Yoga", "Detachment", "Dharma"],
-    famous_quote: "Yoga is skill in action"
+    description:
+      "Sacred dialogue between Krishna and Arjuna expounding multiple yoga paths",
+    keyTeachings: [
+      "Karma Yoga",
+      "Bhakti Yoga",
+      "Jnana Yoga",
+      "Detachment",
+      "Dharma",
+    ],
+    famous_quote: "Yoga is skill in action",
   },
-  
+
   "Gheranda Samhita": {
     sanskrit: "Gheranda Samhita",
     author: "Sage Gheranda",
     century: "17th century CE",
     chapters: 7,
     verses: 351,
-    description: "Manual detailing seven stages of yoga practice for purification and self-realization",
-    keyTeachings: ["Shatkarmas", "32 Asanas", "25 Mudras", "Pratyahara", "Dharana", "Dhyana", "Samadhi"],
-    famous_quote: "The body is full of impurities. It becomes pure only when yoga is practiced"
+    description:
+      "Manual detailing seven stages of yoga practice for purification and self-realization",
+    keyTeachings: [
+      "Shatkarmas",
+      "32 Asanas",
+      "25 Mudras",
+      "Pratyahara",
+      "Dharana",
+      "Dhyana",
+      "Samadhi",
+    ],
+    famous_quote:
+      "The body is full of impurities. It becomes pure only when yoga is practiced",
   },
-  
+
   "Shiva Samhita": {
     sanskrit: "Shiva Samhita",
     author: "Unknown (attributed to Lord Shiva)",
     century: "17th century CE",
     chapters: 5,
     verses: 645,
-    description: "Tantric yoga text emphasizing non-dualistic philosophy and subtle body practices",
-    keyTeachings: ["Subtle body anatomy", "Chakra system", "Kundalini awakening", "Philosophical non-dualism"],
-    famous_quote: "Knowledge alone is eternal; it is endless and free from all impurities"
-  }
+    description:
+      "Tantric yoga text emphasizing non-dualistic philosophy and subtle body practices",
+    keyTeachings: [
+      "Subtle body anatomy",
+      "Chakra system",
+      "Kundalini awakening",
+      "Philosophical non-dualism",
+    ],
+    famous_quote:
+      "Knowledge alone is eternal; it is endless and free from all impurities",
+  },
 };

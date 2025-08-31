@@ -10,36 +10,36 @@ export const LOCATION_KEYWORDS = {
       "usa to rishikesh yoga certification",
       "american yoga alliance certification india",
       "yoga ttc india from usa",
-      "affordable yoga training for us citizens"
+      "affordable yoga training for us citizens",
     ],
     uk: [
       "yoga teacher training india from uk",
       "british yoga qualification india",
       "uk to india yoga course",
       "yoga certification for british students",
-      "london to rishikesh yoga training"
+      "london to rishikesh yoga training",
     ],
     canada: [
       "canadian yoga teacher training india",
       "yoga certification canada to india",
       "toronto to rishikesh yoga course",
       "vancouver yoga students india training",
-      "canadian recognized yoga certification"
+      "canadian recognized yoga certification",
     ],
     australia: [
       "australian yoga teacher training india",
       "sydney to rishikesh yoga course",
       "melbourne yoga students india",
       "aussie yoga certification india",
-      "australia recognized yoga diploma"
+      "australia recognized yoga diploma",
     ],
     germany: [
       "yoga ausbildung indien deutsch",
       "german yoga teacher training india",
       "berlin to rishikesh yoga course",
       "deutsche yogalehrer ausbildung indien",
-      "yoga teacher training india german speaking"
-    ]
+      "yoga teacher training india german speaking",
+    ],
   },
 
   // Comparison searches
@@ -53,7 +53,7 @@ export const LOCATION_KEYWORDS = {
     "traditional yoga india vs modern western",
     "residential yoga training vs online",
     "intensive vs extended yoga teacher training",
-    "200 hour vs 300 hour yoga certification"
+    "200 hour vs 300 hour yoga certification",
   ],
 
   // Budget-conscious searches
@@ -67,8 +67,8 @@ export const LOCATION_KEYWORDS = {
     "yoga teacher training india cost",
     "cheap but good yoga school rishikesh",
     "scholarship yoga teacher training",
-    "early bird discount yoga ttc"
-  ]
+    "early bird discount yoga ttc",
+  ],
 };
 
 export const COMPETITOR_KEYWORDS = {
@@ -83,7 +83,7 @@ export const COMPETITOR_KEYWORDS = {
     "yoga alliance best schools india",
     "authentic traditional yoga school",
     "non-commercial yoga training india",
-    "small group yoga teacher training"
+    "small group yoga teacher training",
   ],
 
   // Style comparisons
@@ -97,8 +97,8 @@ export const COMPETITOR_KEYWORDS = {
     "therapeutic vs athletic yoga ttc",
     "meditation focused yoga training",
     "pranayama intensive teacher training",
-    "philosophy based yoga certification"
-  ]
+    "philosophy based yoga certification",
+  ],
 };
 
 export const COURSE_SPECIFIC_KEYWORDS = {
@@ -113,7 +113,7 @@ export const COURSE_SPECIFIC_KEYWORDS = {
     "ministry of ayush approved yoga",
     "online + in-person yoga certification",
     "hybrid yoga teacher training",
-    "yoga certification requirements"
+    "yoga certification requirements",
   ],
 
   // Student concerns
@@ -127,7 +127,7 @@ export const COURSE_SPECIFIC_KEYWORDS = {
     "yoga teacher training with kids allowed",
     "couple yoga teacher training india",
     "yoga ttc with accommodation included",
-    "all inclusive yoga teacher training"
+    "all inclusive yoga teacher training",
   ],
 
   // Program features
@@ -141,6 +141,6 @@ export const COURSE_SPECIFIC_KEYWORDS = {
     "yoga teacher training sanskrit focus",
     "yoga ttc with philosophy emphasis",
     "hands-on adjustment training yoga",
-    "yoga teaching methodology course"
-  ]
+    "yoga teaching methodology course",
+  ],
 };

@@ -1,62 +1,74 @@
 ---
 // src/pages/200-hour-yoga-teacher-training-comprehensive.astro
-import SEOLayout from '../layouts/SEOLayout.astro';
-import { generateTTCMetaTags, generateSEO, generateLocationSpecificContent } from '../utils/seo-utils';
-import { ttcFAQSchema, enhancedCourseSchema, aggregateReviewSchema } from '../schemas/yoga-schemas';
-import { LOCATION_KEYWORDS, COURSE_SPECIFIC_KEYWORDS } from '../lib/location-seo-keywords';
-import { SITE_METADATA } from '../lib/yoga-seo-constants';
+import SEOLayout from "../layouts/SEOLayout.astro";
+import {
+  generateTTCMetaTags,
+  generateSEO,
+  generateLocationSpecificContent,
+} from "../utils/seo-utils";
+import {
+  ttcFAQSchema,
+  enhancedCourseSchema,
+  aggregateReviewSchema,
+} from "../schemas/yoga-schemas";
+import {
+  LOCATION_KEYWORDS,
+  COURSE_SPECIFIC_KEYWORDS,
+} from "../lib/location-seo-keywords";
+import { SITE_METADATA } from "../lib/yoga-seo-constants";
 
 // Generate dynamic meta tags
 const ttcMeta = generateTTCMetaTags({
-  courseType: '200-hour',
-  month: 'January',
-  year: '2026',
-  style: 'hatha',
-  country: 'USA'
+  courseType: "200-hour",
+  month: "January",
+  year: "2026",
+  style: "hatha",
+  country: "USA",
 });
 
 // Enhanced course schema with detailed information
 const courseSchemaData = enhancedCourseSchema({
-  name: '200-Hour Hatha Yoga Teacher Training',
-  description: 'Comprehensive 200-hour Yoga Alliance certified teacher training program in traditional Hatha Yoga in Rishikesh, India. Learn authentic yoga from experienced Indian masters in the yoga capital of the world.',
+  name: "200-Hour Hatha Yoga Teacher Training",
+  description:
+    "Comprehensive 200-hour Yoga Alliance certified teacher training program in traditional Hatha Yoga in Rishikesh, India. Learn authentic yoga from experienced Indian masters in the yoga capital of the world.",
   url: `${SITE_METADATA.siteUrl}/200-hour-yoga-teacher-training/`,
-  startDate: '2026-01-15',
-  endDate: '2026-02-15',
-  duration: 'PT720H', // 720 hours total including self-study
+  startDate: "2026-01-15",
+  endDate: "2026-02-15",
+  duration: "PT720H", // 720 hours total including self-study
   price: 1299,
-  priceCurrency: 'USD',
-  courseCode: '200-HYTT-2026',
-  educationalLevel: 'Beginner to Intermediate',
+  priceCurrency: "USD",
+  courseCode: "200-HYTT-2026",
+  educationalLevel: "Beginner to Intermediate",
   prerequisites: [
-    'Minimum 6 months of regular yoga practice',
-    'Basic understanding of yoga philosophy',
-    'Physical fitness for daily practice',
-    'Open mind for spiritual learning'
+    "Minimum 6 months of regular yoga practice",
+    "Basic understanding of yoga philosophy",
+    "Physical fitness for daily practice",
+    "Open mind for spiritual learning",
   ],
-  imageUrl: `${SITE_METADATA.siteUrl}/images/200-hour-ttc-hero.jpg`
+  imageUrl: `${SITE_METADATA.siteUrl}/images/200-hour-ttc-hero.jpg`,
 });
 
 // Combined structured data array
 const structuredDataArray = [
   courseSchemaData,
   ttcFAQSchema,
-  aggregateReviewSchema
+  aggregateReviewSchema,
 ];
 
 // SEO data generation
 const seoData = generateSEO({
-  pageType: 'courses',
+  pageType: "courses",
   values: {
-    courseName: '200-Hour Yoga Teacher Training',
-    duration: '200',
-    siteName: SITE_METADATA.siteName
+    courseName: "200-Hour Yoga Teacher Training",
+    duration: "200",
+    siteName: SITE_METADATA.siteName,
   },
-  path: '/200-hour-yoga-teacher-training/',
+  path: "/200-hour-yoga-teacher-training/",
   image: `${SITE_METADATA.siteUrl}/images/200-hour-ttc-social.jpg`,
   structuredData: {
     "@context": "https://schema.org",
-    "@graph": structuredDataArray
-  }
+    "@graph": structuredDataArray,
+  },
 });
 
 // Keywords compilation
@@ -65,16 +77,16 @@ const allKeywords = [
   ...LOCATION_KEYWORDS.budgetKeywords.slice(0, 10),
   ...COURSE_SPECIFIC_KEYWORDS.certificationQueries.slice(0, 8),
   ...COURSE_SPECIFIC_KEYWORDS.studentConcerns.slice(0, 5),
-  'yoga teacher training rishikesh 2026',
-  'authentic hatha yoga certification',
-  'traditional yoga school india',
-  'yoga alliance registered school',
-  'affordable yoga ttc rishikesh',
-  'best yoga teacher training india'
+  "yoga teacher training rishikesh 2026",
+  "authentic hatha yoga certification",
+  "traditional yoga school india",
+  "yoga alliance registered school",
+  "affordable yoga ttc rishikesh",
+  "best yoga teacher training india",
 ];
 
 // Location-specific content for US students
-const locationContent = generateLocationSpecificContent('usa');
+const locationContent = generateLocationSpecificContent("usa");
 ---
 
 <SEOLayout
@@ -82,286 +94,339 @@ const locationContent = generateLocationSpecificContent('usa');
   description={ttcMeta.description}
   canonical={`${SITE_METADATA.siteUrl}/200-hour-yoga-teacher-training/`}
   openGraph={{
-    title: ttcMeta.ogTags['og:title'],
-    description: ttcMeta.ogTags['og:description'],
+    title: ttcMeta.ogTags["og:title"],
+    description: ttcMeta.ogTags["og:description"],
     url: `${SITE_METADATA.siteUrl}/200-hour-yoga-teacher-training/`,
-    type: 'website',
-    images: [{
-      url: ttcMeta.ogTags['og:image'],
-      alt: ttcMeta.ogTags['og:image:alt'],
-      width: 1200,
-      height: 630
-    }],
-    siteName: SITE_METADATA.siteName
+    type: "website",
+    images: [
+      {
+        url: ttcMeta.ogTags["og:image"],
+        alt: ttcMeta.ogTags["og:image:alt"],
+        width: 1200,
+        height: 630,
+      },
+    ],
+    siteName: SITE_METADATA.siteName,
   }}
   additionalMetaTags={[
-    { name: 'keywords', content: allKeywords.join(', ') },
+    { name: "keywords", content: allKeywords.join(", ") },
     ...ttcMeta.additionalMeta,
-    { name: 'author', content: 'Hatha Yogashram Team' },
-    { property: 'article:section', content: 'Yoga Teacher Training' },
-    { property: 'article:tag', content: '200-hour, yoga, teacher training, rishikesh, hatha yoga' }
+    { name: "author", content: "Hatha Yogashram Team" },
+    { property: "article:section", content: "Yoga Teacher Training" },
+    {
+      property: "article:tag",
+      content: "200-hour, yoga, teacher training, rishikesh, hatha yoga",
+    },
   ]}
   additionalLinkTags={[
-    { rel: 'preload', href: '/fonts/yoga-fonts.woff2', as: 'font', type: 'font/woff2', crossOrigin: 'anonymous' }
+    {
+      rel: "preload",
+      href: "/fonts/yoga-fonts.woff2",
+      as: "font",
+      type: "font/woff2",
+      crossOrigin: "anonymous",
+    },
   ]}
   structuredData={seoData.structuredData}
   currentPath="/200-hour-yoga-teacher-training/"
 >
+  <!-- Hero Section with Location-Specific Content -->
+  <section
+    class="relative min-h-screen bg-gradient-to-br from-emerald-900 via-teal-800 to-cyan-900 text-white"
+  >
+    <div class="absolute inset-0 bg-black/30"></div>
 
-<!-- Hero Section with Location-Specific Content -->
-<section class="relative min-h-screen bg-gradient-to-br from-emerald-900 via-teal-800 to-cyan-900 text-white">
-  <div class="absolute inset-0 bg-black/30"></div>
-  
-  <!-- Hero Background Image -->
-  <div class="absolute inset-0">
-    <img 
-      src="/images/rishikesh-yoga-hero.jpg" 
-      alt="200-hour yoga teacher training students practicing asanas at sunrise with Himalayan mountains and Ganges river in Rishikesh, India"
-      class="w-full h-full object-cover"
-      loading="eager"
-      width="1920"
-      height="1080"
-    />
-  </div>
-  
-  <div class="relative z-10 container mx-auto px-4 py-20">
-    <div class="max-w-4xl mx-auto text-center">
-      <!-- Special US Students Banner -->
-      <div class="mb-6 inline-block bg-amber-500 text-black px-6 py-2 rounded-full font-semibold">
-        🇺🇸 {locationContent.heroText} - Early Bird $200 OFF!
-      </div>
-      
-      <h1 class="text-5xl md:text-7xl font-bold mb-6">
-        200-Hour Yoga Teacher Training
-        <span class="block text-3xl md:text-4xl font-light mt-2 text-emerald-300">
-          January 2026 • Rishikesh, India
-        </span>
-      </h1>
-      
-      <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
-        Transform your practice into profession with our <strong>Yoga Alliance certified 200-hour Hatha Yoga Teacher Training</strong> in the spiritual heart of India. Join 50+ international students from 20+ countries.
-      </p>
-      
-      <!-- Key Benefits -->
-      <div class="grid md:grid-cols-3 gap-6 mb-12">
-        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-          <div class="text-3xl mb-2">🏆</div>
-          <h3 class="text-lg font-semibold mb-2">Yoga Alliance RYS 200</h3>
-          <p class="text-sm text-emerald-200">Internationally recognized certification</p>
-        </div>
-        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-          <div class="text-3xl mb-2">👥</div>
-          <h3 class="text-lg font-semibold mb-2">Small Groups (Max 20)</h3>
-          <p class="text-sm text-emerald-200">Personalized attention from masters</p>
-        </div>
-        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-          <div class="text-3xl mb-2">💰</div>
-          <h3 class="text-lg font-semibold mb-2">All-Inclusive $1,299</h3>
-          <p class="text-sm text-emerald-200">Accommodation, meals & certification</p>
-        </div>
-      </div>
-      
-      <!-- CTA Buttons -->
-      <div class="flex flex-col md:flex-row gap-4 justify-center">
-        <a 
-          href="/apply-now/" 
-          class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition transform hover:scale-105 shadow-lg"
-          aria-label="Apply now for 200-hour yoga teacher training starting January 2026"
+    <!-- Hero Background Image -->
+    <div class="absolute inset-0">
+      <img
+        src="/images/rishikesh-yoga-hero.jpg"
+        alt="200-hour yoga teacher training students practicing asanas at sunrise with Himalayan mountains and Ganges river in Rishikesh, India"
+        class="h-full w-full object-cover"
+        loading="eager"
+        width="1920"
+        height="1080"
+      />
+    </div>
+
+    <div class="container relative z-10 mx-auto px-4 py-20">
+      <div class="mx-auto max-w-4xl text-center">
+        <!-- Special US Students Banner -->
+        <div
+          class="mb-6 inline-block rounded-full bg-amber-500 px-6 py-2 font-semibold text-black"
         >
-          Apply Now - $200 Early Bird Discount
-        </a>
-        <a 
-          href="/download-brochure/" 
-          class="bg-transparent border-2 border-white hover:bg-white hover:text-emerald-900 text-white px-8 py-4 rounded-lg text-lg font-semibold transition"
-          aria-label="Download detailed brochure for 200-hour yoga teacher training program"
-        >
-          Download Free Brochure
-        </a>
-      </div>
-      
-      <!-- Trust Indicators -->
-      <div class="mt-12 flex flex-wrap justify-center items-center gap-8 opacity-80">
-        <img src="/images/yoga-alliance-logo.png" alt="Yoga Alliance RYS 200 Certified School" class="h-12" />
-        <img src="/images/government-certified.png" alt="Government of India Certified Yoga School" class="h-12" />
-        <div class="text-sm">
-          ⭐⭐⭐⭐⭐ 4.9/5 (247 Reviews)
+          🇺🇸 {locationContent.heroText} - Early Bird $200 OFF!
         </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- Quick Stats Section -->
-<section class="py-16 bg-white">
-  <div class="container mx-auto px-4">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-      <div>
-        <div class="text-4xl font-bold text-emerald-600 mb-2">2000+</div>
-        <div class="text-gray-600">Certified Teachers</div>
-      </div>
-      <div>
-        <div class="text-4xl font-bold text-emerald-600 mb-2">50+</div>
-        <div class="text-gray-600">Countries Represented</div>
-      </div>
-      <div>
-        <div class="text-4xl font-bold text-emerald-600 mb-2">15</div>
-        <div class="text-gray-600">Years Experience</div>
-      </div>
-      <div>
-        <div class="text-4xl font-bold text-emerald-600 mb-2">98%</div>
-        <div class="text-gray-600">Success Rate</div>
-      </div>
-    </div>
-  </div>
-</section>
+        <h1 class="mb-6 text-5xl font-bold md:text-7xl">
+          200-Hour Yoga Teacher Training
+          <span
+            class="mt-2 block text-3xl font-light text-emerald-300 md:text-4xl"
+          >
+            January 2026 • Rishikesh, India
+          </span>
+        </h1>
 
-<!-- Course Curriculum Overview -->
-<section class="py-20 bg-gray-50">
-  <div class="container mx-auto px-4">
-    <div class="max-w-4xl mx-auto text-center mb-16">
-      <h2 class="text-4xl font-bold mb-6">Complete 200-Hour Curriculum</h2>
-      <p class="text-xl text-gray-700">
-        Our comprehensive program covers all aspects of traditional yoga as outlined by Yoga Alliance standards.
-      </p>
-    </div>
-    
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Curriculum modules would go here -->
-      <div class="bg-white rounded-lg p-8 shadow-lg">
-        <h3 class="text-xl font-semibold mb-4 text-emerald-800">Yoga Philosophy & History (20 hours)</h3>
-        <ul class="text-gray-700 space-y-2">
-          <li>• Patanjali's Yoga Sutras</li>
-          <li>• Bhagavad Gita study</li>
-          <li>• 8 limbs of yoga</li>
-          <li>• Traditional yogic lifestyle</li>
-        </ul>
-      </div>
-      
-      <div class="bg-white rounded-lg p-8 shadow-lg">
-        <h3 class="text-xl font-semibold mb-4 text-emerald-800">Asana Practice (75 hours)</h3>
-        <ul class="text-gray-700 space-y-2">
-          <li>• 200+ classical asanas</li>
-          <li>• Proper alignment principles</li>
-          <li>• Sun salutations variations</li>
-          <li>• Advanced poses progression</li>
-        </ul>
-      </div>
-      
-      <div class="bg-white rounded-lg p-8 shadow-lg">
-        <h3 class="text-xl font-semibold mb-4 text-emerald-800">Pranayama & Meditation (25 hours)</h3>
-        <ul class="text-gray-700 space-y-2">
-          <li>• Traditional breathing techniques</li>
-          <li>• Advanced pranayama practices</li>
-          <li>• Meditation methods</li>
-          <li>• Mindfulness cultivation</li>
-        </ul>
-      </div>
-      
-      <div class="bg-white rounded-lg p-8 shadow-lg">
-        <h3 class="text-xl font-semibold mb-4 text-emerald-800">Anatomy & Physiology (20 hours)</h3>
-        <ul class="text-gray-700 space-y-2">
-          <li>• Yoga anatomy essentials</li>
-          <li>• Injury prevention</li>
-          <li>• Body systems overview</li>
-          <li>• Energetic anatomy</li>
-        </ul>
-      </div>
-      
-      <div class="bg-white rounded-lg p-8 shadow-lg">
-        <h3 class="text-xl font-semibold mb-4 text-emerald-800">Teaching Methodology (25 hours)</h3>
-        <ul class="text-gray-700 space-y-2">
-          <li>• Class sequencing</li>
-          <li>• Hands-on adjustments</li>
-          <li>• Teaching practicum</li>
-          <li>• Student-teacher relationship</li>
-        </ul>
-      </div>
-      
-      <div class="bg-white rounded-lg p-8 shadow-lg">
-        <h3 class="text-xl font-semibold mb-4 text-emerald-800">Practicum & Assessment (35 hours)</h3>
-        <ul class="text-gray-700 space-y-2">
-          <li>• Practice teaching sessions</li>
-          <li>• Peer feedback</li>
-          <li>• Written examinations</li>
-          <li>• Final assessment</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+        <p class="mx-auto mb-8 max-w-3xl text-xl leading-relaxed md:text-2xl">
+          Transform your practice into profession with our <strong
+            >Yoga Alliance certified 200-hour Hatha Yoga Teacher Training</strong
+          > in the spiritual heart of India. Join 50+ international students from
+          20+ countries.
+        </p>
 
-<!-- FAQ Section with Structured Data -->
-<section class="py-20 bg-white">
-  <div class="container mx-auto px-4">
-    <h2 class="text-4xl font-bold text-center mb-16">Frequently Asked Questions</h2>
-    
-    <div class="max-w-4xl mx-auto">
-      <div class="space-y-6">
-        <!-- FAQ items based on structured data -->
-        {ttcFAQSchema.mainEntity.map((faq, index) => (
-          <div class="bg-gray-50 rounded-lg p-6">
-            <h3 class="text-xl font-semibold mb-4 text-emerald-800">{faq.name}</h3>
-            <p class="text-gray-700">{faq.acceptedAnswer.text}</p>
+        <!-- Key Benefits -->
+        <div class="mb-12 grid gap-6 md:grid-cols-3">
+          <div class="rounded-lg bg-white/10 p-6 backdrop-blur-sm">
+            <div class="mb-2 text-3xl">🏆</div>
+            <h3 class="mb-2 text-lg font-semibold">Yoga Alliance RYS 200</h3>
+            <p class="text-sm text-emerald-200">
+              Internationally recognized certification
+            </p>
           </div>
-        ))}
+          <div class="rounded-lg bg-white/10 p-6 backdrop-blur-sm">
+            <div class="mb-2 text-3xl">👥</div>
+            <h3 class="mb-2 text-lg font-semibold">Small Groups (Max 20)</h3>
+            <p class="text-sm text-emerald-200">
+              Personalized attention from masters
+            </p>
+          </div>
+          <div class="rounded-lg bg-white/10 p-6 backdrop-blur-sm">
+            <div class="mb-2 text-3xl">💰</div>
+            <h3 class="mb-2 text-lg font-semibold">All-Inclusive $1,299</h3>
+            <p class="text-sm text-emerald-200">
+              Accommodation, meals & certification
+            </p>
+          </div>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col justify-center gap-4 md:flex-row">
+          <a
+            href="/apply-now/"
+            class="transform rounded-lg bg-emerald-600 px-8 py-4 text-lg font-semibold text-white shadow-lg transition hover:scale-105 hover:bg-emerald-700"
+            aria-label="Apply now for 200-hour yoga teacher training starting January 2026"
+          >
+            Apply Now - $200 Early Bird Discount
+          </a>
+          <a
+            href="/download-brochure/"
+            class="rounded-lg border-2 border-white bg-transparent px-8 py-4 text-lg font-semibold text-white transition hover:bg-white hover:text-emerald-900"
+            aria-label="Download detailed brochure for 200-hour yoga teacher training program"
+          >
+            Download Free Brochure
+          </a>
+        </div>
+
+        <!-- Trust Indicators -->
+        <div
+          class="mt-12 flex flex-wrap items-center justify-center gap-8 opacity-80"
+        >
+          <img
+            src="/images/yoga-alliance-logo.png"
+            alt="Yoga Alliance RYS 200 Certified School"
+            class="h-12"
+          />
+          <img
+            src="/images/government-certified.png"
+            alt="Government of India Certified Yoga School"
+            class="h-12"
+          />
+          <div class="text-sm">⭐⭐⭐⭐⭐ 4.9/5 (247 Reviews)</div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CTA Section -->
-<section class="py-20 bg-emerald-700 text-white">
-  <div class="container mx-auto px-4 text-center">
-    <h2 class="text-4xl font-bold mb-8">Ready to Begin Your Yoga Journey?</h2>
-    <p class="text-xl mb-12 max-w-3xl mx-auto">
-      Join our January 2026 cohort and transform your life through authentic yoga practice and teaching.
-    </p>
-    <div class="flex flex-col md:flex-row gap-4 justify-center">
-      <a 
-        href="/apply-now/" 
-        class="bg-white text-emerald-700 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition"
-      >
-        Apply Now - Limited Spots Available
-      </a>
-      <a 
-        href="/contact/" 
-        class="bg-transparent border-2 border-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-emerald-600 transition"
-      >
-        Contact Us for Details
-      </a>
+  <!-- Quick Stats Section -->
+  <section class="bg-white py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-2 gap-8 text-center md:grid-cols-4">
+        <div>
+          <div class="mb-2 text-4xl font-bold text-emerald-600">2000+</div>
+          <div class="text-gray-600">Certified Teachers</div>
+        </div>
+        <div>
+          <div class="mb-2 text-4xl font-bold text-emerald-600">50+</div>
+          <div class="text-gray-600">Countries Represented</div>
+        </div>
+        <div>
+          <div class="mb-2 text-4xl font-bold text-emerald-600">15</div>
+          <div class="text-gray-600">Years Experience</div>
+        </div>
+        <div>
+          <div class="mb-2 text-4xl font-bold text-emerald-600">98%</div>
+          <div class="text-gray-600">Success Rate</div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- Course Curriculum Overview -->
+  <section class="bg-gray-50 py-20">
+    <div class="container mx-auto px-4">
+      <div class="mx-auto mb-16 max-w-4xl text-center">
+        <h2 class="mb-6 text-4xl font-bold">Complete 200-Hour Curriculum</h2>
+        <p class="text-xl text-gray-700">
+          Our comprehensive program covers all aspects of traditional yoga as
+          outlined by Yoga Alliance standards.
+        </p>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <!-- Curriculum modules would go here -->
+        <div class="rounded-lg bg-white p-8 shadow-lg">
+          <h3 class="mb-4 text-xl font-semibold text-emerald-800">
+            Yoga Philosophy & History (20 hours)
+          </h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>• Patanjali's Yoga Sutras</li>
+            <li>• Bhagavad Gita study</li>
+            <li>• 8 limbs of yoga</li>
+            <li>• Traditional yogic lifestyle</li>
+          </ul>
+        </div>
+
+        <div class="rounded-lg bg-white p-8 shadow-lg">
+          <h3 class="mb-4 text-xl font-semibold text-emerald-800">
+            Asana Practice (75 hours)
+          </h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>• 200+ classical asanas</li>
+            <li>• Proper alignment principles</li>
+            <li>• Sun salutations variations</li>
+            <li>• Advanced poses progression</li>
+          </ul>
+        </div>
+
+        <div class="rounded-lg bg-white p-8 shadow-lg">
+          <h3 class="mb-4 text-xl font-semibold text-emerald-800">
+            Pranayama & Meditation (25 hours)
+          </h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>• Traditional breathing techniques</li>
+            <li>• Advanced pranayama practices</li>
+            <li>• Meditation methods</li>
+            <li>• Mindfulness cultivation</li>
+          </ul>
+        </div>
+
+        <div class="rounded-lg bg-white p-8 shadow-lg">
+          <h3 class="mb-4 text-xl font-semibold text-emerald-800">
+            Anatomy & Physiology (20 hours)
+          </h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>• Yoga anatomy essentials</li>
+            <li>• Injury prevention</li>
+            <li>• Body systems overview</li>
+            <li>• Energetic anatomy</li>
+          </ul>
+        </div>
+
+        <div class="rounded-lg bg-white p-8 shadow-lg">
+          <h3 class="mb-4 text-xl font-semibold text-emerald-800">
+            Teaching Methodology (25 hours)
+          </h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>• Class sequencing</li>
+            <li>• Hands-on adjustments</li>
+            <li>• Teaching practicum</li>
+            <li>• Student-teacher relationship</li>
+          </ul>
+        </div>
+
+        <div class="rounded-lg bg-white p-8 shadow-lg">
+          <h3 class="mb-4 text-xl font-semibold text-emerald-800">
+            Practicum & Assessment (35 hours)
+          </h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>• Practice teaching sessions</li>
+            <li>• Peer feedback</li>
+            <li>• Written examinations</li>
+            <li>• Final assessment</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section with Structured Data -->
+  <section class="bg-white py-20">
+    <div class="container mx-auto px-4">
+      <h2 class="mb-16 text-center text-4xl font-bold">
+        Frequently Asked Questions
+      </h2>
+
+      <div class="mx-auto max-w-4xl">
+        <div class="space-y-6">
+          <!-- FAQ items based on structured data -->
+          {
+            ttcFAQSchema.mainEntity.map((faq, index) => (
+              <div class="rounded-lg bg-gray-50 p-6">
+                <h3 class="mb-4 text-xl font-semibold text-emerald-800">
+                  {faq.name}
+                </h3>
+                <p class="text-gray-700">{faq.acceptedAnswer.text}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-emerald-700 py-20 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="mb-8 text-4xl font-bold">Ready to Begin Your Yoga Journey?</h2>
+      <p class="mx-auto mb-12 max-w-3xl text-xl">
+        Join our January 2026 cohort and transform your life through authentic
+        yoga practice and teaching.
+      </p>
+      <div class="flex flex-col justify-center gap-4 md:flex-row">
+        <a
+          href="/apply-now/"
+          class="rounded-lg bg-white px-8 py-4 text-lg font-semibold text-emerald-700 transition hover:bg-gray-100"
+        >
+          Apply Now - Limited Spots Available
+        </a>
+        <a
+          href="/contact/"
+          class="rounded-lg border-2 border-white bg-transparent px-8 py-4 text-lg font-semibold transition hover:bg-emerald-600"
+        >
+          Contact Us for Details
+        </a>
+      </div>
+    </div>
+  </section>
 </SEOLayout>
 
 <!-- Additional Performance Optimizations -->
 <script>
   // Lazy load non-critical images
-  if ('IntersectionObserver' in window) {
+  if ("IntersectionObserver" in window) {
     const imageObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const img = entry.target as HTMLImageElement;
-          const dataSrc = img.getAttribute('data-src');
+          const dataSrc = img.getAttribute("data-src");
           if (dataSrc) {
             img.src = dataSrc;
-            img.classList.remove('lazy');
+            img.classList.remove("lazy");
             imageObserver.unobserve(img);
           }
         }
       });
     });
-    
-    document.querySelectorAll('img[data-src]').forEach(img => {
+
+    document.querySelectorAll("img[data-src]").forEach((img) => {
       imageObserver.observe(img);
     });
   }
-  
+
   // Performance monitoring
-  if ('performance' in window) {
-    window.addEventListener('load', () => {
-      const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+  if ("performance" in window) {
+    window.addEventListener("load", () => {
+      const loadTime =
+        performance.timing.loadEventEnd - performance.timing.navigationStart;
       console.log(`Page load time: ${loadTime}ms`);
     });
   }
@@ -370,20 +435,29 @@ const locationContent = generateLocationSpecificContent('usa');
 <style>
   /* Critical CSS for above-the-fold content optimization */
   .hero-section {
-    background-image: url('/images/rishikesh-yoga-hero-low-res.jpg');
+    background-image: url("/images/rishikesh-yoga-hero-low-res.jpg");
     background-size: cover;
     background-position: center;
   }
-  
+
   /* Lazy loading placeholder */
   .lazy {
-    background: linear-gradient(90deg, #f0f0f0 25%, transparent 37%, #f0f0f0 63%);
+    background: linear-gradient(
+      90deg,
+      #f0f0f0 25%,
+      transparent 37%,
+      #f0f0f0 63%
+    );
     background-size: 400% 100%;
     animation: shimmer 1.5s infinite;
   }
-  
+
   @keyframes shimmer {
-    0% { background-position: 100% 0; }
-    100% { background-position: -100% 0; }
+    0% {
+      background-position: 100% 0;
+    }
+    100% {
+      background-position: -100% 0;
+    }
   }
 </style>
