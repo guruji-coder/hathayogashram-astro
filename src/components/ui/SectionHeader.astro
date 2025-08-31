@@ -5,11 +5,11 @@ export interface Props extends SectionHeaderProps {}
 
 const {
   title,
-  titleClass = "mb-4 text-xl font-bold text-purple-900 sm:text-2xl lg:text-3xl",
+  titleClass = "mb-4 text-xl font-bold text-purple-900 sm:text-2xl lg:text-3xl text-center",
   svgWidth = 300,
   svgHeight = 30,
   svgColor = "text-purple-900",
-  containerClass = "mb-12 text-center",
+  containerClass = "mb-12 text-center flex w-full justify-center flex-col",
 } = Astro.props;
 ---
 
@@ -20,7 +20,7 @@ const {
   </h2>
 
   <!-- Decorative Underline SVG -->
-  <div class="mb-6 flex justify-center">
+  <div class="my-6 flex justify-center">
     <svg
       width={svgWidth}
       height={svgHeight}

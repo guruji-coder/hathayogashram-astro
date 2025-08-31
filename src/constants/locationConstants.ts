@@ -48,7 +48,6 @@ export const LOCATION_SECTION = {
 
   // Map Information
   MAP_INFO: {
-    TITLE: "Find Us",
     ICON: "fas fa-map-marker-alt",
     IFRAME_SRC:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3450.695632465718!2d78.31846067613853!3d30.131521774879875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf1a92133223b%3A0x5769fde72c39e6f5!2sHatha%20Yogashram!5e0!3m2!1sen!2sin!4v1756579609167!5m2!1sen!2sin",
@@ -73,16 +72,14 @@ export const LOCATION_STYLES = {
   COLUMN_WIDTH: "lg:w-1/2 w-full",
 
   // Card styles
-  CARD_BASE: "bg-white rounded-2xl shadow-lg",
-  TRAVEL_CARD: "bg-white rounded-2xl shadow-lg p-8",
-  MAP_CARD: "bg-white rounded-2xl shadow-lg p-6 h-full",
+  CARD_BASE: "bg-white",
+  TRAVEL_CARD: "bg-white p-8",
+  MAP_CARD: "bg-white p-6 h-full",
 
   // Content styles
-  SECTION_TITLE: "text-2xl font-bold text-gray-800 mb-6 flex items-center",
   TRAVEL_ICON: "text-blue-600 mr-3",
   ROADWAY_ICON: "text-green-600 mr-3",
   RAILWAY_ICON: "text-purple-600 mr-3",
-  MAP_ICON: "fas fa-map-marker-alt text-red-600 mr-3",
 
   TEXT_CONTENT: "text-gray-700 leading-relaxed",
   PARAGRAPH: "mb-4",

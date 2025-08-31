@@ -1,0 +1,25 @@
+---
+import SectionHeader from "../../ui/SectionHeader.astro";
+import { APPLE_CARDS_SECTION } from "$constants/homePageConstants";
+import AppleCardsCarousel from "$ui/AppleCardsSection.astro";
+---
+
+<section class="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50">
+	<!-- Hero Section -->
+	<section class="py-20">
+		<div class="container mx-auto px-4 text-center">
+			<h1 class="mb-4 font-space text-3xl font-bold text-purple-900 sm:text-4xl">
+				{APPLE_CARDS_SECTION.TITLE}
+			</h1>
+			<p class="mx-auto max-w-2xl text-lg text-gray-700 md:text-xl">
+				{APPLE_CARDS_SECTION.SUBTITLE}
+			</p>
+		</div>
+	</section>
+    >
+
+	<!-- Apple Cards Carousel -->
+	<section class="py-10">
+		<AppleCardsCarousel cards={APPLE_CARDS_SECTION.CARDS} />
+	</section>
+</section>

@@ -1,0 +1,40 @@
+---
+interface Props {
+	cardClass: string;
+	profileContainerClass: string;
+	profileImageWrapperClass: string;
+	profileImageClass: string;
+	contentContainerClass: string;
+	image: string;
+	imageAlt: string;
+}
+
+const { 
+	cardClass,
+	profileContainerClass,
+	profileImageWrapperClass,
+	profileImageClass,
+	contentContainerClass,
+	image,
+	imageAlt
+} = Astro.props;
+---
+
+<div class={cardClass}>
+	<!-- Profile Image -->
+	<div class={profileContainerClass}>
+		<div class={profileImageWrapperClass}>
+			<img
+				src={image}
+				alt={imageAlt}
+				class={profileImageClass}
+				loading="lazy"
+			/>
+		</div>
+	</div>
+
+	<!-- Content -->
+	<div class={contentContainerClass}>
+		<slot />
+	</div>
+</div>

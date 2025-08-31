@@ -1,0 +1,95 @@
+
+
+
+---
+import { YOGA_COURSES_CARDS_SECTION, HOME_STYLES } from "../../../constants/homePageConstants";
+import { BUTTON_STYLES } from "../../../constants/uiConstants";
+import CourseCard from "../../ui/CourseCard.astro";
+
+const { TITLE, SUBTITLE, COURSES } = YOGA_COURSES_CARDS_SECTION;
+
+// Specialized courses data
+const specializedCourses = [
+	{
+		id: 101,
+		title: "Kundalini Yoga Teacher Training Course",
+		duration: "200 - 300 Hours",
+		module: "Residential with Meals",
+		privateRoom: "USD 1899",
+		sharedRoom: "USD 1699",
+		certification: "Yoga Alliance",
+		date: "Available on request",
+		image: "/yogacoursepic.jpg",
+		description: "Awaken your inner energy and learn the sacred practices of Kundalini Yoga. This transformative course combines ancient wisdom with modern teaching methodology.",
+	},
+	{
+		id: 102,
+		title: "Vedic Chanting Teacher Training Course",
+		duration: "200 Hours",
+		module: "Residential with Meals",
+		privateRoom: "USD 1399",
+		sharedRoom: "USD 1199",
+		certification: "Traditional",
+		date: "Available on request",
+		image: "/yogacoursepic.jpg",
+		description: "Dive deep into the sacred tradition of Vedic chanting and learn to teach these ancient Sanskrit practices with authenticity and reverence.",
+	}
+];
+---
+
+<!-- Yoga Teacher Training Courses Section -->
+<section
+	class={`${HOME_STYLES.SECTION_PADDING} bg-gradient-to-br from-purple-50 to-orange-50 font-space`}
+>
+	<div class={HOME_STYLES.CONTAINER}>
+		<!-- Section Title -->
+		<div class="mb-12 text-center">
+			<h2 class="mb-4 text-3xl font-bold text-purple-900 sm:text-4xl">
+				{TITLE}
+			</h2>
+			<p class="mx-auto max-w-3xl text-lg text-gray-600">
+				{SUBTITLE}
+			</p>
+		</div>
+
+		<!-- Main YTTC Courses Grid -->
+		<div class="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+			{COURSES.map(course => (
+				<CourseCard course={course} />
+			))}
+		</div>
+
+		<!-- Specialized Courses Section -->
+		<div class="mt-16">
+			<h3 class="mb-8 text-center text-2xl font-bold text-purple-900 sm:text-3xl">
+				Specialized Teacher Training Courses
+			</h3>
+			<div class="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2">
+				{specializedCourses.map(course => (
+					<CourseCard course={course} />
+				))}
+			</div>
+		</div>
+
+		<!-- Call to Action -->
+		<div class="mt-16 text-center">
+			<p class="mb-6 text-lg text-gray-700">
+				Ready to start your yoga journey? Contact us for more information.
+			</p>
+			<div class="flex flex-col justify-center gap-4 sm:flex-row">
+				<a
+					href="/contact"
+					class={`${BUTTON_STYLES.BASE} ${BUTTON_STYLES.VARIANTS.PRIMARY} `}
+				>
+					Contact Us
+				</a>
+				<a
+					href="/courses"
+					class={`${BUTTON_STYLES.BASE} bg-orange-500 px-8 py-4 text-lg text-white transition-colors duration-200 hover:bg-orange-600`}
+				>
+					View All Courses
+				</a>
+			</div>
+		</div>
+	</div>
+</section>

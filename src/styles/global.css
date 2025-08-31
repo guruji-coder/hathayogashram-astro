@@ -7,3 +7,43 @@
 p {
   font-size: 15px;
 }
+
+/* Global scrollbar hiding for horizontal overflow */
+.overflow-x-auto::-webkit-scrollbar {
+  display: none;
+}
+
+.overflow-x-auto {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbars for any flex container with snap-x */
+.flex.snap-x::-webkit-scrollbar {
+  display: none;
+}
+
+.flex.snap-x {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbars for any element with overflow-x-auto */
+[class*="overflow-x-auto"]::-webkit-scrollbar {
+  display: none;
+}
+
+[class*="overflow-x-auto"] {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.no-visible-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.no-visible-scrollbar::-webkit-scrollbar {
+  display: none;
+}

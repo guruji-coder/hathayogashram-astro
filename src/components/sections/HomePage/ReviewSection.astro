@@ -1,6 +1,8 @@
 ---
 import { REVIEWS_SECTION, REVIEWS_STYLES } from '../../../constants/reviewsConstants';
 import SectionHeader from '../../ui/SectionHeader.astro';
+import HorizontalCarousel from '../../ui/HorizontalCarousel.astro';
+import ProfileCard from '../../ui/ProfileCard.astro';
 
 // Function to generate star rating
 function generateStars(rating: number): string[] {
@@ -23,40 +25,30 @@ function generateStars(rating: number): string[] {
 		/>
 
 		<!-- Reviews - Horizontal scroll: 1 for mobile, 2 for tablet, 3 for desktop -->
-		<div
+		<HorizontalCarousel 
 			id="reviewsContainer"
-			class="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pt-12 pb-4"
+			containerClass="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pt-12 pb-4"
+			scrollInterval={3000}
 		>
 			{REVIEWS_SECTION.REVIEWS.map(review => (
-				<div
-					class="relative w-[calc(100%-12px)] flex-shrink-0 transform snap-start rounded-3xl border-2 border-orange-300 bg-white p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+				<ProfileCard
+					cardClass="relative w-[calc(100%-12px)] flex-shrink-0 transform snap-start rounded-3xl border-2 border-orange-300 bg-white p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+					profileContainerClass="-mt-12 mb-6 flex justify-center"
+					profileImageWrapperClass="h-24 w-24 overflow-hidden rounded-full border-1 border-orange-300 bg-white p-1"
+					profileImageClass="h-full w-full rounded-full object-cover"
+					contentContainerClass="text-center"
+					image={review.image}
+					imageAlt={review.name}
 				>
-					<!-- Reviewer Profile Image -->
-					<div class="-mt-12 mb-6 flex justify-center">
-						<div
-							class="h-24 w-24 overflow-hidden rounded-full border-1 border-orange-300 bg-white p-1"
-						>
-							<img
-								src={review.image}
-								alt={review.name}
-								class="h-full w-full rounded-full object-cover"
-								loading="lazy"
-							/>
-						</div>
-					</div>
+					<h3 class="mb-2 text-xl font-bold text-gray-800">
+						{review.name}
+					</h3>
 
-					<!-- Reviewer Name -->
-					<div class="mb-4 text-center">
-						<h3 class="mb-2 text-xl font-bold text-gray-800">
-							{review.name}
-						</h3>
-
-						<!-- Star Rating -->
-						<div class="mb-4 flex items-center justify-center">
-							{generateStars(review.rating).map((starClass, index) => (
-								<i class={`${starClass} mr-1 text-lg text-orange-400`}></i>
-							))}
-						</div>
+					<!-- Star Rating -->
+					<div class="mb-4 flex items-center justify-center">
+						{generateStars(review.rating).map((starClass, index) => (
+							<i class={`${starClass} mr-1 text-lg text-orange-400`}></i>
+						))}
 					</div>
 
 					<!-- Review Text -->
@@ -68,9 +60,9 @@ function generateStars(rating: number): string[] {
 					<div class="text-center text-sm text-gray-500">
 						{review.course} • {review.country}
 					</div>
-				</div>
+				</ProfileCard>
 			))}
-		</div>
+		</HorizontalCarousel>
 
 		<!-- View All Reviews Button -->
 		<div class="text-center">
@@ -86,26 +78,3 @@ function generateStars(rating: number): string[] {
 		</div>
 	</div>
 </section>
-
-<!-- Auto-scroll functionality -->
-<script>
-	// Simple auto-scroll for mobile, tablet, and desktop
-	const scrollContainer = document.getElementById('reviewsContainer');
-	
-	if (scrollContainer) {
-		setInterval(() => {
-			const cardWidth =
-				window.innerWidth < 768
-					? window.innerWidth
-					: window.innerWidth < 1024
-						? window.innerWidth / 2
-						: window.innerWidth / 3;
-			
-			scrollContainer.scrollBy({ left: cardWidth, behavior: 'smooth' });
-			
-			if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
-				scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
-			}
-		}, 3000);
-	}
-</script>

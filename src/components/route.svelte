@@ -8,7 +8,7 @@
     HeroCarousel,
     ReviewsSection,
   } from "$lib/components";
-  import AppleCardsCarousel from "$lib/components/ui/AppleCardsCarousel.svelte";
+  import AppleCardsCarousel from "./ui/AppleCardsCarousel.svelte";
   import {
     APPLE_CARDS_SECTION,
     CERTIFICATIONS_SECTION,
@@ -49,16 +49,16 @@
 
 <HeroCarousel />
 
-<!-- Welcome Section with Decorative Styling -->
+<!-- Welcome Section with Decorative Styling 
 <section class="{HOME_STYLES.SECTION_PADDING} bg-white">
   <div class={HOME_STYLES.CONTAINER}>
-    <!-- Main Heading with Decorative Underline -->
+    <!-- Main Heading with Decorative Underline 
     <div class="mb-8 text-center">
       <h2 class={HOME_STYLES.HERO_TITLE}>
         {HOME_HERO.TITLE}
       </h2>
 
-      <!-- Decorative Underline SVG -->
+      <!-- Decorative Underline SVG 
       <div class="mb-6 flex justify-center">
         <svg
           width="200"
@@ -78,7 +78,7 @@
       </div>
     </div>
 
-    <!-- Rating and Welcome Message -->
+    <!-- Rating and Welcome Message 
     <div class="mb-8 text-center">
       <div class="mb-4 flex items-center justify-center">
         <span class={HOME_STYLES.RATING_NUMBER}>{HOME_HERO.RATING.STARS}</span>
@@ -90,7 +90,7 @@
       </p>
     </div>
 
-    <!-- Highlight Boxes Grid -->
+    <!-- Highlight Boxes Grid 
     <div class={HOME_STYLES.HIGHLIGHT_GRID}>
       {#each HOME_HIGHLIGHTS as highlight (highlight.TEXT)}
         <div class={HOME_STYLES.HIGHLIGHT_BOX}>
@@ -102,24 +102,24 @@
       {/each}
     </div>
 
-    <!-- Intro Paragraph -->
+    <!-- Intro Paragraph 
     <div class="mx-auto max-w-6xl">
       <p class={HOME_STYLES.INTRO_PARAGRAPH}>
         {HOME_CONTENT.INTRO_PARAGRAPH}
       </p>
     </div>
 
-    <!-- Two Column Layout: Content + Images -->
+    <!-- Two Column Layout: Content + Images 
     <div class="mx-auto max-w-6xl">
       <div class={HOME_STYLES.TWO_COLUMN_GRID}>
-        <!-- Left Column: Description Paragraphs -->
+        <!-- Left Column: Description Paragraphs 
         <div class={HOME_STYLES.CONTENT_CONTAINER}>
-          <!-- First Paragraph -->
+          <!-- First Paragraph 
           <p class={HOME_STYLES.CONTENT_PARAGRAPH}>
             {HOME_CONTENT.PARAGRAPHS[0]}
           </p>
 
-          <!-- Mobile Images (shown after first paragraph on mobile only) -->
+          <!-- Mobile Images (shown after first paragraph on mobile only) 
           <div class="lg:hidden {HOME_STYLES.IMAGE_GRID} mb-6">
             {#each HOME_GALLERY.IMAGES as image, index (index)}
               <div class={HOME_STYLES.IMAGE_ITEM}>
@@ -133,14 +133,14 @@
             {/each}
           </div>
 
-          <!-- Remaining Paragraphs -->
+          <!-- Remaining Paragraphs 
           {#each HOME_CONTENT.PARAGRAPHS.slice(1) as paragraph (paragraph)}
             <p class={HOME_STYLES.CONTENT_PARAGRAPH}>
               {paragraph}
             </p>
           {/each}
 
-          <!-- Course Buttons -->
+          <!-- Course Buttons 
           <div class={HOME_STYLES.COURSE_BUTTONS_CONTAINER}>
             {#each HOME_COURSES as course (course.TITLE)}
               <a
@@ -153,7 +153,7 @@
           </div>
         </div>
 
-        <!-- Right Column: Image Gallery (desktop only) -->
+        <!-- Right Column: Image Gallery (desktop only) 
         <div class="hidden lg:block">
           <div class={HOME_STYLES.IMAGE_GRID}>
             {#each HOME_GALLERY.IMAGES as image, index (index)}
@@ -173,10 +173,10 @@
   </div>
 </section>
 
-<!-- Objective Section -->
+<!-- Objective Section 
 <section class="{HOME_STYLES.SECTION_PADDING} bg-yellow-50">
   <div class={HOME_STYLES.CONTAINER}>
-    <!-- Main Heading with Decorative Underline -->
+    <!-- Main Heading with Decorative Underline 
     <div class="mb-12 text-center">
       <h2
         class="mb-4 text-xl font-bold text-purple-900 sm:text-2xl lg:text-3xl"
@@ -184,7 +184,7 @@
         {OBJECTIVE_SECTION.TITLE}
       </h2>
 
-      <!-- Decorative Underline SVG -->
+      <!-- Decorative Underline SVG 
       <div class="mb-6 flex justify-center">
         <svg
           width="200"
@@ -204,7 +204,7 @@
       </div>
     </div>
 
-    <!-- Content Paragraphs -->
+    <!-- Content Paragraphs 
     <div class="mx-auto max-w-6xl space-y-6">
       {#each OBJECTIVE_SECTION.PARAGRAPHS as paragraph (paragraph)}
         <p
@@ -214,7 +214,7 @@
         </p>
       {/each}
 
-      <!-- Mantras Grid -->
+      <!-- Mantras Grid 
       <div class="my-8 grid gap-4 sm:grid-cols-2">
         {#each OBJECTIVE_SECTION.MANTRAS as mantra (mantra.english)}
           <div class="flex items-start space-x-3">
@@ -229,7 +229,7 @@
         {/each}
       </div>
 
-      <!-- Closing Text -->
+      <!-- Closing Text 
       <p
         class="mt-6 text-center text-sm font-medium leading-relaxed text-gray-700 sm:text-base"
       >
@@ -239,17 +239,17 @@
 
     <section class="{HOME_STYLES.SECTION_PADDING} ">
       <div class={HOME_STYLES.CONTAINER}>
-        <!-- Section Header -->
+        <!-- Section Header 
 
-        <!-- Courses Grid -->
+        <!-- Courses Grid 
         <div class="mx-auto max-w-6xl space-y-8">
           {#each TTC_COURSES_SECTION.COURSES as course (course.TITLE)}
             <div
               class="overflow-hidden rounded-xl border border-orange-200 bg-white shadow-md transition-shadow duration-300 hover:shadow-lg"
             >
-              <!-- Course Card with Side-by-Side Layout -->
+              <!-- Course Card with Side-by-Side Layout 
               <div class="flex flex-col lg:flex-row">
-                <!-- Course Image on Left - Small Square -->
+                <!-- Course Image on Left - Small Square 
                 <div class="lg:w-100 relative w-full flex-shrink-0">
                   <img
                     src={course.IMAGE}
@@ -257,28 +257,28 @@
                     class="h-full w-full object-cover"
                     loading="lazy"
                   />
-                  <!-- Orange border frame -->
+                  <!-- Orange border frame 
                   <div
                     class="pointer-events-none absolute inset-2 rounded-lg border-2 border-orange-400"
                   ></div>
                 </div>
 
-                <!-- Course Content on Right -->
+                <!-- Course Content on Right 
                 <div class="flex flex-col justify-between p-6 lg:flex-1 lg:p-8">
                   <div>
-                    <!-- Location -->
+                    <!-- Location 
                     <p class="mb-2 text-sm font-medium italic text-gray-600">
                       {course.LOCATION}
                     </p>
 
-                    <!-- Title -->
+                    <!-- Title 
                     <h3
                       class="mb-4 text-xl font-bold text-purple-900 lg:text-2xl"
                     >
                       {course.TITLE}
                     </h3>
 
-                    <!-- Description -->
+                    <!-- Description 
                     <p
                       class="mb-6 text-justify text-sm leading-relaxed text-gray-700 lg:text-base"
                     >
@@ -286,7 +286,7 @@
                     </p>
                   </div>
 
-                  <!-- Read More Button -->
+                  <!-- Read More Button 
                   <div class="flex justify-end">
                     <a
                       href={course.URL}
@@ -306,10 +306,10 @@
   </div>
 </section>
 
-<!-- Certifications & Accreditations Section -->
+<!-- Certifications & Accreditations Section 
 <section class="{HOME_STYLES.SECTION_PADDING} bg-white">
   <div class={HOME_STYLES.CONTAINER}>
-    <!-- Section Header -->
+    <!-- Section Header 
     <div class="mb-12 text-center">
       <h2
         class="mb-4 text-2xl font-bold text-purple-900 sm:text-3xl lg:text-4xl"
@@ -317,7 +317,7 @@
         {CERTIFICATIONS_SECTION.TITLE}
       </h2>
 
-      <!-- Decorative Underline SVG -->
+      <!-- Decorative Underline SVG 
       <div class="mb-6 flex justify-center">
         <svg
           width="300"
@@ -347,7 +347,7 @@
       </div>
     </div>
 
-    <!-- Content Paragraphs -->
+    <!-- Content Paragraphs 
     <div class="mx-auto mb-12 max-w-4xl space-y-6">
       {#each CERTIFICATIONS_SECTION.PARAGRAPHS.slice(0, 4) as paragraph (paragraph)}
         <p
@@ -357,7 +357,7 @@
         </p>
       {/each}
 
-      <!-- Yoga Alliance Logo after Guru-Shishya tradition paragraph -->
+      <!-- Yoga Alliance Logo after Guru-Shishya tradition paragraph 
       <div class="my-8 flex justify-center">
         <div
           class="h-full w-full transition-transform duration-300 hover:scale-105"
@@ -371,7 +371,7 @@
         </div>
       </div>
 
-      <!-- Remaining paragraphs after the logo -->
+      <!-- Remaining paragraphs after the logo 
       {#each CERTIFICATIONS_SECTION.PARAGRAPHS.slice(4) as paragraph}
         <p
           class="text-justify text-base leading-relaxed text-gray-700 lg:text-lg"
@@ -383,28 +383,28 @@
   </div>
 </section>
 
-<!-- Founder Section -->
+<!-- Founder Section 
 <FounderSection />
 
-<!-- Trusted Yoga Alliance Registered School Section -->
+<!-- Trusted Yoga Alliance Registered School Section 
 <section
   class="relative flex min-h-screen items-center justify-center overflow-hidden py-16"
 >
-  <!-- Background Image with Overlay -->
+  <!-- Background Image with Overlay 
   <div
     class="trusted-yoga-alliance absolute inset-0 bg-cover bg-fixed bg-top"
     style="background-image: url('/bg-certificate.png'); background-size: cover; background-position: top; background-attachment: fixed;"
   ></div>
 
-  <!-- Content -->
+  <!-- Content 
   <div class="container relative z-10 mx-auto px-4 text-center text-white">
-    <!-- Main Heading -->
+    <!-- Main Heading 
     <div class="mb-8">
       <h2 class="mb-4 text-3xl font-bold sm:text-4xl lg:text-5xl">
         Trusted Yoga Alliance Registered School
       </h2>
 
-      <!-- Decorative Underline SVG -->
+      <!-- Decorative Underline SVG 
       <div class="mb-8 flex justify-center">
         <svg width="300" height="30" viewBox="0 0 300 30" class="text-white">
           <path
@@ -429,14 +429,14 @@
       </div>
     </div>
 
-    <!-- Subtitle -->
+    <!-- Subtitle 
     <h3
       class="mb-8 text-xl font-semibold text-yellow-300 sm:text-2xl lg:text-3xl"
     >
       Certification for International Yoga Instructor
     </h3>
 
-    <!-- Description Paragraphs -->
+    <!-- Description Paragraphs 
     <div class="mx-auto mb-12 max-w-4xl space-y-6">
       <p class="text-base leading-relaxed lg:text-lg">
         Hatha Yoga Ashram in Rishikesh offers a comprehensive certification for
@@ -455,18 +455,18 @@
       </p>
     </div>
 
-    <!-- Certification Cards Carousel -->
+    <!-- Certification Cards Carousel 
     <CertificateCarousel />
   </div>
 </section>
 
-<!-- Reviews Section -->
+<!-- Reviews Section 
 <ReviewsSection />
 
-<!-- Best Yoga Teachers Section -->
+<!-- Best Yoga Teachers Section 
 <section class="{HOME_STYLES.SECTION_PADDING} bg-white">
   <div class={HOME_STYLES.CONTAINER}>
-    <!-- Section Header -->
+    <!-- Section Header 
     <div class="mb-12 text-center">
       <h2
         class="mb-6 text-2xl font-bold text-purple-900 sm:text-3xl lg:text-4xl"
@@ -474,7 +474,7 @@
         {TEACHERS_SECTION.TITLE}
       </h2>
 
-      <!-- Decorative Underline SVG -->
+      <!-- Decorative Underline SVG 
       <div class="mb-8 flex justify-center">
         <svg
           width="300"
@@ -504,7 +504,7 @@
       </div>
     </div>
 
-    <!-- Introduction Text -->
+    <!-- Introduction Text 
     <div class="mx-auto mb-8 max-w-4xl text-center">
       <p class="mb-4 text-base leading-relaxed text-gray-700 lg:text-lg">
         {TEACHERS_SECTION.INTRO_PARAGRAPH}
@@ -515,7 +515,7 @@
       </p>
     </div>
 
-    <!-- Simple Responsive Teachers Carousel -->
+    <!-- Simple Responsive Teachers Carousel 
     <div class="mx-auto max-w-6xl">
       <div class="overflow-hidden">
         <div
@@ -525,7 +525,7 @@
           {#each TEACHERS_SECTION.TEACHERS as teacher (teacher.name)}
             <div class="w-full flex-shrink-0 px-4 md:w-1/2 lg:w-1/3">
               <div class="text-center">
-                <!-- Teacher Image -->
+                <!-- Teacher Image 
                 <div class="mx-auto mb-6 h-48 w-48">
                   <img
                     src={teacher.image}
@@ -535,7 +535,7 @@
                   />
                 </div>
 
-                <!-- Teacher Info -->
+                <!-- Teacher Info 
                 <div class="space-y-3">
                   <h3 class="m-0 p-0 text-sm font-light text-orange-500">
                     {teacher.specialty}
@@ -553,7 +553,7 @@
         </div>
       </div>
 
-      <!-- Simple Dots Indicator -->
+      <!-- Simple Dots Indicator 
       <div class="mt-8 flex justify-center space-x-3">
         {#each TEACHERS_SECTION.TEACHERS as _, index (_)}
           <div
@@ -566,7 +566,7 @@
       </div>
     </div>
 
-    <!-- Enroll Now Button -->
+    <!-- Enroll Now Button 
     <div class="mt-12 text-center">
       <a
         href="/enroll"
@@ -579,12 +579,12 @@
   </div>
 </section>
 
-<!-- Yoga Teacher Training Courses Section -->
+<!-- Yoga Teacher Training Courses Section 
 <section
   class="{HOME_STYLES.SECTION_PADDING} bg-gradient-to-br from-purple-50 to-orange-50 font-space"
 >
   <div class={HOME_STYLES.CONTAINER}>
-    <!-- Section Title -->
+    <!-- Section Title 
     <div class="mb-12 text-center">
       <h2 class="mb-4 text-3xl font-bold text-purple-900 sm:text-4xl">
         {YOGA_COURSES_CARDS_SECTION.TITLE}
@@ -594,7 +594,7 @@
       </p>
     </div>
 
-    <!-- Courses Grid -->
+    <!-- Courses Grid 
     <div
       class="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4"
     >
@@ -603,7 +603,7 @@
       {/each}
     </div>
 
-    <!-- Call to Action -->
+    <!-- Call to Action 
     <div class="mt-16 text-center">
       <p class="mb-6 text-lg text-gray-700">
         Ready to start your yoga journey? Contact us for more information.
@@ -628,7 +628,7 @@
 </section>
 
 <section class="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50">
-  <!-- Hero Section -->
+  <!-- Hero Section 
   <section class="py-20">
     <div class="container mx-auto px-4 text-center">
       <h1
@@ -642,7 +642,7 @@
     </div>
   </section>
 
-  <!-- Apple Cards Carousel -->
+  <!-- Apple Cards Carousel 
   <section class="py-10">
     <AppleCardsCarousel cards={APPLE_CARDS_SECTION.CARDS} />
   </section>
@@ -654,12 +654,12 @@
   style="width: 100%; height:700px; border: none;"
 ></iframe>
 
-<!-- Focus Cards Gallery Section -->
+<!-- Focus Cards Gallery Section 
 <section
   class="bg-gray-50 bg-gradient-to-br from-purple-100 to-purple-50 py-16"
 >
   <div class="container mx-auto px-4">
-    <!-- Section Header -->
+    <!-- Section Header 
     <div class="mb-16 text-center">
       <h2
         class="mb-4 text-center text-3xl font-bold text-purple-900 md:text-4xl"
@@ -686,12 +686,12 @@
       </div>
     </div>
 
-    <!-- Focus Cards Component -->
+    <!-- Focus Cards Component 
     <FocusCards cards={FOCUS_CARDS_SECTION.CARDS} />
   </div>
 </section>
 
-<!-- FAQ Section -->
+<!-- FAQ Section 
 <FaqSection />
 
 <style>
@@ -702,4 +702,4 @@
     background: rgba(0, 0, 0, 0.52);
     z-index: 1;
   }
-</style>
+</style> -->
