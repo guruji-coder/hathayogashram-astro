@@ -135,20 +135,23 @@ const {
     
     // Handle expand/collapse functionality
     expandBtns.forEach((btn) => {
-      btn.addEventListener('click', function() {
-        const cardIndex = this.getAttribute('data-card-index');
-        const card = this.closest('.group');
-        const content = card.querySelector('.prose');
-        const expandText = this.querySelector('.expand-text');
+      btn.addEventListener('click', function(event) {
+        const target = event.currentTarget as HTMLButtonElement;
+        const cardIndex = target.getAttribute('data-card-index');
+        const card = target.closest('.group');
+        const content = card?.querySelector('.prose');
+        const expandText = target.querySelector('.expand-text');
         
-        if (content.classList.contains('line-clamp-6')) {
-          // Expand
-          content.classList.remove('line-clamp-6');
-          expandText.textContent = 'Read Less';
-        } else {
-          // Collapse
-          content.classList.add('line-clamp-6');
-          expandText.textContent = 'Read More';
+        if (content && expandText) {
+          if (content.classList.contains('line-clamp-6')) {
+            // Expand
+            content.classList.remove('line-clamp-6');
+            expandText.textContent = 'Read Less';
+          } else {
+            // Collapse
+            content.classList.add('line-clamp-6');
+            expandText.textContent = 'Read More';
+          }
         }
       });
     });

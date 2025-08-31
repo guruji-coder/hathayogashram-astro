@@ -7,6 +7,7 @@ export { default as FounderSection } from './HomePage/FeatureSection.astro';
 export { default as ReviewSection } from './HomePage/ReviewSection.astro';
 export { default as LocationSection } from './HomePage/LocationSection.astro';
 export { default as YogaAllianceRegisteredSchool } from './HomePage/YogaAllianceRegisteredSchool.astro';
-export { default as YogaGuruSection } from './/HomePage/YogaGuruSection.astro';
+export { default as YogaGuruSection } from './HomePage/YogaGuruSection.astro';
 export { default as OverviewTTC } from './HomePage/OverviewTTC.astro';
 export { default as YTTCourseSection } from './HomePage/YTTCourseSection.astro';
+

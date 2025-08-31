@@ -17,7 +17,6 @@ export { default as MobileMenuButton } from "./navigation/MobileMenuButton.astro
 // // Feature components
 // export { default as AppleCardsSection } from './AppleCardsSection.svelte';
 // export { default as CertificateCarousel } from './CertificateCarousel.svelte';
-// export { default as CourseCard } from './CourseCard.svelte';
 // export { default as FaqSection } from './FaqSection.svelte';
 // export { default as ReviewsSection } from './ReviewsSection.svelte';
 // export { default as TeacherCard } from './TeacherCard.svelte';

@@ -51,6 +51,11 @@ export default defineConfig({
         $components: fileURLToPath(
           new URL("./src/components", import.meta.url),
         ),
+        $ui: fileURLToPath(new URL("./src/components/ui", import.meta.url)),
+        $features: fileURLToPath(
+          new URL("./src/components/features", import.meta.url),
+        ),
+        $svelte: fileURLToPath(new URL("./src/components/svelte", import.meta.url)),
         $schemas: fileURLToPath(new URL("./src/schemas", import.meta.url)),
       },
     },
