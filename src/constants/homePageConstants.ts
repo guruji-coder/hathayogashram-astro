@@ -366,68 +366,13 @@ export const YOGA_COURSES_CARDS_SECTION = {
   TITLE: "Our Yoga Teacher Training Courses",
   SUBTITLE:
     "Transform your practice with internationally certified yoga teacher training programs",
-
-  COURSES: [
-    {
-      id: 1,
-      title: "100 Hour Yoga Teacher Training Course",
-      duration: "12 Days",
-      module: "Residential with Meals",
-      privateRoom: "USD 699",
-      sharedRoom: "USD 499",
-      certification: "Yoga Alliance",
-      date: "1st-12th of every month",
-      image: "/yogacoursepic.jpg",
-      description:
-        "Perfect for beginners seeking a comprehensive introduction to yoga teaching fundamentals.",
-    },
-    {
-      id: 2,
-      title: "200 Hour Yoga Teacher Training Course",
-      duration: "24 Days",
-      module: "Residential with Meals",
-      privateRoom: "USD 1099",
-      sharedRoom: "USD 899",
-      certification: "Yoga Alliance",
-      date: "1st-24th of every month",
-      image: "/yogacoursepic.jpg",
-      description:
-        "The most popular certification course for aspiring yoga teachers worldwide.",
-    },
-    {
-      id: 3,
-      title: "300 Hour Yoga Teacher Training Course",
-      duration: "28 Days",
-      module: "Residential with Meals",
-      privateRoom: "USD 1399",
-      sharedRoom: "USD 1199",
-      certification: "Yoga Alliance",
-      date: "1st-28th of every month",
-      image: "/yogacoursepic.jpg",
-      description:
-        "Advanced training to deepen your practice and teaching methodology.",
-    },
-    {
-      id: 4,
-      title: "500 Hour Yoga Teacher Training Course",
-      duration: "8 Weeks",
-      module: "Residential with Meals",
-      privateRoom: "USD 2149",
-      sharedRoom: "USD 1549",
-      certification: "Yoga Alliance",
-      date: "1st of every month",
-      image: "/yogacoursepic.jpg",
-      description:
-        "Complete comprehensive training combining 200hr and 300hr certifications.",
-    },
-  ],
 } as const;
 
 // ===========================================
-// FOCUS CARDS GALLERY SECTION
+// FACILITIES CARDS GALLERY SECTION
 // ===========================================
 
-export const FOCUS_CARDS_SECTION = {
+export const FACILITIES_CARDS_SECTION = {
   TITLE: "Facilities You Enjoy At The Yoga School In Rishikesh, India",
   CARDS: [
     {

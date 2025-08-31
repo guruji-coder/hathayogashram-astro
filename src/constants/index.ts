@@ -30,3 +30,6 @@ export * from "./carousel";
 
 // Location Constants
 export * from "./locationConstants";
+
+// Course Constants
+export * from "./courseConstants";
