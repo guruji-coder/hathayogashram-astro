@@ -1,14 +1,26 @@
 ---
 import Layout from "../components/layout/Layout.astro";
-  import HeroSection from "../components/sections/HeroSection.astro";
-import ReviewsSection from "../components/ReviewsSection.svelte";
 import { pageSchemas } from "../schemas";
+
+// Import all home page sections from centralized location
+import {
+  HeroSection,
+  BestYogaSchool,
+  ObjectiveTTC,
+  CertificationsTextSection,
+  FounderSection,
+  YogaAllianceRegisteredSchool,
+  ReviewSection,
+  LocationSection,
+  YogaGuruSection,
+  YTTCourseSection
+} from "../components/sections";
 
 // Generate schemas for home page
 const homeSchemas = pageSchemas.home();
 ---
 
-<Layout 
+<Layout
   title="Best Yoga Teacher Training in Rishikesh, India - Hatha Yogashram"
   description="Join authentic 200/300 hour Yoga Teacher Training in Rishikesh with Hatha Yogashram. Yoga Alliance RYS certified residential courses with Indian masters. Traditional Hatha & Ashtanga Yoga, Sanskrit mantras, philosophy from ancient texts."
   canonical="https://hathayogashram.com/"
@@ -16,8 +28,33 @@ const homeSchemas = pageSchemas.home();
   additionalSchemas={homeSchemas}
 >
   <HeroSection />
-  
-  
-  <!-- ReviewsSection will be added back when we fix Svelte issues -->
-  <!-- <ReviewsSection client:visible /> -->
+
+  <!-- Best Yoga School Section -->
+  <BestYogaSchool />
+
+  <!-- Objective + TTC Courses Section -->
+  <ObjectiveTTC />
+
+  <!-- Certifications & Accreditations Section -->
+  <CertificationsTextSection />
+
+  <!-- Founder Section -->
+  <FounderSection />
+
+  <YogaAllianceRegisteredSchool />
+
+  <ReviewSection />
+
+  <YogaGuruSection />
+
+  <YTTCourseSection />
+
+  <!-- Instagram Feed Section -->
+
+  <iframe
+    title="feedinstagram"
+    src="https://app.mirror-app.com/feed-instagram/19bb8f51-1bbc-4709-bd36-10fb443f0c64/preview"
+    style="width: 100%; height:700px; border: none;"></iframe>
+
+  <LocationSection />
 </Layout>

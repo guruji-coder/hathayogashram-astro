@@ -5,11 +5,15 @@ import { generateSEOContent } from "../../lib/seo-generator.astro";
 
 // Generate optimized content for 200-hour course page
 const seoContent = generateSEOContent({
-  pageType: 'course',
-  primaryKeyword: '200 hour yoga teacher training',
-  secondaryKeywords: ['hatha yoga certification', 'ashtanga yoga training', 'yoga alliance ryt 200'],
-  location: 'rishikesh',
-  courseType: '200hour'
+  pageType: "course",
+  primaryKeyword: "200 hour yoga teacher training",
+  secondaryKeywords: [
+    "hatha yoga certification",
+    "ashtanga yoga training",
+    "yoga alliance ryt 200",
+  ],
+  location: "rishikesh",
+  courseType: "200hour",
 });
 
 // Generate schemas for course page
@@ -27,27 +31,46 @@ const courseSchemas = pageSchemas.courses();
     <header>
       <h1>{seoContent.h1}</h1>
       <p class="lead">
-        Transform your yoga practice with our comprehensive 200-hour Yoga Teacher Training in Rishikesh. 
-        Yoga Alliance certified program combining traditional Hatha Yoga, Ashtanga practice, Sanskrit mantras, 
-        and ancient philosophy in the spiritual heart of India.
+        Transform your yoga practice with our comprehensive 200-hour Yoga
+        Teacher Training in Rishikesh. Yoga Alliance certified program combining
+        traditional Hatha Yoga, Ashtanga practice, Sanskrit mantras, and ancient
+        philosophy in the spiritual heart of India.
       </p>
     </header>
 
     <section>
       <h2>Why Choose Our 200-Hour Yoga Teacher Training?</h2>
       <ul>
-        <li><strong>Yoga Alliance RYS 200 Certified:</strong> Internationally recognized certification</li>
-        <li><strong>Traditional Approach:</strong> Authentic teachings from experienced Indian masters</li>
-        <li><strong>Comprehensive Curriculum:</strong> Hatha Yoga, Ashtanga, philosophy, anatomy, and teaching methodology</li>
-        <li><strong>All-Inclusive Program:</strong> Accommodation, vegetarian meals, and course materials included</li>
-        <li><strong>Small Class Sizes:</strong> Personalized attention with maximum 20 students</li>
-        <li><strong>Sacred Location:</strong> Study in Rishikesh, the world capital of yoga</li>
+        <li>
+          <strong>Yoga Alliance RYS 200 Certified:</strong> Internationally recognized
+          certification
+        </li>
+        <li>
+          <strong>Traditional Approach:</strong> Authentic teachings from experienced
+          Indian masters
+        </li>
+        <li>
+          <strong>Comprehensive Curriculum:</strong> Hatha Yoga, Ashtanga, philosophy,
+          anatomy, and teaching methodology
+        </li>
+        <li>
+          <strong>All-Inclusive Program:</strong> Accommodation, vegetarian meals,
+          and course materials included
+        </li>
+        <li>
+          <strong>Small Class Sizes:</strong> Personalized attention with maximum
+          20 students
+        </li>
+        <li>
+          <strong>Sacred Location:</strong> Study in Rishikesh, the world capital
+          of yoga
+        </li>
       </ul>
     </section>
 
     <section>
       <h2>200-Hour Yoga Teacher Training Curriculum</h2>
-      
+
       <h3>Hatha Yoga Practice (50 hours)</h3>
       <ul>
         <li>42 Traditional Hatha Yoga Asanas</li>
@@ -156,22 +179,38 @@ const courseSchemas = pageSchemas.courses();
       <div class="faq">
         <details>
           <summary>Do I need previous yoga experience?</summary>
-          <p>We recommend at least 6 months of regular yoga practice. Our program welcomes beginners to intermediate practitioners who are passionate about deepening their practice.</p>
+          <p>
+            We recommend at least 6 months of regular yoga practice. Our program
+            welcomes beginners to intermediate practitioners who are passionate
+            about deepening their practice.
+          </p>
         </details>
-        
+
         <details>
           <summary>Is the certification internationally recognized?</summary>
-          <p>Yes, we are registered with Yoga Alliance USA (RYS 200). Upon completion, you'll be eligible to register as RYT 200 and teach yoga worldwide.</p>
+          <p>
+            Yes, we are registered with Yoga Alliance USA (RYS 200). Upon
+            completion, you'll be eligible to register as RYT 200 and teach yoga
+            worldwide.
+          </p>
         </details>
-        
+
         <details>
           <summary>What style of yoga do you teach?</summary>
-          <p>We focus on traditional Hatha Yoga and Ashtanga Vinyasa, along with pranayama, meditation, and classical yoga philosophy based on ancient texts.</p>
+          <p>
+            We focus on traditional Hatha Yoga and Ashtanga Vinyasa, along with
+            pranayama, meditation, and classical yoga philosophy based on
+            ancient texts.
+          </p>
         </details>
-        
+
         <details>
           <summary>What's the accommodation like?</summary>
-          <p>Shared rooms with basic amenities, clean bathrooms, and a peaceful environment. All meals are included - nutritious vegetarian food prepared with love.</p>
+          <p>
+            Shared rooms with basic amenities, clean bathrooms, and a peaceful
+            environment. All meals are included - nutritious vegetarian food
+            prepared with love.
+          </p>
         </details>
       </div>
     </section>
@@ -185,65 +224,65 @@ const courseSchemas = pageSchemas.courses();
     padding: 2rem;
     line-height: 1.6;
   }
-  
+
   h1 {
     font-size: 2.5rem;
     color: #2d3748;
     margin-bottom: 1rem;
   }
-  
+
   .lead {
     font-size: 1.2rem;
     color: #4a5568;
     margin-bottom: 2rem;
   }
-  
+
   h2 {
-    color: #FF6B35;
-    border-bottom: 2px solid #FF6B35;
+    color: #ff6b35;
+    border-bottom: 2px solid #ff6b35;
     padding-bottom: 0.5rem;
     margin: 2rem 0 1rem 0;
   }
-  
+
   h3 {
     color: #2d3748;
     margin: 1.5rem 0 0.5rem 0;
   }
-  
+
   ul {
     margin: 1rem 0;
     padding-left: 1.5rem;
   }
-  
+
   li {
     margin: 0.5rem 0;
   }
-  
+
   .schedule p {
     margin: 0.5rem 0;
     padding: 0.25rem;
   }
-  
+
   .pricing {
     background: #f7fafc;
     padding: 1.5rem;
     border-radius: 8px;
     margin: 1rem 0;
   }
-  
+
   .faq details {
     margin: 1rem 0;
     padding: 1rem;
     border: 1px solid #e2e8f0;
     border-radius: 4px;
   }
-  
+
   .faq summary {
     cursor: pointer;
     font-weight: bold;
-    color: #FF6B35;
+    color: #ff6b35;
   }
-  
+
   .faq p {
     margin-top: 0.5rem;
     color: #4a5568;

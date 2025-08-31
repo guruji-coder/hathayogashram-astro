@@ -11,7 +11,7 @@ export const YOGA_KEYWORDS = {
     "RYT 300",
     "RYT 500",
     "yoga teacher training program",
-    "yoga instructor training"
+    "yoga instructor training",
   ],
 
   // Ancient masters and lineages - Deep spiritual SEO
@@ -33,14 +33,14 @@ export const YOGA_KEYWORDS = {
     "ancient yoga masters",
     "traditional yoga lineage",
     "vedic yoga teachers",
-    "himalayan yoga masters"
+    "himalayan yoga masters",
   ],
 
   // Classical texts and scriptures - Authority building
   scriptures: [
     "yoga vashishta ramayana",
     "hatha yoga pradipika",
-    "gheranda samhita", 
+    "gheranda samhita",
     "shiva samhita",
     "patanjali yoga sutras",
     "bhagavad gita yoga",
@@ -51,13 +51,13 @@ export const YOGA_KEYWORDS = {
     "sanskrit yoga mantras",
     "yoga philosophy books",
     "spiritual yoga texts",
-    "traditional yoga wisdom"
+    "traditional yoga wisdom",
   ],
 
   // Dhyana meditation - Deep practice keywords
   dhyana: [
     "dhyana meditation",
-    "dhyana yoga practice", 
+    "dhyana yoga practice",
     "classical meditation techniques",
     "raja yoga meditation",
     "samadhi meditation",
@@ -73,7 +73,7 @@ export const YOGA_KEYWORDS = {
     "consciousness meditation",
     "inner awareness practice",
     "contemplative meditation",
-    "meditative absorption"
+    "meditative absorption",
   ],
 
   // Advanced Hatha Yoga practices
@@ -91,7 +91,7 @@ export const YOGA_KEYWORDS = {
     "nath sampradaya yoga",
     "tantric hatha yoga",
     "kundalini hatha yoga",
-    "traditional yoga postures"
+    "traditional yoga postures",
   ],
 
   // Location-based keywords
@@ -105,7 +105,7 @@ export const YOGA_KEYWORDS = {
     "india yoga certification",
     "himalayan yoga training",
     "authentic yoga training india",
-    "traditional yoga school india"
+    "traditional yoga school india",
   ],
 
   // Yoga styles
@@ -119,13 +119,13 @@ export const YOGA_KEYWORDS = {
     "restorative yoga training",
     "hot yoga certification",
     "aerial yoga teacher training",
-    "prenatal yoga certification"
+    "prenatal yoga certification",
   ],
 
   // Duration-based
   duration: [
     "200 hour yoga teacher training",
-    "300 hour yoga teacher training", 
+    "300 hour yoga teacher training",
     "500 hour yoga teacher training",
     "intensive yoga training",
     "yoga teacher training course",
@@ -133,7 +133,7 @@ export const YOGA_KEYWORDS = {
     "yoga teacher training intensive",
     "yoga alliance 200 hour",
     "yoga alliance 300 hour",
-    "residential yoga training"
+    "residential yoga training",
   ],
 
   // Philosophy & spiritual keywords
@@ -147,7 +147,7 @@ export const YOGA_KEYWORDS = {
     "vedic philosophy yoga",
     "yoga meditation training",
     "pranayama teacher training",
-    "yoga nidra certification"
+    "yoga nidra certification",
   ],
 
   // Long-tail keywords
@@ -161,7 +161,7 @@ export const YOGA_KEYWORDS = {
     "yoga teacher training with accommodation",
     "spiritual yoga training india",
     "yoga teacher training near himalaya",
-    "certified yoga instructor course india"
+    "certified yoga instructor course india",
   ],
 
   // Intent-based keywords
@@ -175,7 +175,7 @@ export const YOGA_KEYWORDS = {
     "yoga alliance registration process",
     "yoga teacher insurance",
     "continuing education yoga",
-    "yoga teacher salary"
+    "yoga teacher salary",
   ],
 
   // Semantic keywords
@@ -189,25 +189,25 @@ export const YOGA_KEYWORDS = {
     "chakra balancing certification",
     "stress relief instructor course",
     "wellness coach training",
-    "mind body spirit education"
-  ]
+    "mind body spirit education",
+  ],
 };
 
 // Generate keyword combinations for maximum coverage
 export function generateKeywordCombinations(): string[] {
   const combinations: string[] = [];
-  
+
   // Combine primary with location
-  YOGA_KEYWORDS.primary.forEach(primary => {
-    YOGA_KEYWORDS.location.forEach(location => {
-      combinations.push(`${primary} ${location.split(' ').slice(-1)[0]}`);
+  YOGA_KEYWORDS.primary.forEach((primary) => {
+    YOGA_KEYWORDS.location.forEach((location) => {
+      combinations.push(`${primary} ${location.split(" ").slice(-1)[0]}`);
     });
   });
 
   // Combine styles with duration
-  YOGA_KEYWORDS.styles.forEach(style => {
-    YOGA_KEYWORDS.duration.forEach(duration => {
-      combinations.push(`${duration.split(' ')[0]} hour ${style}`);
+  YOGA_KEYWORDS.styles.forEach((style) => {
+    YOGA_KEYWORDS.duration.forEach((duration) => {
+      combinations.push(`${duration.split(" ")[0]} hour ${style}`);
     });
   });
 
@@ -218,16 +218,16 @@ export function generateKeywordCombinations(): string[] {
 export const SEO_PATTERNS = {
   titlePatterns: [
     "{keyword} in Rishikesh, India | Hatha Yogashram",
-    "Best {keyword} | Yoga Alliance Certified | Hatha Yogashram", 
+    "Best {keyword} | Yoga Alliance Certified | Hatha Yogashram",
     "{keyword} - Traditional Yoga School Rishikesh",
     "Authentic {keyword} | Himalayan Yoga Academy",
-    "{keyword} with Accommodation | Hatha Yogashram"
+    "{keyword} with Accommodation | Hatha Yogashram",
   ],
-  
+
   descriptionPatterns: [
     "Join our {keyword} at Hatha Yogashram, Rishikesh. Yoga Alliance certified, traditional teaching, experienced masters, all-inclusive program.",
     "Authentic {keyword} in the yoga capital of the world. Traditional Hatha & Ashtanga, Sanskrit mantras, philosophy. Book now!",
     "Transform your practice with our {keyword}. Residential program in Rishikesh with Indian masters, vegetarian meals, certification included.",
-    "Experience authentic {keyword} at Hatha Yogashram. Traditional teachings, modern comfort, lifetime support. Yoga Alliance RYS certified."
-  ]
+    "Experience authentic {keyword} at Hatha Yogashram. Traditional teachings, modern comfort, lifetime support. Yoga Alliance RYS certified.",
+  ],
 };

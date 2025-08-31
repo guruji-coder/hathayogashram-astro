@@ -1,0 +1,103 @@
+---
+import { HOME_STYLES, OBJECTIVE_SECTION, TTC_COURSES_SECTION } from '../../../constants/homePageConstants';
+import { BUTTON_STYLES } from '../../../constants/uiConstants';
+import SectionHeader from '../../ui/SectionHeader.astro';
+---
+
+<!-- Objective Section -->
+<section class={`${HOME_STYLES.SECTION_PADDING} bg-yellow-50`}>
+	<div class={HOME_STYLES.CONTAINER}>
+		<!-- Main Heading with Decorative Underline -->
+		<SectionHeader 
+			title={OBJECTIVE_SECTION.TITLE}
+			containerClass="mb-12 text-center"
+			svgWidth={200}
+			svgHeight={20}
+		/>
+
+		<!-- Content Paragraphs -->
+		<div class="mx-auto max-w-6xl space-y-6">
+			{OBJECTIVE_SECTION.PARAGRAPHS.map(paragraph => (
+				<p class="text-justify leading-relaxed text-gray-700 font-semibold">
+					{paragraph}
+				</p>
+			))}
+
+			<!-- Mantras Grid -->
+			<div class="my-8 grid gap-4 sm:grid-cols-2">
+				{OBJECTIVE_SECTION.MANTRAS.map(mantra => (
+					<div class="flex items-start space-x-3">
+						<i class="fas fa-om mt-1 flex-shrink-0 text-lg text-orange-500"></i>
+						<div>
+							<span class="font-semibold text-orange-600">{mantra.sanskrit}</span>
+							<span class="ml-2 text-gray-700">{mantra.english}</span>
+						</div>
+					</div>
+				))}
+			</div>
+
+			<!-- Closing Text -->
+			<p class="mt-6 text-center text-sm leading-relaxed font-medium text-gray-700 sm:text-base">
+				{OBJECTIVE_SECTION.CLOSING_TEXT}
+			</p>
+		</div>
+
+		<section class={`${HOME_STYLES.SECTION_PADDING}`}>
+			<div class={HOME_STYLES.CONTAINER}>
+				<!-- Section Header -->
+
+				<!-- Courses Grid -->
+				<div class="mx-auto max-w-6xl space-y-8">
+					{TTC_COURSES_SECTION.COURSES.map(course => (
+						<div
+							class="overflow-hidden rounded-xl border border-orange-200 bg-white shadow-md transition-shadow duration-300 hover:shadow-lg"
+						>
+							<!-- Course Card with Side-by-Side Layout -->
+							<div class="flex flex-col lg:flex-row">
+								<!-- Course Image on Left - Small Square -->
+								<div class="w-full md:w-1/2 h-full">
+									<img
+										src={course.IMAGE}
+										alt={course.TITLE}
+										class="h-full w-full object-cover"
+										loading="lazy"
+									/>
+								</div>
+
+								<!-- Course Content on Right -->
+								<div class="flex flex-col justify-between p-6 lg:flex-1 lg:p-8">
+									<div>
+										<!-- Location -->
+										<p class="mb-2 text-sm font-medium text-gray-600 italic">
+											{course.LOCATION}
+										</p>
+
+										<!-- Title -->
+										<h3 class="mb-4 text-xl font-bold text-purple-900 lg:text-2xl">
+											{course.TITLE}
+										</h3>
+
+										<!-- Description -->
+										<p class="mb-6 text-justify text-sm leading-relaxed text-gray-700 lg:text-base">
+											{course.DESCRIPTION}
+										</p>
+									</div>
+
+									<!-- Read More Button -->
+									<div class="flex justify-end">
+										<a
+											href={course.URL}
+											class={`${BUTTON_STYLES.BASE} ${BUTTON_STYLES.VARIANTS.PRIMARY} border-2 border-purple-900`}
+										>
+											{course.BUTTON_TEXT}
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+	</div>
+</section>
