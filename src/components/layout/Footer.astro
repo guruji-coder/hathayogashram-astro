@@ -28,6 +28,34 @@ const footerSections = [
   },
 ];
 
+const allLinks = [
+		{ label: 'Hatha Yoga Ashram', href: '/' },
+		{ label: 'Hatha Yoga Ashram Rishikesh', href: '/' },
+		{ label: '100 Hour Yoga Teacher Training in Rishikesh', href: '/courses/100-hour' },
+		{
+			label: '200 Hour Yoga Teacher Training in Rishikesh',
+			href: '/courses/200-hour-yoga-teacher-training'
+		},
+		{ label: '300 Hour Yoga Teacher Training in Rishikesh', href: '/courses/300-hour' },
+		{ label: '500 Hour Yoga Teacher Training in Rishikesh', href: '/courses/500-hour' },
+		{ label: 'Yoga in Rishikesh', href: '/' },
+		{ label: 'Best Yoga School in Rishikesh', href: '/' },
+		{ label: 'Yoga Course in Rishikesh', href: '/' },
+		{ label: 'Yoga school in India', href: '/' },
+		{ label: 'Aerial Yoga TTC', href: '/courses/aerial' },
+		{ label: 'Yoga Teacher Training in India', href: '/' },
+		{ label: 'Yoga TTC in India', href: '/' },
+		{ label: 'Online Yoga Teacher Training', href: '/online/courses' },
+		{ label: 'Online Yoga Teacher Training Course', href: '/online/courses' },
+		{ label: 'Online Yoga Course', href: '/online/courses' },
+		{ label: '200 Hour Online Yoga Teacher Training Course', href: '/online/200-hour' },
+		{ label: '300 Hour Online Yoga Teacher Training Course', href: '/online/300-hour' },
+		{ label: 'Yin Yoga Online', href: '/online/yin' },
+		{ label: 'Yin Yoga Online Yoga Teacher Training Course', href: '/online/yin' },
+		{ label: 'Yoga Nidra Online', href: '/online/yoga-nidra' },
+		{ label: 'Yoga Nidra Online Yoga Teacher Training Course', href: '/online/yoga-nidra' }
+	];
+
 const contactInfo = {
   address: "Laxman Jhula, Rishikesh, Uttarakhand, India",
   phone: "+91-9410771660",
@@ -137,6 +165,29 @@ const socialLinks = [
         </ul>
       </div>
     </div>
+
+    		<!-- Bottom Quick Links Section -->
+		<div class="mt-16 border-t border-gray-700 pt-8">
+			<div class="bottom-quick-links-wrap">
+				<h3 class="common-heading mb-6 text-center text-xl font-semibold text-white">
+					Quick Links
+					<div class="heading-ornament mx-auto mt-2 h-0.5 w-12 bg-orange-400"></div>
+				</h3>
+				<div class="bottom-link-collection flex flex-wrap items-center justify-center gap-2">
+                  {allLinks.map((link, index) => [
+                    <a
+                      href={link.href}
+                      class="inline-block rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm text-gray-300 transition-all duration-300 hover:border-orange-400 hover:bg-orange-500 hover:text-white"
+                    >
+                      {link.label}
+                    </a>,
+                    index < allLinks.length - 1 && (
+                      <span class="hidden text-gray-600 sm:inline"> </span>
+                    )
+                  ])}
+				</div>
+			</div>
+		</div>
 
     <!-- Bottom Bar -->
     <div class="border-t border-gray-800 pt-8">

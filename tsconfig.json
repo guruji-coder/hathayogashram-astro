@@ -10,7 +10,9 @@
       "$components/*": ["src/components/*"],
       "$ui/*": ["src/components/ui/*"],
       "$types/*": ["src/types/*"],
-      "$features/*": ["src/components/features/*"]
+      "$features/*": ["src/components/features/*"],
+      "$svelte/*": ["src/components/svelte/*"],
+
     }
   }
 }

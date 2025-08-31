@@ -10,4 +10,4 @@ export { default as YogaAllianceRegisteredSchool } from './HomePage/YogaAlliance
 export { default as YogaGuruSection } from './HomePage/YogaGuruSection.astro';
 export { default as OverviewTTC } from './HomePage/OverviewTTC.astro';
 export { default as YTTCourseSection } from './HomePage/YTTCourseSection.astro';
-export { default as FaqSection } from './HomePage/FaqSection.astro';
+

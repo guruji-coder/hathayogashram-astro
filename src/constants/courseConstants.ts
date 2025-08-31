@@ -117,7 +117,26 @@ export const VEDIC_CHANTING_COURSES: Course[] = [
   {
     id: 102,
     title: "Vedic Chanting Teacher Training Course",
-    duration: "200 Hours",
+    duration: "24 Days",
+    module: "Residential with Meals",
+    privateRoom: "USD 1399",
+    sharedRoom: "USD 1199",
+    certification: "Traditional Sanskrit Certification",
+    date: "Available on request",
+    image: "/yogacoursepic.jpg",
+    description: "Dive deep into the sacred tradition of Vedic chanting and learn to teach these ancient Sanskrit practices with authenticity and reverence. Includes traditional Vedic pronunciation, Sanskrit grammar fundamentals, sacred text recitation, and traditional teaching methodology.",
+  },
+];
+
+// ===========================================
+// VEDIC CHANTING TEACHER TRAINING COURSES
+// ===========================================
+
+export const ONLINE_TTC_COURSES: Course[] = [
+  {
+    id: 102,
+    title: "Online Teacher Training Course",
+    duration: "24 Days",
     module: "Residential with Meals",
     privateRoom: "USD 1399",
     sharedRoom: "USD 1199",
@@ -148,6 +167,11 @@ export const COURSE_CATEGORIES = [
     title: 'Vedic Chanting TTC', 
     description: 'Master the sacred art of Vedic chanting'
   },
+    { 
+    id: 'online',
+    title: 'Online TTC', 
+    description: 'Comprehensive online yoga teacher training'
+  }
 
 ] as const;
 

@@ -3,7 +3,7 @@
   import { fade, fly } from 'svelte/transition';
   import { quintOut } from 'svelte/easing';
   import CourseCard from './CourseCard.svelte';
-  import type { Course } from '../../constants/courseConstants';
+  import type { Course } from '$constants/courseConstants';
   
   interface Tab {
     title: string;
@@ -15,7 +15,7 @@
   
   let activeTab = tabs[0];
   
-  const handleKeydown = (event, tab) => {
+  const handleKeydown = (event: KeyboardEvent) => {
     const currentIndex = tabs.indexOf(activeTab);
     let newIndex = currentIndex;
     
@@ -44,7 +44,7 @@
 
 <!-- Tab Navigation -->
 <div class="flex justify-center mb-8" role="tablist" tabindex="0">
-  <div class="inline-flex rounded-lg bg-purple-100 p-1">
+  <div class="flex flex-wrap gap-4 justify-center max-w-6xl">
     {#each tabs as tab}
       <button
         role="tab"
@@ -52,9 +52,11 @@
         aria-selected={activeTab.value === tab.value}
         aria-controls="tabpanel-{tab.value}"
         tabindex={activeTab.value === tab.value ? 0 : -1}
-        class="tab-button rounded-md px-6 py-3 text-sm font-medium transition-all duration-200 {activeTab.value === tab.value ? 'bg-white text-purple-900 shadow-sm' : 'text-purple-700 hover:text-purple-900'}"
+        class="tab-button px-8 py-4 text-sm font-medium transition-all duration-300 rounded-full border-2 {activeTab.value === tab.value 
+          ? 'bg-gradient-to-r from-orange-500 via-pink-500 to-blue-600 text-white border-transparent shadow-2xl scale-110 shadow-purple-500/40' 
+          : 'bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 text-white border-transparent hover:from-blue-500 hover:via-purple-500 hover:to-indigo-600 hover:shadow-xl hover:shadow-blue-500/30 hover:scale-105'}"
         on:click={() => activeTab = tab}
-        on:keydown={(e) => handleKeydown(e, tab)}
+        on:keydown={handleKeydown}
       >
         {tab.title}
       </button>
@@ -84,6 +86,16 @@
 
 <style>
   .tab-button {
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
+    min-width: 180px;
+    white-space: nowrap;
+  }
+  
+  .tab-button:hover {
+    transform: translateY(-2px);
+  }
+  
+  .tab-button:active {
+    transform: translateY(0);
   }
 </style>

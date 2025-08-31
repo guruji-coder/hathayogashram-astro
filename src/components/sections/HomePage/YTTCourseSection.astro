@@ -4,8 +4,8 @@
 ---
 import { YOGA_COURSES_CARDS_SECTION, HOME_STYLES } from "$constants/homePageConstants";
 import { BUTTON_STYLES } from "$constants/uiConstants";
-import { KUNDALINI_COURSES, VEDIC_CHANTING_COURSES, YTTC_COURSES } from "$constants/courseConstants";
-import CourseTab from "../../ui/CourseTab.svelte";
+import { KUNDALINI_COURSES, VEDIC_CHANTING_COURSES, YTTC_COURSES, ONLINE_TTC_COURSES } from "$constants/courseConstants";
+import CourseTab from "../../svelte/ui/CourseTab.svelte";
 
 const { TITLE, SUBTITLE } = YOGA_COURSES_CARDS_SECTION;
 
@@ -25,6 +25,11 @@ const tabs = [
 		title: "Vedic Chanting TTC",
 		value: "vedic", 
 		courses: VEDIC_CHANTING_COURSES
+	},
+	{
+		title: "Online TTC",
+		value: "online", 
+		courses: ONLINE_TTC_COURSES
 	}
 ];
 ---
