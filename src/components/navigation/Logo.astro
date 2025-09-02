@@ -3,10 +3,11 @@ import {
   HEADER_BRANDING,
   HEADER_ACCESSIBILITY,
 } from "../../constants/headerConstants";
+import { ROUTE_HOME } from "../../constants/routesConstants";
 ---
 
 <a
-  href="/"
+  href={ROUTE_HOME}
   class="flex items-center"
   aria-label={HEADER_ACCESSIBILITY.LOGO_FOCUS_TEXT}
 >

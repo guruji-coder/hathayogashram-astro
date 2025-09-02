@@ -8,6 +8,36 @@
  */
 
 import { CONTACT_INFO } from "./contactConstants";
+import {
+  ROUTE_HOME,
+  ROUTE_OUR_FOUNDER,
+  ROUTE_OUR_TEAM,
+  ROUTE_ACCOMMODATION,
+  ROUTE_YOGA_COMMUNITY,
+  ROUTE_GALLERY,
+  ROUTE_KITCHEN,
+  ROUTE_FAQ,
+  ROUTE_BLOG,
+  ROUTE_TTC_100,
+  ROUTE_TTC_200,
+  ROUTE_TTC_300,
+  ROUTE_TTC_500,
+  ROUTE_KUNDALINI_TTC,
+  ROUTE_RETREATS,
+  ROUTE_BALI_TTC,
+  ROUTE_AERIAL_YOGA,
+  ROUTE_PRENATAL_YOGA,
+  ROUTE_YIN_YOGA,
+  ROUTE_SOUND_HEALING,
+  ROUTE_ONLINE_COURSES,
+  ROUTE_ONLINE_200,
+  ROUTE_ONLINE_300,
+  ROUTE_ONLINE_YIN,
+  ROUTE_ONLINE_YOGA_NIDRA,
+  ROUTE_PAYMENT,
+  ROUTE_CONTACT,
+  ROUTE_APPLY,
+} from "./routesConstants";
 import type { MenuItem } from "../types";
 
 // ===========================================
@@ -75,75 +105,71 @@ function getHoverColor(platform: string): string {
 export const HEADER_NAVIGATION_ITEMS: MenuItem[] = [
   {
     label: "Home",
-    href: "/",
+    href: ROUTE_HOME,
   },
   {
     label: "About Us",
     items: [
-      { label: "Founder Of Hatha Yoga Ashram", href: "/our-founder" },
-      { label: "Our Teachers", href: "/our-team" },
-      { label: "Accommodation", href: "/accommodation" },
-      { label: "Yoga Community", href: "/yoga-community" },
-      { label: "Photo Gallery", href: "/gallery" },
-      { label: "What is in the Kitchen", href: "/kitchen" },
-      { label: "FAQs", href: "/faq" },
-      { label: "Blog", href: "/blog" },
+      { label: "Founder Of Hatha Yoga Ashram", href: ROUTE_OUR_FOUNDER },
+      { label: "Our Teachers", href: ROUTE_OUR_TEAM },
+      { label: "Accommodation", href: ROUTE_ACCOMMODATION },
+      { label: "Yoga Community", href: ROUTE_YOGA_COMMUNITY },
+      { label: "Photo Gallery", href: ROUTE_GALLERY },
+      { label: "What is in the Kitchen", href: ROUTE_KITCHEN },
+      { label: "FAQs", href: ROUTE_FAQ },
+      { label: "Blog", href: ROUTE_BLOG },
     ],
   },
   {
     label: "Yoga TTC",
     items: [
-      { label: "100 Hour Yoga Teacher Training", href: "/courses/100-hour" },
-      {
-        label: "200 Hour Yoga Teacher Training",
-        href: "/courses/200-hour-yoga-teacher-training",
-      },
-      { label: "300 Hour Yoga Teacher Training", href: "/courses/300-hour" },
-      { label: "500 Hour Yoga Teacher Training", href: "/courses/500-hour" },
+      { label: "100 Hour Yoga Teacher Training", href: ROUTE_TTC_100 },
+      { label: "200 Hour Yoga Teacher Training", href: ROUTE_TTC_200 },
+      { label: "300 Hour Yoga Teacher Training", href: ROUTE_TTC_300 },
+      { label: "500 Hour Yoga Teacher Training", href: ROUTE_TTC_500 },
       {
         label: "200 Hour Kundalini Yoga Teacher Training",
-        href: "/courses/kundalini",
+        href: ROUTE_KUNDALINI_TTC,
       },
-      { label: "Yoga Retreats In Rishikesh", href: "/courses/retreat" },
-      { label: "Yoga Teacher Training Course In Bali", href: "/courses/bali" },
+      { label: "Yoga Retreats In Rishikesh", href: ROUTE_RETREATS },
+      { label: "Yoga Teacher Training Course In Bali", href: ROUTE_BALI_TTC },
     ],
   },
   {
     label: "Short Course",
     items: [
-      { label: "Aerial Yoga Teacher Training", href: "/courses/aerial" },
-      { label: "Pre Natal Yoga TTC", href: "/courses/prenatal" },
-      { label: "Yin Yoga Teacher Training", href: "/courses/yin" },
-      { label: "Sound Healing TTC", href: "/courses/sound-healing" },
+      { label: "Aerial Yoga Teacher Training", href: ROUTE_AERIAL_YOGA },
+      { label: "Pre Natal Yoga TTC", href: ROUTE_PRENATAL_YOGA },
+      { label: "Yin Yoga Teacher Training", href: ROUTE_YIN_YOGA },
+      { label: "Sound Healing TTC", href: ROUTE_SOUND_HEALING },
     ],
   },
   {
     label: "Online YTTC",
     items: [
-      { label: "Online Courses", href: "/online/courses" },
-      { label: "200 Hour Self Paced YTTC", href: "/online/200-hour" },
-      { label: "300 Hour Self Paced YTTC", href: "/online/300-hour" },
-      { label: "Online Yoga Nidra TTC", href: "/online/yoga-nidra" },
-      { label: "Online Yin Yoga TTC", href: "/online/yin" },
+      { label: "Online Courses", href: ROUTE_ONLINE_COURSES },
+      { label: "200 Hour Self Paced YTTC", href: ROUTE_ONLINE_200 },
+      { label: "300 Hour Self Paced YTTC", href: ROUTE_ONLINE_300 },
+      { label: "Online Yoga Nidra TTC", href: ROUTE_ONLINE_YOGA_NIDRA },
+      { label: "Online Yin Yoga TTC", href: ROUTE_ONLINE_YIN },
     ],
   },
   {
     label: "Payment",
-    href: "/payment",
+    href: ROUTE_PAYMENT,
   },
   {
     label: "Contact Us",
-    href: "/contact",
+    href: ROUTE_CONTACT,
   },
 ];
 
 // ===========================================
 // CALL-TO-ACTION BUTTON CONSTANTS
 // ===========================================
-
 export const HEADER_CTA_BUTTON = {
   TEXT: "Apply Today",
-  URL: "/apply",
+  URL: ROUTE_APPLY,
   DESKTOP_CLASSES:
     "rounded-full bg-orange-500 px-6 py-2 text-white transition-colors hover:bg-orange-600 focus:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2",
   MOBILE_CLASSES:

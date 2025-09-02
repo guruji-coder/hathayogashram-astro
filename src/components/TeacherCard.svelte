@@ -20,7 +20,7 @@
         loading="lazy"
       />
     </div>
-    <p class="text-primary font-light">{teacher.specialty}</p>
+    <p class="font-light text-primary">{teacher.specialty}</p>
     <p class="font-semibold text-black">{teacher.name}</p>
     <p class="text-xs font-light text-gray-600">{teacher.experience}</p>
   </div>

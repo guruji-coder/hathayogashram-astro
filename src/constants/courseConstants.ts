@@ -38,7 +38,8 @@ export const YTTC_COURSES: Course[] = [
     certification: "Yoga Alliance",
     date: "1st-12th of every month",
     image: "/yogacoursepic.jpg",
-    description: "Perfect for beginners seeking a comprehensive introduction to yoga teaching fundamentals.",
+    description:
+      "Perfect for beginners seeking a comprehensive introduction to yoga teaching fundamentals.",
   },
   {
     id: 2,
@@ -50,7 +51,8 @@ export const YTTC_COURSES: Course[] = [
     certification: "Yoga Alliance",
     date: "1st-24th of every month",
     image: "/yogacoursepic.jpg",
-    description: "The most popular certification course for aspiring yoga teachers worldwide.",
+    description:
+      "The most popular certification course for aspiring yoga teachers worldwide.",
   },
   {
     id: 3,
@@ -62,7 +64,8 @@ export const YTTC_COURSES: Course[] = [
     certification: "Yoga Alliance",
     date: "1st-28th of every month",
     image: "/yogacoursepic.jpg",
-    description: "Advanced training to deepen your practice and teaching methodology.",
+    description:
+      "Advanced training to deepen your practice and teaching methodology.",
   },
   {
     id: 4,
@@ -74,7 +77,8 @@ export const YTTC_COURSES: Course[] = [
     certification: "Yoga Alliance",
     date: "1st of every month",
     image: "/yogacoursepic.jpg",
-    description: "Complete comprehensive training combining 200hr and 300hr certifications.",
+    description:
+      "Complete comprehensive training combining 200hr and 300hr certifications.",
   },
 ];
 
@@ -93,7 +97,8 @@ export const KUNDALINI_COURSES: Course[] = [
     certification: "Yoga Alliance",
     date: "Available on request",
     image: "/yogacoursepic.jpg",
-    description: "Awaken your inner energy and learn the sacred practices of Kundalini Yoga. This transformative course combines ancient wisdom with modern teaching methodology, including Kundalini meditation techniques, pranayama and breathwork, mantra and sound healing, and chakra awakening practices.",
+    description:
+      "Awaken your inner energy and learn the sacred practices of Kundalini Yoga. This transformative course combines ancient wisdom with modern teaching methodology, including Kundalini meditation techniques, pranayama and breathwork, mantra and sound healing, and chakra awakening practices.",
   },
   {
     id: 103,
@@ -105,8 +110,9 @@ export const KUNDALINI_COURSES: Course[] = [
     certification: "Yoga Alliance",
     date: "Available on request",
     image: "/yogacoursepic.jpg",
-    description: "Deep dive into advanced Kundalini practices including White Tantra, advanced breathing techniques, and the technology of consciousness. Perfect for experienced practitioners seeking mastery.",
-  }
+    description:
+      "Deep dive into advanced Kundalini practices including White Tantra, advanced breathing techniques, and the technology of consciousness. Perfect for experienced practitioners seeking mastery.",
+  },
 ];
 
 // ===========================================
@@ -124,7 +130,8 @@ export const VEDIC_CHANTING_COURSES: Course[] = [
     certification: "Traditional Sanskrit Certification",
     date: "Available on request",
     image: "/yogacoursepic.jpg",
-    description: "Dive deep into the sacred tradition of Vedic chanting and learn to teach these ancient Sanskrit practices with authenticity and reverence. Includes traditional Vedic pronunciation, Sanskrit grammar fundamentals, sacred text recitation, and traditional teaching methodology.",
+    description:
+      "Dive deep into the sacred tradition of Vedic chanting and learn to teach these ancient Sanskrit practices with authenticity and reverence. Includes traditional Vedic pronunciation, Sanskrit grammar fundamentals, sacred text recitation, and traditional teaching methodology.",
   },
 ];
 
@@ -143,7 +150,8 @@ export const ONLINE_TTC_COURSES: Course[] = [
     certification: "Traditional Sanskrit Certification",
     date: "Available on request",
     image: "/yogacoursepic.jpg",
-    description: "Dive deep into the sacred tradition of Vedic chanting and learn to teach these ancient Sanskrit practices with authenticity and reverence. Includes traditional Vedic pronunciation, Sanskrit grammar fundamentals, sacred text recitation, and traditional teaching methodology.",
+    description:
+      "Dive deep into the sacred tradition of Vedic chanting and learn to teach these ancient Sanskrit practices with authenticity and reverence. Includes traditional Vedic pronunciation, Sanskrit grammar fundamentals, sacred text recitation, and traditional teaching methodology.",
   },
 ];
 
@@ -153,26 +161,25 @@ export const ONLINE_TTC_COURSES: Course[] = [
 
 export const COURSE_CATEGORIES = [
   {
-    id: 'yttc',
-    title: 'YTTC Courses',
-    description: 'Traditional Yoga Teacher Training Certifications'
+    id: "yttc",
+    title: "YTTC Courses",
+    description: "Traditional Yoga Teacher Training Certifications",
   },
   {
-    id: 'kundalini',
-    title: 'Kundalini Yoga TTC',
-    description: 'Awaken your inner energy with Kundalini practices'
+    id: "kundalini",
+    title: "Kundalini Yoga TTC",
+    description: "Awaken your inner energy with Kundalini practices",
   },
   {
-    id: 'vedic',
-    title: 'Vedic Chanting TTC', 
-    description: 'Master the sacred art of Vedic chanting'
+    id: "vedic",
+    title: "Vedic Chanting TTC",
+    description: "Master the sacred art of Vedic chanting",
   },
-    { 
-    id: 'online',
-    title: 'Online TTC', 
-    description: 'Comprehensive online yoga teacher training'
-  }
-
+  {
+    id: "online",
+    title: "Online TTC",
+    description: "Comprehensive online yoga teacher training",
+  },
 ] as const;
 
 export default {

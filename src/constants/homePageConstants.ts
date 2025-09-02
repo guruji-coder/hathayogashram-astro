@@ -7,6 +7,8 @@
  * Easy to find, easy to modify, easy to understand.
  */
 
+import { ROUTE_TTC_200, ROUTE_TTC_100, ROUTE_TTC_300 } from "./routesConstants";
+
 // ===========================================
 // HERO SECTION CONSTANTS
 // ===========================================
@@ -191,7 +193,7 @@ export const TTC_COURSES_SECTION = {
         "Deepen your practice of Yoga Asanas and Yoga Philosophy at the 300-hour YTTC in Rishikesh. This is an advanced and challenging course where you will learn the deeper aspects of Yoga on a physical, mental, and spiritual level. Our teachers here are well experienced and we work as a team to understand every student's perspective and to share the knowledge gained from our own experience.",
       IMAGE: "/yogacoursepic.jpg",
       BUTTON_TEXT: "Read More",
-      URL: "/courses/300-hour",
+      URL: ROUTE_TTC_300,
     },
     {
       TITLE: "200 Hour Yoga Teacher Training in Rishikesh",
@@ -200,7 +202,7 @@ export const TTC_COURSES_SECTION = {
         'The 200 Hour YTTC is a very popular and approachable applied yoga certification course among all the Yogis. This course will guide you from the basics to more advanced levels. Most yoga practitioners who wish to become certified yoga teachers start here. We are happy to share our knowledge and experience with you and welcome you to join us in the eternal journey of yoga. "Yoga is 1% theory and 99% practice" - K. Pattabhi Jois',
       IMAGE: "/yogacoursepic.jpg",
       BUTTON_TEXT: "Read More",
-      URL: "/courses/200-hour",
+      URL: ROUTE_TTC_200,
     },
     {
       TITLE: "100 Hour Yoga Teacher Training in Rishikesh",
@@ -209,7 +211,7 @@ export const TTC_COURSES_SECTION = {
         "Our Hatha Yoga Ashram also has a 100-hour teacher training segment or pre-teacher training course for explorers in search of a glimpse of what it is to be a yoga teacher. This is a short course that is mostly opted for by beginner students with limited time. We create space for you to follow your interest in the ancient art of the yoga. You will be able to explore our science based approach to learning from experienced teachers.",
       IMAGE: "/yogacoursepic.jpg",
       BUTTON_TEXT: "Read More",
-      URL: "/courses/100-hour",
+      URL: ROUTE_TTC_100,
     },
   ],
 } as const;

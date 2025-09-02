@@ -1,12 +1,12 @@
 <script lang="ts">
-  import type { Course } from '$constants/courseConstants';
-  import { BUTTON_STYLES } from '$constants/uiConstants';
+  import type { Course } from "$constants/courseConstants";
+  import { BUTTON_STYLES } from "$constants/uiConstants";
 
   export let course: Course;
 </script>
 
 <div
-  class="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl mx-auto"
+  class="mx-auto overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl"
 >
   <!-- Course Image -->
   <div class="relative h-64 overflow-hidden">

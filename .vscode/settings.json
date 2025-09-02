@@ -13,26 +13,26 @@
   "git.enableSmartCommit": true,
   "git.untrackedChanges": "separate",
   "git.ignoreLimitWarning": true,
-  
+
   // Auto Import Settings
   "typescript.preferences.includePackageJsonAutoImports": "auto",
   "typescript.suggest.autoImports": true,
   "javascript.suggest.autoImports": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
-  
+
   // Path Intellisense
   "path-intellisense.extensionOnImport": true,
   "path-intellisense.showHiddenFiles": true,
-  
+
   // Astro Support
   "files.associations": {
     "*.astro": "astro"
   },
-  
+
   // Svelte Support
   "svelte.enable-ts-plugin": true,
-  
+
   // Auto Actions
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit",
