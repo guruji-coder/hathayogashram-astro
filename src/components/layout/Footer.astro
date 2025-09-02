@@ -1,60 +1,76 @@
 ---
 // Simple footer data
+import { 
+  ROUTE_HOME,
+  ROUTE_OUR_FOUNDER,
+  ROUTE_OUR_TEAM,
+  ROUTE_GALLERY,
+  ROUTE_BLOG,
+  ROUTE_CONTACT,
+  ROUTE_TTC_100,
+  ROUTE_TTC_200,
+  ROUTE_TTC_300,
+  ROUTE_TTC_500,
+  ROUTE_RETREATS,
+  ROUTE_ONLINE_COURSES,
+  ROUTE_ONLINE_200,
+  ROUTE_ONLINE_300,
+  ROUTE_ONLINE_YIN,
+  ROUTE_ONLINE_YOGA_NIDRA,
+  ROUTE_AERIAL_YOGA,
+  ROUTE_PRIVACY,
+  ROUTE_TERMS
+} from "../../constants/routesConstants";
+
 const footerSections = [
   {
     title: "Quick Links",
     links: [
-      { label: "Home", href: "/" },
-      { label: "About Us", href: "/our-founder" },
-      { label: "Our Teachers", href: "/our-team" },
-      { label: "Gallery", href: "/gallery" },
-      { label: "Blog", href: "/blog" },
-      { label: "Contact", href: "/contact" },
+      { label: "Home", href: ROUTE_HOME },
+      { label: "About Us", href: ROUTE_OUR_FOUNDER },
+      { label: "Our Teachers", href: ROUTE_OUR_TEAM },
+      { label: "Gallery", href: ROUTE_GALLERY },
+      { label: "Blog", href: ROUTE_BLOG },
+      { label: "Contact", href: ROUTE_CONTACT },
     ],
   },
   {
     title: "Courses",
     links: [
-      { label: "100 Hour YTTC", href: "/courses/100-hour" },
-      {
-        label: "200 Hour YTTC",
-        href: "/courses/200-hour-yoga-teacher-training",
-      },
-      { label: "300 Hour YTTC", href: "/courses/300-hour" },
-      { label: "500 Hour YTTC", href: "/courses/500-hour" },
-      { label: "Yoga Retreats", href: "/courses/retreat" },
-      { label: "Online Courses", href: "/online/courses" },
+      { label: "100 Hour YTTC", href: ROUTE_TTC_100 },
+      { label: "200 Hour YTTC", href: ROUTE_TTC_200 },
+      { label: "300 Hour YTTC", href: ROUTE_TTC_300 },
+      { label: "500 Hour YTTC", href: ROUTE_TTC_500 },
+      { label: "Yoga Retreats", href: ROUTE_RETREATS },
+      { label: "Online Courses", href: ROUTE_ONLINE_COURSES },
     ],
   },
 ];
 
 const allLinks = [
-		{ label: 'Hatha Yoga Ashram', href: '/' },
-		{ label: 'Hatha Yoga Ashram Rishikesh', href: '/' },
-		{ label: '100 Hour Yoga Teacher Training in Rishikesh', href: '/courses/100-hour' },
-		{
-			label: '200 Hour Yoga Teacher Training in Rishikesh',
-			href: '/courses/200-hour-yoga-teacher-training'
-		},
-		{ label: '300 Hour Yoga Teacher Training in Rishikesh', href: '/courses/300-hour' },
-		{ label: '500 Hour Yoga Teacher Training in Rishikesh', href: '/courses/500-hour' },
-		{ label: 'Yoga in Rishikesh', href: '/' },
-		{ label: 'Best Yoga School in Rishikesh', href: '/' },
-		{ label: 'Yoga Course in Rishikesh', href: '/' },
-		{ label: 'Yoga school in India', href: '/' },
-		{ label: 'Aerial Yoga TTC', href: '/courses/aerial' },
-		{ label: 'Yoga Teacher Training in India', href: '/' },
-		{ label: 'Yoga TTC in India', href: '/' },
-		{ label: 'Online Yoga Teacher Training', href: '/online/courses' },
-		{ label: 'Online Yoga Teacher Training Course', href: '/online/courses' },
-		{ label: 'Online Yoga Course', href: '/online/courses' },
-		{ label: '200 Hour Online Yoga Teacher Training Course', href: '/online/200-hour' },
-		{ label: '300 Hour Online Yoga Teacher Training Course', href: '/online/300-hour' },
-		{ label: 'Yin Yoga Online', href: '/online/yin' },
-		{ label: 'Yin Yoga Online Yoga Teacher Training Course', href: '/online/yin' },
-		{ label: 'Yoga Nidra Online', href: '/online/yoga-nidra' },
-		{ label: 'Yoga Nidra Online Yoga Teacher Training Course', href: '/online/yoga-nidra' }
-	];
+  { label: 'Hatha Yoga Ashram', href: ROUTE_HOME },
+  { label: 'Hatha Yoga Ashram Rishikesh', href: ROUTE_HOME },
+  { label: '100 Hour Yoga Teacher Training in Rishikesh', href: ROUTE_TTC_100 },
+  { label: '200 Hour Yoga Teacher Training in Rishikesh', href: ROUTE_TTC_200 },
+  { label: '300 Hour Yoga Teacher Training in Rishikesh', href: ROUTE_TTC_300 },
+  { label: '500 Hour Yoga Teacher Training in Rishikesh', href: ROUTE_TTC_500 },
+  { label: 'Yoga in Rishikesh', href: ROUTE_HOME },
+  { label: 'Best Yoga School in Rishikesh', href: ROUTE_HOME },
+  { label: 'Yoga Course in Rishikesh', href: ROUTE_HOME },
+  { label: 'Yoga school in India', href: ROUTE_HOME },
+  { label: 'Aerial Yoga TTC', href: ROUTE_AERIAL_YOGA },
+  { label: 'Yoga Teacher Training in India', href: ROUTE_HOME },
+  { label: 'Yoga TTC in India', href: ROUTE_HOME },
+  { label: 'Online Yoga Teacher Training', href: ROUTE_ONLINE_COURSES },
+  { label: 'Online Yoga Teacher Training Course', href: ROUTE_ONLINE_COURSES },
+  { label: 'Online Yoga Course', href: ROUTE_ONLINE_COURSES },
+  { label: '200 Hour Online Yoga Teacher Training Course', href: ROUTE_ONLINE_200 },
+  { label: '300 Hour Online Yoga Teacher Training Course', href: ROUTE_ONLINE_300 },
+  { label: 'Yin Yoga Online', href: ROUTE_ONLINE_YIN },
+  { label: 'Yin Yoga Online Yoga Teacher Training Course', href: ROUTE_ONLINE_YIN },
+  { label: 'Yoga Nidra Online', href: ROUTE_ONLINE_YOGA_NIDRA },
+  { label: 'Yoga Nidra Online Yoga Teacher Training Course', href: ROUTE_ONLINE_YOGA_NIDRA }
+];
 
 const contactInfo = {
   address: "Laxman Jhula, Rishikesh, Uttarakhand, India",
@@ -196,10 +212,10 @@ const socialLinks = [
           &copy; {new Date().getFullYear()} Hatha Yogashram. All rights reserved.
         </p>
         <div class="flex gap-6 text-sm text-gray-400">
-          <a href="/privacy" class="transition-colors hover:text-orange-400"
+          <a href={ROUTE_PRIVACY} class="transition-colors hover:text-orange-400"
             >Privacy Policy</a
           >
-          <a href="/terms" class="transition-colors hover:text-orange-400"
+          <a href={ROUTE_TERMS} class="transition-colors hover:text-orange-400"
             >Terms of Service</a
           >
         </div>

@@ -1,0 +1,64 @@
+---
+import Layout from "$components/layout/Layout.astro";
+import { ROUTE_CONTACT } from "$constants/routesConstants";
+---
+
+<Layout
+  title="Best 200 Hour Yoga Teacher Training in Rishikesh, India - Hatha Yogashram"
+  description="Join authentic 200/300 hour Yoga Teacher Training in Rishikesh with Hatha Yogashram. Yoga Alliance RYS certified residential courses with Indian masters. Traditional Hatha & Ashtanga Yoga, Sanskrit mantras, philosophy from ancient texts."
+  canonical="https://hathayogashram.com/"
+  image="https://hathayogashram.com/yogaschoolpic.jpg"
+
+  >
+  <div class="w-full flex flex-col md:flex-row min-h-full">
+    <!-- Image Carousel Container -->
+    <div class="w-2/3 flex-1">
+      <img
+        id="carousel-image"
+        src="https://www.vinyasayogaashram.com/image/200hrs-yoga-teacher-training-course.jpg?v=125"
+        alt="yoga course pic"
+        class="w-full h-full"
+      />
+    </div>
+
+    <div class="rounded-2xl w-1/3  p-8 flex flex-col justify-center font-space">
+      <h2 class="text-3xl font-bold mb-4 text-primary">Join Our 200 Hour Yoga Teacher Training in Rishikesh</h2>
+      <p class="text-primary mb-6">
+        Immerse yourself in the authentic teachings of yoga with our comprehensive 200-hour Yoga Teacher Training course in Rishikesh, India. Learn from experienced Indian masters in a serene ashram setting.
+      </p>
+      <ul class="list-disc list-inside text-primary mb-6">
+        <li>Traditional Hatha & Ashtanga Yoga practices</li>
+        <li>Sanskrit mantras and chanting</li>
+        <li>Yoga philosophy from ancient texts</li>
+        <li>Teaching methodologies and practicum</li>
+      </ul>
+      <a href={ROUTE_CONTACT} class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold text-lg transition-colors duration-300 text-center w-max">
+        Enroll Now
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Carousel Script -->
+  <script type="module">
+    const carouselImages = [
+      "https://www.vinyasayogaashram.com/image/200hrs-yoga-teacher-training-course.jpg?v=125",
+      "https://hathayogashram.com/yogaschoolpic.jpg",
+      "https://hathayogashram.com/yogacoursepic.jpg"
+    ];
+    let currentIndex = 0;
+    const imgEl = document.getElementById("carousel-image");
+
+    if (imgEl) {
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % carouselImages.length;
+        imgEl.src = carouselImages[currentIndex];
+        imgEl.style.transition = "opacity 0.5s ease-in-out";
+        imgEl.style.opacity = "0.8";
+        setTimeout(() => {
+          imgEl.style.opacity = "1";
+        }, 250);
+      }, 5000);
+    }
+  </script>
+</Layout>

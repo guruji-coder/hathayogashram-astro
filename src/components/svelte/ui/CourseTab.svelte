@@ -52,7 +52,7 @@
         aria-selected={activeTab.value === tab.value}
         aria-controls="tabpanel-{tab.value}"
         tabindex={activeTab.value === tab.value ? 0 : -1}
-        class="tab-button px-8 py-4 text-sm font-medium transition-all duration-300 rounded-full border-2 {activeTab.value === tab.value 
+        class="tab-button px-8 py-4 text-lg font-medium transition-all duration-300 rounded-full border-2 {activeTab.value === tab.value 
           ? 'bg-gradient-to-r from-orange-500 via-pink-500 to-blue-600 text-white border-transparent shadow-2xl scale-110 shadow-purple-500/40' 
           : 'bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 text-white border-transparent hover:from-blue-500 hover:via-purple-500 hover:to-indigo-600 hover:shadow-xl hover:shadow-blue-500/30 hover:scale-105'}"
         on:click={() => activeTab = tab}

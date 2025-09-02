@@ -25,6 +25,7 @@
     YOGA_COURSES_CARDS_SECTION,
   } from "$lib/constants/homePageConstants";
   import { BUTTON_STYLES } from "$lib/constants/uiConstants";
+  import { ROUTE_CONTACT, ROUTE_COURSES } from "$lib/constants/routesConstants";
   import { onMount } from "svelte";
 
   // Teachers carousel state
@@ -610,14 +611,14 @@
       </p>
       <div class="flex flex-col justify-center gap-4 sm:flex-row">
         <a
-          href="/contact"
+          href={ROUTE_CONTACT}
           class="{BUTTON_STYLES.BASE} {BUTTON_STYLES.VARIANTS
             .PRIMARY} px-8 py-4 text-lg"
         >
           Contact Us
         </a>
         <a
-          href="/courses"
+          href={ROUTE_COURSES}
           class="{BUTTON_STYLES.BASE} bg-orange-500 px-8 py-4 text-lg text-white transition-colors duration-200 hover:bg-orange-600"
         >
           View All Courses

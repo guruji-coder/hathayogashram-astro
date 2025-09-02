@@ -2,6 +2,7 @@
 // SEO Constants Showcase Page
 // Development/Testing page to display all SEO constants and keywords
 import Layout from "../components/layout/Layout.astro";
+import { ROUTE_HOME } from "../constants/routesConstants";
 
 // Import all SEO constants and keyword files
 import { SITE_METADATA, SEO_PATTERNS } from "../lib/yoga-seo-constants";
@@ -662,7 +663,7 @@ const totalKeywords = Object.values(stats).reduce(
         <h2 class="mb-4 text-2xl font-bold text-gray-800">Quick Actions</h2>
         <div class="flex flex-wrap justify-center gap-4">
           <a
-            href="/"
+            href={ROUTE_HOME}
             class="rounded-lg bg-blue-600 px-6 py-3 text-white transition duration-300 hover:bg-blue-700"
           >
             ← Back to Homepage

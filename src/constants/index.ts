@@ -33,3 +33,5 @@ export * from "./locationConstants";
 
 // Course Constants
 export * from "./courseConstants";
+// Route Constants
+export * from "./routesConstants";

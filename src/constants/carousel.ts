@@ -1,4 +1,5 @@
 import type { CarouselSlide } from "../types";
+import { ROUTE_COURSES, ROUTE_TTC_200 } from "./routesConstants";
 export const carouselSlides: CarouselSlide[] = [
   {
     id: 1,
@@ -9,7 +10,7 @@ export const carouselSlides: CarouselSlide[] = [
       "Discover inner peace and strength through authentic yoga practices in the spiritual heart of Rishikesh",
     primaryButton: {
       text: "Book Your Yoga Course Now",
-      href: "/courses",
+      href: ROUTE_COURSES,
       variant: "primary",
     },
   },
@@ -22,7 +23,7 @@ export const carouselSlides: CarouselSlide[] = [
       "Join certified yoga teachers in comprehensive training programs designed to elevate your practice",
     primaryButton: {
       text: "Explore Our Courses",
-      href: "/courses",
+      href: ROUTE_COURSES,
       variant: "primary",
     },
   },
@@ -35,7 +36,7 @@ export const carouselSlides: CarouselSlide[] = [
       "Experience traditional yoga teachings in the birthplace of yoga with our internationally recognized certifications",
     primaryButton: {
       text: "Start Your Journey",
-      href: "/courses/200-hour-yoga-teacher-training",
+      href: ROUTE_TTC_200,
       variant: "primary",
     },
   },
