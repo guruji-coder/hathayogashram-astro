@@ -13,69 +13,69 @@
 
 export const ROUTES = {
   // Homepage
-  HOME: '/',
+  HOME: "/",
 
   // Main Pages
-  ABOUT: '/our-founder',
-  CONTACT: '/contact',
-  BLOG: '/blog',
-  GALLERY: '/gallery',
-  FAQ: '/faq',
-  PRIVACY: '/privacy',
-  TERMS: '/terms',
-  PAYMENT: '/payment',
-  APPLY: '/apply',
+  ABOUT: "/our-founder",
+  CONTACT: "/contact",
+  BLOG: "/blog",
+  GALLERY: "/gallery",
+  FAQ: "/faq",
+  PRIVACY: "/privacy",
+  TERMS: "/terms",
+  PAYMENT: "/payment",
+  APPLY: "/apply",
 
   // About Sub-pages
-  OUR_FOUNDER: '/our-founder',
-  OUR_TEAM: '/our-team',
-  ACCOMMODATION: '/accommodation',
-  YOGA_COMMUNITY: '/yoga-community',
-  KITCHEN: '/kitchen',
+  OUR_FOUNDER: "/our-founder",
+  OUR_TEAM: "/our-team",
+  ACCOMMODATION: "/accommodation",
+  YOGA_COMMUNITY: "/yoga-community",
+  KITCHEN: "/kitchen",
 
   // Course Listing
-  COURSES: '/courses',
+  COURSES: "/courses",
 
   // Yoga Teacher Training Courses (TTC)
-  TTC_100: '/courses/100-hour',
-  TTC_200: '/200-hour-yoga-teacher-training-rishikesh',
-  TTC_300: '/300-hour-yoga-teacher-training-rishikesh',
-  TTC_500: '/500-hour-yoga-teacher-training-rishikesh',
-  
+  TTC_100: "/courses/100-hour",
+  TTC_200: "/200-hour-yoga-teacher-training-rishikesh",
+  TTC_300: "/300-hour-yoga-teacher-training-rishikesh",
+  TTC_500: "/500-hour-yoga-teacher-training-rishikesh",
+
   // Specialized Courses
-  KUNDALINI_TTC: '/courses/kundalini',
-  RETREATS: '/courses/retreat',
-  BALI_TTC: '/courses/bali',
+  KUNDALINI_TTC: "/courses/kundalini",
+  RETREATS: "/courses/retreat",
+  BALI_TTC: "/courses/bali",
 
   // Short Courses
-  AERIAL_YOGA: '/courses/aerial',
-  PRENATAL_YOGA: '/courses/prenatal',
-  YIN_YOGA: '/courses/yin',
-  SOUND_HEALING: '/courses/sound-healing',
+  AERIAL_YOGA: "/courses/aerial",
+  PRENATAL_YOGA: "/courses/prenatal",
+  YIN_YOGA: "/courses/yin",
+  SOUND_HEALING: "/courses/sound-healing",
 
   // Online Courses
-  ONLINE_COURSES: '/online/courses',
-  ONLINE_200: '/online/200-hour',
-  ONLINE_300: '/online/300-hour',
-  ONLINE_YIN: '/online/yin',
-  ONLINE_YOGA_NIDRA: '/online/yoga-nidra',
+  ONLINE_COURSES: "/online/courses",
+  ONLINE_200: "/online/200-hour",
+  ONLINE_300: "/online/300-hour",
+  ONLINE_YIN: "/online/yin",
+  ONLINE_YOGA_NIDRA: "/online/yoga-nidra",
 
   // Masters/Philosophy Pages
-  MASTERS: '/masters',
-  LORD_SHIVA: '/masters/lord-shiva',
-  PATANJALI: '/masters/patanjali',
-  SAGE_VASHISHTA: '/masters/sage-vashishta',
+  MASTERS: "/masters",
+  LORD_SHIVA: "/masters/lord-shiva",
+  PATANJALI: "/masters/patanjali",
+  SAGE_VASHISHTA: "/masters/sage-vashishta",
 
   // Blog Pages
-  EIGHT_LIMBS_OF_YOGA: '/blog/eight-limbs-of-yoga',
-  DHYANA_MEDITATION: '/blog/dhyana-meditation-mastery',
+  EIGHT_LIMBS_OF_YOGA: "/blog/eight-limbs-of-yoga",
+  DHYANA_MEDITATION: "/blog/dhyana-meditation-mastery",
 
   // Special Pages
-  FOUNDER_DETAIL: '/founder',
-  SHIVA_YOGA_INTENSIVE: '/courses/shiva-yoga-intensive',
-  YOGA_SUTRAS_INTENSIVE: '/courses/yoga-sutras-intensive',
-  YOGA_VASHISHTA_STUDY: '/courses/yoga-vashishta-study',
-  ANCIENT_MASTERS_INTENSIVE: '/courses/ancient-masters-intensive',
+  FOUNDER_DETAIL: "/founder",
+  SHIVA_YOGA_INTENSIVE: "/courses/shiva-yoga-intensive",
+  YOGA_SUTRAS_INTENSIVE: "/courses/yoga-sutras-intensive",
+  YOGA_VASHISHTA_STUDY: "/courses/yoga-vashishta-study",
+  ANCIENT_MASTERS_INTENSIVE: "/courses/ancient-masters-intensive",
 } as const;
 
 // ===========================================
@@ -222,7 +222,7 @@ export function getAllRoutes(): string[] {
 // ===========================================
 
 export type RouteKey = keyof typeof ROUTES;
-export type RouteValue = typeof ROUTES[RouteKey];
+export type RouteValue = (typeof ROUTES)[RouteKey];
 
 // ===========================================
 // DEFAULT EXPORT

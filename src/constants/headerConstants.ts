@@ -8,7 +8,7 @@
  */
 
 import { CONTACT_INFO } from "./contactConstants";
-import { 
+import {
   ROUTE_HOME,
   ROUTE_OUR_FOUNDER,
   ROUTE_OUR_TEAM,
@@ -36,7 +36,7 @@ import {
   ROUTE_ONLINE_YOGA_NIDRA,
   ROUTE_PAYMENT,
   ROUTE_CONTACT,
-  ROUTE_APPLY
+  ROUTE_APPLY,
 } from "./routesConstants";
 import type { MenuItem } from "../types";
 
@@ -127,7 +127,10 @@ export const HEADER_NAVIGATION_ITEMS: MenuItem[] = [
       { label: "200 Hour Yoga Teacher Training", href: ROUTE_TTC_200 },
       { label: "300 Hour Yoga Teacher Training", href: ROUTE_TTC_300 },
       { label: "500 Hour Yoga Teacher Training", href: ROUTE_TTC_500 },
-      { label: "200 Hour Kundalini Yoga Teacher Training", href: ROUTE_KUNDALINI_TTC },
+      {
+        label: "200 Hour Kundalini Yoga Teacher Training",
+        href: ROUTE_KUNDALINI_TTC,
+      },
       { label: "Yoga Retreats In Rishikesh", href: ROUTE_RETREATS },
       { label: "Yoga Teacher Training Course In Bali", href: ROUTE_BALI_TTC },
     ],

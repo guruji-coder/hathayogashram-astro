@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: " #e501f0",
+        secondary: "#d671da",
+      },
       fontFamily: {
         space: ['"Space Grotesk"', "sans-serif"],
         kaushan: ['"Kaushan Script"', "cursive"],

@@ -1,64 +1,89 @@
 ---
 import Layout from "$components/layout/Layout.astro";
+import SectionHeader from "$components/ui/SectionHeader.astro";
 import { ROUTE_CONTACT } from "$constants/routesConstants";
+import { TRAINING_CAROUSEL_IMAGES } from "$constants/trainingCarouselConstants";
+import { TRAINING_200_TITLE, TRAINING_200_DETAILS, TRAINING_200_FEES } from "$constants/training200Constants";
+import TTCHeroSection from "$components/sections/TTC/TTCHeroSection.astro";
+import Button from "$components/ui/Button.astro";
 ---
+
+<style>
+/* Small subtle shine animation */
+@keyframes shine-alt2 {
+  0%   { opacity: 0; transform: translateX(-10px) skewX(0deg); }
+  50%  { opacity: 0.5; transform: translateX(10px) skewX(0deg); }
+  100% { opacity: 0; transform: translateX(-10px) skewX(0deg); }
+}
+.shine-alt2 {
+  animation: shine-alt2 1s ease-in-out infinite;
+}
+</style>
 
 <Layout
   title="Best 200 Hour Yoga Teacher Training in Rishikesh, India - Hatha Yogashram"
   description="Join authentic 200/300 hour Yoga Teacher Training in Rishikesh with Hatha Yogashram. Yoga Alliance RYS certified residential courses with Indian masters. Traditional Hatha & Ashtanga Yoga, Sanskrit mantras, philosophy from ancient texts."
   canonical="https://hathayogashram.com/"
   image="https://hathayogashram.com/yogaschoolpic.jpg"
+>
+  <!-- Training 200 Section -->
+  <TTCHeroSection 
+    images={TRAINING_CAROUSEL_IMAGES}
+    title={TRAINING_200_TITLE}
+    details={TRAINING_200_DETAILS}
+    fees={TRAINING_200_FEES}
+    contactRoute={ROUTE_CONTACT}
+  />
 
-  >
-  <div class="w-full flex flex-col md:flex-row min-h-full">
-    <!-- Image Carousel Container -->
-    <div class="w-2/3 flex-1">
-      <img
-        id="carousel-image"
-        src="https://www.vinyasayogaashram.com/image/200hrs-yoga-teacher-training-course.jpg?v=125"
-        alt="yoga course pic"
-        class="w-full h-full"
-      />
-    </div>
+  <section class="m-10">
+    <SectionHeader
+      title="Best 200 Hour Yoga Teacher Training Course in Rishikesh"}
+    />
 
-    <div class="rounded-2xl w-1/3  p-8 flex flex-col justify-center font-space">
-      <h2 class="text-3xl font-bold mb-4 text-primary">Join Our 200 Hour Yoga Teacher Training in Rishikesh</h2>
-      <p class="text-primary mb-6">
-        Immerse yourself in the authentic teachings of yoga with our comprehensive 200-hour Yoga Teacher Training course in Rishikesh, India. Learn from experienced Indian masters in a serene ashram setting.
-      </p>
-      <ul class="list-disc list-inside text-primary mb-6">
-        <li>Traditional Hatha & Ashtanga Yoga practices</li>
-        <li>Sanskrit mantras and chanting</li>
-        <li>Yoga philosophy from ancient texts</li>
-        <li>Teaching methodologies and practicum</li>
-      </ul>
-      <a href={ROUTE_CONTACT} class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold text-lg transition-colors duration-300 text-center w-max">
-        Enroll Now
-      </a>
+    <div class="flex w-full flex-col md:flex-row">
+      <div class="md:w-1/2 w-full font-bold text-xl">
+        <h3 class="">Become yoga alliance registered yoga teacher (ryt 200) through Vinyasa Yoga Ashram’s 200 hour yoga teacher training course and start your career in yoga. Our comprehensive and professional program is designed for all levels of practitioners which includes several aspects of yoga, I.E. From asanas to kriyas and prepares you to become an independent yoga teacher.
 
-    </div>
-  </div>
+Be a part of this life-changing experience at Vinyasa Yoga Ashram and begin your pleasant journey to lighten up your true self through yoga. Our 200 hour yoga teacher training course will provide you the deepest possible knowledge of yoga both in the form of theory as well as practical.</h3>
+<button id="read-more-btn" class="mt-4 px-4 py-2 rounded bg-primary text-white">Read More</button>
+</div>
+      <div class="md:w-1/2 w-full mt-10 md:mt-0">
+      <img src="https://www.vinyasayogaashram.com/image/200hrs-yoga-teacher-training-course.jpg?v=125" alt="">
+      </div>
+   </div>
 
-  <!-- Carousel Script -->
+   <div id="read-more-content" class="read-more font-bold text-xl hidden mt-5">
+    Our highly qualified and veteran Yog Gurus will provide in-depth knowledge of Asana, Meditation, Ayurveda, Pranayama, Yoga Philosophy and Anatomy. Moreover, asana alignments, modifications, contradictions, use of props, adjustment techniques, teaching methodology and teaching practice will also be covered during this course Both beginners, as well as experienced practitioners, can reap the benefits of this course as it will not only deepen your yogic knowledge but also sharpen your skills as a facilitator. We aim to incorporate yoga into your daily life and help you in becoming a confident yoga teacher. So, get ready and join us in our beautiful journey of The 200 Hour Yoga Teacher Training Certification Course at Vinyasa Yoga Ashram
+   </div>
+
+  
+  <!-- Toggle script for Read More -->
   <script type="module">
-    const carouselImages = [
-      "https://www.vinyasayogaashram.com/image/200hrs-yoga-teacher-training-course.jpg?v=125",
-      "https://hathayogashram.com/yogaschoolpic.jpg",
-      "https://hathayogashram.com/yogacoursepic.jpg"
-    ];
-    let currentIndex = 0;
-    const imgEl = document.getElementById("carousel-image");
-
-    if (imgEl) {
-      setInterval(() => {
-        currentIndex = (currentIndex + 1) % carouselImages.length;
-        imgEl.src = carouselImages[currentIndex];
-        imgEl.style.transition = "opacity 0.5s ease-in-out";
-        imgEl.style.opacity = "0.8";
-        setTimeout(() => {
-          imgEl.style.opacity = "1";
-        }, 250);
-      }, 5000);
+    const btn = document.getElementById('read-more-btn');
+    const content = document.getElementById('read-more-content');
+    if (btn && content) {
+      btn.addEventListener('click', () => {
+        const hidden = content.classList.toggle('hidden');
+        btn.textContent = hidden ? 'Read More' : 'Show Less';
+      });
     }
   </script>
+  </section>
+
+
+  <section class="NavbarTTC fixed bottom-0 left-0 w-full bg-white shadow-md z-10">
+    <div class="w-full flex justify-around ">
+      <img src="/hya.jpg" class="w-10 h-10 rounded-full"  alt="">
+      <div class="">
+        <h1>200 Hour Yoga Teacher Training Course International</h1>
+        <h2>Starts From : <strike>$1049.00</strike> $899.00/- </h2>
+      </div>
+
+      <div class="">
+        <button>ENQUIRE</button>
+        <!-- <button>INTINERARY</button> -->
+        <button class="bg-[#25D366] px-20 py-2 text-white shine-alt2">BOOK NOW</button>
+      </div>
+    </div>
+  </section>
 </Layout>

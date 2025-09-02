@@ -1,10 +1,15 @@
-
-
-
 ---
-import { YOGA_COURSES_CARDS_SECTION, HOME_STYLES } from "$constants/homePageConstants";
+import {
+  YOGA_COURSES_CARDS_SECTION,
+  HOME_STYLES,
+} from "$constants/homePageConstants";
 import { BUTTON_STYLES } from "$constants/uiConstants";
-import { KUNDALINI_COURSES, VEDIC_CHANTING_COURSES, YTTC_COURSES, ONLINE_TTC_COURSES } from "$constants/courseConstants";
+import {
+  KUNDALINI_COURSES,
+  VEDIC_CHANTING_COURSES,
+  YTTC_COURSES,
+  ONLINE_TTC_COURSES,
+} from "$constants/courseConstants";
 import { ROUTE_CONTACT, ROUTE_COURSES } from "$constants/routesConstants";
 import CourseTab from "../../svelte/ui/CourseTab.svelte";
 
@@ -12,52 +17,64 @@ const { TITLE, SUBTITLE } = YOGA_COURSES_CARDS_SECTION;
 
 // Simple tab data - let Svelte handle the rendering
 const tabs = [
-	{
-		title: "YTTC Courses",
-		value: "yttc",
-		courses: YTTC_COURSES
-	},
-	{
-		title: "Kundalini Yoga TTC", 
-		value: "kundalini",
-		courses: KUNDALINI_COURSES
-	},
-	{
-		title: "Vedic Chanting TTC",
-		value: "vedic", 
-		courses: VEDIC_CHANTING_COURSES
-	},
-	{
-		title: "Online TTC",
-		value: "online", 
-		courses: ONLINE_TTC_COURSES
-	}
+  {
+    title: "YTTC Courses",
+    value: "yttc",
+    courses: YTTC_COURSES,
+  },
+  {
+    title: "Kundalini Yoga TTC",
+    value: "kundalini",
+    courses: KUNDALINI_COURSES,
+  },
+  {
+    title: "Vedic Chanting TTC",
+    value: "vedic",
+    courses: VEDIC_CHANTING_COURSES,
+  },
+  {
+    title: "Online TTC",
+    value: "online",
+    courses: ONLINE_TTC_COURSES,
+  },
 ];
 ---
 
 <!-- Yoga Teacher Training Courses Section -->
-<section class={`${HOME_STYLES.SECTION_PADDING} bg-gradient-to-br from-purple-50 to-orange-50`}>
-	<div class={HOME_STYLES.CONTAINER}>
-		<!-- Section Header -->
-		<div class="mb-12 text-center">
-			<h2 class="mb-4 text-3xl font-bold text-purple-900 sm:text-4xl">{TITLE}</h2>
-			<p class="mx-auto max-w-3xl text-lg text-gray-600">{SUBTITLE}</p>
-		</div>
+<section
+  class={`${HOME_STYLES.SECTION_PADDING} bg-gradient-to-br from-purple-50 to-orange-50`}
+>
+  <div class={HOME_STYLES.CONTAINER}>
+    <!-- Section Header -->
+    <div class="mb-12 text-center">
+      <h2 class="mb-4 text-3xl font-bold text-purple-900 sm:text-4xl">
+        {TITLE}
+      </h2>
+      <p class="mx-auto max-w-3xl text-lg text-gray-600">{SUBTITLE}</p>
+    </div>
 
-		<!-- Simple Tab Component -->
-		<CourseTab tabs={tabs} client:load />
+    <!-- Simple Tab Component -->
+    <CourseTab tabs={tabs} client:load />
 
-		<!-- Call to Action -->
-		<div class="mt-16 text-center">
-			<p class="mb-6 text-lg text-gray-700">Ready to start your yoga journey?</p>
-			<div class="flex flex-col justify-center gap-4 sm:flex-row">
-				<a href={ROUTE_CONTACT} class={`${BUTTON_STYLES.BASE} text-white bg-purple-900 border-purple-900 hover:bg-white hover:text-purple-900 hover:border-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2text-5xl`}>
-					Contact Us
-				</a>
-				<a href={ROUTE_COURSES} class={`${BUTTON_STYLES.BASE} bg-orange-500 px-8 py-4 text-lg text-white hover:bg-orange-600`}>
-					View All Courses
-				</a>
-			</div>
-		</div>
-	</div>
+    <!-- Call to Action -->
+    <div class="mt-16 text-center">
+      <p class="mb-6 text-lg text-gray-700">
+        Ready to start your yoga journey?
+      </p>
+      <div class="flex flex-col justify-center gap-4 sm:flex-row">
+        <a
+          href={ROUTE_CONTACT}
+          class={`${BUTTON_STYLES.BASE} text-white bg-purple-900 border-purple-900 hover:bg-white hover:text-purple-900 hover:border-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2text-5xl`}
+        >
+          Contact Us
+        </a>
+        <a
+          href={ROUTE_COURSES}
+          class={`${BUTTON_STYLES.BASE} bg-orange-500 px-8 py-4 text-lg text-white hover:bg-orange-600`}
+        >
+          View All Courses
+        </a>
+      </div>
+    </div>
+  </div>
 </section>

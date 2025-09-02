@@ -1,6 +1,6 @@
 ---
 // Simple footer data
-import { 
+import {
   ROUTE_HOME,
   ROUTE_OUR_FOUNDER,
   ROUTE_OUR_TEAM,
@@ -19,7 +19,7 @@ import {
   ROUTE_ONLINE_YOGA_NIDRA,
   ROUTE_AERIAL_YOGA,
   ROUTE_PRIVACY,
-  ROUTE_TERMS
+  ROUTE_TERMS,
 } from "../../constants/routesConstants";
 
 const footerSections = [
@@ -48,28 +48,40 @@ const footerSections = [
 ];
 
 const allLinks = [
-  { label: 'Hatha Yoga Ashram', href: ROUTE_HOME },
-  { label: 'Hatha Yoga Ashram Rishikesh', href: ROUTE_HOME },
-  { label: '100 Hour Yoga Teacher Training in Rishikesh', href: ROUTE_TTC_100 },
-  { label: '200 Hour Yoga Teacher Training in Rishikesh', href: ROUTE_TTC_200 },
-  { label: '300 Hour Yoga Teacher Training in Rishikesh', href: ROUTE_TTC_300 },
-  { label: '500 Hour Yoga Teacher Training in Rishikesh', href: ROUTE_TTC_500 },
-  { label: 'Yoga in Rishikesh', href: ROUTE_HOME },
-  { label: 'Best Yoga School in Rishikesh', href: ROUTE_HOME },
-  { label: 'Yoga Course in Rishikesh', href: ROUTE_HOME },
-  { label: 'Yoga school in India', href: ROUTE_HOME },
-  { label: 'Aerial Yoga TTC', href: ROUTE_AERIAL_YOGA },
-  { label: 'Yoga Teacher Training in India', href: ROUTE_HOME },
-  { label: 'Yoga TTC in India', href: ROUTE_HOME },
-  { label: 'Online Yoga Teacher Training', href: ROUTE_ONLINE_COURSES },
-  { label: 'Online Yoga Teacher Training Course', href: ROUTE_ONLINE_COURSES },
-  { label: 'Online Yoga Course', href: ROUTE_ONLINE_COURSES },
-  { label: '200 Hour Online Yoga Teacher Training Course', href: ROUTE_ONLINE_200 },
-  { label: '300 Hour Online Yoga Teacher Training Course', href: ROUTE_ONLINE_300 },
-  { label: 'Yin Yoga Online', href: ROUTE_ONLINE_YIN },
-  { label: 'Yin Yoga Online Yoga Teacher Training Course', href: ROUTE_ONLINE_YIN },
-  { label: 'Yoga Nidra Online', href: ROUTE_ONLINE_YOGA_NIDRA },
-  { label: 'Yoga Nidra Online Yoga Teacher Training Course', href: ROUTE_ONLINE_YOGA_NIDRA }
+  { label: "Hatha Yoga Ashram", href: ROUTE_HOME },
+  { label: "Hatha Yoga Ashram Rishikesh", href: ROUTE_HOME },
+  { label: "100 Hour Yoga Teacher Training in Rishikesh", href: ROUTE_TTC_100 },
+  { label: "200 Hour Yoga Teacher Training in Rishikesh", href: ROUTE_TTC_200 },
+  { label: "300 Hour Yoga Teacher Training in Rishikesh", href: ROUTE_TTC_300 },
+  { label: "500 Hour Yoga Teacher Training in Rishikesh", href: ROUTE_TTC_500 },
+  { label: "Yoga in Rishikesh", href: ROUTE_HOME },
+  { label: "Best Yoga School in Rishikesh", href: ROUTE_HOME },
+  { label: "Yoga Course in Rishikesh", href: ROUTE_HOME },
+  { label: "Yoga school in India", href: ROUTE_HOME },
+  { label: "Aerial Yoga TTC", href: ROUTE_AERIAL_YOGA },
+  { label: "Yoga Teacher Training in India", href: ROUTE_HOME },
+  { label: "Yoga TTC in India", href: ROUTE_HOME },
+  { label: "Online Yoga Teacher Training", href: ROUTE_ONLINE_COURSES },
+  { label: "Online Yoga Teacher Training Course", href: ROUTE_ONLINE_COURSES },
+  { label: "Online Yoga Course", href: ROUTE_ONLINE_COURSES },
+  {
+    label: "200 Hour Online Yoga Teacher Training Course",
+    href: ROUTE_ONLINE_200,
+  },
+  {
+    label: "300 Hour Online Yoga Teacher Training Course",
+    href: ROUTE_ONLINE_300,
+  },
+  { label: "Yin Yoga Online", href: ROUTE_ONLINE_YIN },
+  {
+    label: "Yin Yoga Online Yoga Teacher Training Course",
+    href: ROUTE_ONLINE_YIN,
+  },
+  { label: "Yoga Nidra Online", href: ROUTE_ONLINE_YOGA_NIDRA },
+  {
+    label: "Yoga Nidra Online Yoga Teacher Training Course",
+    href: ROUTE_ONLINE_YOGA_NIDRA,
+  },
 ];
 
 const contactInfo = {
@@ -182,28 +194,35 @@ const socialLinks = [
       </div>
     </div>
 
-    		<!-- Bottom Quick Links Section -->
-		<div class="mt-16 border-t border-gray-700 pt-8">
-			<div class="bottom-quick-links-wrap">
-				<h3 class="common-heading mb-6 text-center text-xl font-semibold text-white">
-					Quick Links
-					<div class="heading-ornament mx-auto mt-2 h-0.5 w-12 bg-orange-400"></div>
-				</h3>
-				<div class="bottom-link-collection flex flex-wrap items-center justify-center gap-2">
-                  {allLinks.map((link, index) => [
-                    <a
-                      href={link.href}
-                      class="inline-block rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm text-gray-300 transition-all duration-300 hover:border-orange-400 hover:bg-orange-500 hover:text-white"
-                    >
-                      {link.label}
-                    </a>,
-                    index < allLinks.length - 1 && (
-                      <span class="hidden text-gray-600 sm:inline"> </span>
-                    )
-                  ])}
-				</div>
-			</div>
-		</div>
+    <!-- Bottom Quick Links Section -->
+    <div class="mt-16 border-t border-gray-700 pt-8">
+      <div class="bottom-quick-links-wrap">
+        <h3
+          class="common-heading mb-6 text-center text-xl font-semibold text-white"
+        >
+          Quick Links
+          <div class="heading-ornament mx-auto mt-2 h-0.5 w-12 bg-orange-400">
+          </div>
+        </h3>
+        <div
+          class="bottom-link-collection flex flex-wrap items-center justify-center gap-2"
+        >
+          {
+            allLinks.map((link, index) => [
+              <a
+                href={link.href}
+                class="inline-block rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm text-gray-300 transition-all duration-300 hover:border-orange-400 hover:bg-orange-500 hover:text-white"
+              >
+                {link.label}
+              </a>,
+              index < allLinks.length - 1 && (
+                <span class="hidden text-gray-600 sm:inline"> </span>
+              ),
+            ])
+          }
+        </div>
+      </div>
+    </div>
 
     <!-- Bottom Bar -->
     <div class="border-t border-gray-800 pt-8">
@@ -212,8 +231,9 @@ const socialLinks = [
           &copy; {new Date().getFullYear()} Hatha Yogashram. All rights reserved.
         </p>
         <div class="flex gap-6 text-sm text-gray-400">
-          <a href={ROUTE_PRIVACY} class="transition-colors hover:text-orange-400"
-            >Privacy Policy</a
+          <a
+            href={ROUTE_PRIVACY}
+            class="transition-colors hover:text-orange-400">Privacy Policy</a
           >
           <a href={ROUTE_TERMS} class="transition-colors hover:text-orange-400"
             >Terms of Service</a

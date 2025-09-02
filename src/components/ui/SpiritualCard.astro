@@ -1,45 +1,42 @@
 ---
-import { YOGA_GURUS_STYLES } from '$constants/yogaGurusConstants';
+import { YOGA_GURUS_STYLES } from "$constants/yogaGurusConstants";
 
 interface Props {
-	name: string;
-	image: string;
+  name: string;
+  image: string;
 }
 
 const { name, image } = Astro.props;
 ---
 
 <div class={YOGA_GURUS_STYLES.SPIRITUAL_CARD}>
-	<!-- Profile Image - No Mandala, Bigger Size -->
-	<div class={YOGA_GURUS_STYLES.PROFILE_CONTAINER}>
-		<div class={YOGA_GURUS_STYLES.PROFILE_IMAGE_WRAPPER}>
-			<img
-				src={image}
-				alt={name}
-				class={YOGA_GURUS_STYLES.PROFILE_IMAGE}
-				loading="lazy"
-			/>
-		</div>
-	</div>
+  <!-- Profile Image - No Mandala, Bigger Size -->
+  <div class={YOGA_GURUS_STYLES.PROFILE_CONTAINER}>
+    <div class={YOGA_GURUS_STYLES.PROFILE_IMAGE_WRAPPER}>
+      <img
+        src={image}
+        alt={name}
+        class={YOGA_GURUS_STYLES.PROFILE_IMAGE}
+        loading="lazy"
+      />
+    </div>
+  </div>
 
-	<!-- Guru Information -->
-	<div class={YOGA_GURUS_STYLES.CONTENT_CONTAINER}>
-		<h3 class={YOGA_GURUS_STYLES.NAME}>
-			{name}
-		</h3>
-	</div>
+  <!-- Guru Information -->
+  <div class={YOGA_GURUS_STYLES.CONTENT_CONTAINER}>
+    <h3 class={YOGA_GURUS_STYLES.NAME}>
+      {name}
+    </h3>
+  </div>
 </div>
 
 <style>
-	/* Hide scrollbars for the gurus container */
-	#gurusContainer::-webkit-scrollbar {
-		display: none !important;
-	}
-	#gurusContainer {
-		-ms-overflow-style: none;  /* IE and Edge */
-		scrollbar-width: none;  /* Firefox */
-	}
-	
+  /* Hide scrollbars for the gurus container */
+  #gurusContainer::-webkit-scrollbar {
+    display: none !important;
+  }
+  #gurusContainer {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
 </style>
-
-

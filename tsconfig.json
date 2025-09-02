@@ -3,6 +3,12 @@
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"],
   "compilerOptions": {
+    "jsx": "preserve",
+    "jsxImportSource": "astro",
+    "types": [
+      "astro/client",
+      "astro/astro-jsx"
+    ],
     "baseUrl": ".",
     "paths": {
       "$lib/*": ["src/lib/*"],
@@ -11,8 +17,7 @@
       "$ui/*": ["src/components/ui/*"],
       "$types/*": ["src/types/*"],
       "$features/*": ["src/components/features/*"],
-      "$svelte/*": ["src/components/svelte/*"],
-
+      "$svelte/*": ["src/components/svelte/*"]
     }
   }
 }

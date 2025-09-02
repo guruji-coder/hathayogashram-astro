@@ -1,11 +1,12 @@
 ---
 import type { SectionHeaderProps } from "../../types";
+import DecorativeUnderline from '$components/ui/DecorativeUnderline.astro';
 
 export interface Props extends SectionHeaderProps {}
 
 const {
   title,
-  titleClass = "mb-4 text-xl font-bold text-purple-900 sm:text-2xl lg:text-3xl text-center",
+  titleClass = "mb-4 text-xl font-bold text-purple-900 sm:text-3xl lg:text-4xl text-center",
   svgWidth = 300,
   svgHeight = 30,
   svgColor = "text-purple-900",
@@ -20,27 +21,5 @@ const {
   </h2>
 
   <!-- Decorative Underline SVG -->
-  <div class="my-6 flex justify-center">
-    <svg
-      width={svgWidth}
-      height={svgHeight}
-      viewBox={`0 0 ${svgWidth} ${svgHeight}`}
-      class={svgColor}
-    >
-      <path
-        d={`M${svgWidth * 0.067} ${svgHeight * 0.5} Q ${svgWidth * 0.5} ${svgHeight * 0.267} ${svgWidth * 0.933} ${svgHeight * 0.5}`}
-        stroke="currentColor"
-        stroke-width="2"
-        fill="none"></path>
-      <circle
-        cx={svgWidth * 0.5}
-        cy={svgHeight * 0.4}
-        r={svgHeight * 0.4}
-        fill="currentColor"></circle>
-      <path
-        d={`M${svgWidth * 0.473} ${svgHeight * 0.4} L${svgWidth * 0.487} ${svgHeight * 0.533} L${svgWidth * 0.527} ${svgHeight * 0.133} L${svgWidth * 0.54} ${svgHeight * 0.4}`}
-        fill="white"
-        stroke="none"></path>
-    </svg>
-  </div>
+  <DecorativeUnderline width={svgWidth} height={svgHeight} className={svgColor} />
 </div>
