@@ -68,7 +68,7 @@ export const LOCATION_STYLES = {
   HEADER_TITLE: "text-4xl font-bold text-gray-800",
 
   // Main layout styles
-  MAIN_LAYOUT: "flex flex-col lg:flex-row",
+  MAIN_LAYOUT: "flex flex-col lg:flex-row font-bold",
   COLUMN_WIDTH: "lg:w-1/2 w-full",
 
   // Card styles

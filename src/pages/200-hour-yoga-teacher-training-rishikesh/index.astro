@@ -6,9 +6,13 @@ import { TRAINING_CAROUSEL_IMAGES } from "$constants/trainingCarouselConstants";
 import { TRAINING_200_TITLE, TRAINING_200_DETAILS, TRAINING_200_FEES } from "$constants/training200Constants";
 import TTCHeroSection from "$components/sections/TTC/TTCHeroSection.astro";
 import Button from "$components/ui/Button.astro";
+import { LocationSection } from "$components/sections";
+import DailyScheduleSection from "$components/sections/TTC/DailyScheduleSection.astro";
+import { FaqSection } from "$components/svelte";
+import { FAQ_SECTION, FAQ_STYLES } from "$constants/faqConstants";
 ---
 
-<style>
+<!-- <style>
 /* Small subtle shine animation */
 @keyframes shine-alt2 {
   0%   { opacity: 0; transform: translateX(-10px) skewX(0deg); }
@@ -18,7 +22,7 @@ import Button from "$components/ui/Button.astro";
 .shine-alt2 {
   animation: shine-alt2 1s ease-in-out infinite;
 }
-</style>
+</style> -->
 
 <Layout
   title="Best 200 Hour Yoga Teacher Training in Rishikesh, India - Hatha Yogashram"
@@ -35,13 +39,13 @@ import Button from "$components/ui/Button.astro";
     contactRoute={ROUTE_CONTACT}
   />
 
-  <section class="m-10">
+  <section id="BestCourse" class="m-10">
     <SectionHeader
       title="Best 200 Hour Yoga Teacher Training Course in Rishikesh"}
     />
 
     <div class="flex w-full flex-col md:flex-row">
-      <div class="md:w-1/2 w-full font-bold text-xl">
+      <div class="md:w-1/2 w-full font-bold text-lg md:text-xl">
         <h3 class="">Become yoga alliance registered yoga teacher (ryt 200) through Vinyasa Yoga Ashram’s 200 hour yoga teacher training course and start your career in yoga. Our comprehensive and professional program is designed for all levels of practitioners which includes several aspects of yoga, I.E. From asanas to kriyas and prepares you to become an independent yoga teacher.
 
 Be a part of this life-changing experience at Vinyasa Yoga Ashram and begin your pleasant journey to lighten up your true self through yoga. Our 200 hour yoga teacher training course will provide you the deepest possible knowledge of yoga both in the form of theory as well as practical.</h3>
@@ -71,19 +75,32 @@ Be a part of this life-changing experience at Vinyasa Yoga Ashram and begin your
   </section>
 
 
-  <section class="NavbarTTC fixed bottom-0 left-0 w-full bg-white shadow-md z-10">
-    <div class="w-full flex justify-around ">
-      <img src="/hya.jpg" class="w-10 h-10 rounded-full"  alt="">
-      <div class="">
-        <h1>200 Hour Yoga Teacher Training Course International</h1>
-        <h2>Starts From : <strike>$1049.00</strike> $899.00/- </h2>
+  <!-- Daily Schedule Section -->
+  <DailyScheduleSection />
+  <FaqSection
+    sectionData={FAQ_SECTION}
+    styles={FAQ_STYLES}
+    client:load
+  />
+
+
+
+  <section class="NavbarTTC fixed bottom-0 left-0 w-full bg-white shadow-md z-10 pt-2 md:pt-5">
+    <div class="w-full flex md:justify-around flex-col md:flex-row text-center justify-center items-center">
+      <img src="/hya.jpg" class="w-10 h-10 rounded-full text-center"  alt="">
+      <div class="font-bold text-lg">
+        <h1 class="text-sm md:text-xl">200 Hour Yoga Teacher Training Course International</h1>
+        <h2 class="text-primary">Starts From : <strike>$1049.00</strike> $899.00/- </h2>
       </div>
 
-      <div class="">
-        <button>ENQUIRE</button>
+      <div class="px-5 flex flex-row font-bold justify-around gap-4">
+  <Button href={ROUTE_CONTACT} class="bg-orange-500 lg:px-20 py-2 px-10 w-full text-white">ENQUIRE</Button>
         <!-- <button>INTINERARY</button> -->
-        <button class="bg-[#25D366] px-20 py-2 text-white shine-alt2">BOOK NOW</button>
+  <Button href={ROUTE_CONTACT} class="bg-green-500 lg:px-20 py-2 px-10 w-full text-white whitespace-nowrap">BOOK NOW</Button>
       </div>
     </div>
   </section>
+
+
+  <LocationSection />
 </Layout>

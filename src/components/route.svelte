@@ -389,7 +389,7 @@
 
 <!-- Trusted Yoga Alliance Registered School Section 
 <section
-  class="relative flex min-h-screen items-center justify-center overflow-hidden py-16"
+  class="relative flex min-h-[50vh] md:min-h-screen items-center justify-center overflow-hidden py-16"
 >
   <!-- Background Image with Overlay 
   <div
@@ -628,7 +628,7 @@
   </div>
 </section>
 
-<section class="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50">
+<section class="min-h-[50vh] md:min-h-screen bg-gradient-to-br from-purple-50 to-pink-50">
   <!-- Hero Section 
   <section class="py-20">
     <div class="container mx-auto px-4 text-center">
