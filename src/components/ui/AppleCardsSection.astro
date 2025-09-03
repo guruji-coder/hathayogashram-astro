@@ -28,7 +28,7 @@ const {
         {title}
       </h2>
 
-      <p class="mx-auto max-w-3xl text-lg text-gray-700">
+      <p class="mx-auto max-w-full text-lg text-gray-700">
         {subtitle}
       </p>
     </div>

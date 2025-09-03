@@ -4,10 +4,9 @@ import Button from '../../ui/Button.astro';
 import { TRAINING_DAILY_SCHEDULE } from '../../../constants/trainingScheduleConstants';
 import { ROUTE_CONTACT, ROUTE_PAYMENT } from '../../../constants/routesConstants';
 ---
-<section id="DailySchedule" class="m-10 bg-yellow-50 font-bold">
+<section id="DailySchedule" class="m-10  font-bold">
   <SectionHeader title="Daily Schedule for 200 hrs YTTC" />
  
-  <p class="mt-2 italic text-sm">Note: Yin Yoga/Restorative Yoga once a week</p>
   <div class="flex flex-col w-full md:flex-row">
   <div class="space-y-6 mt-6 w-full md:w-1/3">
     {TRAINING_DAILY_SCHEDULE.slice(0,4).map(({ time, activity }) => (

@@ -66,7 +66,7 @@ export const TEACHERS_CAROUSEL_SECTION = {
 export const TEACHERS_STYLES = {
   // Section styles
   SECTION_BACKGROUND: "py-16 bg-gradient-to-b from-purple-50 to-white",
-  CONTAINER: "container mx-auto max-w-6xl px-4",
+  CONTAINER: "container mx-auto max-w-full px-4",
 
   // Header styles
   TITLE: "mb-4 text-2xl font-bold text-purple-900 sm:text-3xl lg:text-4xl",

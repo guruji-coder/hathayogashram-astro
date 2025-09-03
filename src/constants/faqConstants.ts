@@ -72,7 +72,7 @@ export const FAQ_SECTION = {
 
 export const FAQ_STYLES = {
   SECTION_PADDING: "py-16 px-4",
-  CONTAINER: "container mx-auto max-w-6xl",
+  CONTAINER: "container mx-auto max-w-full",
   TITLE: "text-3xl md:text-4xl font-bold text-center text-purple-900 mb-4",
   FAQ_ITEM:
     "overflow-hidden cursor-pointer rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-md",

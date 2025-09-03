@@ -49,7 +49,7 @@ export const YOGA_GURUS_SECTION = {
 export const YOGA_GURUS_STYLES = {
   // Section styles
   SECTION_BACKGROUND: "from-purple-50 to-white px-4 py-16",
-  CONTAINER: "mx-auto max-w-7xl",
+  CONTAINER: "mx-auto max-w-full",
 
   // Header styles
   TITLE: "text-4xl font-bold text-gray-800",

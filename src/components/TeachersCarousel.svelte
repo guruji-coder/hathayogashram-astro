@@ -48,7 +48,7 @@
   });
 </script>
 
-<div class="mx-auto max-w-6xl">
+<div class="mx-auto max-w-full">
   <div class="overflow-hidden">
     <div bind:this={carousel} class="flex">
       {#each teachers as teacher}

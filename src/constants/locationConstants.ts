@@ -61,7 +61,7 @@ export const LOCATION_SECTION = {
 export const LOCATION_STYLES = {
   // Section styles
   SECTION_BACKGROUND: "px-4 py-16 bg-yellow-50",
-  CONTAINER: "mx-auto max-w-7xl",
+  CONTAINER: "mx-auto max-w-full",
 
   // Header styles
   HEADER_CONTAINER: "mb-16 text-center",

@@ -104,14 +104,14 @@
     </div>
 
     <!-- Intro Paragraph 
-    <div class="mx-auto max-w-6xl">
+    <div class="mx-auto max-w-full">
       <p class={HOME_STYLES.INTRO_PARAGRAPH}>
         {HOME_CONTENT.INTRO_PARAGRAPH}
       </p>
     </div>
 
     <!-- Two Column Layout: Content + Images 
-    <div class="mx-auto max-w-6xl">
+    <div class="mx-auto max-w-full">
       <div class={HOME_STYLES.TWO_COLUMN_GRID}>
         <!-- Left Column: Description Paragraphs 
         <div class={HOME_STYLES.CONTENT_CONTAINER}>
@@ -206,7 +206,7 @@
     </div>
 
     <!-- Content Paragraphs 
-    <div class="mx-auto max-w-6xl space-y-6">
+    <div class="mx-auto max-w-full space-y-6">
       {#each OBJECTIVE_SECTION.PARAGRAPHS as paragraph (paragraph)}
         <p
           class="text-justify text-sm leading-relaxed text-gray-700 sm:text-base"
@@ -243,7 +243,7 @@
         <!-- Section Header 
 
         <!-- Courses Grid 
-        <div class="mx-auto max-w-6xl space-y-8">
+        <div class="mx-auto max-w-full space-y-8">
           {#each TTC_COURSES_SECTION.COURSES as course (course.TITLE)}
             <div
               class="overflow-hidden rounded-xl border border-orange-200 bg-white shadow-md transition-shadow duration-300 hover:shadow-lg"
@@ -349,7 +349,7 @@
     </div>
 
     <!-- Content Paragraphs 
-    <div class="mx-auto mb-12 max-w-4xl space-y-6">
+    <div class="mx-auto mb-12 max-w-full space-y-6">
       {#each CERTIFICATIONS_SECTION.PARAGRAPHS.slice(0, 4) as paragraph (paragraph)}
         <p
           class="text-justify text-base leading-relaxed text-gray-700 lg:text-lg"
@@ -438,7 +438,7 @@
     </h3>
 
     <!-- Description Paragraphs 
-    <div class="mx-auto mb-12 max-w-4xl space-y-6">
+    <div class="mx-auto mb-12 max-w-full space-y-6">
       <p class="text-base leading-relaxed lg:text-lg">
         Hatha Yoga Ashram in Rishikesh offers a comprehensive certification for
         becoming an International Yoga Instructor for 100-hour, 200-hour,
@@ -506,7 +506,7 @@
     </div>
 
     <!-- Introduction Text 
-    <div class="mx-auto mb-8 max-w-4xl text-center">
+    <div class="mx-auto mb-8 max-w-full text-center">
       <p class="mb-4 text-base leading-relaxed text-gray-700 lg:text-lg">
         {TEACHERS_SECTION.INTRO_PARAGRAPH}
       </p>
@@ -517,7 +517,7 @@
     </div>
 
     <!-- Simple Responsive Teachers Carousel 
-    <div class="mx-auto max-w-6xl">
+    <div class="mx-auto max-w-full">
       <div class="overflow-hidden">
         <div
           class="flex transition-transform duration-700 ease-in-out"
@@ -590,14 +590,14 @@
       <h2 class="mb-4 text-3xl font-bold text-purple-900 sm:text-4xl">
         {YOGA_COURSES_CARDS_SECTION.TITLE}
       </h2>
-      <p class="mx-auto max-w-3xl text-lg text-gray-600">
+      <p class="mx-auto max-w-full text-lg text-gray-600">
         {YOGA_COURSES_CARDS_SECTION.SUBTITLE}
       </p>
     </div>
 
     <!-- Courses Grid 
     <div
-      class="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4"
+      class="mx-auto grid max-w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4"
     >
       {#each YOGA_COURSES_CARDS_SECTION.COURSES as course (course.id)}
         <CourseCard {course} />
@@ -637,7 +637,7 @@
       >
         {APPLE_CARDS_SECTION.TITLE}
       </h1>
-      <p class="mx-auto max-w-2xl text-lg text-gray-700 md:text-xl">
+      <p class="mx-auto max-w-full text-lg text-gray-700 md:text-xl">
         {APPLE_CARDS_SECTION.SUBTITLE}
       </p>
     </div>
