@@ -13,7 +13,7 @@ import SectionHeader from "$components/ui/SectionHeader.astro";
     <SectionHeader title={CERTIFICATIONS_SECTION.TITLE} />
 
     <!-- Content Paragraphs -->
-    <div class="mx-auto mb-12 max-w-4xl space-y-6">
+    <div class="mx-auto mb-12 max-w-full space-y-6">
       {
         CERTIFICATIONS_SECTION.PARAGRAPHS.slice(0, 4).map((paragraph) => (
           <p class={`${HOME_STYLES.CERTIFICATION_PARAGRAPH}`}>{paragraph}</p>

@@ -50,7 +50,7 @@ export const REVIEWS_SECTION = {
 
 export const REVIEWS_STYLES = {
   SECTION_PADDING: "py-16 px-4",
-  CONTAINER: "container mx-auto max-w-6xl",
+  CONTAINER: "container mx-auto max-w-full",
   TITLE: "text-3xl md:text-4xl font-bold text-center text-purple-900 mb-4",
   REVIEWS_GRID: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12",
   REVIEW_CARD:

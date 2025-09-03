@@ -16,7 +16,7 @@
 </script>
 
 <div
-  class="mx-auto grid w-full max-w-5xl grid-cols-1 gap-10 md:grid-cols-3 md:px-8"
+  class="mx-auto grid w-full max-w-full grid-cols-1 gap-10 md:grid-cols-3 md:px-8"
 >
   {#each cards as card, index (card.title)}
     <div

@@ -113,7 +113,7 @@ export const HOME_STYLES = {
   RATING_TEXT: "text-sm sm:text-base text-gray-600",
 
   // Highlight box styles
-  HIGHLIGHT_GRID: "grid md:grid-cols-2 gap-6 mb-12 max-w-4xl mx-auto",
+  HIGHLIGHT_GRID: "grid md:grid-cols-2 gap-6 mb-12 max-w-full mx-auto",
   HIGHLIGHT_BOX:
     "border-2 border-purple-900 bg-purple-50 p-6 rounded-lg flex items-center justify-start text-left",
   HIGHLIGHT_ICON: "text-purple-900 text-2xl mr-4 flex-shrink-0",

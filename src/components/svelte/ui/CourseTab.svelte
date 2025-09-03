@@ -44,7 +44,7 @@
 
 <!-- Tab Navigation -->
 <div class="mb-8 flex justify-center" role="tablist" tabindex="0">
-  <div class="flex max-w-6xl flex-wrap justify-center gap-4">
+  <div class="flex max-w-full flex-wrap justify-center gap-4">
     {#each tabs as tab}
       <button
         role="tab"
@@ -73,7 +73,7 @@
       id="tabpanel-{tab.value}"
       aria-labelledby="tab-{tab.value}"
       tabindex="0"
-      class="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+      class="mx-auto grid max-w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
       in:fly={{ y: 20, duration: 400, easing: quintOut }}
       out:fade={{ duration: 200 }}
     >

@@ -80,7 +80,7 @@
     </div>
 
     <!-- FAQ Items -->
-    <div class="mx-auto max-w-4xl space-y-4">
+    <div class="mx-auto max-w-full space-y-4">
   {#each sectionData.FAQS as faq, index (faq.id)}
   <div class={styles.FAQ_ITEM}>
           <!-- Question Button -->
