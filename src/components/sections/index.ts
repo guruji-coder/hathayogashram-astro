@@ -16,3 +16,4 @@ export { default as YTTCourseSection } from "./HomePage/YTTCourseSection.astro";
 
 // TTC Course Sections
 export { default as TTCHeroSection } from "./TTC/TTCHeroSection.astro";
+export { default as DailyScheduleSection } from "./TTC/DailyScheduleSection.astro";
