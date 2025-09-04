@@ -4,9 +4,10 @@
   interface Card {
     title: string;
     src: string;
+    p: string;
   }
 
-  export let cards: Card[] = [];
+  export let cards: readonly Card[] = [];
 
   let hovered: number | null = null;
 
@@ -16,7 +17,7 @@
 </script>
 
 <div
-  class="mx-auto grid w-full max-w-full grid-cols-1 gap-10 md:grid-cols-3 md:px-8"
+  class="mx-auto grid w-full max-w-full grid-cols-1 gap-10 md:grid-cols-2 md:px-8"
 >
   {#each cards as card, index (card.title)}
     <div
@@ -34,18 +35,19 @@
       <img
         src={card.src}
         alt={card.title}
-        class="absolute inset-0 object-cover"
+        class="absolute inset-0 object-cover w-full h-full"
       />
       <div
         class={cn(
-          "absolute inset-0 flex items-end bg-black/50 px-4 py-8 transition-opacity duration-300",
+          "absolute inset-0 flex items-center justify-center  bg-black/50 px-4 py-8 transition-opacity duration-300",
           hovered === index ? "opacity-100" : "opacity-0",
         )}
       >
         <div
-          class="bg-gradient-to-b from-neutral-50 to-neutral-200 bg-clip-text text-xl font-medium text-transparent md:text-2xl"
+          class="bg-gradient-to-b from-neutral-50 to-neutral-200 bg-clip-text text-xl font-bold text-transparent md:text-2xl"
         >
-          {card.title}
+          <h1>{card.title}</h1>
+          <p class="font-extrabold">{card.p}</p>
         </div>
       </div>
     </div>

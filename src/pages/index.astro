@@ -14,6 +14,8 @@ import {
   LocationSection,
   YogaGuruSection,
   YTTCourseSection,
+YogaFacilities
+
 } from "$components/sections";
 
 import { FaqSection } from "$svelte/sections";
@@ -52,18 +54,18 @@ const homeSchemas = pageSchemas.home();
 
   <YogaGuruSection />
 
+  <YogaFacilities />
+
   <!-- Instagram Feed Section -->
 
-  <iframe
-    title="feedinstagram"
-    src="https://app.mirror-app.com/feed-instagram/19bb8f51-1bbc-4709-bd36-10fb443f0c64/preview"
-    style="width: 100%; height:700px; border: none;"></iframe>
  
   <FaqSection
     sectionData={FAQ_SECTION}
     styles={FAQ_STYLES}
     client:load
   />
+
+ 
 
   <!-- Location Section -->
 
