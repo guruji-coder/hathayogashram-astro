@@ -23,7 +23,7 @@
   // Decorative underline dimensions & color
   export let width: number = 200;
   export let height: number = 20;
-  export let className: string = 'text-purple-900';
+  export let className: string = 'text-primary';
   import { slide } from "svelte/transition";
 
   // Track which FAQ is currently open
@@ -36,7 +36,7 @@
 
 <!-- FAQ Section -->
 <section
-  class="{styles.SECTION_PADDING} bg-gradient-to-b from-purple-50 to-white"
+  class="{styles.SECTION_PADDING}"
 >
   <div class={styles.CONTAINER}>
     <!-- Section Header -->
@@ -97,7 +97,7 @@
               <div
                 class="{styles.QUESTION_ICON} {openFaq === index
                   ? 'text-white'
-                  : 'text-purple-900'}"
+                  : 'text-primary'}"
               >
                 <i class="fas fa-question"></i>
               </div>
@@ -112,7 +112,7 @@
             <div
               class="{styles.TOGGLE_ICON} {openFaq === index
                 ? 'text-white'
-                : 'text-purple-900'}"
+                : 'text-primary'}"
             >
               <i class="fas {openFaq === index ? 'fa-minus' : 'fa-plus'}"></i>
             </div>
