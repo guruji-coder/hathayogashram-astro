@@ -1,6 +1,7 @@
 ---
 import FocusCards from "$ui/FocusCards.astro";
 import { FACILITIES_CARDS_SECTION } from "$constants/homePageConstants";
+import { FacilityCards } from "$components/svelte";
 ---
 
 <!-- Focus Cards Gallery Section -->
@@ -36,6 +37,6 @@ import { FACILITIES_CARDS_SECTION } from "$constants/homePageConstants";
     </div>
 
     <!-- Focus Cards Component -->
-    <!-- <FacilityCards cards={FACILITIES_CARDS_SECTION.CARDS} /> -->
+    <FacilityCards cards={FACILITIES_CARDS_SECTION.CARDS} client:load />
   </div>
 </section>

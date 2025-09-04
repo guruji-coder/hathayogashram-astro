@@ -39,7 +39,7 @@
       />
       <div
         class={cn(
-          "absolute inset-0 flex items-center justify-center  bg-black/50 px-4 py-8 transition-opacity duration-300",
+          "absolute inset-0 flex items-center justify-center bg-black/50 px-4 py-8 transition-opacity duration-300",
           hovered === index ? "opacity-100" : "opacity-0",
         )}
       >

@@ -12,18 +12,6 @@ import { FaqSection } from "$components/svelte";
 import { FAQ_SECTION, FAQ_STYLES } from "$constants/faqConstants";
 ---
 
-<!-- <style>
-/* Small subtle shine animation */
-@keyframes shine-alt2 {
-  0%   { opacity: 0; transform: translateX(-10px) skewX(0deg); }
-  50%  { opacity: 0.5; transform: translateX(10px) skewX(0deg); }
-  100% { opacity: 0; transform: translateX(-10px) skewX(0deg); }
-}
-.shine-alt2 {
-  animation: shine-alt2 1s ease-in-out infinite;
-}
-</style> -->
-
 <Layout
   title="Best 200 Hour Yoga Teacher Training in Rishikesh, India - Hatha Yogashram"
   description="Join authentic 200/300 hour Yoga Teacher Training in Rishikesh with Hatha Yogashram. Yoga Alliance RYS certified residential courses with Indian masters. Traditional Hatha & Ashtanga Yoga, Sanskrit mantras, philosophy from ancient texts."
@@ -31,13 +19,40 @@ import { FAQ_SECTION, FAQ_STYLES } from "$constants/faqConstants";
   image="https://hathayogashram.com/yogaschoolpic.jpg"
 >
   <!-- Training 200 Section -->
-  <!-- <TTCHeroSection 
+  <TTCHeroSection 
     images={TRAINING_CAROUSEL_IMAGES}
     title={TRAINING_200_TITLE}
     details={TRAINING_200_DETAILS}
     fees={TRAINING_200_FEES}
     contactRoute={ROUTE_CONTACT}
-  /> -->
+  />
+
+  <!-- Invisible sentinel to trigger sticky behavior -->
+  <div id="navbar-trigger" class="h-1"></div>
+
+  <section id="NavbarTTC" class="bg-white z-20 flex flex-col w-full md:w-2/3 justify-center shadow font-space text-primary">
+    <!-- Beautiful decorative divider -->
+    <div class="flex justify-center py-2">
+      <div class="flex items-center space-x-2">
+        <div class="w-8 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+        <div class="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+        <div class="w-12 h-0.5 bg-gradient-to-r from-primary via-orange-400 to-primary"></div>
+        <div class="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
+        <div class="w-8 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+      </div>
+    </div>
+    
+    <!-- Navigation links -->
+    <div class="flex w-full justify-around items-center pb-2">
+      <div><a href="#BestCourse" class="px-4 py-1 hover:text-orange-500 transition-colors">Curriculum</a></div>
+      <div class="h-4 w-px bg-gradient-to-b from-primary/20 via-primary to-primary/20"></div>
+      <div><a href="#DailySchedule" class="px-4 py-1 hover:text-orange-500 transition-colors">Schedule</a></div>
+      <div class="h-4 w-px bg-gradient-to-b from-orange-400/20 via-orange-400 to-orange-400/20"></div>
+      <div><a href="#Dates" class="px-4 py-1 hover:text-orange-500 transition-colors">Dates</a></div>
+      <div class="h-4 w-px bg-gradient-to-b from-primary/20 via-primary to-primary/20"></div>
+      <div><a href="#Location" class="px-4 py-1 hover:text-orange-500 transition-colors">Location</a></div>
+    </div>
+  </section>
 
   <section id="BestCourse" class="m-10">
     <SectionHeader
@@ -77,6 +92,8 @@ Be a part of this life-changing experience at Vinyasa Yoga Ashram and begin your
 
   <!-- Daily Schedule Section -->
   <DailyScheduleSection />
+
+  
   <FaqSection
     sectionData={FAQ_SECTION}
     styles={FAQ_STYLES}
@@ -85,7 +102,9 @@ Be a part of this life-changing experience at Vinyasa Yoga Ashram and begin your
 
 
 
-  <section class="NavbarTTC fixed bottom-0 left-0 w-full bg-white shadow-lg z-10 pt-2 lg:pt-5">
+
+
+  <section class="PriceTTC fixed bottom-0 left-0 w-full bg-white shadow-lg z-10 pt-2 lg:pt-5">
     <div class="w-full flex lg:justify-around flex-col lg:flex-row text-center justify-center items-center">
       <img src="/hya.jpg" class="w-10 h-10 rounded-full text-center"  alt="">
       <div class="font-bold text-lg">
@@ -103,4 +122,47 @@ Be a part of this life-changing experience at Vinyasa Yoga Ashram and begin your
 
 
   <LocationSection />
+
+  <!-- Move sticky navbar script to the very end -->
+  <script>
+    console.log('Script running...');
+    const navbar = document.getElementById('NavbarTTC');
+    const trigger = document.getElementById('navbar-trigger');
+    const header = document.querySelector('header');
+    
+    console.log('Navbar:', navbar);
+    console.log('Trigger:', trigger);
+    console.log('Header:', header);
+    
+    if (navbar && trigger && header) {
+      console.log('Setting up observer...');
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          console.log('Intersection event:', entry.isIntersecting);
+          if (!entry.isIntersecting) {
+            const headerHeight = header.offsetHeight;
+            navbar.style.position = 'fixed';
+            navbar.style.top = `${headerHeight}px`;
+            navbar.style.left = '0';
+            navbar.style.right = '0';
+            navbar.style.zIndex = '40';
+            console.log('Added sticky styles below header at:', headerHeight + 'px');
+          } else {
+            navbar.style.position = 'static';
+            navbar.style.top = '';
+            navbar.style.left = '';
+            navbar.style.right = '';
+            navbar.style.zIndex = '20';
+            console.log('Removed sticky styles');
+          }
+        },
+        { threshold: 0 }
+      );
+      
+      observer.observe(trigger);
+      console.log('Observer set up complete');
+    } else {
+      console.error('Elements not found!');
+    }
+  </script>
 </Layout>
