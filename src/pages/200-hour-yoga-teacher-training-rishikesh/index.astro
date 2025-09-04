@@ -8,6 +8,9 @@ import TTCHeroSection from "$components/sections/TTC/TTCHeroSection.astro";
 import Button from "$components/ui/Button.astro";
 import { LocationSection } from "$components/sections";
 import DailyScheduleSection from "$components/sections/TTC/DailyScheduleSection.astro";
+import DatesSection from "$components/sections/TTC/DatesSection.astro";
+import CourseHighlightsSection from "$components/sections/TTC/CourseHighlightsSection.astro";
+import { COURSE_HIGHLIGHTS_SECTION } from "$constants/courseHighlightsConstants";
 import { FaqSection } from "$components/svelte";
 import { FAQ_SECTION, FAQ_STYLES } from "$constants/faqConstants";
 ---
@@ -27,32 +30,39 @@ import { FAQ_SECTION, FAQ_STYLES } from "$constants/faqConstants";
     contactRoute={ROUTE_CONTACT}
   />
 
-  <!-- Invisible sentinel to trigger sticky behavior -->
-  <div id="navbar-trigger" class="h-1"></div>
+  <!-- Strategic Trigger Placement -->
+  <div id="navbar-trigger" class="h-px bg-transparent -mt-px"></div>
 
-  <section id="NavbarTTC" class="bg-white z-20 flex flex-col w-full md:w-2/3 justify-center shadow font-space text-primary">
-    <!-- Beautiful decorative divider -->
-    <div class="flex justify-center py-2">
-      <div class="flex items-center space-x-2">
-        <div class="w-8 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
-        <div class="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-        <div class="w-12 h-0.5 bg-gradient-to-r from-primary via-orange-400 to-primary"></div>
-        <div class="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
-        <div class="w-8 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+  <!-- Sticky Navbar (Initially Hidden) -->
+  <nav id="NavbarTTC" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-lg border-b border-orange-200 transform -translate-y-full opacity-0 transition-all duration-300 ease-in-out pointer-events-none">
+    <!-- Better responsive navigation -->
+    <div class="container mx-auto px-4">
+      <!-- Decorative divider -->
+      <div class="flex justify-center py-2">
+        <div class="flex items-center space-x-2">
+          <div class="w-8 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+          <div class="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+          <div class="w-12 h-0.5 bg-gradient-to-r from-primary via-orange-400 to-primary"></div>
+          <div class="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
+          <div class="w-8 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+        </div>
+      </div>
+      
+      <!-- Responsive Navigation Links -->
+      <div class="flex flex-wrap justify-center items-center pb-3 gap-2 sm:gap-4">
+        <a href="#BestCourse" class="nav-link text">Curriculum</a>
+        <div class="nav-divider"></div>
+        <a href="#DailySchedule" class="nav-link">Schedule</a>
+        <div class="nav-divider"></div>
+        <a href="#Dates" class="nav-link">Dates</a>
+        <div class="nav-divider"></div>
+        <a href="#Location" class="nav-link">Location</a>
       </div>
     </div>
-    
-    <!-- Navigation links -->
-    <div class="flex w-full justify-around items-center pb-2">
-      <div><a href="#BestCourse" class="px-4 py-1 hover:text-orange-500 transition-colors">Curriculum</a></div>
-      <div class="h-4 w-px bg-gradient-to-b from-primary/20 via-primary to-primary/20"></div>
-      <div><a href="#DailySchedule" class="px-4 py-1 hover:text-orange-500 transition-colors">Schedule</a></div>
-      <div class="h-4 w-px bg-gradient-to-b from-orange-400/20 via-orange-400 to-orange-400/20"></div>
-      <div><a href="#Dates" class="px-4 py-1 hover:text-orange-500 transition-colors">Dates</a></div>
-      <div class="h-4 w-px bg-gradient-to-b from-primary/20 via-primary to-primary/20"></div>
-      <div><a href="#Location" class="px-4 py-1 hover:text-orange-500 transition-colors">Location</a></div>
-    </div>
-  </section>
+  </nav>
+
+
+
 
   <section id="BestCourse" class="m-10">
     <SectionHeader
@@ -60,18 +70,18 @@ import { FAQ_SECTION, FAQ_STYLES } from "$constants/faqConstants";
     />
 
     <div class="flex w-full flex-col lg:flex-row">
-      <div class="lg:w-1/2 w-full font-bold text-lg lg:text-xl">
+      <div class="lg:w-1/2 w-full font-bold text-lg lg:text-xl text-primary">
         <h3 class="">Become yoga alliance registered yoga teacher (ryt 200) through Vinyasa Yoga Ashram’s 200 hour yoga teacher training course and start your career in yoga. Our comprehensive and professional program is designed for all levels of practitioners which includes several aspects of yoga, I.E. From asanas to kriyas and prepares you to become an independent yoga teacher.
 
 Be a part of this life-changing experience at Vinyasa Yoga Ashram and begin your pleasant journey to lighten up your true self through yoga. Our 200 hour yoga teacher training course will provide you the deepest possible knowledge of yoga both in the form of theory as well as practical.</h3>
-<button id="read-more-btn" class="mt-4 px-4 py-2 rounded bg-primary text-white">Read More</button>
+<button id="read-more-btn" class="mt-4 px-6 py-3 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg">Read More</button>
 </div>
       <div class="lg:w-1/2 w-full mt-10 lg:mt-0">
-      <img src="https://www.vinyasayogaashram.com/image/200hrs-yoga-teacher-training-course.jpg?v=125" alt="">
+      <img src="https://www.vinyasayogaashram.com/image/200hrs-yoga-teacher-training-course.jpg?v=125" alt="" class="rounded-lg shadow-lg">
       </div>
    </div>
 
-   <div id="read-more-content" class="read-more font-bold text-xl hidden mt-5">
+   <div id="read-more-content" class="read-more font-bold text-xl text-primary hidden mt-5 p-6 bg-gradient-to-r from-purple-50 to-orange-50 rounded-lg border-l-4 border-orange-500">
     Our highly qualified and veteran Yog Gurus will provide in-depth knowledge of Asana, Meditation, Ayurveda, Pranayama, Yoga Philosophy and Anatomy. Moreover, asana alignments, modifications, contradictions, use of props, adjustment techniques, teaching methodology and teaching practice will also be covered during this course Both beginners, as well as experienced practitioners, can reap the benefits of this course as it will not only deepen your yogic knowledge but also sharpen your skills as a facilitator. We aim to incorporate yoga into your daily life and help you in becoming a confident yoga teacher. So, get ready and join us in our beautiful journey of The 200 Hour Yoga Teacher Training Certification Course at Vinyasa Yoga Ashram
    </div>
 
@@ -90,8 +100,18 @@ Be a part of this life-changing experience at Vinyasa Yoga Ashram and begin your
   </section>
 
 
+
+
+
+
   <!-- Daily Schedule Section -->
   <DailyScheduleSection />
+
+  <!-- Dates Section -->
+  <DatesSection />
+
+  <!-- Course Highlights Section -->
+  <CourseHighlightsSection sectionData={COURSE_HIGHLIGHTS_SECTION} />
 
   
   <FaqSection
@@ -104,18 +124,18 @@ Be a part of this life-changing experience at Vinyasa Yoga Ashram and begin your
 
 
 
-  <section class="PriceTTC fixed bottom-0 left-0 w-full bg-white shadow-lg z-10 pt-2 lg:pt-5">
+  <section class="PriceTTC fixed bottom-0 left-0 w-full bg-gradient-to-r from-white via-purple-50 to-orange-50 shadow-lg z-10 pt-2 lg:pt-5 border-t-2 border-orange-500">
     <div class="w-full flex lg:justify-around flex-col lg:flex-row text-center justify-center items-center">
-      <img src="/hya.jpg" class="w-10 h-10 rounded-full text-center"  alt="">
+      <img src="/hya.jpg" class="w-12 h-12 rounded-full text-center border-2 border-orange-500"  alt="">
       <div class="font-bold text-lg">
-        <h1 class="text-sm lg:text-xl">200 Hour Yoga Teacher Training Course International</h1>
-        <h2 class="text-primary">Starts From : <strike>$1049.00</strike> $899.00/- </h2>
+        <h1 class="text-sm lg:text-xl text-primary">200 Hour Yoga Teacher Training Course International</h1>
+        <h2 class="text-orange-600 font-extrabold">Starts From : <strike class="text-gray-500">$1049.00</strike> $899.00/- </h2>
       </div>
 
       <div class="px-5 flex flex-row font-bold justify-around gap-4">
-  <Button href={ROUTE_CONTACT} class="bg-orange-500 lg:px-20 py-2 px-10 w-full text-white">ENQUIRE</Button>
+  <Button href={ROUTE_CONTACT} class="bg-gradient-to-r from-orange-500 to-orange-600 lg:px-20 py-3 px-10 w-full text-white hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg">ENQUIRE</Button>
         <!-- <button>INTINERARY</button> -->
-  <Button href={ROUTE_CONTACT} class="bg-green-500 lg:px-20 py-2 px-10 w-full text-white whitespace-nowrap">BOOK NOW</Button>
+  <Button href={ROUTE_CONTACT} class="bg-gradient-to-r from-primary to-purple-600 lg:px-20 py-3 px-10 w-full text-white whitespace-nowrap hover:from-purple-600 hover:to-purple-700 transition-all duration-300 shadow-lg">BOOK NOW</Button>
       </div>
     </div>
   </section>
@@ -123,46 +143,88 @@ Be a part of this life-changing experience at Vinyasa Yoga Ashram and begin your
 
   <LocationSection />
 
-  <!-- Move sticky navbar script to the very end -->
+  <!-- Enhanced Navbar Script -->
   <script>
-    console.log('Script running...');
-    const navbar = document.getElementById('NavbarTTC');
-    const trigger = document.getElementById('navbar-trigger');
-    const header = document.querySelector('header');
-    
-    console.log('Navbar:', navbar);
-    console.log('Trigger:', trigger);
-    console.log('Header:', header);
-    
-    if (navbar && trigger && header) {
-      console.log('Setting up observer...');
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('🚀 Initializing sticky navbar...');
+      
+      const navbar = document.getElementById('NavbarTTC');
+      const trigger = document.getElementById('navbar-trigger');
+      const header = document.querySelector('header');
+      
+      if (!navbar || !trigger) {
+        console.error('❌ Missing elements:', { navbar: !!navbar, trigger: !!trigger });
+        return;
+      }
+
+      // Calculate header height for positioning
+      const getHeaderHeight = () => header ? header.offsetHeight : 0;
+
       const observer = new IntersectionObserver(
         ([entry]) => {
-          console.log('Intersection event:', entry.isIntersecting);
-          if (!entry.isIntersecting) {
-            const headerHeight = header.offsetHeight;
-            navbar.style.position = 'fixed';
+          const isVisible = entry.isIntersecting;
+          const hasScrolledPast = entry.boundingClientRect.top < 0;
+          
+          console.log('📍 Navbar trigger:', {
+            isVisible,
+            hasScrolledPast,
+            top: entry.boundingClientRect.top
+          });
+          
+          if (!isVisible && hasScrolledPast) {
+            // Show navbar with proper header offset
+            const headerHeight = getHeaderHeight();
             navbar.style.top = `${headerHeight}px`;
-            navbar.style.left = '0';
-            navbar.style.right = '0';
-            navbar.style.zIndex = '40';
-            console.log('Added sticky styles below header at:', headerHeight + 'px');
+            navbar.style.transform = 'translateY(0)';
+            navbar.style.opacity = '1';
+            navbar.style.pointerEvents = 'auto';
+            console.log('📤 Showing navbar at', headerHeight + 'px');
+            
           } else {
-            navbar.style.position = 'static';
-            navbar.style.top = '';
-            navbar.style.left = '';
-            navbar.style.right = '';
-            navbar.style.zIndex = '20';
-            console.log('Removed sticky styles');
+            // Hide navbar
+            navbar.style.transform = 'translateY(-100%)';
+            navbar.style.opacity = '0';
+            navbar.style.pointerEvents = 'none';
+            console.log('📥 Hiding navbar');
           }
         },
-        { threshold: 0 }
+        { 
+          threshold: 0,
+          rootMargin: '-1px 0px 0px 0px'  // Slight offset for better detection
+        }
       );
-      
+
       observer.observe(trigger);
-      console.log('Observer set up complete');
-    } else {
-      console.error('Elements not found!');
-    }
+      
+      // Handle resize events
+      let resizeTimeout: ReturnType<typeof setTimeout>;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+          if (navbar.style.opacity === '1') {
+            navbar.style.top = `${getHeaderHeight()}px`;
+          }
+        }, 100);
+      });
+      
+      console.log('✅ Navbar observer ready');
+    });
   </script>
+
+  <!-- Enhanced CSS -->
+  <style>
+    .nav-link {
+      @apply px-2 py-1 sm:px-3 sm:py-2 text-primary hover:text-orange-500 hover:bg-white/20 rounded-lg transition-all duration-200 text-sm sm:text-lg font-medium;
+    }
+    
+    .nav-divider {
+      @apply h-3 sm:h-4 w-px bg-gradient-to-b from-primary/20 via-primary to-primary/20;
+    }
+    
+    @media (max-width: 640px) {
+      .nav-divider {
+        display: none;
+      }
+    }
+  </style>
 </Layout>
