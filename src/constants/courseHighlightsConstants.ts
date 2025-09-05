@@ -36,14 +36,6 @@ export const COURSE_HIGHLIGHTS_SECTION = {
         "Train in an immersive and peaceful setting that blends ancient wisdom with modern teaching styles."
       ]
     },
-    {
-      category: "Internationally Recognized Certification:",
-      items: [
-        "On successful completion, you will receive a 200 hour Yoga Teacher Training Certificate.",
-        "This makes you eligible to register as an RYT-200 with Yoga Alliance.",
-        "You'll be certified to teach yoga anywhere in the world."
-      ]
-    }
   ],
 
   courseHighlight: {

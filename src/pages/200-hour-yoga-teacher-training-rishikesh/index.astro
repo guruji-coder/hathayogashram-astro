@@ -7,9 +7,10 @@ import { TRAINING_200_TITLE, TRAINING_200_DETAILS, TRAINING_200_FEES } from "$co
 import TTCHeroSection from "$components/sections/TTC/TTCHeroSection.astro";
 import Button from "$components/ui/Button.astro";
 import { LocationSection } from "$components/sections";
-import DailyScheduleSection from "$components/sections/TTC/DailyScheduleSection.astro";
-import DatesSection from "$components/sections/TTC/DatesSection.astro";
-import CourseHighlightsSection from "$components/sections/TTC/CourseHighlightsSection.astro";
+import GallerySection from "$components/sections/GallerySection.astro";
+import TTCDailyScheduleSection from "$components/sections/TTC/TTCDailyScheduleSection.astro";
+import TTCDatesSection from "$components/sections/TTC/TTCDatesSection.astro";
+import TTCourseHighlightsSection from "$components/sections/TTC/TTCourseHighlightsSection.astro";
 import { COURSE_HIGHLIGHTS_SECTION } from "$constants/courseHighlightsConstants";
 import { FaqSection } from "$components/svelte";
 import { FAQ_SECTION, FAQ_STYLES } from "$constants/faqConstants";
@@ -105,13 +106,28 @@ Be a part of this life-changing experience at Vinyasa Yoga Ashram and begin your
 
 
   <!-- Daily Schedule Section -->
-  <DailyScheduleSection />
+  <TTCDailyScheduleSection />
 
   <!-- Dates Section -->
-  <DatesSection />
+  <TTCDatesSection />
 
   <!-- Course Highlights Section -->
-  <CourseHighlightsSection sectionData={COURSE_HIGHLIGHTS_SECTION} />
+  <TTCourseHighlightsSection sectionData={COURSE_HIGHLIGHTS_SECTION} />
+
+  <!-- Gallery Section with Infinite Carousels -->
+  <GallerySection 
+    title="Training Gallery"
+    subtitle="Witness the Transformation"
+    showMiniCarousel={true}
+    id="Gallery"
+  />
+
+  <!-- Gallery -->
+
+
+
+
+
 
   
   <FaqSection

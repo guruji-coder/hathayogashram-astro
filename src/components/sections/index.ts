@@ -17,4 +17,6 @@ export { default as YogaFacilities } from "./HomePage/YogaFacilities.astro";
 
 // TTC Course Sections
 export { default as TTCHeroSection } from "./TTC/TTCHeroSection.astro";
-export { default as DailyScheduleSection } from "./TTC/DailyScheduleSection.astro";
+export { default as TTCDailyScheduleSection } from "./TTC/TTCDailyScheduleSection.astro";
+export { default as TTCDatesSection } from "./TTC/TTCDatesSection.astro";
+export { default as TTCourseHighlightsSection } from "./TTC/TTCourseHighlightsSection.astro";
