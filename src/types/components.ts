@@ -15,7 +15,9 @@ export interface CarouselSlide {
 // Section Header component props
 export interface SectionHeaderProps {
   title: string;
+  subtitle?: string;
   titleClass?: string;
+  subtitleClass?: string;
   svgWidth?: number;
   svgHeight?: number;
   svgColor?: string;

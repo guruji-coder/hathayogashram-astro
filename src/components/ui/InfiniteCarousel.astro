@@ -23,7 +23,7 @@ const {
     <!-- Main carousel track -->
     <div class="carousel-track" id={`${id}-track`}>
       {images.concat(images).map((image, index) => (
-        <div class="carousel-slide" key={index}>
+        <div class="carousel-slide" data-index={index}>
           <div class={`image-container ${imageClassName}`}>
             <img 
               src={image} 

@@ -6,7 +6,9 @@ export interface Props extends SectionHeaderProps {}
 
 const {
   title,
+  subtitle,
   titleClass = "mb-4 text-xl font-bold text-purple-900 sm:text-3xl lg:text-4xl text-center",
+  subtitleClass = "mt-4 text-lg text-gray-600 text-center",
   svgWidth = 300,
   svgHeight = 30,
   svgColor = "text-purple-900",
@@ -22,4 +24,10 @@ const {
 
   <!-- Decorative Underline SVG -->
   <DecorativeUnderline width={svgWidth} height={svgHeight} className={svgColor} />
+
+  {subtitle && (
+    <p class={subtitleClass}>
+      {subtitle}
+    </p>
+  )}
 </div>
