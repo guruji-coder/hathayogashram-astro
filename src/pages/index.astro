@@ -1,6 +1,6 @@
 ---
-import Layout from "../components/layout/Layout.astro";
-import { pageSchemas } from "../schemas";
+import Layout from '../components/layout/Layout.astro';
+import { pageSchemas } from '../schemas';
 
 // Import all home page sections from centralized location
 import {
@@ -14,24 +14,19 @@ import {
   LocationSection,
   YogaGuruSection,
   YTTCourseSection,
-YogaFacilities
+  YogaFacilities,
+} from '$components/sections';
 
-} from "$components/sections";
-
-import { FaqSection } from "$svelte/sections";
-import { FAQ_SECTION, FAQ_STYLES } from "$constants/faqConstants";
-import SectionHeader from "$ui/SectionHeader.astro";
+import { FaqSection } from '$svelte/sections';
+import { FAQ_SECTION, FAQ_STYLES } from '$constants/faqConstants';
+import SectionHeader from '$ui/SectionHeader.astro';
 
 // Generate schemas for home page
 const homeSchemas = pageSchemas.home();
 ---
 
 <Layout
-  title="Best Yoga Teacher Training in Rishikesh, India - Hatha Yogashram"
-  description="Join authentic 200/300 hour Yoga Teacher Training in Rishikesh with Hatha Yogashram. Yoga Alliance RYS certified residential courses with Indian masters. Traditional Hatha & Ashtanga Yoga, Sanskrit mantras, philosophy from ancient texts."
-  canonical="https://hathayogashram.com/"
-  image="https://hathayogashram.com/yogaschoolpic.jpg"
-  additionalSchemas={homeSchemas}
+  additionalSchemas={homeSchemas}   canonical="https://hathayogashram.com/"   description="Join authentic 200/300 hour Yoga Teacher Training in Rishikesh with Hatha Yogashram. Yoga Alliance RYS certified residential courses with Indian masters. Traditional Hatha & Ashtanga Yoga, Sanskrit mantras, philosophy from ancient texts."   image="https://hathayogashram.com/yogaschoolpic.jpg"   title="Best Yoga Teacher Training in Rishikesh, India - Hatha Yogashram"
 >
   <HeroSection />
 
@@ -58,14 +53,7 @@ const homeSchemas = pageSchemas.home();
 
   <!-- Instagram Feed Section -->
 
- 
-  <FaqSection
-    sectionData={FAQ_SECTION}
-    styles={FAQ_STYLES}
-    client:load
-  />
-
- 
+  <FaqSection client:load sectionData={FAQ_SECTION} styles={FAQ_STYLES} />
 
   <!-- Location Section -->
 

@@ -8,14 +8,14 @@ interface Props {
 
 const {
   id,
-  containerClass = "flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pt-12 pb-4",
-  cardClass = "",
+  containerClass = 'flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pt-12 pb-4',
+  cardClass = '',
   scrollInterval = 3000,
 } = Astro.props;
 ---
 
 <!-- Horizontal Scrolling Container -->
-<div id={id} class={containerClass}>
+<div class:list={containerClass} id={id}>
   <slot />
 </div>
 
@@ -33,13 +33,10 @@ const {
             ? window.innerWidth / 2
             : window.innerWidth / 3;
 
-      scrollContainer.scrollBy({ left: cardWidth, behavior: "smooth" });
+      scrollContainer.scrollBy({ left: cardWidth, behavior: 'smooth' });
 
-      if (
-        scrollContainer.scrollLeft >=
-        scrollContainer.scrollWidth - scrollContainer.clientWidth
-      ) {
-        scrollContainer.scrollTo({ left: 0, behavior: "smooth" });
+      if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
+        scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
       }
     }, scrollInterval);
   }

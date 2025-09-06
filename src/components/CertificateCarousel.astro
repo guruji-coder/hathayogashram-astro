@@ -2,24 +2,24 @@
 // Certificate data
 const certificates = [
   {
-    image: "/yoga-alliance-yttc-certificate.webp",
-    title: "RYS 200 Yoga Alliance Certificate",
-    label: "RYS 200",
+    image: '/yoga-alliance-yttc-certificate.webp',
+    title: 'RYS 200 Yoga Alliance Certificate',
+    label: 'RYS 200',
   },
   {
-    image: "/yoga-alliance-yttc-certificate.webp",
-    title: "RYS 300 Yoga Alliance Certificate",
-    label: "RYS 300",
+    image: '/yoga-alliance-yttc-certificate.webp',
+    title: 'RYS 300 Yoga Alliance Certificate',
+    label: 'RYS 300',
   },
   {
-    image: "/yoga-alliance-yttc-certificate.webp",
-    title: "RPYS Yoga Alliance Certificate",
-    label: "RPYS",
+    image: '/yoga-alliance-yttc-certificate.webp',
+    title: 'RPYS Yoga Alliance Certificate',
+    label: 'RPYS',
   },
   {
-    image: "/yoga-alliance-yttc-certificate.webp",
-    title: "YACEP Yoga Alliance Certificate",
-    label: "YACEP",
+    image: '/yoga-alliance-yttc-certificate.webp',
+    title: 'YACEP Yoga Alliance Certificate',
+    label: 'YACEP',
   },
 ];
 ---
@@ -28,12 +28,9 @@ const certificates = [
 <div class="mx-auto max-w-full">
   <!-- Mobile: Full-screen carousel -->
   <div class="md:hidden">
-    <div
-      id="scrollContainer"
-      class="no-scrollbar flex snap-x snap-mandatory overflow-x-auto"
-    >
+    <div class="no-scrollbar flex snap-x snap-mandatory overflow-x-auto" id="scrollContainer">
       {
-        certificates.map((cert) => (
+        certificates.map(cert => (
           <div
             class="relative flex h-full w-full flex-shrink-0 cursor-pointer snap-start items-center justify-center bg-gray-100"
             data-image={cert.image}
@@ -44,15 +41,11 @@ const certificates = [
             tabindex="0"
           >
             <img
-              src={cert.image}
-              alt={cert.title}
-              class="h-full w-full rounded-lg object-contain shadow-lg"
+              alt={cert.title}               class="h-full w-full rounded-lg object-contain shadow-lg"               src={cert.image}
             />
             <div class="absolute bottom-6 left-4 right-4">
               <div class="rounded-lg bg-black bg-opacity-70 px-4 py-3 backdrop-blur-sm">
-                <h3 class="text-center text-xl font-bold text-white">
-                  {cert.label}
-                </h3>
+                <h3 class="text-center text-xl font-bold text-white">{cert.label}</h3>
               </div>
             </div>
           </div>
@@ -64,21 +57,15 @@ const certificates = [
   <!-- Desktop: Grid -->
   <div class="hidden grid-cols-4 gap-6 md:grid">
     {
-      certificates.map((cert) => (
+      certificates.map(cert => (
         <button
           class="group transform overflow-hidden rounded-lg transition-transform hover:scale-105 focus:scale-105"
           data-image={cert.image}
           data-title={cert.title}
           onclick="openModal(this.dataset.image, this.dataset.title)"
         >
-          <img
-            src={cert.image}
-            alt={cert.title}
-            class="h-full w-full object-cover"
-          />
-          <p class="mt-2 text-center text-sm font-medium text-white">
-            {cert.label}
-          </p>
+          <img alt={cert.title} class="h-full w-full object-cover" src={cert.image} />
+          <p class="mt-2 text-center text-sm font-medium text-white">{cert.label}</p>
         </button>
       ))
     }
@@ -87,30 +74,20 @@ const certificates = [
 
 <!-- Modal -->
 <div
-  id="certificateModal"
-  class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-90 p-4"
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-90 p-4"   id="certificateModal"
   onclick="closeModal()"
   onkeydown="event.key === 'Escape' && closeModal()"
   role="dialog"
   tabindex="0"
 >
-  <div
-    class="relative max-h-full max-w-full"
-    onclick="event.stopPropagation()"
-    role="none"
-  >
+  <div class="relative max-h-full max-w-full" onclick="event.stopPropagation()" role="none">
     <button
       class="absolute -top-10 right-0 text-3xl text-white hover:text-gray-300"
       onclick="closeModal()"
     >
       ×
     </button>
-    <img
-      id="modalImage"
-      src=""
-      alt=""
-      class="max-h-[90vh] max-w-full rounded-lg object-contain"
-    />
+    <img alt="" class="max-h-[90vh] max-w-full rounded-lg object-contain" id="modalImage" src="" />
   </div>
 </div>
 
@@ -135,43 +112,38 @@ const certificates = [
 
   // Modal functions
   function openModal(imageSrc: string, title: string) {
-    const modal = document.getElementById("certificateModal");
-    const modalImage = document.getElementById(
-      "modalImage",
-    ) as HTMLImageElement;
+    const modal = document.getElementById('certificateModal');
+    const modalImage = document.getElementById('modalImage') as HTMLImageElement;
 
     if (modal && modalImage) {
       modalImage.src = imageSrc;
       modalImage.alt = title;
-      modal.classList.remove("hidden");
-      modal.classList.add("flex");
-      document.body.style.overflow = "hidden";
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
     }
   }
 
   function closeModal() {
-    const modal = document.getElementById("certificateModal");
+    const modal = document.getElementById('certificateModal');
     if (modal) {
-      modal.classList.add("hidden");
-      modal.classList.remove("flex");
-      document.body.style.overflow = "auto";
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = 'auto';
     }
   }
 
   // Auto-scroll every 5 seconds
-  const scrollContainer = document.getElementById("scrollContainer");
+  const scrollContainer = document.getElementById('scrollContainer');
   if (scrollContainer) {
     setInterval(() => {
       if (window.innerWidth < 1024) {
         scrollContainer.scrollBy({
           left: window.innerWidth,
-          behavior: "smooth",
+          behavior: 'smooth',
         });
-        if (
-          scrollContainer.scrollLeft >=
-          scrollContainer.scrollWidth - window.innerWidth
-        ) {
-          scrollContainer.scrollTo({ left: 0, behavior: "smooth" });
+        if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth - window.innerWidth) {
+          scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
         }
       }
     }, 5000);

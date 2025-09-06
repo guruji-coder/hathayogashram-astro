@@ -1,33 +1,25 @@
 ---
-import type { SectionHeaderProps } from "../../types";
+import type { SectionHeaderProps } from '../../types';
 import DecorativeUnderline from '$components/ui/DecorativeUnderline.astro';
 
 export interface Props extends SectionHeaderProps {}
 
 const {
   title,
-  subtitle,
-  titleClass = "mb-4 text-xl font-bold text-purple-900 sm:text-3xl lg:text-4xl text-center",
-  subtitleClass = "mt-4 text-lg text-gray-600 text-center",
+  titleClass = 'mb-4 text-xl font-bold text-purple-900 sm:text-3xl lg:text-4xl text-center',
   svgWidth = 300,
   svgHeight = 30,
-  svgColor = "text-purple-900",
-  containerClass = "mb-12 text-center flex w-full justify-center flex-col",
+  svgColor = 'text-purple-900',
+  containerClass = 'mb-12 text-center flex w-full justify-center flex-col',
 } = Astro.props;
 ---
 
 <!-- Section Header with Decorative Underline -->
-<div class={containerClass}>
-  <h2 class={titleClass}>
+<div class:list={containerClass}>
+  <h2 class:list={titleClass}>
     {title}
   </h2>
 
   <!-- Decorative Underline SVG -->
-  <DecorativeUnderline width={svgWidth} height={svgHeight} className={svgColor} />
-
-  {subtitle && (
-    <p class={subtitleClass}>
-      {subtitle}
-    </p>
-  )}
+  <DecorativeUnderline className={svgColor} height={svgHeight} width={svgWidth} />
 </div>

@@ -8,45 +8,48 @@ interface Props {
   id?: string;
 }
 
-const { 
-  images = [], 
+const {
+  images = [],
   autoplaySpeed = 6000,
   pauseOnHover = true,
-  className = "",
-  imageClassName = "",
-  id = "infinite-carousel"
+  className = '',
+  imageClassName = '',
+  id = 'infinite-carousel',
 } = Astro.props;
 ---
 
-<div class={`infinite-carousel-container ${className}`} id={id}>
+<div class:list={[`infinite-carousel-container`,`${className}`]} id={id}>
   <div class="carousel-wrapper">
     <!-- Main carousel track -->
     <div class="carousel-track" id={`${id}-track`}>
-      {images.concat(images).map((image, index) => (
-        <div class="carousel-slide" data-index={index}>
-          <div class={`image-container ${imageClassName}`}>
-            <img 
-              src={image} 
-              alt={`Gallery image ${(index % images.length) + 1}`}
-              loading="lazy"
-              class="carousel-image"
-              onclick={`window.toggleImageScale && window.toggleImageScale(this, '${image}', ${index % images.length})`}
-            />
+      {
+        images.concat(images).map((image, index) => (
+          <div class="carousel-slide" key={index}>
+            <div class:list={[`image-container`,`${imageClassName}`]}>
+              <img
+                alt={`Gallery image ${(index % images.length) + 1}`}                 class="carousel-image"                 loading="lazy"                 onclick={`window.toggleImageScale && window.toggleImageScale(this, '${image}', ${index % images.length})`}                 src={image}
+              />
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 
-
   <!-- Image viewer modal -->
-  <div id="image-viewer-modal" class="image-viewer-modal">
+  <div class="image-viewer-modal" id="image-viewer-modal">
     <div class="modal-content">
-      <button class="close-btn" onclick="window.closeImageViewer && window.closeImageViewer()">&times;</button>
-      <img id="modal-image" src="" alt="" class="modal-image">
+      <button class="close-btn" onclick="window.closeImageViewer && window.closeImageViewer()"
+        >&times;</button
+      >
+      <img alt="" class="modal-image" id="modal-image" src="" />
       <div class="modal-navigation">
-        <button class="nav-btn prev-btn" onclick="window.prevImage && window.prevImage()">&lt;</button>
-        <button class="nav-btn next-btn" onclick="window.nextImage && window.nextImage()">&gt;</button>
+        <button class="nav-btn prev-btn" onclick="window.prevImage && window.prevImage()"
+          >&lt;</button
+        >
+        <button class="nav-btn next-btn" onclick="window.nextImage && window.nextImage()"
+          >&gt;</button
+        >
       </div>
       <div class="image-counter">
         <span id="current-image">1</span> / <span id="total-images">{images.length}</span>
@@ -61,7 +64,9 @@ const {
     width: 100%;
     overflow: hidden;
     border-radius: 1rem;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
   .carousel-wrapper {
@@ -124,7 +129,9 @@ const {
     border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
   }
 
   .image-container:hover {
@@ -288,7 +295,7 @@ const {
   }
 
   /* Custom autoplay speed */
-  .carousel-track[style*="--autoplay-speed"] {
+  .carousel-track[style*='--autoplay-speed'] {
     animation-duration: var(--autoplay-speed);
   }
 </style>
@@ -297,9 +304,9 @@ const {
   // Global variables for image viewer
   let currentImages: string[] = [];
   let currentImageIndex = 0;
-  
+
   // Initialize carousel
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     const carousel = document.getElementById('infinite-carousel-track');
     if (carousel) {
       const speed = carousel.dataset.speed || '4000';
@@ -312,21 +319,23 @@ const {
     const modal = document.getElementById('image-viewer-modal');
     const modalImage = document.getElementById('modal-image') as HTMLImageElement;
     const currentImageSpan = document.getElementById('current-image');
-    
+
     if (!modal || !modalImage || !currentImageSpan) return;
-    
+
     // Get all images from the carousel
-    const imageElements = document.querySelectorAll('.carousel-image') as NodeListOf<HTMLImageElement>;
+    const imageElements = document.querySelectorAll(
+      '.carousel-image'
+    ) as NodeListOf<HTMLImageElement>;
     const images = Array.from(imageElements).map(img => img.src);
     const uniqueImages = [...new Set(images)]; // Remove duplicates
-    
+
     currentImages = uniqueImages;
     currentImageIndex = index % uniqueImages.length;
-    
+
     modalImage.src = uniqueImages[currentImageIndex];
     currentImageSpan.textContent = (currentImageIndex + 1).toString();
     modal.style.display = 'block';
-    
+
     // Prevent body scroll
     document.body.style.overflow = 'hidden';
   }
@@ -352,7 +361,7 @@ const {
   function updateModalImage() {
     const modalImage = document.getElementById('modal-image') as HTMLImageElement;
     const currentImageSpan = document.getElementById('current-image');
-    
+
     if (modalImage && currentImageSpan) {
       modalImage.src = currentImages[currentImageIndex];
       currentImageSpan.textContent = (currentImageIndex + 1).toString();
@@ -360,7 +369,7 @@ const {
   }
 
   // Keyboard navigation
-  document.addEventListener('keydown', function(e) {
+  document.addEventListener('keydown', function (e) {
     const modal = document.getElementById('image-viewer-modal');
     if (modal && modal.style.display === 'block') {
       if (e.key === 'Escape') {
@@ -374,7 +383,7 @@ const {
   });
 
   // Close modal when clicking outside image
-  document.getElementById('image-viewer-modal')?.addEventListener('click', function(e) {
+  document.getElementById('image-viewer-modal')?.addEventListener('click', function (e) {
     if (e.target === this) {
       closeImageViewer();
     }
@@ -389,7 +398,7 @@ const {
   }
 
   // Auto-activate first dot
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     const firstDot = document.querySelector('.dot');
     if (firstDot) {
       firstDot.classList.add('active');

@@ -7,12 +7,12 @@ interface Props {
   visibleCount?: number;
 }
 
-const { 
-  images = [], 
+const {
+  images = [],
   speed = 3000,
-  className = "",
-  height = "60px",
-  visibleCount = 6
+  className = '',
+  height = '60px',
+  visibleCount = 6,
 } = Astro.props;
 
 // Ensure we show 4-6 images max
@@ -20,24 +20,26 @@ const maxVisible = Math.min(Math.max(visibleCount, 4), 6);
 const displayImages = images.slice(0, maxVisible);
 ---
 
-<div class={`mini-carousel-container ${className}`} style={`height: ${height}; --visible-count: ${maxVisible}`}>
+<div
+  class:list={[`mini-carousel-container`,`${className}`]}
+  style={`height: ${height}; --visible-count: ${maxVisible}`}
+>
   <div class="mini-track">
-    {displayImages.map((image, index) => (
-      <div class="mini-slide" data-index={index}>
-        <img 
-          src={image} 
-          alt={`Mini gallery ${index + 1}`}
-          loading="lazy"
-          class="mini-image"
-        />
-      </div>
-    ))}
+    {
+      displayImages.map((image, index) => (
+        <div class="mini-slide" data-index={index}>
+          <img alt={`Mini gallery ${index + 1}`} class="mini-image" loading="lazy" src={image} />
+        </div>
+      ))
+    }
   </div>
-  {images.length > maxVisible && (
-    <div class="more-indicator">
-      <span class="more-text">+{images.length - maxVisible} more</span>
-    </div>
-  )}
+  {
+    images.length > maxVisible && (
+      <div class="more-indicator">
+        <span class="more-text">+{images.length - maxVisible} more</span>
+      </div>
+    )
+  }
 </div>
 
 <style>
@@ -62,7 +64,9 @@ const displayImages = images.slice(0, maxVisible);
     border-radius: 6px;
     overflow: hidden;
     position: relative;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
   }
 
   .mini-slide:hover {
@@ -107,7 +111,7 @@ const displayImages = images.slice(0, maxVisible);
     .mini-track {
       gap: 4px;
     }
-    
+
     .mini-slide {
       min-width: calc((100% - (var(--visible-count, 6) - 1) * 4px) / var(--visible-count, 6));
       max-width: calc((100% - (var(--visible-count, 6) - 1) * 4px) / var(--visible-count, 6));

@@ -29,11 +29,11 @@ p {
 }
 
 /* Hide scrollbars for any element with overflow-x-auto */
-[class*="overflow-x-auto"]::-webkit-scrollbar {
+[class*='overflow-x-auto']::-webkit-scrollbar {
   display: none;
 }
 
-[class*="overflow-x-auto"] {
+[class*='overflow-x-auto'] {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }

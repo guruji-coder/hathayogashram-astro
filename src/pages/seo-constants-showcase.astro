@@ -1,24 +1,20 @@
 ---
 // SEO Constants Showcase Page
 // Development/Testing page to display all SEO constants and keywords
-import Layout from "../components/layout/Layout.astro";
-import { ROUTE_HOME } from "../constants/routesConstants";
+import Layout from '../components/layout/Layout.astro';
+import { ROUTE_HOME } from '../constants/routesConstants';
 
 // Import all SEO constants and keyword files
-import { SITE_METADATA, SEO_PATTERNS } from "../lib/yoga-seo-constants";
-import { ASANA_KEYWORDS, ASANA_SEQUENCES } from "../lib/asana-keywords";
-import { PRANAYAMA_KEYWORDS } from "../lib/pranayama-keywords";
-import {
-  HEALING_KEYWORDS,
-  CONDITION_ASANA_MAP,
-  HEALING_SOLUTIONS,
-} from "../lib/healing-keywords";
-import { YOGA_PHILOSOPHY_KEYWORDS } from "../lib/philosophy-keywords";
+import { SITE_METADATA, SEO_PATTERNS } from '../lib/yoga-seo-constants';
+import { ASANA_KEYWORDS, ASANA_SEQUENCES } from '../lib/asana-keywords';
+import { PRANAYAMA_KEYWORDS } from '../lib/pranayama-keywords';
+import { HEALING_KEYWORDS, CONDITION_ASANA_MAP, HEALING_SOLUTIONS } from '../lib/healing-keywords';
+import { YOGA_PHILOSOPHY_KEYWORDS } from '../lib/philosophy-keywords';
 import {
   LOCATION_KEYWORDS,
   COMPETITOR_KEYWORDS,
   COURSE_SPECIFIC_KEYWORDS,
-} from "../lib/location-seo-keywords";
+} from '../lib/location-seo-keywords';
 
 // Import other SEO utilities if they exist
 let seoKeywords = {};
@@ -28,38 +24,38 @@ let reviewsConstants = {};
 let homePageConstants = {};
 
 try {
-  const seoKeywordsModule = await import("../lib/seo-keywords");
+  const seoKeywordsModule = await import('../lib/seo-keywords');
   seoKeywords = seoKeywordsModule;
 } catch (e) {
-  console.log("seo-keywords.ts not found");
+  console.log('seo-keywords.ts not found');
 }
 
 try {
-  const carouselModule = await import("../constants/carousel");
+  const carouselModule = await import('../constants/carousel');
   carouselConstants = carouselModule;
 } catch (e) {
-  console.log("carousel constants not found");
+  console.log('carousel constants not found');
 }
 
 try {
-  const faqModule = await import("../constants/faqConstants");
+  const faqModule = await import('../constants/faqConstants');
   faqConstants = faqModule;
 } catch (e) {
-  console.log("FAQ constants not found");
+  console.log('FAQ constants not found');
 }
 
 try {
-  const reviewsModule = await import("../constants/reviewsConstants");
+  const reviewsModule = await import('../constants/reviewsConstants');
   reviewsConstants = reviewsModule;
 } catch (e) {
-  console.log("Reviews constants not found");
+  console.log('Reviews constants not found');
 }
 
 try {
-  const homePageModule = await import("../constants/homePageConstants");
+  const homePageModule = await import('../constants/HomePage/homePageConstants');
   homePageConstants = homePageModule;
 } catch (e) {
-  console.log("Homepage constants not found");
+  console.log('Homepage constants not found');
 }
 
 // Helper function to count keywords in nested objects
@@ -68,10 +64,10 @@ function countKeywords(obj: any): number {
 
   function traverse(item: any): void {
     if (Array.isArray(item)) {
-      count += item.filter((i) => typeof i === "string").length;
-    } else if (typeof item === "object" && item !== null) {
-      Object.values(item).forEach((value) => traverse(value));
-    } else if (typeof item === "string") {
+      count += item.filter(i => typeof i === 'string').length;
+    } else if (typeof item === 'object' && item !== null) {
+      Object.values(item).forEach(value => traverse(value));
+    } else if (typeof item === 'string') {
       count++;
     }
   }
@@ -96,26 +92,21 @@ const stats = {
 };
 
 const totalKeywords = Object.values(stats).reduce(
-  (acc, val) => acc + (typeof val === "number" ? val : 0),
-  0,
+  (acc, val) => acc + (typeof val === 'number' ? val : 0),
+  0
 );
 ---
 
 <Layout
-  title="SEO Constants Showcase - Development Page"
-  description="Comprehensive showcase of all SEO constants, keywords, and optimization data for Hatha Yogashram website development and testing."
-  noindex={true}
+  description="Comprehensive showcase of all SEO constants, keywords, and optimization data for Hatha Yogashram website development and testing."   noindex={true}   title="SEO Constants Showcase - Development Page"
 >
-  <div class="min-h-[50vh] md:min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12">
+  <div class="min-h-[50vh] bg-gradient-to-br from-blue-50 to-indigo-100 py-12 md:min-h-screen">
     <div class="container mx-auto px-4">
       <!-- Header -->
       <div class="mb-12 text-center">
-        <h1 class="mb-4 text-4xl font-bold text-gray-900 md:text-6xl">
-          🔍 SEO Constants Showcase
-        </h1>
+        <h1 class="mb-4 text-4xl font-bold text-gray-900 md:text-6xl">🔍 SEO Constants Showcase</h1>
         <p class="mb-6 text-xl text-gray-600">
-          Comprehensive overview of all SEO keywords, constants, and
-          optimization data
+          Comprehensive overview of all SEO keywords, constants, and optimization data
         </p>
         <div class="inline-block rounded-lg bg-white p-6 shadow-lg">
           <div class="text-3xl font-bold text-blue-600">
@@ -127,9 +118,7 @@ const totalKeywords = Object.values(stats).reduce(
 
       <!-- Statistics Overview -->
       <section class="mb-12">
-        <h2 class="mb-6 text-center text-3xl font-bold text-gray-800">
-          📊 Statistics Overview
-        </h2>
+        <h2 class="mb-6 text-center text-3xl font-bold text-gray-800">📊 Statistics Overview</h2>
         <div class="grid gap-6 md:grid-cols-3 lg:grid-cols-4">
           <div class="rounded-lg bg-white p-6 text-center shadow-md">
             <div class="text-2xl font-bold text-green-600">
@@ -188,9 +177,7 @@ const totalKeywords = Object.values(stats).reduce(
         <div class="rounded-lg bg-white p-6 shadow-lg">
           <div class="grid gap-6 md:grid-cols-2">
             <div>
-              <h3 class="mb-3 text-xl font-semibold text-gray-700">
-                Basic Information
-              </h3>
+              <h3 class="mb-3 text-xl font-semibold text-gray-700">Basic Information</h3>
               <div class="space-y-2 text-sm">
                 <div>
                   <span class="font-medium">Site Name:</span>
@@ -198,9 +185,7 @@ const totalKeywords = Object.values(stats).reduce(
                 </div>
                 <div>
                   <span class="font-medium">Site URL:</span>
-                  <a
-                    href={SITE_METADATA.siteUrl}
-                    class="text-blue-600 hover:underline"
+                  <a class="text-blue-600 hover:underline" href={SITE_METADATA.siteUrl}
                     >{SITE_METADATA.siteUrl}</a
                   >
                 </div>
@@ -215,32 +200,23 @@ const totalKeywords = Object.values(stats).reduce(
               </div>
             </div>
             <div>
-              <h3 class="mb-3 text-xl font-semibold text-gray-700">
-                Social Media
-              </h3>
+              <h3 class="mb-3 text-xl font-semibold text-gray-700">Social Media</h3>
               <div class="space-y-2 text-sm">
                 {
-                  Object.entries(SITE_METADATA.socialMedia).map(
-                    ([platform, url]) => (
-                      <div>
-                        <span class="font-medium capitalize">{platform}:</span>
-                        <a
-                          href={url}
-                          class="ml-1 text-blue-600 hover:underline"
-                        >
-                          {url}
-                        </a>
-                      </div>
-                    ),
-                  )
+                  Object.entries(SITE_METADATA.socialMedia).map(([platform, url]) => (
+                    <div>
+                      <span class="font-medium capitalize">{platform}:</span>
+                      <a class="ml-1 text-blue-600 hover:underline" href={url}>
+                        {url}
+                      </a>
+                    </div>
+                  ))
                 }
               </div>
             </div>
           </div>
           <div class="mt-4">
-            <h3 class="mb-2 text-xl font-semibold text-gray-700">
-              Default Description
-            </h3>
+            <h3 class="mb-2 text-xl font-semibold text-gray-700">Default Description</h3>
             <p class="text-sm italic text-gray-600">
               "{SITE_METADATA.defaultDescription}"
             </p>
@@ -253,15 +229,13 @@ const totalKeywords = Object.values(stats).reduce(
         <h2 class="mb-6 text-3xl font-bold text-gray-800">🧘‍♀️ Asana Keywords</h2>
         <div class="grid gap-6 lg:grid-cols-2">
           <div class="rounded-lg bg-white p-6 shadow-lg">
-            <h3 class="mb-4 text-xl font-semibold text-gray-700">
-              Categories & Counts
-            </h3>
+            <h3 class="mb-4 text-xl font-semibold text-gray-700">Categories & Counts</h3>
             <div class="space-y-2">
               {
                 Object.entries(ASANA_KEYWORDS).map(([category, keywords]) => (
                   <div class="flex justify-between">
                     <span class="font-medium capitalize">
-                      {category.replace(/([A-Z])/g, " $1").toLowerCase()}:
+                      {category.replace(/([A-Z])/g, ' $1').toLowerCase()}:
                     </span>
                     <span class="font-semibold text-blue-600">
                       {Array.isArray(keywords) ? keywords.length : 0}
@@ -272,9 +246,7 @@ const totalKeywords = Object.values(stats).reduce(
             </div>
           </div>
           <div class="rounded-lg bg-white p-6 shadow-lg">
-            <h3 class="mb-4 text-xl font-semibold text-gray-700">
-              Sample Standing Poses
-            </h3>
+            <h3 class="mb-4 text-xl font-semibold text-gray-700">Sample Standing Poses</h3>
             <div class="flex flex-wrap gap-2">
               {
                 ASANA_KEYWORDS.standingAsanas
@@ -291,15 +263,13 @@ const totalKeywords = Object.values(stats).reduce(
 
         <!-- Asana Sequences -->
         <div class="mt-6 rounded-lg bg-white p-6 shadow-lg">
-          <h3 class="mb-4 text-xl font-semibold text-gray-700">
-            Available Sequences
-          </h3>
+          <h3 class="mb-4 text-xl font-semibold text-gray-700">Available Sequences</h3>
           <div class="grid gap-4 md:grid-cols-3">
             {
               Object.entries(ASANA_SEQUENCES).map(([sequence, poses]) => (
                 <div class="rounded bg-gray-50 p-3">
                   <div class="font-medium capitalize text-gray-700">
-                    {sequence.replace(/([A-Z])/g, " $1").toLowerCase()}
+                    {sequence.replace(/([A-Z])/g, ' $1').toLowerCase()}
                   </div>
                   <div class="text-sm text-gray-500">
                     {Array.isArray(poses) ? poses.length : 0} poses
@@ -313,14 +283,10 @@ const totalKeywords = Object.values(stats).reduce(
 
       <!-- Pranayama Keywords -->
       <section class="mb-12">
-        <h2 class="mb-6 text-3xl font-bold text-gray-800">
-          🫁 Pranayama Keywords
-        </h2>
+        <h2 class="mb-6 text-3xl font-bold text-gray-800">🫁 Pranayama Keywords</h2>
         <div class="grid gap-6 lg:grid-cols-2">
           <div class="rounded-lg bg-white p-6 shadow-lg">
-            <h3 class="mb-4 text-xl font-semibold text-gray-700">
-              Basic Pranayama Techniques
-            </h3>
+            <h3 class="mb-4 text-xl font-semibold text-gray-700">Basic Pranayama Techniques</h3>
             <div class="flex flex-wrap gap-2">
               {
                 PRANAYAMA_KEYWORDS.basicPranayama
@@ -334,23 +300,19 @@ const totalKeywords = Object.values(stats).reduce(
             </div>
           </div>
           <div class="rounded-lg bg-white p-6 shadow-lg">
-            <h3 class="mb-4 text-xl font-semibold text-gray-700">
-              Pranayama Categories
-            </h3>
+            <h3 class="mb-4 text-xl font-semibold text-gray-700">Pranayama Categories</h3>
             <div class="space-y-2">
               {
-                Object.entries(PRANAYAMA_KEYWORDS).map(
-                  ([category, benefits]) => (
-                    <div class="flex justify-between">
-                      <span class="font-medium capitalize">
-                        {category.replace(/([A-Z])/g, " $1").toLowerCase()}:
-                      </span>
-                      <span class="font-semibold text-blue-600">
-                        {Array.isArray(benefits) ? benefits.length : 0}
-                      </span>
-                    </div>
-                  ),
-                )
+                Object.entries(PRANAYAMA_KEYWORDS).map(([category, benefits]) => (
+                  <div class="flex justify-between">
+                    <span class="font-medium capitalize">
+                      {category.replace(/([A-Z])/g, ' $1').toLowerCase()}:
+                    </span>
+                    <span class="font-semibold text-blue-600">
+                      {Array.isArray(benefits) ? benefits.length : 0}
+                    </span>
+                  </div>
+                ))
               }
             </div>
           </div>
@@ -359,18 +321,14 @@ const totalKeywords = Object.values(stats).reduce(
 
       <!-- Healing Keywords -->
       <section class="mb-12">
-        <h2 class="mb-6 text-3xl font-bold text-gray-800">
-          🩺 Therapeutic Healing Keywords
-        </h2>
+        <h2 class="mb-6 text-3xl font-bold text-gray-800">🩺 Therapeutic Healing Keywords</h2>
         <div class="grid gap-6 lg:grid-cols-2">
           <div class="rounded-lg bg-white p-6 shadow-lg">
-            <h3 class="mb-4 text-xl font-semibold text-gray-700">
-              Health Conditions
-            </h3>
+            <h3 class="mb-4 text-xl font-semibold text-gray-700">Health Conditions</h3>
             <div class="max-h-64 overflow-y-auto">
               <div class="flex flex-wrap gap-2">
                 {
-                  Object.keys(CONDITION_ASANA_MAP).map((condition) => (
+                  Object.keys(CONDITION_ASANA_MAP).map(condition => (
                     <span class="rounded bg-purple-100 px-2 py-1 text-xs text-purple-800">
                       {condition}
                     </span>
@@ -380,15 +338,13 @@ const totalKeywords = Object.values(stats).reduce(
             </div>
           </div>
           <div class="rounded-lg bg-white p-6 shadow-lg">
-            <h3 class="mb-4 text-xl font-semibold text-gray-700">
-              Healing Categories
-            </h3>
+            <h3 class="mb-4 text-xl font-semibold text-gray-700">Healing Categories</h3>
             <div class="space-y-2">
               {
                 Object.entries(HEALING_KEYWORDS).map(([category, keywords]) => (
                   <div class="flex justify-between">
                     <span class="font-medium capitalize">
-                      {category.replace(/([A-Z])/g, " $1").toLowerCase()}:
+                      {category.replace(/([A-Z])/g, ' $1').toLowerCase()}:
                     </span>
                     <span class="font-semibold text-purple-600">
                       {Array.isArray(keywords) ? keywords.length : 0}
@@ -402,22 +358,18 @@ const totalKeywords = Object.values(stats).reduce(
 
         <!-- Sample Condition Mapping -->
         <div class="mt-6 rounded-lg bg-white p-6 shadow-lg">
-          <h3 class="mb-4 text-xl font-semibold text-gray-700">
-            Sample Condition-Asana Mappings
-          </h3>
+          <h3 class="mb-4 text-xl font-semibold text-gray-700">Sample Condition-Asana Mappings</h3>
           <div class="grid max-h-64 gap-4 overflow-y-auto md:grid-cols-2">
             {
               Object.entries(CONDITION_ASANA_MAP)
                 .slice(0, 8)
                 .map(([condition, asanas]) => (
                   <div class="rounded bg-gray-50 p-3">
-                    <div class="mb-2 font-medium text-gray-700">
-                      {condition}
-                    </div>
+                    <div class="mb-2 font-medium text-gray-700">{condition}</div>
                     <div class="text-sm text-gray-600">
                       {Array.isArray(asanas)
                         ? `${asanas.length} recommended poses`
-                        : "No poses mapped"}
+                        : 'No poses mapped'}
                     </div>
                   </div>
                 ))
@@ -428,14 +380,10 @@ const totalKeywords = Object.values(stats).reduce(
 
       <!-- Philosophy Keywords -->
       <section class="mb-12">
-        <h2 class="mb-6 text-3xl font-bold text-gray-800">
-          📿 Philosophy & Sanskrit Terms
-        </h2>
+        <h2 class="mb-6 text-3xl font-bold text-gray-800">📿 Philosophy & Sanskrit Terms</h2>
         <div class="grid gap-6 lg:grid-cols-2">
           <div class="rounded-lg bg-white p-6 shadow-lg">
-            <h3 class="mb-4 text-xl font-semibold text-gray-700">
-              Philosophy Categories
-            </h3>
+            <h3 class="mb-4 text-xl font-semibold text-gray-700">Philosophy Categories</h3>
             <div class="space-y-3">
               {
                 Object.entries(YOGA_PHILOSOPHY_KEYWORDS)
@@ -443,12 +391,10 @@ const totalKeywords = Object.values(stats).reduce(
                   .map(([category, terms]) => (
                     <div class="rounded bg-orange-50 p-3">
                       <div class="font-medium capitalize text-orange-800">
-                        {category.replace(/([A-Z])/g, " $1").toLowerCase()}
+                        {category.replace(/([A-Z])/g, ' $1').toLowerCase()}
                       </div>
                       <div class="text-sm text-orange-600">
-                        {Array.isArray(terms)
-                          ? `${terms.length} terms`
-                          : "No terms"}
+                        {Array.isArray(terms) ? `${terms.length} terms` : 'No terms'}
                       </div>
                     </div>
                   ))
@@ -456,23 +402,19 @@ const totalKeywords = Object.values(stats).reduce(
             </div>
           </div>
           <div class="rounded-lg bg-white p-6 shadow-lg">
-            <h3 class="mb-4 text-xl font-semibold text-gray-700">
-              Philosophy Categories Count
-            </h3>
+            <h3 class="mb-4 text-xl font-semibold text-gray-700">Philosophy Categories Count</h3>
             <div class="space-y-2">
               {
-                Object.entries(YOGA_PHILOSOPHY_KEYWORDS).map(
-                  ([category, terms]) => (
-                    <div class="flex justify-between">
-                      <span class="font-medium capitalize">
-                        {category.replace(/([A-Z])/g, " $1").toLowerCase()}:
-                      </span>
-                      <span class="font-semibold text-orange-600">
-                        {Array.isArray(terms) ? terms.length : 0}
-                      </span>
-                    </div>
-                  ),
-                )
+                Object.entries(YOGA_PHILOSOPHY_KEYWORDS).map(([category, terms]) => (
+                  <div class="flex justify-between">
+                    <span class="font-medium capitalize">
+                      {category.replace(/([A-Z])/g, ' $1').toLowerCase()}:
+                    </span>
+                    <span class="font-semibold text-orange-600">
+                      {Array.isArray(terms) ? terms.length : 0}
+                    </span>
+                  </div>
+                ))
               }
             </div>
           </div>
@@ -480,14 +422,12 @@ const totalKeywords = Object.values(stats).reduce(
 
         <!-- Sample Philosophy Terms -->
         <div class="mt-6 rounded-lg bg-white p-6 shadow-lg">
-          <h3 class="mb-4 text-xl font-semibold text-gray-700">
-            Sample Core Philosophy Terms
-          </h3>
+          <h3 class="mb-4 text-xl font-semibold text-gray-700">Sample Core Philosophy Terms</h3>
           <div class="flex max-h-32 flex-wrap gap-2 overflow-y-auto">
             {
               YOGA_PHILOSOPHY_KEYWORDS.corePhilosophy
                 ?.slice(0, 20)
-                .map((term) => (
+                .map(term => (
                   <span class="rounded bg-orange-100 px-2 py-1 text-xs text-orange-800">
                     {term}
                   </span>
@@ -499,69 +439,55 @@ const totalKeywords = Object.values(stats).reduce(
 
       <!-- Location Keywords -->
       <section class="mb-12">
-        <h2 class="mb-6 text-3xl font-bold text-gray-800">
-          🌍 International Location Keywords
-        </h2>
+        <h2 class="mb-6 text-3xl font-bold text-gray-800">🌍 International Location Keywords</h2>
         <div class="rounded-lg bg-white p-6 shadow-lg">
           <div class="grid gap-6 lg:grid-cols-3">
             <div>
-              <h3 class="mb-4 text-xl font-semibold text-gray-700">
-                Country-Specific
-              </h3>
+              <h3 class="mb-4 text-xl font-semibold text-gray-700">Country-Specific</h3>
               <div class="space-y-2">
                 {
-                  Object.entries(LOCATION_KEYWORDS.countrySpecific).map(
-                    ([country, keywords]) => (
-                      <div class="flex justify-between">
-                        <span class="font-medium uppercase">{country}:</span>
-                        <span class="font-semibold text-red-600">
-                          {Array.isArray(keywords) ? keywords.length : 0}
-                        </span>
-                      </div>
-                    ),
-                  )
+                  Object.entries(LOCATION_KEYWORDS.countrySpecific).map(([country, keywords]) => (
+                    <div class="flex justify-between">
+                      <span class="font-medium uppercase">{country}:</span>
+                      <span class="font-semibold text-red-600">
+                        {Array.isArray(keywords) ? keywords.length : 0}
+                      </span>
+                    </div>
+                  ))
                 }
               </div>
             </div>
             <div>
-              <h3 class="mb-4 text-xl font-semibold text-gray-700">
-                Competitor Analysis
-              </h3>
+              <h3 class="mb-4 text-xl font-semibold text-gray-700">Competitor Analysis</h3>
               <div class="space-y-2">
                 {
-                  Object.entries(COMPETITOR_KEYWORDS).map(
-                    ([category, keywords]) => (
-                      <div class="flex justify-between">
-                        <span class="font-medium capitalize">
-                          {category.replace(/([A-Z])/g, " $1").toLowerCase()}:
-                        </span>
-                        <span class="font-semibold text-red-600">
-                          {Array.isArray(keywords) ? keywords.length : 0}
-                        </span>
-                      </div>
-                    ),
-                  )
+                  Object.entries(COMPETITOR_KEYWORDS).map(([category, keywords]) => (
+                    <div class="flex justify-between">
+                      <span class="font-medium capitalize">
+                        {category.replace(/([A-Z])/g, ' $1').toLowerCase()}:
+                      </span>
+                      <span class="font-semibold text-red-600">
+                        {Array.isArray(keywords) ? keywords.length : 0}
+                      </span>
+                    </div>
+                  ))
                 }
               </div>
             </div>
             <div>
-              <h3 class="mb-4 text-xl font-semibold text-gray-700">
-                Course Features
-              </h3>
+              <h3 class="mb-4 text-xl font-semibold text-gray-700">Course Features</h3>
               <div class="space-y-2">
                 {
-                  Object.entries(COURSE_SPECIFIC_KEYWORDS).map(
-                    ([category, keywords]) => (
-                      <div class="flex justify-between">
-                        <span class="font-medium capitalize">
-                          {category.replace(/([A-Z])/g, " $1").toLowerCase()}:
-                        </span>
-                        <span class="font-semibold text-red-600">
-                          {Array.isArray(keywords) ? keywords.length : 0}
-                        </span>
-                      </div>
-                    ),
-                  )
+                  Object.entries(COURSE_SPECIFIC_KEYWORDS).map(([category, keywords]) => (
+                    <div class="flex justify-between">
+                      <span class="font-medium capitalize">
+                        {category.replace(/([A-Z])/g, ' $1').toLowerCase()}:
+                      </span>
+                      <span class="font-semibold text-red-600">
+                        {Array.isArray(keywords) ? keywords.length : 0}
+                      </span>
+                    </div>
+                  ))
                 }
               </div>
             </div>
@@ -570,17 +496,13 @@ const totalKeywords = Object.values(stats).reduce(
 
         <!-- Sample Country Keywords -->
         <div class="mt-6 rounded-lg bg-white p-6 shadow-lg">
-          <h3 class="mb-4 text-xl font-semibold text-gray-700">
-            Sample USA Keywords
-          </h3>
+          <h3 class="mb-4 text-xl font-semibold text-gray-700">Sample USA Keywords</h3>
           <div class="flex max-h-32 flex-wrap gap-2 overflow-y-auto">
             {
               LOCATION_KEYWORDS.countrySpecific.usa
                 ?.slice(0, 25)
                 .map((keyword: string) => (
-                  <span class="rounded bg-red-100 px-2 py-1 text-xs text-red-800">
-                    {keyword}
-                  </span>
+                  <span class="rounded bg-red-100 px-2 py-1 text-xs text-red-800">{keyword}</span>
                 ))
             }
           </div>
@@ -589,49 +511,31 @@ const totalKeywords = Object.values(stats).reduce(
 
       <!-- SEO Patterns -->
       <section class="mb-12">
-        <h2 class="mb-6 text-3xl font-bold text-gray-800">
-          🎯 SEO Patterns & Templates
-        </h2>
+        <h2 class="mb-6 text-3xl font-bold text-gray-800">🎯 SEO Patterns & Templates</h2>
         <div class="grid gap-6 lg:grid-cols-2">
           <div class="rounded-lg bg-white p-6 shadow-lg">
-            <h3 class="mb-4 text-xl font-semibold text-gray-700">
-              Title Patterns
-            </h3>
+            <h3 class="mb-4 text-xl font-semibold text-gray-700">Title Patterns</h3>
             <div class="space-y-3">
               {
-                Object.entries(SEO_PATTERNS.titlePatterns).map(
-                  ([type, pattern]) => (
-                    <div class="rounded bg-gray-50 p-3">
-                      <div class="font-medium capitalize text-gray-700">
-                        {type}:
-                      </div>
-                      <div class="mt-1 text-sm italic text-gray-600">
-                        {pattern}
-                      </div>
-                    </div>
-                  ),
-                )
+                Object.entries(SEO_PATTERNS.titlePatterns).map(([type, pattern]) => (
+                  <div class="rounded bg-gray-50 p-3">
+                    <div class="font-medium capitalize text-gray-700">{type}:</div>
+                    <div class="mt-1 text-sm italic text-gray-600">{pattern}</div>
+                  </div>
+                ))
               }
             </div>
           </div>
           <div class="rounded-lg bg-white p-6 shadow-lg">
-            <h3 class="mb-4 text-xl font-semibold text-gray-700">
-              Description Patterns
-            </h3>
+            <h3 class="mb-4 text-xl font-semibold text-gray-700">Description Patterns</h3>
             <div class="space-y-3">
               {
-                Object.entries(SEO_PATTERNS.descriptionPatterns).map(
-                  ([type, pattern]) => (
-                    <div class="rounded bg-gray-50 p-3">
-                      <div class="font-medium capitalize text-gray-700">
-                        {type}:
-                      </div>
-                      <div class="mt-1 text-sm italic text-gray-600">
-                        {pattern}
-                      </div>
-                    </div>
-                  ),
-                )
+                Object.entries(SEO_PATTERNS.descriptionPatterns).map(([type, pattern]) => (
+                  <div class="rounded bg-gray-50 p-3">
+                    <div class="font-medium capitalize text-gray-700">{type}:</div>
+                    <div class="mt-1 text-sm italic text-gray-600">{pattern}</div>
+                  </div>
+                ))
               }
             </div>
           </div>
@@ -641,20 +545,16 @@ const totalKeywords = Object.values(stats).reduce(
       <!-- Development Notes -->
       <section class="mb-12">
         <div class="rounded-r-lg border-l-4 border-yellow-400 bg-yellow-50 p-6">
-          <h2 class="mb-4 text-2xl font-bold text-yellow-800">
-            ⚠️ Development Notes
-          </h2>
+          <h2 class="mb-4 text-2xl font-bold text-yellow-800">⚠️ Development Notes</h2>
           <div class="space-y-2 text-yellow-700">
             <p>• This page is for development and testing purposes only</p>
             <p>• All SEO constants are loaded and displayed for review</p>
             <p>
-              • Use <code class="rounded bg-yellow-200 px-1">noindex</code> to prevent
-              search engine indexing
+              • Use <code class="rounded bg-yellow-200 px-1">noindex</code> to prevent search engine
+              indexing
             </p>
             <p>• Keywords should be used strategically, not all at once</p>
-            <p>
-              • Consider lazy loading for large keyword datasets in production
-            </p>
+            <p>• Consider lazy loading for large keyword datasets in production</p>
           </div>
         </div>
       </section>
@@ -664,28 +564,24 @@ const totalKeywords = Object.values(stats).reduce(
         <h2 class="mb-4 text-2xl font-bold text-gray-800">Quick Actions</h2>
         <div class="flex flex-wrap justify-center gap-4">
           <a
-            href={ROUTE_HOME}
-            class="rounded-lg bg-blue-600 px-6 py-3 text-white transition duration-300 hover:bg-blue-700"
+            class="rounded-lg bg-blue-600 px-6 py-3 text-white transition duration-300 hover:bg-blue-700"             href={ROUTE_HOME}
           >
             ← Back to Homepage
           </a>
           <a
-            href="/sitemap.xml"
-            class="rounded-lg bg-green-600 px-6 py-3 text-white transition duration-300 hover:bg-green-700"
+            class="rounded-lg bg-green-600 px-6 py-3 text-white transition duration-300 hover:bg-green-700"             href="/sitemap.xml"
             target="_blank"
           >
             View XML Sitemap
           </a>
           <a
-            href="/blog-sitemap.xml"
-            class="rounded-lg bg-purple-600 px-6 py-3 text-white transition duration-300 hover:bg-purple-700"
+            class="rounded-lg bg-purple-600 px-6 py-3 text-white transition duration-300 hover:bg-purple-700"             href="/blog-sitemap.xml"
             target="_blank"
           >
             Blog Sitemap
           </a>
           <a
-            href="/location-sitemap.xml"
-            class="rounded-lg bg-red-600 px-6 py-3 text-white transition duration-300 hover:bg-red-700"
+            class="rounded-lg bg-red-600 px-6 py-3 text-white transition duration-300 hover:bg-red-700"             href="/location-sitemap.xml"
             target="_blank"
           >
             Location Sitemap

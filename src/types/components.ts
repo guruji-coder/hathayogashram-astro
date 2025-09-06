@@ -8,16 +8,14 @@ export interface CarouselSlide {
   primaryButton: {
     text: string;
     href: string;
-    variant: "primary" | "secondary";
+    variant: 'primary' | 'secondary';
   };
 }
 
 // Section Header component props
 export interface SectionHeaderProps {
   title: string;
-  subtitle?: string;
   titleClass?: string;
-  subtitleClass?: string;
   svgWidth?: number;
   svgHeight?: number;
   svgColor?: string;

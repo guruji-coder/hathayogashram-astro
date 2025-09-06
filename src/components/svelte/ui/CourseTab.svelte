@@ -1,5 +1,6 @@
 <!-- CourseTab.svelte -->
 <script lang="ts">
+  /* eslint-env browser */
   import { fade, fly } from "svelte/transition";
   import { quintOut } from "svelte/easing";
   import CourseCard from "./CourseCard.svelte";
@@ -15,6 +16,7 @@
 
   let activeTab = tabs[0];
 
+  // eslint-disable-next-line no-undef
   const handleKeydown = (event: KeyboardEvent) => {
     const currentIndex = tabs.indexOf(activeTab);
     let newIndex = currentIndex;

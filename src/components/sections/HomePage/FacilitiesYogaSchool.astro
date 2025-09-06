@@ -1,15 +1,15 @@
 ---
 import SectionHeader from '../../ui/SectionHeader.astro';
 import FacilityCards from '$svelte/ui/FacilityCards.svelte';
-import { FACILITIES_CARDS_SECTION } from '../../../constants/homePageConstants';
+import { FACILITIES_CARDS_SECTION } from '../../../constants/HomePage/homePageConstants';
 ---
 
 <section class="bg-gray-50 bg-gradient-to-br from-purple-100 to-purple-50 py-16">
-	<div class="container mx-auto px-4">
-		<!-- Section Header -->
-		<SectionHeader title={FACILITIES_CARDS_SECTION.TITLE} />
+  <div class="container mx-auto px-4">
+    <!-- Section Header -->
+    <SectionHeader title={FACILITIES_CARDS_SECTION.TITLE} />
 
-		<!-- Focus Cards Component -->
-		<FacilityCards cards={FACILITIES_CARDS_SECTION.CARDS} client:load />
-	</div>
+    <!-- Focus Cards Component -->
+    <FacilityCards cards={FACILITIES_CARDS_SECTION.CARDS} client:load />
+  </div>
 </section>

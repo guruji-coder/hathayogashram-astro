@@ -1,192 +1,215 @@
 ---
-import Layout from "$components/layout/Layout.astro";
-import SectionHeader from "$components/ui/SectionHeader.astro";
-import { ROUTE_CONTACT } from "$constants/routesConstants";
-import { TRAINING_CAROUSEL_IMAGES } from "$constants/trainingCarouselConstants";
-import { TRAINING_200_TITLE, TRAINING_200_DETAILS, TRAINING_200_FEES } from "$constants/training200Constants";
-import TTCHeroSection from "$components/sections/TTC/TTCHeroSection.astro";
-import Button from "$components/ui/Button.astro";
-import { LocationSection } from "$components/sections";
-import GallerySection from "$components/sections/GallerySection.astro";
-import TTCDailyScheduleSection from "$components/sections/TTC/TTCDailyScheduleSection.astro";
-import TTCDatesSection from "$components/sections/TTC/TTCDatesSection.astro";
-import TTCourseHighlightsSection from "$components/sections/TTC/TTCourseHighlightsSection.astro";
-import { COURSE_HIGHLIGHTS_SECTION } from "$constants/courseHighlightsConstants";
-import { FaqSection } from "$components/svelte";
-import { FAQ_SECTION, FAQ_STYLES } from "$constants/faqConstants";
+import Layout from '$components/layout/Layout.astro';
+import SectionHeader from '$components/ui/SectionHeader.astro';
+import { ROUTE_CONTACT } from '$constants/routesConstants';
+import { TRAINING_200_DAILY_SCHEDULE } from '$constants/TTC/200hour';
+import {
+  TRAINING_200_TITLE,
+  TRAINING_200_DETAILS,
+  TRAINING_200_FEES,
+  TRAINING_200_CAROUSEL_IMAGES,
+  TRAINING_200_COURSE_HIGHLIGHTS,
+} from '$constants/TTC/200hour';
+import TTCHeroSection from '$components/sections/TTC/TTCHeroSection.astro';
+import Button from '$components/ui/Button.astro';
+import { LocationSection } from '$components/sections';
+import GallerySection from '$components/sections/GallerySection.astro';
+import TTCDailyScheduleSection from '$components/sections/TTC/TTCDailyScheduleSection.astro';
+import TTCDatesSection from '$components/sections/TTC/TTCDatesSection.astro';
+import TTCourseHighlightsSection from '$components/sections/TTC/TTCourseHighlightsSection.astro';
+import { FaqSection } from '$components/svelte';
+import { FAQ_SECTION, FAQ_STYLES } from '$constants/faqConstants';
 ---
 
 <Layout
-  title="Best 200 Hour Yoga Teacher Training in Rishikesh, India - Hatha Yogashram"
-  description="Join authentic 200/300 hour Yoga Teacher Training in Rishikesh with Hatha Yogashram. Yoga Alliance RYS certified residential courses with Indian masters. Traditional Hatha & Ashtanga Yoga, Sanskrit mantras, philosophy from ancient texts."
   canonical="https://hathayogashram.com/"
+  description="Join authentic 200/300 hour Yoga Teacher Training in Rishikesh with Hatha Yogashram. Yoga Alliance RYS certified residential courses with Indian masters. Traditional Hatha & Ashtanga Yoga, Sanskrit mantras, philosophy from ancient texts."
   image="https://hathayogashram.com/yogaschoolpic.jpg"
+  title="Best 200 Hour Yoga Teacher Training in Rishikesh, India - Hatha Yogashram"
 >
   <!-- Training 200 Section -->
-  <TTCHeroSection 
-    images={TRAINING_CAROUSEL_IMAGES}
-    title={TRAINING_200_TITLE}
+  <TTCHeroSection
+    contactRoute={ROUTE_CONTACT}
     details={TRAINING_200_DETAILS}
     fees={TRAINING_200_FEES}
-    contactRoute={ROUTE_CONTACT}
+    images={TRAINING_200_CAROUSEL_IMAGES}
+    title={TRAINING_200_TITLE}
   />
 
   <!-- Strategic Trigger Placement -->
-  <div id="navbar-trigger" class="h-px bg-transparent -mt-px"></div>
+  <div class="-mt-px h-px bg-transparent" id="navbar-trigger"></div>
 
   <!-- Sticky Navbar (Initially Hidden) -->
-  <nav id="NavbarTTC" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-lg border-b border-orange-200 transform -translate-y-full opacity-0 transition-all duration-300 ease-in-out pointer-events-none">
+  <nav
+    class="pointer-events-none fixed left-0 right-0 top-0 z-50 -translate-y-full transform border-b border-orange-200 bg-white/95 opacity-0 shadow-lg backdrop-blur-md transition-all duration-300 ease-in-out"
+    id="NavbarTTC"
+  >
     <!-- Better responsive navigation -->
     <div class="container mx-auto px-4">
       <!-- Decorative divider -->
       <div class="flex justify-center py-2">
         <div class="flex items-center space-x-2">
-          <div class="w-8 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
-          <div class="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-          <div class="w-12 h-0.5 bg-gradient-to-r from-primary via-orange-400 to-primary"></div>
-          <div class="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
-          <div class="w-8 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+          <div class="h-0.5 w-8 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+          <div class="h-2 w-2 animate-pulse rounded-full bg-primary"></div>
+          <div class="h-0.5 w-12 bg-gradient-to-r from-primary via-orange-400 to-primary"></div>
+          <div class="h-2 w-2 animate-pulse rounded-full bg-orange-400"></div>
+          <div class="h-0.5 w-8 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
         </div>
       </div>
-      
+
       <!-- Responsive Navigation Links -->
-      <div class="flex flex-wrap justify-center items-center pb-3 gap-2 sm:gap-4">
-        <a href="#BestCourse" class="nav-link text">Curriculum</a>
+      <div class="flex flex-wrap items-center justify-center gap-2 pb-3 sm:gap-4">
+        <a class="t" href="#BestCourse">Curriculum</a>
         <div class="nav-divider"></div>
-        <a href="#DailySchedule" class="nav-link">Schedule</a>
+        <a class="nav-link" href="#DailySchedule">Schedule</a>
         <div class="nav-divider"></div>
-        <a href="#Dates" class="nav-link">Dates</a>
+        <a class="nav-link" href="#Dates">Dates</a>
         <div class="nav-divider"></div>
-        <a href="#Location" class="nav-link">Location</a>
+        <a class="nav-link" href="#Location">Location</a>
       </div>
     </div>
   </nav>
 
-
-
-
-  <section id="BestCourse" class="m-10">
-    <SectionHeader
-      title="Best 200 Hour Yoga Teacher Training Course in Rishikesh"}
-    />
+  <section class="m-10" id="BestCourse">
+    <SectionHeader title="Best 200 Hour Yoga Teacher Training Course in Rishikesh" />
 
     <div class="flex w-full flex-col lg:flex-row">
-      <div class="lg:w-1/2 w-full font-bold text-lg lg:text-xl text-primary">
-        <h3 class="">Become yoga alliance registered yoga teacher (ryt 200) through Vinyasa Yoga Ashram’s 200 hour yoga teacher training course and start your career in yoga. Our comprehensive and professional program is designed for all levels of practitioners which includes several aspects of yoga, I.E. From asanas to kriyas and prepares you to become an independent yoga teacher.
-
-Be a part of this life-changing experience at Vinyasa Yoga Ashram and begin your pleasant journey to lighten up your true self through yoga. Our 200 hour yoga teacher training course will provide you the deepest possible knowledge of yoga both in the form of theory as well as practical.</h3>
-<button id="read-more-btn" class="mt-4 px-6 py-3 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg">Read More</button>
-</div>
-      <div class="lg:w-1/2 w-full mt-10 lg:mt-0">
-      <img src="https://www.vinyasayogaashram.com/image/200hrs-yoga-teacher-training-course.jpg?v=125" alt="" class="rounded-lg shadow-lg">
+      <div class="w-full text-lg font-bold text-primary lg:w-1/2 lg:text-xl">
+        <h3 class="">
+          Become yoga alliance registered yoga teacher (ryt 200) through Vinyasa Yoga Ashram’s 200
+          hour yoga teacher training course and start your career in yoga. Our comprehensive and
+          professional program is designed for all levels of practitioners which includes several
+          aspects of yoga, I.E. From asanas to kriyas and prepares you to become an independent yoga
+          teacher. Be a part of this life-changing experience at Vinyasa Yoga Ashram and begin your
+          pleasant journey to lighten up your true self through yoga. Our 200 hour yoga teacher
+          training course will provide you the deepest possible knowledge of yoga both in the form
+          of theory as well as practical.
+        </h3>
+        <button
+          class="mt-4 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:from-orange-600 hover:to-orange-700"
+          id="read-more-btn">Read More</button
+        >
       </div>
-   </div>
+      <div class="mt-10 w-full lg:mt-0 lg:w-1/2">
+        <img
+          alt=""
+          class="rounded-lg shadow-lg"
+          src="https://www.vinyasayogaashram.com/image/200hrs-yoga-teacher-training-course.jpg?v=125"
+        />
+      </div>
+    </div>
 
-   <div id="read-more-content" class="read-more font-bold text-xl text-primary hidden mt-5 p-6 bg-gradient-to-r from-purple-50 to-orange-50 rounded-lg border-l-4 border-orange-500">
-    Our highly qualified and veteran Yog Gurus will provide in-depth knowledge of Asana, Meditation, Ayurveda, Pranayama, Yoga Philosophy and Anatomy. Moreover, asana alignments, modifications, contradictions, use of props, adjustment techniques, teaching methodology and teaching practice will also be covered during this course Both beginners, as well as experienced practitioners, can reap the benefits of this course as it will not only deepen your yogic knowledge but also sharpen your skills as a facilitator. We aim to incorporate yoga into your daily life and help you in becoming a confident yoga teacher. So, get ready and join us in our beautiful journey of The 200 Hour Yoga Teacher Training Certification Course at Vinyasa Yoga Ashram
-   </div>
+    <div
+      class="read-more mt-5 hidden rounded-lg border-l-4 border-orange-500 bg-gradient-to-r from-purple-50 to-orange-50 p-6 text-xl font-bold text-primary"
+      id="read-more-content"
+    >
+      Our highly qualified and veteran Yog Gurus will provide in-depth knowledge of Asana,
+      Meditation, Ayurveda, Pranayama, Yoga Philosophy and Anatomy. Moreover, asana alignments,
+      modifications, contradictions, use of props, adjustment techniques, teaching methodology and
+      teaching practice will also be covered during this course Both beginners, as well as
+      experienced practitioners, can reap the benefits of this course as it will not only deepen
+      your yogic knowledge but also sharpen your skills as a facilitator. We aim to incorporate yoga
+      into your daily life and help you in becoming a confident yoga teacher. So, get ready and join
+      us in our beautiful journey of The 200 Hour Yoga Teacher Training Certification Course at
+      Vinyasa Yoga Ashram
+    </div>
 
-  
-  <!-- Toggle script for Read More -->
-  <script type="module">
-    const btn = document.getElementById('read-more-btn');
-    const content = document.getElementById('read-more-content');
-    if (btn && content) {
-      btn.addEventListener('click', () => {
-        const hidden = content.classList.toggle('hidden');
-        btn.textContent = hidden ? 'Read More' : 'Show Less';
-      });
-    }
-  </script>
+    <!-- Toggle script for Read More -->
+    <script type="module">
+      const btn = document.getElementById('read-more-btn');
+      const content = document.getElementById('read-more-content');
+      if (btn && content) {
+        btn.addEventListener('click', () => {
+          const hidden = content.classList.toggle('hidden');
+          btn.textContent = hidden ? 'Read More' : 'Show Less';
+        });
+      }
+    </script>
   </section>
 
-
-
-
-
-
   <!-- Daily Schedule Section -->
-  <TTCDailyScheduleSection />
+  <TTCDailyScheduleSection schedule={TRAINING_200_DAILY_SCHEDULE} />
 
   <!-- Dates Section -->
   <TTCDatesSection />
 
   <!-- Course Highlights Section -->
-  <TTCourseHighlightsSection sectionData={COURSE_HIGHLIGHTS_SECTION} />
+  <TTCourseHighlightsSection sectionData={TRAINING_200_COURSE_HIGHLIGHTS} />
 
   <!-- Gallery Section with Infinite Carousels -->
-  <GallerySection 
-    title="Training Gallery"
-    subtitle="Witness the Transformation"
-    showMiniCarousel={true}
+  <GallerySection
     id="Gallery"
+    showMiniCarousel={true}
+    subtitle="Witness the Transformation"
+    title="Training Gallery"
   />
 
-  <!-- Gallery -->
+  <FaqSection client:load sectionData={FAQ_SECTION} styles={FAQ_STYLES} />
 
-
-
-
-
-
-  
-  <FaqSection
-    sectionData={FAQ_SECTION}
-    styles={FAQ_STYLES}
-    client:load
-  />
-
-
-
-
-
-  <section class="PriceTTC fixed bottom-0 left-0 w-full bg-gradient-to-r from-white via-purple-50 to-orange-50 shadow-lg z-10 pt-2 lg:pt-5 border-t-2 border-orange-500">
-    <div class="w-full flex lg:justify-around flex-col lg:flex-row text-center justify-center items-center">
-      <img src="/hya.jpg" class="w-12 h-12 rounded-full text-center border-2 border-orange-500"  alt="">
-      <div class="font-bold text-lg">
-        <h1 class="text-sm lg:text-xl text-primary">200 Hour Yoga Teacher Training Course International</h1>
-        <h2 class="text-orange-600 font-extrabold">Starts From : <strike class="text-gray-500">$1049.00</strike> $899.00/- </h2>
+  <section
+    class="PriceTTC fixed bottom-0 left-0 z-10 w-full border-t-2 border-orange-500 bg-gradient-to-r from-white via-purple-50 to-orange-50 pt-2 shadow-lg lg:pt-5"
+  >
+    <div
+      class="flex w-full flex-col items-center justify-center text-center lg:flex-row lg:justify-around"
+    >
+      <img
+        alt=""
+        class="h-12 w-12 rounded-full border-2 border-orange-500 text-center"
+        src="/hya.jpg"
+      />
+      <div class="text-lg font-bold">
+        <h1 class="text-sm text-primary lg:text-xl">
+          200 Hour Yoga Teacher Training Course International
+        </h1>
+        <h2 class="font-extrabold text-orange-600">
+          Starts From : <strike class="text-gray-500">$1049.00</strike> $899.00/-
+        </h2>
       </div>
 
-      <div class="px-5 flex flex-row font-bold justify-around gap-4">
-  <Button href={ROUTE_CONTACT} class="bg-gradient-to-r from-orange-500 to-orange-600 lg:px-20 py-3 px-10 w-full text-white hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg">ENQUIRE</Button>
+      <div class="flex flex-row justify-around gap-4 px-5 font-bold">
+        <Button
+          class="w-full bg-gradient-to-r from-orange-500 to-orange-600 px-10 py-3 text-white shadow-lg transition-all duration-300 hover:from-orange-600 hover:to-orange-700 lg:px-20"
+          href={ROUTE_CONTACT}>ENQUIRE</Button
+        >
         <!-- <button>INTINERARY</button> -->
-  <Button href={ROUTE_CONTACT} class="bg-gradient-to-r from-primary to-purple-600 lg:px-20 py-3 px-10 w-full text-white whitespace-nowrap hover:from-purple-600 hover:to-purple-700 transition-all duration-300 shadow-lg">BOOK NOW</Button>
+        <Button
+          class="w-full whitespace-nowrap bg-gradient-to-r from-primary to-purple-600 px-10 py-3 text-white shadow-lg transition-all duration-300 hover:from-purple-600 hover:to-purple-700 lg:px-20"
+          href={ROUTE_CONTACT}>BOOK NOW</Button
+        >
       </div>
     </div>
   </section>
-
 
   <LocationSection />
 
   <!-- Enhanced Navbar Script -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       console.log('🚀 Initializing sticky navbar...');
-      
+
       const navbar = document.getElementById('NavbarTTC');
       const trigger = document.getElementById('navbar-trigger');
       const header = document.querySelector('header');
-      
+
       if (!navbar || !trigger) {
         console.error('❌ Missing elements:', { navbar: !!navbar, trigger: !!trigger });
         return;
       }
 
       // Calculate header height for positioning
-      const getHeaderHeight = () => header ? header.offsetHeight : 0;
+      const getHeaderHeight = () => (header ? header.offsetHeight : 0);
 
       const observer = new IntersectionObserver(
         ([entry]) => {
           const isVisible = entry.isIntersecting;
           const hasScrolledPast = entry.boundingClientRect.top < 0;
-          
+
           console.log('📍 Navbar trigger:', {
             isVisible,
             hasScrolledPast,
-            top: entry.boundingClientRect.top
+            top: entry.boundingClientRect.top,
           });
-          
+
           if (!isVisible && hasScrolledPast) {
             // Show navbar with proper header offset
             const headerHeight = getHeaderHeight();
@@ -195,7 +218,6 @@ Be a part of this life-changing experience at Vinyasa Yoga Ashram and begin your
             navbar.style.opacity = '1';
             navbar.style.pointerEvents = 'auto';
             console.log('📤 Showing navbar at', headerHeight + 'px');
-            
           } else {
             // Hide navbar
             navbar.style.transform = 'translateY(-100%)';
@@ -204,14 +226,14 @@ Be a part of this life-changing experience at Vinyasa Yoga Ashram and begin your
             console.log('📥 Hiding navbar');
           }
         },
-        { 
+        {
           threshold: 0,
-          rootMargin: '-1px 0px 0px 0px'  // Slight offset for better detection
+          rootMargin: '-1px 0px 0px 0px', // Slight offset for better detection
         }
       );
 
       observer.observe(trigger);
-      
+
       // Handle resize events
       let resizeTimeout: ReturnType<typeof setTimeout>;
       window.addEventListener('resize', () => {
@@ -222,7 +244,7 @@ Be a part of this life-changing experience at Vinyasa Yoga Ashram and begin your
           }
         }, 100);
       });
-      
+
       console.log('✅ Navbar observer ready');
     });
   </script>
@@ -230,13 +252,13 @@ Be a part of this life-changing experience at Vinyasa Yoga Ashram and begin your
   <!-- Enhanced CSS -->
   <style>
     .nav-link {
-      @apply px-2 py-1 sm:px-3 sm:py-2 text-primary hover:text-orange-500 hover:bg-white/20 rounded-lg transition-all duration-200 text-sm sm:text-lg font-medium;
+      @apply rounded-lg px-2 py-1 text-sm font-medium text-primary transition-all duration-200 hover:bg-white/20 hover:text-orange-500 sm:px-3 sm:py-2 sm:text-lg;
     }
-    
+
     .nav-divider {
-      @apply h-3 sm:h-4 w-px bg-gradient-to-b from-primary/20 via-primary to-primary/20;
+      @apply h-3 w-px bg-gradient-to-b from-primary/20 via-primary to-primary/20 sm:h-4;
     }
-    
+
     @media (max-width: 640px) {
       .nav-divider {
         display: none;

@@ -1,16 +1,14 @@
 ---
-import SectionHeader from "../../ui/SectionHeader.astro";
-import { APPLE_CARDS_SECTION } from "$constants/homePageConstants";
-import AppleCardsCarousel from "$ui/AppleCardsSection.astro";
+import SectionHeader from '../../ui/SectionHeader.astro';
+import { APPLE_CARDS_SECTION } from '$constants/HomePage/homePageConstants';
+import AppleCardsCarousel from '$ui/AppleCardsSection.astro';
 ---
 
-<section class="min-h-[50vh] md:min-h-screen bg-gradient-to-br from-purple-50 to-pink-50">
+<section class="min-h-[50vh] bg-gradient-to-br from-purple-50 to-pink-50 md:min-h-screen">
   <!-- Hero Section -->
   <section class="py-20">
     <div class="container mx-auto px-4 text-center">
-      <h1
-        class="mb-4 font-space text-3xl font-bold text-purple-900 sm:text-4xl"
-      >
+      <h1 class="mb-4 font-space text-3xl font-bold text-purple-900 sm:text-4xl">
         {APPLE_CARDS_SECTION.TITLE}
       </h1>
       <p class="mx-auto max-w-full text-lg text-gray-700 md:text-xl">
@@ -18,7 +16,6 @@ import AppleCardsCarousel from "$ui/AppleCardsSection.astro";
       </p>
     </div>
   </section>
-  >
 
   <!-- Apple Cards Carousel -->
   <section class="py-10">

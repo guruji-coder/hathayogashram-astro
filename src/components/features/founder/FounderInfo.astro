@@ -1,10 +1,7 @@
 ---
-import {
-  HOME_STYLES,
-  FOUNDER_SECTION,
-} from "../../../constants/homePageConstants";
-import { BUTTON_STYLES } from "../../../constants/uiConstants";
-import { ROUTE_FOUNDER_DETAIL } from "../../../constants/routesConstants";
+import { HOME_STYLES, FOUNDER_SECTION } from '../../../constants/HomePage/homePageConstants';
+import { BUTTON_STYLES } from '../../../constants/uiConstants';
+import { ROUTE_FOUNDER_DETAIL } from '../../../constants/routesConstants';
 ---
 
 <div class="flex flex-col lg:w-1/2">
@@ -24,9 +21,7 @@ import { ROUTE_FOUNDER_DETAIL } from "../../../constants/routesConstants";
     </p>
 
     <!-- Founder Information Card -->
-    <div
-      class="rounded-full border-2 border-purple-900 bg-white px-4 py-1 text-center shadow-md"
-    >
+    <div class="rounded-full border-2 border-purple-900 bg-white px-4 py-1 text-center shadow-md">
       <h3 class="mb-1 text-base font-bold text-purple-900">
         {FOUNDER_SECTION.FOUNDER_INFO.name}
       </h3>
@@ -38,8 +33,7 @@ import { ROUTE_FOUNDER_DETAIL } from "../../../constants/routesConstants";
     <!-- Know More Button -->
     <div class="mt-8 text-center">
       <a
-        href={ROUTE_FOUNDER_DETAIL}
-        class={`${BUTTON_STYLES.BASE} ${BUTTON_STYLES.VARIANTS.PRIMARY}`}
+        class:list={[`${BUTTON_STYLES.BASE}`,`${BUTTON_STYLES.VARIANTS.PRIMARY}`]}         href={ROUTE_FOUNDER_DETAIL}
       >
         Know More About Founder
       </a>

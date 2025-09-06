@@ -4,39 +4,35 @@ import {
   HEADER_CTA_BUTTON,
   HEADER_STYLES,
   HEADER_ANIMATIONS,
-} from "../../constants/headerConstants";
+} from '../../constants/headerConstants';
 ---
 
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="lg:hidden" style="display: none;">
+<div class="lg:hidden" id="mobile-menu" style="display: none;">
   <div class="mt-4 border-t border-gray-200 py-4">
     {
-      HEADER_NAVIGATION_ITEMS.map((item) =>
+      HEADER_NAVIGATION_ITEMS.map(item =>
         item.items ? (
           <div class="mobile-dropdown">
             <button
-              class={`mobile-dropdown-button flex w-full items-center justify-between px-2 py-3 text-left ${HEADER_STYLES.NAV_LINK_COLORS} focus:outline-none`}
+              class:list={[`mobile-dropdown-button flex w-full items-center justify-between px-2 py-3 text-left`,`${HEADER_STYLES.NAV_LINK_COLORS}`,`focus:outline-none`]}
             >
               {item.label}
               <svg
-                class={`dropdown-chevron h-4 w-4 ${HEADER_ANIMATIONS.MOBILE_DROPDOWN_TRANSITION}`}
+                class:list={[`dropdown-chevron h-4 w-4`,`${HEADER_ANIMATIONS.MOBILE_DROPDOWN_TRANSITION}`]}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
+                  d="M19 9l-7 7-7-7"                   stroke-linecap="round"                   stroke-linejoin="round"                   stroke-width="2"
                 />
               </svg>
             </button>
             <div class="mobile-dropdown-content hidden pl-4">
-              {item.items.map((subItem) => (
+              {item.items.map(subItem => (
                 <a
-                  href={subItem.href}
-                  class={`block py-2 text-gray-600 ${HEADER_STYLES.NAV_LINK_COLORS}`}
+                  class:list={[`block py-2 text-gray-600`,`${HEADER_STYLES.NAV_LINK_COLORS}`]}                   href={subItem.href}
                 >
                   {subItem.label}
                 </a>
@@ -44,19 +40,15 @@ import {
             </div>
           </div>
         ) : (
-          <a
-            href={item.href}
-            class={`block px-2 py-3 ${HEADER_STYLES.NAV_LINK_COLORS}`}
-          >
+          <a class:list={[`block px-2 py-3`,`${HEADER_STYLES.NAV_LINK_COLORS}`]} href={item.href}>
             {item.label}
           </a>
-        ),
+        )
       )
     }
     <div class="mt-4 border-t border-gray-200 pt-4">
       <a
-        href={HEADER_CTA_BUTTON.URL}
-        class={`block w-full text-center ${HEADER_CTA_BUTTON.MOBILE_CLASSES}`}
+        class:list={[`block w-full text-center`,`${HEADER_CTA_BUTTON.MOBILE_CLASSES}`]}         href={HEADER_CTA_BUTTON.URL}
       >
         {HEADER_CTA_BUTTON.TEXT}
       </a>

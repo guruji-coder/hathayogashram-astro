@@ -4,15 +4,11 @@
  */
 
 // Import necessary SEO utilities and constants
-import {
-  HEALING_KEYWORDS,
-  CONDITION_ASANA_MAP,
-  HEALING_SOLUTIONS,
-} from "../lib/healing-keywords";
-import { PRANAYAMA_TECHNIQUES } from "../lib/pranayama-keywords";
-import { ASANA_SEQUENCES } from "../lib/asana-keywords";
-import { generateSEO, generateKeywordsString } from "../utils/seo-utils";
-import { conditionSpecificSchema } from "../schemas/healing-benefits";
+import { HEALING_KEYWORDS, CONDITION_ASANA_MAP, HEALING_SOLUTIONS } from '../lib/healing-keywords';
+import { PRANAYAMA_TECHNIQUES } from '../lib/pranayama-keywords';
+import { ASANA_SEQUENCES } from '../lib/asana-keywords';
+import { generateSEO, generateKeywordsString } from '../utils/seo-utils';
+import { conditionSpecificSchema } from '../schemas/healing-benefits';
 
 // Type definition for condition keys
 type ConditionKey = keyof typeof CONDITION_ASANA_MAP;
@@ -22,9 +18,7 @@ type HealingSolutionKey = keyof typeof HEALING_SOLUTIONS;
 export default function createHealingPage(condition: ConditionKey) {
   // Get condition-specific data
   const healingSolution =
-    condition in HEALING_SOLUTIONS
-      ? HEALING_SOLUTIONS[condition as HealingSolutionKey]
-      : undefined;
+    condition in HEALING_SOLUTIONS ? HEALING_SOLUTIONS[condition as HealingSolutionKey] : undefined;
 
   const recommendedAsanas = CONDITION_ASANA_MAP[condition] || [];
 
@@ -37,26 +31,25 @@ export default function createHealingPage(condition: ConditionKey) {
     `yoga poses for ${condition.toLowerCase()}`,
     `${condition.toLowerCase()} relief`,
     ...recommendedAsanas.map(
-      (asana: string) =>
-        `${asana.toLowerCase()} for ${condition.toLowerCase()}`,
+      (asana: string) => `${asana.toLowerCase()} for ${condition.toLowerCase()}`
     ),
-    ...HEALING_KEYWORDS.physicalHealing.filter((kw) =>
-      kw.toLowerCase().includes(condition.toLowerCase()),
+    ...HEALING_KEYWORDS.physicalHealing.filter(kw =>
+      kw.toLowerCase().includes(condition.toLowerCase())
     ),
   ];
 
   // Generate SEO metadata
   const seoData = generateSEO({
-    pageType: "healing",
+    pageType: 'healing',
     values: {
       condition,
       benefit: `natural ${condition.toLowerCase()} relief`,
     },
-    path: `/healing/${condition.toLowerCase().replace(/\s+/g, "-")}`,
+    path: `/healing/${condition.toLowerCase().replace(/\s+/g, '-')}`,
     structuredData: conditionSpecificSchema({
       name: condition,
       description: `Yoga therapy approaches for ${condition} treatment and management.`,
-      symptoms: ["Pain", "Discomfort", "Limited mobility"],
+      symptoms: ['Pain', 'Discomfort', 'Limited mobility'],
       yogaSolution:
         healingSolution?.solution ||
         `A comprehensive yoga therapy program designed specifically for ${condition}.`,
@@ -76,16 +69,16 @@ export default function createHealingPage(condition: ConditionKey) {
       keywords: generateKeywordsString(conditionKeywords),
       recommendedPranayama: healingSolution?.pranayama || [],
       relatedConditions: Object.keys(CONDITION_ASANA_MAP)
-        .filter((c) => c !== condition)
-        .filter((c) => {
+        .filter(c => c !== condition)
+        .filter(c => {
           const condKey = c as ConditionKey;
-          const commonAsanas = CONDITION_ASANA_MAP[condKey].filter(
-            (asana: string) => recommendedAsanas.includes(asana),
+          const commonAsanas = CONDITION_ASANA_MAP[condKey].filter((asana: string) =>
+            recommendedAsanas.includes(asana)
           );
           return commonAsanas.length > 0;
         })
         .slice(0, 5),
-      recommendedSequence: ASANA_SEQUENCES["Back Care Sequence"], // Example sequence
+      recommendedSequence: ASANA_SEQUENCES['Back Care Sequence'], // Example sequence
     },
   };
 }

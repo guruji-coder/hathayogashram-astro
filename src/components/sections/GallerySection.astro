@@ -21,7 +21,7 @@ const {
 } = Astro.props;
 ---
 
-<section class={`py-16 px-4 relative overflow-hidden ${className}`} id={id}>
+<section class:list={[`py-16 px-4 relative overflow-hidden`,`${className}`]} id={id}>
   <!-- Floating background decorations -->
   <div class="absolute -top-1/2 -right-1/2 w-full h-full bg-gradient-radial from-purple-500/[0.03] to-transparent animate-float pointer-events-none"></div>
   <div class="absolute -bottom-1/2 -left-1/2 w-full h-full bg-gradient-radial from-orange-500/[0.03] to-transparent animate-float-reverse pointer-events-none"></div>
@@ -30,11 +30,7 @@ const {
   <div class="relative z-10 max-w-7xl mx-auto">
 
     <InfiniteCarousel 
-      images={GALLERY_CAROUSEL_IMAGES}
-      autoplaySpeed={100}
-      pauseOnHover={true}
-      className="main-gallery rounded-3xl shadow-2xl"
-      id="main-gallery"
+      autoplaySpeed={100}       className="main-gallery rounded-3xl shadow-2xl"       id="main-gallery"       images={GALLERY_CAROUSEL_IMAGES}       pauseOnHover={true}
     />
   </div>
 
@@ -44,9 +40,7 @@ const {
       
       <!-- Mini carousel -->
       <MiniCarousel 
-        images={MINI_CAROUSEL_IMAGES.slice(0, 8)}
-        className="mini-1"
-        height="100px"
+        className="mini-1"         height="100px"         images={MINI_CAROUSEL_IMAGES.slice(0, 8)}
       />
 
     </div>

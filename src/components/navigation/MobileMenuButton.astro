@@ -3,19 +3,17 @@ import {
   HEADER_STYLES,
   HEADER_ACCESSIBILITY,
   HEADER_ANIMATIONS,
-} from "../../constants/headerConstants";
+} from '../../constants/headerConstants';
 ---
 
 <!-- Mobile Menu Button -->
 <button
-  id="mobile-menu-button"
-  class={HEADER_STYLES.MOBILE_MENU_BUTTON}
-  aria-label={HEADER_ACCESSIBILITY.MOBILE_MENU_TOGGLE}
+  aria-label={HEADER_ACCESSIBILITY.MOBILE_MENU_TOGGLE}   class:list={HEADER_STYLES.MOBILE_MENU_BUTTON}   id="mobile-menu-button"
 >
   <div class="space-y-1">
-    <div class={`hamburger-line ${HEADER_STYLES.HAMBURGER_LINE}`}></div>
-    <div class={`hamburger-line ${HEADER_STYLES.HAMBURGER_LINE}`}></div>
-    <div class={`hamburger-line ${HEADER_STYLES.HAMBURGER_LINE}`}></div>
+    <div class:list={[`hamburger-line`,`${HEADER_STYLES.HAMBURGER_LINE}`]}></div>
+    <div class:list={[`hamburger-line`,`${HEADER_STYLES.HAMBURGER_LINE}`]}></div>
+    <div class:list={[`hamburger-line`,`${HEADER_STYLES.HAMBURGER_LINE}`]}></div>
   </div>
 </button>
 

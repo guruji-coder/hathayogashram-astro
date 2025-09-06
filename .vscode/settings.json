@@ -6,7 +6,17 @@
     "**/src/lib/*keywords.ts": true
   },
   "typescript.tsserver.maxTsServerMemory": 4096,
+
+  // Formatting Settings
+  "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
   "editor.formatOnSave": true,
+  "editor.rulers": [100],
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+
+  // Git Settings
   "git.fetchOnPull": true,
   "git.autofetch": true,
   "git.confirmSync": false,
@@ -16,6 +26,7 @@
 
   // Auto Import Settings
   "typescript.preferences.includePackageJsonAutoImports": "auto",
+  "typescript.preferences.importModuleSpecifier": "relative",
   "typescript.suggest.autoImports": true,
   "javascript.suggest.autoImports": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
@@ -25,7 +36,34 @@
   "path-intellisense.extensionOnImport": true,
   "path-intellisense.showHiddenFiles": true,
 
-  // Astro Support
+  // File Type Specific Settings
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+    "editor.formatOnSave": true,
+    "files.trimTrailingWhitespace": false
+  },
+
+  // File Associations
   "files.associations": {
     "*.astro": "astro"
   },
@@ -33,9 +71,25 @@
   // Svelte Support
   "svelte.enable-ts-plugin": true,
 
+  // ESLint Configuration
+  "eslint.validate": ["astro", "javascript", "typescript", "svelte"],
+
+  // Prettier Configuration
+  "prettier.documentSelectors": ["**/*.astro"],
+
+  // TailwindCSS Support
+  "tailwindCSS.includeLanguages": {
+    "astro": "html"
+  },
+
+  // Emmet Support
+  "emmet.includeLanguages": {
+    "astro": "html"
+  },
+
   // Auto Actions
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit",
-    "source.fixAll": "explicit"
+    "source.fixAll.eslint": "explicit"
   }
 }

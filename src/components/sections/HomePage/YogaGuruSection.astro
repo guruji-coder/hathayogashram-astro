@@ -1,46 +1,32 @@
 ---
-import {
-  YOGA_GURUS_SECTION,
-  YOGA_GURUS_STYLES,
-} from "$constants/yogaGurusConstants";
-import SectionHeader from "$ui/SectionHeader.astro";
-import HorizontalCarousel from "$ui/HorizontalCarousel.astro";
-import SpiritualCard from "$ui/SpiritualCard.astro";
+import { YOGA_GURUS_SECTION, YOGA_GURUS_STYLES } from '$constants/yogaGurusConstants';
+import SectionHeader from '$ui/SectionHeader.astro';
+import HorizontalCarousel from '$ui/HorizontalCarousel.astro';
+import SpiritualCard from '$ui/SpiritualCard.astro';
 ---
 
 <!-- Spiritual Yoga Gurus Section -->
 <section class="bg-yellow-50 px-4 py-16">
-  <div class={YOGA_GURUS_STYLES.CONTAINER}>
+  <div class:list={YOGA_GURUS_STYLES.CONTAINER}>
     <!-- Section Header -->
     <SectionHeader
-      title={YOGA_GURUS_SECTION.TITLE}
-      containerClass="text-center"
-      titleClass={YOGA_GURUS_STYLES.TITLE}
-      svgWidth={200}
-      svgHeight={20}
+      containerClass="text-center"       svgHeight={20}       svgWidth={200}       title={YOGA_GURUS_SECTION.TITLE}       titleClass={YOGA_GURUS_STYLES.TITLE}
     />
 
     <!-- Gurus - Horizontal scroll: 1 for mobile, 2 for tablet, 3 for desktop -->
     <HorizontalCarousel
-      id="gurusContainer"
-      containerClass={YOGA_GURUS_STYLES.CARDS_CONTAINER}
+      containerClass={YOGA_GURUS_STYLES.CARDS_CONTAINER}       id="gurusContainer"
       scrollInterval={4000}
     >
-      {
-        YOGA_GURUS_SECTION.GURUS.map((guru) => (
-          <SpiritualCard name={guru.name} image={guru.image} />
-        ))
-      }
+      {YOGA_GURUS_SECTION.GURUS.map(guru => <SpiritualCard image={guru.image} name={guru.name} />)}
     </HorizontalCarousel>
 
     <!-- Scroll Indicators/Tabs -->
-    <div class={YOGA_GURUS_STYLES.INDICATORS_CONTAINER}>
+    <div class:list={YOGA_GURUS_STYLES.INDICATORS_CONTAINER}>
       {
         YOGA_GURUS_SECTION.GURUS.map((_, index) => (
           <button
-            class={`scroll-indicator ${YOGA_GURUS_STYLES.INDICATOR}`}
-            data-index={index}
-            aria-label={`Go to guru ${index + 1}`}
+            aria-label={`Go to guru ${index + 1}`}             class:list={[`scroll-indicator`,`${YOGA_GURUS_STYLES.INDICATOR}`]}             data-index={index}
           />
         ))
       }
@@ -50,14 +36,14 @@ import SpiritualCard from "$ui/SpiritualCard.astro";
 
 <!-- Scroll Indicators Script -->
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const scrollContainer = document.getElementById("gurusContainer");
-    const indicators = document.querySelectorAll(".scroll-indicator");
+  document.addEventListener('DOMContentLoaded', function () {
+    const scrollContainer = document.getElementById('gurusContainer');
+    const indicators = document.querySelectorAll('.scroll-indicator');
 
     if (scrollContainer && indicators.length > 0) {
       // Handle indicator clicks
       indicators.forEach((indicator, index) => {
-        indicator.addEventListener("click", () => {
+        indicator.addEventListener('click', () => {
           const cardWidth =
             window.innerWidth < 768
               ? window.innerWidth
@@ -67,7 +53,7 @@ import SpiritualCard from "$ui/SpiritualCard.astro";
 
           scrollContainer.scrollTo({
             left: cardWidth * index,
-            behavior: "smooth",
+            behavior: 'smooth',
           });
         });
       });
@@ -89,16 +75,16 @@ import SpiritualCard from "$ui/SpiritualCard.astro";
         indicators.forEach((indicator, index) => {
           if (index === activeIndex) {
             indicator.className =
-              "scroll-indicator w-3 h-3 rounded-full bg-purple-600 scale-125 transition-all duration-300 hover:bg-purple-500 cursor-pointer";
+              'scroll-indicator w-3 h-3 rounded-full bg-purple-600 scale-125 transition-all duration-300 hover:bg-purple-500 cursor-pointer';
           } else {
             indicator.className =
-              "scroll-indicator w-3 h-3 rounded-full bg-purple-300 transition-all duration-300 hover:bg-purple-500 cursor-pointer";
+              'scroll-indicator w-3 h-3 rounded-full bg-purple-300 transition-all duration-300 hover:bg-purple-500 cursor-pointer';
           }
         });
       }
 
       // Listen for scroll events
-      scrollContainer.addEventListener("scroll", updateActiveIndicator);
+      scrollContainer.addEventListener('scroll', updateActiveIndicator);
 
       // Initialize active indicator
       updateActiveIndicator();

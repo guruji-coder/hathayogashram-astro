@@ -1,27 +1,23 @@
 ---
-import { FOUNDER_SECTION } from "../../../constants/homePageConstants";
+import { FOUNDER_SECTION } from '../../../constants/HomePage/homePageConstants';
 ---
 
 <div class="mt-16">
-  <h3
-    class="mb-8 text-center text-xl font-bold text-purple-900 sm:text-2xl lg:text-3xl"
-  >
+  <h3 class="mb-8 text-center text-xl font-bold text-purple-900 sm:text-2xl lg:text-3xl">
     Awards & Honours
   </h3>
 
   <div class="mx-auto max-w-full">
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       {
-        FOUNDER_SECTION.AWARDS.map((award) => (
+        FOUNDER_SECTION.AWARDS.map(award => (
           <div class="text-center">
             <div
-              class={`mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full ${award.bgColor}`}
+              class:list={[`mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full`,`${award.bgColor}`]}
             >
               <div class="text-3xl">{award.icon}</div>
             </div>
-            <h4 class="mb-2 text-sm font-semibold text-gray-800 sm:text-base">
-              {award.title}
-            </h4>
+            <h4 class="mb-2 text-sm font-semibold text-gray-800 sm:text-base">{award.title}</h4>
           </div>
         ))
       }

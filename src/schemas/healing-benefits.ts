@@ -2,33 +2,33 @@
  * Healing-specific schema definitions for therapeutic yoga pages
  */
 
-import { SITE_METADATA } from "../lib/yoga-seo-constants";
+import { SITE_METADATA } from '../lib/yoga-seo-constants';
 
 /**
  * Main healing benefits schema for therapeutic yoga pages
  */
 export const healingBenefitsSchema = {
-  "@context": "https://schema.org",
-  "@type": "MedicalWebPage",
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
   about: {
-    "@type": "MedicalCondition",
-    name: "Various Health Conditions",
+    '@type': 'MedicalCondition',
+    name: 'Various Health Conditions',
     possibleTreatment: {
-      "@type": "TherapeuticProcedure",
-      name: "Yoga Therapy",
+      '@type': 'TherapeuticProcedure',
+      name: 'Yoga Therapy',
       howPerformed:
-        "Specific yoga asanas, pranayama techniques and meditation practices tailored to individual health conditions",
+        'Specific yoga asanas, pranayama techniques and meditation practices tailored to individual health conditions',
     },
   },
   mainContentOfPage: {
-    "@type": "WebPageElement",
+    '@type': 'WebPageElement',
     isPartOf: {
-      "@id": `${SITE_METADATA.siteUrl}/yoga-therapy`,
+      '@id': `${SITE_METADATA.siteUrl}/yoga-therapy`,
     },
   },
   specialty: {
-    "@type": "MedicalSpecialty",
-    name: "Complementary and Alternative Medicine",
+    '@type': 'MedicalSpecialty',
+    name: 'Complementary and Alternative Medicine',
   },
 };
 
@@ -45,40 +45,40 @@ export const conditionSpecificSchema = (condition: {
   evidenceSource?: string;
 }) => {
   return {
-    "@context": "https://schema.org",
-    "@type": "MedicalWebPage",
+    '@context': 'https://schema.org',
+    '@type': 'MedicalWebPage',
     about: {
-      "@type": "MedicalCondition",
+      '@type': 'MedicalCondition',
       name: condition.name,
       description: condition.description,
       ...(condition.symptoms && {
-        signOrSymptom: condition.symptoms.map((symptom) => ({
-          "@type": "MedicalSymptom",
+        signOrSymptom: condition.symptoms.map(symptom => ({
+          '@type': 'MedicalSymptom',
           name: symptom,
         })),
       }),
       possibleTreatment: {
-        "@type": "TherapeuticProcedure",
-        name: "Yoga Therapy for " + condition.name,
+        '@type': 'TherapeuticProcedure',
+        name: 'Yoga Therapy for ' + condition.name,
         description: condition.yogaSolution,
         howPerformed:
-          "Through a specific sequence of yoga postures, breathing techniques, and meditation practices designed for " +
+          'Through a specific sequence of yoga postures, breathing techniques, and meditation practices designed for ' +
           condition.name.toLowerCase(),
       },
     },
     mainContentOfPage: {
-      "@type": "WebPageElement",
+      '@type': 'WebPageElement',
       isPartOf: {
-        "@id": `${SITE_METADATA.siteUrl}/yoga-therapy/${condition.name.toLowerCase().replace(/\s+/g, "-")}`,
+        '@id': `${SITE_METADATA.siteUrl}/yoga-therapy/${condition.name.toLowerCase().replace(/\s+/g, '-')}`,
       },
     },
     specialty: {
-      "@type": "MedicalSpecialty",
-      name: "Complementary and Alternative Medicine",
+      '@type': 'MedicalSpecialty',
+      name: 'Complementary and Alternative Medicine',
     },
     ...(condition.evidenceSource && {
       citation: {
-        "@type": "CreativeWork",
+        '@type': 'CreativeWork',
         name: condition.evidenceSource,
       },
     }),
@@ -97,24 +97,24 @@ export const researchStudiesSchema = (
     journal: string;
     findings: string;
     url?: string;
-  }>,
+  }>
 ) => {
   return {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
     itemListElement: studies.map((study, index) => ({
-      "@type": "ListItem",
+      '@type': 'ListItem',
       position: index + 1,
       item: {
-        "@type": "MedicalScholarlyArticle",
+        '@type': 'MedicalScholarlyArticle',
         headline: study.title,
-        author: study.authors.map((author) => ({
-          "@type": "Person",
+        author: study.authors.map(author => ({
+          '@type': 'Person',
           name: author,
         })),
         datePublished: study.publicationDate,
         publisher: {
-          "@type": "Organization",
+          '@type': 'Organization',
           name: study.journal,
         },
         description: study.findings,
@@ -141,32 +141,32 @@ export const yogaTherapyProgramSchema = (program: {
   url: string;
 }) => {
   return {
-    "@context": "https://schema.org",
-    "@type": "HealthAndBeautyBusiness",
+    '@context': 'https://schema.org',
+    '@type': 'HealthAndBeautyBusiness',
     name: program.name,
     description: program.description,
     address: {
-      "@type": "PostalAddress",
-      addressLocality: "Rishikesh",
-      addressRegion: "Uttarakhand",
-      addressCountry: "IN",
+      '@type': 'PostalAddress',
+      addressLocality: 'Rishikesh',
+      addressRegion: 'Uttarakhand',
+      addressCountry: 'IN',
     },
     makesOffer: {
-      "@type": "Offer",
+      '@type': 'Offer',
       itemOffered: {
-        "@type": "Service",
+        '@type': 'Service',
         name: `Yoga Therapy Program for ${program.condition}`,
         description: program.description,
         provider: {
-          "@type": "Organization",
+          '@type': 'Organization',
           name: SITE_METADATA.siteName,
           sameAs: SITE_METADATA.siteUrl,
         },
-        serviceType: "Yoga Therapy",
+        serviceType: 'Yoga Therapy',
         offers: {
-          "@type": "Offer",
-          price: program.price || "",
-          priceCurrency: program.priceCurrency || "USD",
+          '@type': 'Offer',
+          price: program.price || '',
+          priceCurrency: program.priceCurrency || 'USD',
         },
       },
     },

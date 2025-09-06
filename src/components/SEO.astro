@@ -1,11 +1,11 @@
 ---
-import { SEO as AstroSEO } from "astro-seo";
-import { organizationSchema } from "../schemas/organization";
+import { SEO as AstroSEO } from 'astro-seo';
+import { organizationSchema } from '../schemas/organization';
 import {
   generateAdvancedMetaTags,
   generateYogaOpenGraphTags,
   type AdvancedSEOConfig,
-} from "../lib/advanced-seo";
+} from '../lib/advanced-seo';
 
 export interface Props {
   title: string;
@@ -14,7 +14,7 @@ export interface Props {
   image?: string;
   noindex?: boolean;
   nofollow?: boolean;
-  ogType?: "website" | "article" | "product";
+  ogType?: 'website' | 'article' | 'product';
   twitter?: {
     creator?: string;
     site?: string;
@@ -27,58 +27,58 @@ const {
   title,
   description = "Join Hatha Yogashram's authentic 200/300 hour Yoga Teacher Training in Rishikesh. Yoga Alliance RYS certified school with experienced Indian yoga masters. Traditional Hatha & Ashtanga Yoga, Sanskrit mantras, philosophy from ancient texts. Residential program with accommodation, vegetarian meals, and lifetime support.",
   canonical,
-  image = "https://hathayogashram.com/yogaschoolpic.jpg",
+  image = 'https://hathayogashram.com/yogaschoolpic.jpg',
   noindex = false,
   nofollow = false,
-  ogType = "website",
+  ogType = 'website',
   twitter = {
-    creator: "@hathayogashram",
-    site: "@hathayogashram",
+    creator: '@hathayogashram',
+    site: '@hathayogashram',
   },
   additionalSchemas = [],
   seoConfig = {
-    pageType: "homepage",
-    primaryKeyword: "yoga teacher training rishikesh",
-    location: "rishikesh",
+    pageType: 'homepage',
+    primaryKeyword: 'yoga teacher training rishikesh',
+    location: 'rishikesh',
   },
 } = Astro.props;
 
 // Enhanced meta keywords based on page content and SEO config
 const advancedKeywords = [
-  "yoga teacher training rishikesh",
-  "200 hour yoga teacher training",
-  "300 hour yoga teacher training",
-  "yoga alliance certification india",
-  "hatha yoga teacher training",
-  "ashtanga yoga rishikesh",
-  "yoga school rishikesh",
-  "residential yoga training",
-  "authentic yoga training india",
-  "traditional yoga course",
-  "yoga certification program",
-  "yoga instructor training",
-  "himalayan yoga training",
-  "spiritual yoga retreat",
-  "sanskrit mantras yoga",
-  "patanjali yoga sutras",
-  "hatha yoga pradipika",
-  "bhagavad gita yoga",
-  "pranayama teacher training",
-  "meditation instructor course",
-  "yoga philosophy training",
-  "affordable yoga teacher training",
-  "best yoga school rishikesh",
-  "yoga alliance registered school",
-  "intensive yoga training",
-  "yogic lifestyle training",
-  "chakra healing certification",
-  "kundalini yoga training",
-  "best teacher training",
-  "vinyasa yoga certification",
-].join(", ");
+  'yoga teacher training rishikesh',
+  '200 hour yoga teacher training',
+  '300 hour yoga teacher training',
+  'yoga alliance certification india',
+  'hatha yoga teacher training',
+  'ashtanga yoga rishikesh',
+  'yoga school rishikesh',
+  'residential yoga training',
+  'authentic yoga training india',
+  'traditional yoga course',
+  'yoga certification program',
+  'yoga instructor training',
+  'himalayan yoga training',
+  'spiritual yoga retreat',
+  'sanskrit mantras yoga',
+  'patanjali yoga sutras',
+  'hatha yoga pradipika',
+  'bhagavad gita yoga',
+  'pranayama teacher training',
+  'meditation instructor course',
+  'yoga philosophy training',
+  'affordable yoga teacher training',
+  'best yoga school rishikesh',
+  'yoga alliance registered school',
+  'intensive yoga training',
+  'yogic lifestyle training',
+  'chakra healing certification',
+  'kundalini yoga training',
+  'best teacher training',
+  'vinyasa yoga certification',
+].join(', ');
 
 // Generate optimized title
-const optimizedTitle = title.includes("Hatha Yogashram")
+const optimizedTitle = title.includes('Hatha Yogashram')
   ? title
   : `${title} | Yoga Teacher Training Rishikesh - Hatha Yogashram`;
 
@@ -99,77 +99,67 @@ const allSchemas = [organizationSchema, ...additionalSchemas];
 ---
 
 <AstroSEO
-  title={optimizedTitle}
-  description={description}
-  canonical={canonical}
-  noindex={noindex}
-  nofollow={nofollow}
-  openGraph={yogaOG}
-  twitter={{
-    site: twitter.site,
-    creator: twitter.creator,
-  }}
-  extend={{
+  canonical={canonical}   description={description}   extend={{
     link: [
-      { rel: "icon", href: "/hya.jpg" },
-      { rel: "canonical", href: canonical || Astro.url.href },
-      { rel: "manifest", href: "/manifest.json" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: 'icon', href: '/hya.jpg' },
+      { rel: 'canonical', href: canonical || Astro.url.href },
+      { rel: 'manifest', href: '/manifest.json' },
+      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
       {
-        rel: "preconnect",
-        href: "https://fonts.gstatic.com",
-        crossorigin: "anonymous",
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossorigin: 'anonymous',
       },
       {
-        rel: "alternate",
-        type: "application/rss+xml",
-        title: "Hatha Yogashram Blog",
-        href: "/rss.xml",
+        rel: 'alternate',
+        type: 'application/rss+xml',
+        title: 'Hatha Yogashram Blog',
+        href: '/rss.xml',
       },
     ],
     meta: [
-      { name: "keywords", content: advancedKeywords },
-      { name: "author", content: "Hatha Yogashram" },
+      { name: 'keywords', content: advancedKeywords },
+      { name: 'author', content: 'Hatha Yogashram' },
 
       // Advanced meta tags
       ...advancedMeta,
 
       // Additional performance hints
-      { httpEquiv: "x-dns-prefetch-control", content: "on" },
-      { name: "preload", content: "/hya.jpg" },
+      { httpEquiv: 'x-dns-prefetch-control', content: 'on' },
+      { name: 'preload', content: '/hya.jpg' },
 
       // Additional Open Graph enhancements
-      { property: "og:image:width", content: "1200" },
-      { property: "og:image:height", content: "630" },
-      { property: "og:site_name", content: "Hatha Yogashram" },
-      { property: "og:locale", content: "en_US" },
-      { property: "og:locale:alternate", content: "hi_IN" },
+      { property: 'og:image:width', content: '1200' },
+      { property: 'og:image:height', content: '630' },
+      { property: 'og:site_name', content: 'Hatha Yogashram' },
+      { property: 'og:locale', content: 'en_US' },
+      { property: 'og:locale:alternate', content: 'hi_IN' },
 
       // Enhanced Twitter Card
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: optimizedTitle },
-      { name: "twitter:description", content: description },
-      { name: "twitter:image", content: image },
-      { name: "twitter:label1", content: "Duration" },
-      { name: "twitter:data1", content: "200/300 Hours" },
-      { name: "twitter:label2", content: "Certification" },
-      { name: "twitter:data2", content: "Yoga Alliance" },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: optimizedTitle },
+      { name: 'twitter:description', content: description },
+      { name: 'twitter:image', content: image },
+      { name: 'twitter:label1', content: 'Duration' },
+      { name: 'twitter:data1', content: '200/300 Hours' },
+      { name: 'twitter:label2', content: 'Certification' },
+      { name: 'twitter:data2', content: 'Yoga Alliance' },
 
       // Article specific (when ogType is 'article')
-      ...(ogType === "article"
+      ...(ogType === 'article'
         ? [
-            { property: "article:author", content: "Hatha Yogashram" },
+            { property: 'article:author', content: 'Hatha Yogashram' },
             {
-              property: "article:publisher",
-              content: "https://www.facebook.com/hathayogashram",
+              property: 'article:publisher',
+              content: 'https://www.facebook.com/hathayogashram',
             },
-            { property: "article:section", content: "Yoga Education" },
+            { property: 'article:section', content: 'Yoga Education' },
             {
-              property: "article:published_time",
+              property: 'article:published_time',
               content: new Date().toISOString(),
             },
             {
-              property: "article:modified_time",
+              property: 'article:modified_time',
               content: new Date().toISOString(),
             },
           ]
@@ -177,125 +167,115 @@ const allSchemas = [organizationSchema, ...additionalSchemas];
 
       // Business-specific markup
       {
-        name: "business:contact_data:street_address",
-        content: "Near Ram Jhula, Swarg Ashram",
+        name: 'business:contact_data:street_address',
+        content: 'Near Ram Jhula, Swarg Ashram',
       },
-      { name: "business:contact_data:locality", content: "Rishikesh" },
-      { name: "business:contact_data:region", content: "Uttarakhand" },
-      { name: "business:contact_data:postal_code", content: "249201" },
-      { name: "business:contact_data:country_name", content: "India" },
-      { name: "business:contact_data:phone_number", content: "+91-XXXXXXXXXX" },
+      { name: 'business:contact_data:locality', content: 'Rishikesh' },
+      { name: 'business:contact_data:region', content: 'Uttarakhand' },
+      { name: 'business:contact_data:postal_code', content: '249201' },
+      { name: 'business:contact_data:country_name', content: 'India' },
+      { name: 'business:contact_data:phone_number', content: '+91-XXXXXXXXXX' },
       {
-        name: "business:contact_data:website",
-        content: "https://hathayogashram.com",
+        name: 'business:contact_data:website',
+        content: 'https://hathayogashram.com',
       },
     ],
+  }}   nofollow={nofollow}   noindex={noindex}   openGraph={yogaOG}   title={optimizedTitle}   twitter={{
+    site: twitter.site,
+    creator: twitter.creator,
   }}
 />
 
 <!-- Schema.org structured data -->
 {
-  allSchemas.map((schema) => (
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify(schema)}
-      is:inline
-    />
+  allSchemas.map(schema => (
+    <script is:inline type="application/ld+json">
+      {JSON.stringify(schema)}
+    </script>
   ))
 }
 
 <!-- Breadcrumb Schema (if not on homepage) -->
 {
-  Astro.url.pathname !== "/" && (
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
+  Astro.url.pathname !== '/' && (
+    <script is:inline type="application/ld+json">
+      {JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
         itemListElement: [
           {
-            "@type": "ListItem",
+            '@type': 'ListItem',
             position: 1,
-            name: "Home",
-            item: "https://hathayogashram.com/",
+            name: 'Home',
+            item: 'https://hathayogashram.com/',
           },
           {
-            "@type": "ListItem",
+            '@type': 'ListItem',
             position: 2,
-            name: title.split("|")[0].trim(),
+            name: title.split('|')[0].trim(),
             item: canonical || Astro.url.href,
           },
         ],
       })}
-      is:inline
-    />
+    </script>
   )
 }
 
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
 <!-- Additional performance optimization -->
 <link
-  rel="preload"
-  as="style"
-  href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Space+Grotesk:wght@400;500;600&family=Quicksand:wght@400;500;600&display=swap"
+  as="style"   href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Space+Grotesk:wght@400;500;600&family=Quicksand:wght@400;500;600&display=swap"   rel="preload"
 />
 <link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Space+Grotesk:wght@400;500;600&family=Quicksand:wght@400;500;600&display=swap"
-  onload="this.onload=null;this.rel='stylesheet'"
+  href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Space+Grotesk:wght@400;500;600&family=Quicksand:wght@400;500;600&display=swap"   onload="this.onload=null;this.rel='stylesheet'"   rel="stylesheet"
 />
 
 <!-- DNS prefetch for external resources -->
-<link rel="dns-prefetch" href="//www.googletagmanager.com" />
-<link rel="dns-prefetch" href="//www.instagram.com" />
-<link rel="dns-prefetch" href="//fonts.googleapis.com" />
-<link rel="dns-prefetch" href="//fonts.gstatic.com" />
-<link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+<link href="//www.googletagmanager.com" rel="dns-prefetch" />
+<link href="//www.instagram.com" rel="dns-prefetch" />
+<link href="//fonts.googleapis.com" rel="dns-prefetch" />
+<link href="//fonts.gstatic.com" rel="dns-prefetch" />
+<link href="//cdnjs.cloudflare.com" rel="dns-prefetch" />
 
 <!-- Preconnect to critical third parties -->
-<link rel="preconnect" href="https://www.google-analytics.com" />
-<link rel="preconnect" href="https://www.googletagmanager.com" />
+<link href="https://www.google-analytics.com" rel="preconnect" />
+<link href="https://www.googletagmanager.com" rel="preconnect" />
 
 <!-- Instagram Embed Script with performance optimization -->
-<script is:inline async src="//www.instagram.com/embed.js"></script>
+<script async is:inline src="//www.instagram.com/embed.js"></script>
 
 <!-- Enhanced Google Analytics 4 with advanced tracking -->
-<script
-  is:inline
-  async
-  src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script async is:inline src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script is:inline>
   window.dataLayer = window.dataLayer || [];
   function gtag() {
     dataLayer.push(arguments);
   }
-  gtag("js", new Date());
-  gtag("config", "G-XXXXXXXXXX", {
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX', {
     // Enhanced tracking for yoga-specific events
     custom_map: {
-      custom_parameter_1: "course_type",
-      custom_parameter_2: "course_duration",
-      custom_parameter_3: "user_experience_level",
-      custom_parameter_4: "yoga_style_interest",
+      custom_parameter_1: 'course_type',
+      custom_parameter_2: 'course_duration',
+      custom_parameter_3: 'user_experience_level',
+      custom_parameter_4: 'yoga_style_interest',
     },
     // Privacy settings
     anonymize_ip: true,
     allow_google_signals: false,
     allow_ad_personalization_signals: false,
     // Enhanced ecommerce
-    currency: "USD",
+    currency: 'USD',
     // Custom dimensions for yoga tracking
     send_page_view: true,
   });
 
   // Track yoga-specific interactions
   function trackYogaEvent(eventName, parameters) {
-    gtag("event", eventName, {
-      event_category: "yoga_engagement",
-      event_label: parameters.label || "",
+    gtag('event', eventName, {
+      event_category: 'yoga_engagement',
+      event_label: parameters.label || '',
       value: parameters.value || 0,
       ...parameters,
     });
@@ -303,16 +283,15 @@ const allSchemas = [organizationSchema, ...additionalSchemas];
 
   // Track scroll depth for content engagement
   let scrollDepth = 0;
-  let scrollThresholds = [25, 50, 75, 100];
-  window.addEventListener("scroll", () => {
+  const scrollThresholds = [25, 50, 75, 100];
+  window.addEventListener('scroll', () => {
     const currentScroll = Math.round(
-      (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
-        100,
+      (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
     );
-    scrollThresholds.forEach((threshold) => {
+    scrollThresholds.forEach(threshold => {
       if (currentScroll >= threshold && scrollDepth < threshold) {
         scrollDepth = threshold;
-        trackYogaEvent("scroll_depth", {
+        trackYogaEvent('scroll_depth', {
           label: `${threshold}%`,
           value: threshold,
           page_location: window.location.pathname,
@@ -322,42 +301,39 @@ const allSchemas = [organizationSchema, ...additionalSchemas];
   });
 
   // Track time on page for engagement
-  let startTime = Date.now();
-  window.addEventListener("beforeunload", () => {
+  const startTime = Date.now();
+  window.addEventListener('beforeunload', () => {
     const timeOnPage = Math.round((Date.now() - startTime) / 1000);
     if (timeOnPage > 30) {
       // Only track if user spent more than 30 seconds
-      trackYogaEvent("page_engagement", {
-        label: "time_on_page",
+      trackYogaEvent('page_engagement', {
+        label: 'time_on_page',
         value: timeOnPage,
-        engagement_level:
-          timeOnPage > 300 ? "high" : timeOnPage > 120 ? "medium" : "low",
+        engagement_level: timeOnPage > 300 ? 'high' : timeOnPage > 120 ? 'medium' : 'low',
       });
     }
   });
 </script>
 
 <!-- Advanced Schema.org for enhanced search results -->
-<script
-  type="application/ld+json"
-  set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Hatha Yogashram",
-    url: "https://hathayogashram.com",
+<script is:inline type="application/ld+json">
+  {JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Hatha Yogashram',
+    url: 'https://hathayogashram.com',
     potentialAction: {
-      "@type": "SearchAction",
-      target: "https://hathayogashram.com/search?q={search_term_string}",
-      "query-input": "required name=search_term_string",
+      '@type': 'SearchAction',
+      target: 'https://hathayogashram.com/search?q={search_term_string}',
+      'query-input': 'required name=search_term_string',
     },
     sameAs: [
-      "https://www.facebook.com/hathayogashram",
-      "https://www.instagram.com/hathayogashram",
-      "https://www.youtube.com/hathayogashram",
+      'https://www.facebook.com/hathayogashram',
+      'https://www.instagram.com/hathayogashram',
+      'https://www.youtube.com/hathayogashram',
     ],
   })}
-  is:inline
-/>
+</script>
 
 <!-- Service Worker for offline support and performance -->
 <!-- <script is:inline>
