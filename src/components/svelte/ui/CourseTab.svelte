@@ -1,10 +1,10 @@
 <!-- CourseTab.svelte -->
 <script lang="ts">
   /* eslint-env browser */
-  import { fade, fly } from "svelte/transition";
-  import { quintOut } from "svelte/easing";
-  import CourseCard from "./CourseCard.svelte";
-  import type { Course } from "$constants/courseConstants";
+  import type { Course } from '$constants/courseConstants';
+  import { quintOut } from 'svelte/easing';
+  import { fade, fly } from 'svelte/transition';
+  import CourseCard from './CourseCard.svelte';
 
   interface Tab {
     title: string;
@@ -22,16 +22,16 @@
     let newIndex = currentIndex;
 
     switch (event.key) {
-      case "ArrowLeft":
+      case 'ArrowLeft':
         newIndex = currentIndex > 0 ? currentIndex - 1 : tabs.length - 1;
         break;
-      case "ArrowRight":
+      case 'ArrowRight':
         newIndex = currentIndex < tabs.length - 1 ? currentIndex + 1 : 0;
         break;
-      case "Home":
+      case 'Home':
         newIndex = 0;
         break;
-      case "End":
+      case 'End':
         newIndex = tabs.length - 1;
         break;
       default:

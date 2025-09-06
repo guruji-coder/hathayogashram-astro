@@ -1,8 +1,7 @@
 ---
-import SectionHeader from "$components/ui/SectionHeader.astro";
 import InfiniteCarousel from "$components/ui/InfiniteCarousel.astro";
 import MiniCarousel from "$components/ui/MiniCarousel.astro";
-import { GALLERY_CAROUSEL_IMAGES, MINI_CAROUSEL_IMAGES } from "$constants/trainingCarouselConstants";
+import { GALLERY_CAROUSEL_IMAGES, MINI_CAROUSEL_IMAGES } from '$constants/TTC/200hour';
 
 interface Props {
   title?: string;
@@ -10,14 +9,16 @@ interface Props {
   showMiniCarousel?: boolean;
   className?: string;
   id?: string;
+  galleryImages?: typeof GALLERY_CAROUSEL_IMAGES;
+  miniImages?: typeof MINI_CAROUSEL_IMAGES;
 }
 
-const { 
-  title = "Training Gallery", 
-  subtitle = "Experience the Journey",
+const {
   showMiniCarousel = true,
   className = "",
-  id = "gallery"
+  id = "gallery",
+  galleryImages = GALLERY_CAROUSEL_IMAGES,
+  miniImages = MINI_CAROUSEL_IMAGES
 } = Astro.props;
 ---
 
@@ -29,7 +30,7 @@ const {
   <!-- Main Gallery Carousel -->
   <div class="relative z-10 max-w-7xl mx-auto">
 
-    <InfiniteCarousel 
+    <InfiniteCarousel
       autoplaySpeed={100}       className="main-gallery rounded-3xl shadow-2xl"       id="main-gallery"       images={GALLERY_CAROUSEL_IMAGES}       pauseOnHover={true}
     />
   </div>
@@ -37,16 +38,16 @@ const {
   <!-- Mini Continuous Carousel -->
   {showMiniCarousel && (
     <div class="relative z-10 max-w-full mx-auto mt-2">
-      
+
       <!-- Mini carousel -->
-      <MiniCarousel 
+      <MiniCarousel
         className="mini-1"         height="100px"         images={MINI_CAROUSEL_IMAGES.slice(0, 8)}
       />
 
     </div>
   )}
 
-  
+
 </section>
 
 <style>

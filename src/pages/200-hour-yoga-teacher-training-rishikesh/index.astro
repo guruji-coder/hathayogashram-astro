@@ -2,13 +2,21 @@
 import Layout from '$components/layout/Layout.astro';
 import SectionHeader from '$components/ui/SectionHeader.astro';
 import { ROUTE_CONTACT } from '$constants/routesConstants';
-import { TRAINING_200_DAILY_SCHEDULE } from '$constants/TTC/200hour';
+import {
+  PRICE_TAB_DATA,
+  TRAINING_200_DAILY_SCHEDULE,
+  TTC_NAVBAR_DATA,
+} from '$constants/TTC/200hour';
 import {
   TRAINING_200_TITLE,
   TRAINING_200_DETAILS,
   TRAINING_200_FEES,
   TRAINING_200_CAROUSEL_IMAGES,
   TRAINING_200_COURSE_HIGHLIGHTS,
+  TRAINING_200_COURSE_FAQ_SECTION,
+  TRAINING_200_COURSE_FAQ_STYLES,
+  GALLERY_CAROUSEL_IMAGES,
+  MINI_CAROUSEL_IMAGES,
 } from '$constants/TTC/200hour';
 import TTCHeroSection from '$components/sections/TTC/TTCHeroSection.astro';
 import Button from '$components/ui/Button.astro';
@@ -18,7 +26,8 @@ import TTCDailyScheduleSection from '$components/sections/TTC/TTCDailyScheduleSe
 import TTCDatesSection from '$components/sections/TTC/TTCDatesSection.astro';
 import TTCourseHighlightsSection from '$components/sections/TTC/TTCourseHighlightsSection.astro';
 import { FaqSection } from '$components/svelte';
-import { FAQ_SECTION, FAQ_STYLES } from '$constants/faqConstants';
+import TTCPriceTab from '../../components/sections/TTC/TTCPriceTab.astro';
+import TTCNavbarTab from '$components/sections/TTC/TTCNavbarTab.astro';
 ---
 
 <Layout
@@ -36,39 +45,8 @@ import { FAQ_SECTION, FAQ_STYLES } from '$constants/faqConstants';
     title={TRAINING_200_TITLE}
   />
 
-  <!-- Strategic Trigger Placement -->
-  <div class="-mt-px h-px bg-transparent" id="navbar-trigger"></div>
-
-  <!-- Sticky Navbar (Initially Hidden) -->
-  <nav
-    class="pointer-events-none fixed left-0 right-0 top-0 z-50 -translate-y-full transform border-b border-orange-200 bg-white/95 opacity-0 shadow-lg backdrop-blur-md transition-all duration-300 ease-in-out"
-    id="NavbarTTC"
-  >
-    <!-- Better responsive navigation -->
-    <div class="container mx-auto px-4">
-      <!-- Decorative divider -->
-      <div class="flex justify-center py-2">
-        <div class="flex items-center space-x-2">
-          <div class="h-0.5 w-8 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
-          <div class="h-2 w-2 animate-pulse rounded-full bg-primary"></div>
-          <div class="h-0.5 w-12 bg-gradient-to-r from-primary via-orange-400 to-primary"></div>
-          <div class="h-2 w-2 animate-pulse rounded-full bg-orange-400"></div>
-          <div class="h-0.5 w-8 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
-        </div>
-      </div>
-
-      <!-- Responsive Navigation Links -->
-      <div class="flex flex-wrap items-center justify-center gap-2 pb-3 sm:gap-4">
-        <a class="t" href="#BestCourse">Curriculum</a>
-        <div class="nav-divider"></div>
-        <a class="nav-link" href="#DailySchedule">Schedule</a>
-        <div class="nav-divider"></div>
-        <a class="nav-link" href="#Dates">Dates</a>
-        <div class="nav-divider"></div>
-        <a class="nav-link" href="#Location">Location</a>
-      </div>
-    </div>
-  </nav>
+  <!-- Sticky Navigation Bar -->
+  <TTCNavbarTab navbarData={TTC_NAVBAR_DATA} />
 
   <section class="m-10" id="BestCourse">
     <SectionHeader title="Best 200 Hour Yoga Teacher Training Course in Rishikesh" />
@@ -138,131 +116,19 @@ import { FAQ_SECTION, FAQ_STYLES } from '$constants/faqConstants';
 
   <!-- Gallery Section with Infinite Carousels -->
   <GallerySection
+    galleryImages={GALLERY_CAROUSEL_IMAGES}
     id="Gallery"
+    miniImages={MINI_CAROUSEL_IMAGES}
     showMiniCarousel={true}
-    subtitle="Witness the Transformation"
-    title="Training Gallery"
   />
 
-  <FaqSection client:load sectionData={FAQ_SECTION} styles={FAQ_STYLES} />
-
-  <section
-    class="PriceTTC fixed bottom-0 left-0 z-10 w-full border-t-2 border-orange-500 bg-gradient-to-r from-white via-purple-50 to-orange-50 pt-2 shadow-lg lg:pt-5"
-  >
-    <div
-      class="flex w-full flex-col items-center justify-center text-center lg:flex-row lg:justify-around"
-    >
-      <img
-        alt=""
-        class="h-12 w-12 rounded-full border-2 border-orange-500 text-center"
-        src="/hya.jpg"
-      />
-      <div class="text-lg font-bold">
-        <h1 class="text-sm text-primary lg:text-xl">
-          200 Hour Yoga Teacher Training Course International
-        </h1>
-        <h2 class="font-extrabold text-orange-600">
-          Starts From : <strike class="text-gray-500">$1049.00</strike> $899.00/-
-        </h2>
-      </div>
-
-      <div class="flex flex-row justify-around gap-4 px-5 font-bold">
-        <Button
-          class="w-full bg-gradient-to-r from-orange-500 to-orange-600 px-10 py-3 text-white shadow-lg transition-all duration-300 hover:from-orange-600 hover:to-orange-700 lg:px-20"
-          href={ROUTE_CONTACT}>ENQUIRE</Button
-        >
-        <!-- <button>INTINERARY</button> -->
-        <Button
-          class="w-full whitespace-nowrap bg-gradient-to-r from-primary to-purple-600 px-10 py-3 text-white shadow-lg transition-all duration-300 hover:from-purple-600 hover:to-purple-700 lg:px-20"
-          href={ROUTE_CONTACT}>BOOK NOW</Button
-        >
-      </div>
-    </div>
-  </section>
+  <FaqSection
+    client:load
+    sectionData={TRAINING_200_COURSE_FAQ_SECTION}
+    styles={TRAINING_200_COURSE_FAQ_STYLES}
+  />
 
   <LocationSection />
 
-  <!-- Enhanced Navbar Script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      console.log('🚀 Initializing sticky navbar...');
-
-      const navbar = document.getElementById('NavbarTTC');
-      const trigger = document.getElementById('navbar-trigger');
-      const header = document.querySelector('header');
-
-      if (!navbar || !trigger) {
-        console.error('❌ Missing elements:', { navbar: !!navbar, trigger: !!trigger });
-        return;
-      }
-
-      // Calculate header height for positioning
-      const getHeaderHeight = () => (header ? header.offsetHeight : 0);
-
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          const isVisible = entry.isIntersecting;
-          const hasScrolledPast = entry.boundingClientRect.top < 0;
-
-          console.log('📍 Navbar trigger:', {
-            isVisible,
-            hasScrolledPast,
-            top: entry.boundingClientRect.top,
-          });
-
-          if (!isVisible && hasScrolledPast) {
-            // Show navbar with proper header offset
-            const headerHeight = getHeaderHeight();
-            navbar.style.top = `${headerHeight}px`;
-            navbar.style.transform = 'translateY(0)';
-            navbar.style.opacity = '1';
-            navbar.style.pointerEvents = 'auto';
-            console.log('📤 Showing navbar at', headerHeight + 'px');
-          } else {
-            // Hide navbar
-            navbar.style.transform = 'translateY(-100%)';
-            navbar.style.opacity = '0';
-            navbar.style.pointerEvents = 'none';
-            console.log('📥 Hiding navbar');
-          }
-        },
-        {
-          threshold: 0,
-          rootMargin: '-1px 0px 0px 0px', // Slight offset for better detection
-        }
-      );
-
-      observer.observe(trigger);
-
-      // Handle resize events
-      let resizeTimeout: ReturnType<typeof setTimeout>;
-      window.addEventListener('resize', () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-          if (navbar.style.opacity === '1') {
-            navbar.style.top = `${getHeaderHeight()}px`;
-          }
-        }, 100);
-      });
-
-      console.log('✅ Navbar observer ready');
-    });
-  </script>
-
-  <!-- Enhanced CSS -->
-  <style>
-    .nav-link {
-      @apply rounded-lg px-2 py-1 text-sm font-medium text-primary transition-all duration-200 hover:bg-white/20 hover:text-orange-500 sm:px-3 sm:py-2 sm:text-lg;
-    }
-
-    .nav-divider {
-      @apply h-3 w-px bg-gradient-to-b from-primary/20 via-primary to-primary/20 sm:h-4;
-    }
-
-    @media (max-width: 640px) {
-      .nav-divider {
-        display: none;
-      }
-    }
-  </style>
+  <TTCPriceTab data={PRICE_TAB_DATA} />
 </Layout>
