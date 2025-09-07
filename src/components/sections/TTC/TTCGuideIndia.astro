@@ -1,0 +1,260 @@
+---
+import SectionHeader from '$components/ui/SectionHeader.astro';
+
+interface AccordionItem {
+  id: string;
+  icon: string;
+  title: string;
+  content: string | string[];
+}
+
+const leftColumnItems: AccordionItem[] = [
+  {
+    id: 'visa',
+    icon: 'fa-passport',
+    title: 'Visa',
+    content:
+      'Apply for a tourist visa or an e-visa to take the yoga courses in Rishikesh, India. The duration of the visa remains between 30 - 180 days, depending upon the visa you apply for.',
+  },
+  {
+    id: 'reach-school',
+    icon: 'fa-route',
+    title: 'How To Reach School',
+    content: [
+      'Rishikesh is well-connected with all the cities, but if you have landed at Delhi International Airport, you can either hire a taxi or take a domestic flight to Jolly Grant International Airport (Dehradun) and request us for taxi arrangements or hire a taxi on your own.',
+      'Or, we can also arrange for a pick up from Delhi International Airport with an additional charge of $100',
+    ],
+  },
+  {
+    id: 'weather',
+    icon: 'fa-cloud-sun',
+    title: 'Weather',
+    content: [
+      'October to February - Winter season, cold weather and cool breeze.',
+      'March to June - Summer season, June is the hottest month of all but perfect for some sight-seeing.',
+      'July to September - Rainy season. Blue skies and gorgeous mountains.',
+    ],
+  },
+  {
+    id: 'what-to-bring',
+    icon: 'fa-suitcase',
+    title: 'What To Bring',
+    content:
+      'Bring your clothes and other essentials according to the season, and also get some comfortable yoga clothes that will keep you at your best during the classes. If there are any other requirements, they will be mentioned in your course details. Otherwise, we are happy to provide you with everything needed for the course.',
+  },
+];
+
+const rightColumnItems: AccordionItem[] = [
+  {
+    id: 'nearby-stores',
+    icon: 'fa-store',
+    title: 'Nearby Stores',
+    content:
+      'We are located at a strategic distance that is closer to nature and also not far away from the local market. You can easily travel a few minutes and get yourself the essentials for daily needs. From buying clothes and medicines to cafes, everything is within walking distance from our school.',
+  },
+  {
+    id: 'currency-exchange',
+    icon: 'fa-money-bill-wave',
+    title: 'Currency Exchange',
+    content:
+      "You can exchange currency at the Airport, or once you reach our school, there are several currency exchange centres located nearby. In Rishikesh. So, don't worry—you can carry a little cash with you. But, also remember that since the remaining course fee needs to be paid via cash on the arrival date, you can carry that much cash with you and the rest you can exchange in Rishikesh.",
+  },
+  {
+    id: 'plugs-india',
+    icon: 'fa-plug',
+    title: 'Plugs in India',
+    content: 'We only use C, D and M plugs in India. You can buy a multi-purpose charger as well.',
+  },
+  {
+    id: 'local-sim',
+    icon: 'fa-sim-card',
+    title: 'Local Sim Card',
+    content:
+      "You can buy the Indian sim card from the Airport, local market or from our school's reception by showing them your ID and passport.",
+  },
+];
+---
+
+<section
+  class="relative overflow-hidden bg-gradient-to-b from-white via-purple-50/20 to-orange-50/20 py-16"
+>
+  <!-- Decorative Background Elements -->
+  <div
+    class="absolute -right-32 -top-32 h-64 w-64 rounded-full bg-gradient-to-br from-purple-200/20 to-orange-200/20 blur-3xl"
+  >
+  </div>
+  <div
+    class="absolute -bottom-32 -left-32 h-64 w-64 rounded-full bg-gradient-to-br from-orange-200/20 to-purple-200/20 blur-3xl"
+  >
+  </div>
+
+  <div class="container relative z-10 mx-auto px-4">
+    <!-- Section Header -->
+    <SectionHeader containerClass="mb-12" title="Guide To Travelling To India" />
+
+    <!-- Two Column Grid -->
+    <div class="mx-auto grid max-w-6xl gap-8 lg:grid-cols-2 lg:gap-12">
+      <!-- Left Column -->
+      <div class="space-y-4">
+        {
+          leftColumnItems.map((item, index) => (
+            <div
+              class="accordion-item group rounded-2xl border border-gray-200 bg-white/80 shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-primary/20 hover:shadow-lg"
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
+              <button
+                aria-controls={`content-${item.id}`}
+                aria-expanded={item.id === 'visa' ? 'true' : 'false'}
+                class="accordion-trigger flex w-full items-center justify-between p-6 text-left transition-colors duration-200"
+                data-accordion-target={item.id}
+              >
+                <div class="flex items-center gap-4">
+                  <div class="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-purple-100 to-orange-100 text-primary transition-all duration-300 group-hover:from-primary group-hover:to-primary group-hover:text-white">
+                    <i class:list={[`fas`, `${item.icon}`, `text-lg`]} />
+                  </div>
+                  <h3 class="text-lg font-semibold text-gray-800">{item.title}</h3>
+                </div>
+                <div class="accordion-icon flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-all duration-300 group-hover:bg-primary/10 group-hover:text-primary">
+                  <i class="fas fa-minus hidden" />
+                  <i class="fas fa-plus" />
+                </div>
+              </button>
+              <div
+                class="accordion-content overflow-hidden transition-all duration-300"
+                id={`content-${item.id}`}
+                style={item.id === 'visa' ? 'max-height: 500px;' : 'max-height: 0;'}
+              >
+                <div class="px-6 pb-6">
+                  <div class="rounded-xl bg-gradient-to-r from-purple-50/50 to-orange-50/50 p-4">
+                    {typeof item.content === 'string' ? (
+                      <p class="leading-relaxed text-gray-700">{item.content}</p>
+                    ) : (
+                      <ul class="space-y-2">
+                        {item.content.map(point => (
+                          <li class="flex items-start gap-2 text-gray-700">
+                            <i class="fas fa-check-circle mt-1 flex-shrink-0 text-primary" />
+                            <span class="leading-relaxed">{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Right Column -->
+      <div class="space-y-4">
+        {
+          rightColumnItems.map((item, index) => (
+            <div
+              class="accordion-item group rounded-2xl border border-gray-200 bg-primary shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-primary/20 hover:shadow-lg"
+              data-aos="fade-up"
+              data-aos-delay={(index + 4) * 100}
+            >
+              <button
+                aria-controls={`content-${item.id}`}
+                aria-expanded="false"
+                class="accordion-trigger flex w-full items-center justify-between p-6 text-left transition-colors duration-200"
+                data-accordion-target={item.id}
+              >
+                <div class="flex items-center gap-4">
+                  <div class="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-purple-100 to-orange-100 text-primary transition-all duration-300">
+                    <i class:list={[`fas`, `${item.icon}`, `text-lg`]} />
+                  </div>
+                  <h3 class="text-lg font-semibold text-white">{item.title}</h3>
+                </div>
+                <div class="accordion-icon flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-all duration-300">
+                  <i class="fas fa-minus hidden" />
+                  <i class="fas fa-plus" />
+                </div>
+              </button>
+              <div
+                class="accordion-content overflow-hidden transition-all duration-300"
+                id={`content-${item.id}`}
+                style="max-height: 0;"
+              >
+                <div class="px-6 pb-6 text-white">
+                  <div class="rounded-xl p-4">
+                    <p class="leading-relaxed">{item.content}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const triggers = document.querySelectorAll('.accordion-trigger');
+
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', function () {
+        const targetId = this.getAttribute('data-accordion-target');
+        const content = document.getElementById(`content-${targetId}`);
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        const plusIcon = this.querySelector('.fa-plus');
+        const minusIcon = this.querySelector('.fa-minus');
+
+        // Close all other accordions in the same column
+        const parentColumn = this.closest('.space-y-4');
+        parentColumn?.querySelectorAll('.accordion-trigger').forEach(otherTrigger => {
+          if (otherTrigger !== this) {
+            const otherId = otherTrigger.getAttribute('data-accordion-target');
+            const otherContent = document.getElementById(`content-${otherId}`);
+            const otherPlus = otherTrigger.querySelector('.fa-plus');
+            const otherMinus = otherTrigger.querySelector('.fa-minus');
+
+            otherTrigger.setAttribute('aria-expanded', 'false');
+            if (otherContent) otherContent.style.maxHeight = '0';
+            otherPlus?.classList.remove('hidden');
+            otherMinus?.classList.add('hidden');
+          }
+        });
+
+        // Toggle current accordion
+        if (isExpanded) {
+          this.setAttribute('aria-expanded', 'false');
+          if (content) content.style.maxHeight = '0';
+          plusIcon?.classList.remove('hidden');
+          minusIcon?.classList.add('hidden');
+        } else {
+          this.setAttribute('aria-expanded', 'true');
+          if (content) content.style.maxHeight = '500px';
+          plusIcon?.classList.add('hidden');
+          minusIcon?.classList.remove('hidden');
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .accordion-content {
+    transition:
+      max-height 0.3s ease-out,
+      opacity 0.3s ease-out;
+  }
+
+  .accordion-item:hover .accordion-icon {
+    transform: scale(1.1);
+  }
+
+  .accordion-trigger:focus {
+    outline: none;
+  }
+
+  .accordion-trigger:focus-visible {
+    outline: 2px solid theme('colors.primary');
+    outline-offset: 2px;
+    border-radius: theme('borderRadius.2xl');
+  }
+</style>

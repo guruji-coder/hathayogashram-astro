@@ -40,14 +40,6 @@ export * from './routesConstants';
 // Teachers Constants
 export * from './teachersConstants';
 
-// Training 200 Constants - CONSOLIDATED FILE
-export * from './training200Constants';
-
-// Training Carousel Constants (General)
-export * from './trainingCarouselConstants';
 
 // Yoga Gurus Constants
 export * from './yogaGurusConstants';
-
-// TTC Page Constants
-export * from './ttcPageConstants';

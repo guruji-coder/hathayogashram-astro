@@ -4,29 +4,31 @@ import { pageSchemas } from '../schemas';
 
 // Import all home page sections from centralized location
 import {
-  HeroSection,
   BestYogaSchool,
-  ObjectiveTTC,
   CertificationsTextSection,
   FounderSection,
-  YogaAllianceRegisteredSchool,
-  ReviewSection,
+  HeroSection,
   LocationSection,
+  ObjectiveTTC,
+  ReviewSection,
+  YogaAllianceRegisteredSchool,
+  YogaFacilities,
   YogaGuruSection,
   YTTCourseSection,
-  YogaFacilities,
 } from '$components/sections';
 
-import { FaqSection } from '$svelte/sections';
 import { FAQ_SECTION, FAQ_STYLES } from '$constants/faqConstants';
-import SectionHeader from '$ui/SectionHeader.astro';
-
+import { FaqSection } from '$svelte/sections';
 // Generate schemas for home page
 const homeSchemas = pageSchemas.home();
 ---
 
 <Layout
-  additionalSchemas={homeSchemas}   canonical="https://hathayogashram.com/"   description="Join authentic 200/300 hour Yoga Teacher Training in Rishikesh with Hatha Yogashram. Yoga Alliance RYS certified residential courses with Indian masters. Traditional Hatha & Ashtanga Yoga, Sanskrit mantras, philosophy from ancient texts."   image="https://hathayogashram.com/yogaschoolpic.jpg"   title="Best Yoga Teacher Training in Rishikesh, India - Hatha Yogashram"
+  additionalSchemas={homeSchemas}
+  canonical="https://hathayogashram.com/"
+  description="Join authentic 200/300 hour Yoga Teacher Training in Rishikesh with Hatha Yogashram. Yoga Alliance RYS certified residential courses with Indian masters. Traditional Hatha & Ashtanga Yoga, Sanskrit mantras, philosophy from ancient texts."
+  image="https://hathayogashram.com/yogaschoolpic.jpg"
+  title="Best Yoga Teacher Training in Rishikesh, India - Hatha Yogashram"
 >
   <HeroSection />
 

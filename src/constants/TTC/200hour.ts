@@ -104,7 +104,7 @@ export const TRAINING_200_COURSE_HIGHLIGHTS = {
     },
     details: [
       {
-        icon: 'temple',
+        icon: 'home',
         label: 'Course Name',
         value: '200 Hour Yoga Teacher Training in Rishikesh, India',
       },
@@ -124,7 +124,7 @@ export const TRAINING_200_COURSE_HIGHLIGHTS = {
         value: 'Residential with Meals',
       },
       {
-        icon: 'chart',
+        icon: 'book',
         label: 'Level',
         value: 'Beginner',
       },
@@ -320,105 +320,50 @@ export const TRAINING_200_CURRICULUM = {
 // ===========================================
 
 export const TRAINING_200_COURSE_DATES_SECTION = {
-  title: 'Begin your Journey',
-  subtitle: '200 Hour Yoga Teacher Training Course Fees & Upcoming Dates - 2025',
-
-  dates: [
-    {
-      id: 'oct-2025',
-      startDate: '01 Oct',
-      endDate: '24 Oct 2025',
-      seatsLeft: 4,
-      status: 'limited',
-    },
-    {
-      id: 'nov-2025',
-      startDate: '01 Nov',
-      endDate: '24 Nov 2025',
-      seatsLeft: 6,
-      status: 'limited',
-    },
-    {
-      id: 'dec-2025',
-      startDate: '01 Dec',
-      endDate: '24 Dec 2025',
-      seatsLeft: 8,
-      status: 'limited',
-    },
-    {
-      id: 'jan-2026',
-      startDate: '01 Jan',
-      endDate: '24 Jan 2026',
-      seatsLeft: 9,
-      status: 'limited',
-    },
-    {
-      id: 'feb-2026',
-      startDate: '01 Feb',
-      endDate: '24 Feb 2026',
-      seatsLeft: null,
-      status: 'available',
-    },
-    {
-      id: 'mar-2026',
-      startDate: '01 Mar',
-      endDate: '24 Mar 2026',
-      seatsLeft: null,
-      status: 'available',
-    },
-    {
-      id: 'apr-2026',
-      startDate: '01 Apr',
-      endDate: '24 Apr 2026',
-      seatsLeft: null,
-      status: 'available',
-    },
-    {
-      id: 'may-2026',
-      startDate: '01 May',
-      endDate: '24 May 2026',
-      seatsLeft: null,
-      status: 'available',
-    },
-    {
-      id: 'jun-2026',
-      startDate: '01 Jun',
-      endDate: '24 Jun 2026',
-      seatsLeft: null,
-      status: 'available',
-    },
-    {
-      id: 'jul-2026',
-      startDate: '01 Jul',
-      endDate: '24 Jul 2026',
-      seatsLeft: null,
-      status: 'available',
-    },
-  ],
-
+  title: 'Upcoming Dates For This Course',
+  subtitle: 'Choose your preferred date and accommodation type',
+  activeYear: '2025',
+  years: ['2025', '2026'],
   courseInfo: {
-    duration: '24 DAYS',
+    duration: '24 Days',
     fees: {
-      private: {
-        amount: 'USD 1099',
-        type: 'PRIVATE ROOM',
-      },
-      shared: {
-        amount: 'USD 899',
-        type: 'SHARED ROOM',
-      },
+      private: { type: 'Private Room', amount: '$1199' },
+      shared: { type: '2 Sharing Room', amount: '$999' },
+      shared3: { type: '3 Sharing Room', amount: '$799', note: 'Females Only' },
+      shared4: { type: '4 Sharing Room', amount: '$649', note: 'Females Only' }
     },
-    withoutStay: {
-      amount: 'USD 699',
-      note: 'FOOD IS INCLUDED',
-    },
+    withoutStay: { amount: '$699', note: 'Food included' }
   },
-
+  dates: {
+    '2025': [
+      { id: 'oct-2025', startDate: '1st Oct', endDate: '24th Oct', status: 'available', seatsLeft: 18 },
+      { id: 'nov-2025', startDate: '1st Nov', endDate: '24th Nov', status: 'available', seatsLeft: 20 },
+      { id: 'dec-2025', startDate: '1st Dec', endDate: '24th Dec', status: 'available', seatsLeft: 20 }
+    ],
+    '2026': [
+      { id: 'jan-2026', startDate: '1st Jan', endDate: '24th Jan', status: 'available', seatsLeft: 20 },
+      { id: 'feb-2026', startDate: '1st Feb', endDate: '24th Feb', status: 'available', seatsLeft: 20 },
+      { id: 'mar-2026', startDate: '1st Mar', endDate: '24th Mar', status: 'available', seatsLeft: 20 },
+      { id: 'apr-2026', startDate: '1st Apr', endDate: '24th Apr', status: 'available', seatsLeft: 20 },
+      { id: 'may-2026', startDate: '1st May', endDate: '24th May', status: 'available', seatsLeft: 20 },
+      { id: 'jun-2026', startDate: '1st Jun', endDate: '24th Jun', status: 'available', seatsLeft: 20 },
+      { id: 'jul-2026', startDate: '1st Jul', endDate: '24th Jul', status: 'available', seatsLeft: 20 },
+      { id: 'aug-2026', startDate: '1st Aug', endDate: '24th Aug', status: 'available', seatsLeft: 20 },
+      { id: 'sep-2026', startDate: '1st Sep', endDate: '24th Sep', status: 'available', seatsLeft: 20 },
+      { id: 'oct-2026', startDate: '1st Oct', endDate: '24th Oct', status: 'available', seatsLeft: 20 },
+      { id: 'nov-2026', startDate: '1st Nov', endDate: '24th Nov', status: 'available', seatsLeft: 20 },
+      { id: 'dec-2026', startDate: '1st Dec', endDate: '24th Dec', status: 'available', seatsLeft: 20 }
+    ]
+  },
   bookingButton: {
-    text: 'BOOK NOW',
-    whatsappText: 'Book Now',
-  },
+    text: 'Book Now',
+    whatsappText: 'Enroll Now'
+  }
 };
+
+// ===========================================
+// GALLERY IMAGES
+// ===========================================
 
 export const GALLERY_CAROUSEL_IMAGES = [
   '/yogaschoolpic.jpg',
@@ -457,13 +402,86 @@ export const MINI_CAROUSEL_IMAGES = [
   'https://images.unsplash.com/photo-1591382696684-b3d1a1f0b1fe?w=200',
 ];
 
+
+// ...existing code...
+
+export const TRAINING_200_INCLUDED_EXCLUDED_SECTION = {
+  tabs: [
+    {
+      id: 'included',
+      label: 'What Is Included?',
+      title: 'What does the course fees include?',
+      items: [
+        '25 Days & 24 Nights Accommodation',
+        'Yoga material',
+        'Kirtan Night',
+        'Daily nutritious vegetarian, vegan meals',
+        'Kirtan night',
+        'Full body massage',
+        'Weekend excursions'
+      ]
+    },
+    {
+      id: 'excluded',
+      label: 'What Is Not Included?',
+      title: 'What is not included in the course fees?',
+      items: [
+        'Ayurvedic Panchakarma & Treatment',
+        'Air-conditioner (On Additional Charges)',
+        'Visa fee/Air fare/Taxi pick-up from Delhi, Haridwar'
+      ]
+    },
+    {
+      id: 'bring',
+      label: 'What To Bring With You?',
+      sections: [
+        {
+          title: 'Clothes',
+          items: [
+            'Please Carry a White Dress For Course Ceremony',
+            'Yoga gear: leggings or yoga pants and supportive tops',
+            'Pants (for yoga, town, travel, hiking)',
+            'Tops (short or long sleeved shirts)',
+            'Outer layer (sweatshirt or light jacket/fleece)',
+            'Sleepwear',
+            'Sandals or flip-flops',
+            'Please carry a bath towel'
+          ]
+        },
+        {
+          title: 'Yoga Mat',
+          items: [
+            'Our schools offer mats however, if you are used to your own, bring one from home',
+            'We Provide You All The Course Material'
+          ]
+        },
+        {
+          title: 'Toiletries',
+          items: [
+            'Carry essentials like deodorants, mosquito-repellents, sanitary towels',
+            'Soap or Shampoo (You can also buy locally from nearby shop)'
+          ]
+        },
+        {
+          title: 'Medicines',
+          items: [
+            'Multivitamins and supplements if not used to vegetarian meals',
+            'Prescription medicines, allergy medicines, flu medicines',
+            'Muscle pain relief or eye drops for dryness'
+          ]
+        }
+      ]
+    }
+  ]
+};
+
 export const TRAINING_200_COURSE_FAQ_SECTION = {
   TITLE: 'FAQs - Yoga School In Rishikesh India',
   FAQS: [
     {
       id: 1,
       question:
-        'What are the languages preferred during the course for communication & teaching at Vinyasa Yogashala in Rishikesh?',
+        'What are the SDDSAanguages preferred during the course for communication & teaching at Vinyasa Yogashala in Rishikesh?',
       answer:
         'We prefer to communicate in English since we receive students from across the globe, so it becomes easier to converse in English. But we also love to teach some important words from the Hindi language since it is widely spoken in Rishikesh, like Namaskara (Hello), Dhanyawaad (Thank you), Swagatam (Welcome), and many more.',
     },
@@ -573,6 +591,5 @@ export const TTC_NAVBAR_DATA = {
   animation: {
     showTransform: 'translateY(0)',
     hideTransform: 'translateY(-100%)',
-    duration: 300,
   },
 };

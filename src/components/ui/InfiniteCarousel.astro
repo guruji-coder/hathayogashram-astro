@@ -18,16 +18,20 @@ const {
 } = Astro.props;
 ---
 
-<div class:list={[`infinite-carousel-container`,`${className}`]} id={id}>
+<div class:list={[`infinite-carousel-container`, `${className}`]} id={id}>
   <div class="carousel-wrapper">
     <!-- Main carousel track -->
     <div class="carousel-track" id={`${id}-track`}>
       {
         images.concat(images).map((image, index) => (
-          <div class="carousel-slide" key={index}>
-            <div class:list={[`image-container`,`${imageClassName}`]}>
+          <div class="carousel-slide">
+            <div class:list={[`image-container`, `${imageClassName}`]}>
               <img
-                alt={`Gallery image ${(index % images.length) + 1}`}                 class="carousel-image"                 loading="lazy"                 onclick={`window.toggleImageScale && window.toggleImageScale(this, '${image}', ${index % images.length})`}                 src={image}
+                alt={`Gallery image ${(index % images.length) + 1}`}
+                class="carousel-image"
+                loading="lazy"
+                onclick={`window.toggleImageScale && window.toggleImageScale(this, '${image}', ${index % images.length})`}
+                src={image}
               />
             </div>
           </div>

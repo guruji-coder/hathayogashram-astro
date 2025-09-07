@@ -1,6 +1,6 @@
 ---
-import SectionHeader from '../../ui/SectionHeader.astro';
-import { LOCATION_SECTION, LOCATION_STYLES } from '../../../constants/locationConstants';
+import { LOCATION_SECTION, LOCATION_STYLES } from '$constants/locationConstants';
+import SectionHeader from '$ui/SectionHeader.astro';
 ---
 
 <!-- Location Section -->
@@ -8,7 +8,11 @@ import { LOCATION_SECTION, LOCATION_STYLES } from '../../../constants/locationCo
   <div class:list={LOCATION_STYLES.CONTAINER}>
     <!-- Section Header -->
     <SectionHeader
-      containerClass={LOCATION_STYLES.HEADER_CONTAINER}       svgHeight={20}       svgWidth={200}       title={LOCATION_SECTION.TITLE}       titleClass={LOCATION_STYLES.HEADER_TITLE}
+      containerClass={LOCATION_STYLES.HEADER_CONTAINER}
+      svgHeight={20}
+      svgWidth={200}
+      title={LOCATION_SECTION.TITLE}
+      titleClass={LOCATION_STYLES.HEADER_TITLE}
     />
 
     <!-- Main Content - Desktop: 50% width flex, Tablet & Mobile: flex-col -->
@@ -21,7 +25,7 @@ import { LOCATION_SECTION, LOCATION_STYLES } from '../../../constants/locationCo
             LOCATION_SECTION.TRAVEL_METHODS.map(method => (
               <div class:list={LOCATION_STYLES.TRAVEL_SECTION}>
                 <h4 class:list={LOCATION_STYLES.TRAVEL_SECTION_TITLE}>
-                  <i class:list={[`${method.ICON}`,`p-2`]} />
+                  <i class:list={[`${method.ICON}`, `p-2`]} />
                   {method.TITLE}
                 </h4>
                 <div class:list={LOCATION_STYLES.TEXT_CONTENT}>
@@ -50,7 +54,12 @@ import { LOCATION_SECTION, LOCATION_STYLES } from '../../../constants/locationCo
           <div class:list={LOCATION_STYLES.MAP_CONTAINER}>
             <!-- Google Map Embed for Rishikesh, Uttarakhand -->
             <iframe
-              allowfullscreen=""               class="h-96 w-full rounded-lg md:h-[500px] lg:h-[600px]"               loading="lazy"               referrerpolicy="no-referrer-when-downgrade"               src={LOCATION_SECTION.MAP_INFO.IFRAME_SRC}               style="border:0;"></iframe>
+              allowfullscreen=""
+              class="h-96 w-full rounded-lg md:h-[500px] lg:h-[600px]"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src={LOCATION_SECTION.MAP_INFO.IFRAME_SRC}
+              style="border:0;"></iframe>
           </div>
         </div>
       </div>

@@ -6,8 +6,6 @@ import {
   PRICE_TAB_DATA,
   TRAINING_200_DAILY_SCHEDULE,
   TTC_NAVBAR_DATA,
-} from '$constants/TTC/200hour';
-import {
   TRAINING_200_TITLE,
   TRAINING_200_DETAILS,
   TRAINING_200_FEES,
@@ -16,18 +14,21 @@ import {
   TRAINING_200_COURSE_FAQ_SECTION,
   TRAINING_200_COURSE_FAQ_STYLES,
   GALLERY_CAROUSEL_IMAGES,
+  TRAINING_200_INCLUDED_EXCLUDED_SECTION,
   MINI_CAROUSEL_IMAGES,
 } from '$constants/TTC/200hour';
-import TTCHeroSection from '$components/sections/TTC/TTCHeroSection.astro';
-import Button from '$components/ui/Button.astro';
-import { LocationSection } from '$components/sections';
-import GallerySection from '$components/sections/GallerySection.astro';
-import TTCDailyScheduleSection from '$components/sections/TTC/TTCDailyScheduleSection.astro';
-import TTCDatesSection from '$components/sections/TTC/TTCDatesSection.astro';
-import TTCourseHighlightsSection from '$components/sections/TTC/TTCourseHighlightsSection.astro';
 import { FaqSection } from '$components/svelte';
-import TTCPriceTab from '../../components/sections/TTC/TTCPriceTab.astro';
-import TTCNavbarTab from '$components/sections/TTC/TTCNavbarTab.astro';
+import {
+  TTCHeroSection,
+  TTCDailyScheduleSection,
+  TTCDatesSection,
+  TTCourseHighlightsSection,
+  TTCPriceTab,
+  TTCNavbarTab,
+  TTCGuideIndia,
+} from '$components/sections/TTC';
+import { LocationSection, GallerySection } from '$components/sections';
+import IncludedExcludedSection from '$svelte/ui/IncludedExcludedSection.svelte';
 ---
 
 <Layout
@@ -110,6 +111,8 @@ import TTCNavbarTab from '$components/sections/TTC/TTCNavbarTab.astro';
 
   <!-- Dates Section -->
   <TTCDatesSection />
+  <IncludedExcludedSection client:load section={TRAINING_200_INCLUDED_EXCLUDED_SECTION} />
+  <TTCGuideIndia />
 
   <!-- Course Highlights Section -->
   <TTCourseHighlightsSection sectionData={TRAINING_200_COURSE_HIGHLIGHTS} />

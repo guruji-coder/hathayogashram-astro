@@ -1,17 +1,471 @@
 ---
+import Button from '$components/ui/Button.astro';
 import SectionHeader from '$components/ui/SectionHeader.astro';
+import { TRAINING_200_COURSE_DATES_SECTION } from '$constants/TTC/200hour';
+
+const { title, subtitle, dates, courseInfo, bookingButton, years } =
+  TRAINING_200_COURSE_DATES_SECTION;
+
+// Helper function to get availability badge
+function getAvailabilityBadge(status: string, seatsLeft?: number) {
+  if (status === 'full') {
+    return { text: 'Fully Booked', class: 'bg-green-500 text-white' };
+  } else if (status === 'limited' && seatsLeft) {
+    return {
+      text: `${String(seatsLeft).padStart(2, '0')} Seats left`,
+      class: 'bg-orange-500 text-white',
+    };
+  }
+  return { text: 'Available', class: 'bg-green-500 text-white' };
+}
 ---
 
-<section class="py-16" id="Dates">
+<section class="bg-gradient-to-b from-gray-50 to-white py-16" id="Dates">
   <div class="container mx-auto px-4">
     <!-- Header -->
-    <SectionHeader
-      title="Join us on our transformative journey through yoga."
-      title="Course Dates"
-    />
+    <SectionHeader title={title} />
 
-    <div class="">
-      <h1>Dates</h1>
+    <!-- Year Tabs -->
+    <div class="mb-8 flex justify-center">
+      <div class="inline-flex">
+        {
+          years.map(year => (
+            <button
+              class="year-tab border-2 px-8 py-3 font-semibold transition-all duration-200"
+              class:list={[
+                {
+                  'border-primary bg-primary text-white hover:text-white': year === '2025',
+                  'border-primary bg-white text-primary hover:bg-primary/90 hover:text-white': year !== '2025',
+                }
+              ]}
+              data-year={year}
+            >
+              Dates Of {year}
+            </button>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Desktop Table View -->
+    <div class="overflow-x-auto hidden lg:block">
+      <table class="mx-auto w-full max-w-6xl rounded-lg bg-white shadow-sm">
+        <thead>
+          <tr class="bg-primary text-white">
+            <th class="px-6 py-4 text-left">
+              <div class="flex flex-col">
+                <span class="text-lg font-semibold">Course Date</span>
+                <span class="text-sm font-normal opacity-80">Availability</span>
+              </div>
+            </th>
+            <th class="border-l border-white/20 px-4 py-4 text-center" colspan="4">
+              <span class="text-lg font-semibold">Course Price</span>
+              <div class="mt-2 grid grid-cols-4 gap-2">
+                <div class="text-xs font-normal">
+                  <div class="rounded-full bg-white px-3 py-1 text-primary">4 Sharing Room</div>
+                </div>
+                <div class="text-xs font-normal">
+                  <div class="rounded-full bg-white px-3 py-1 text-primary">3 Sharing Room</div>
+                </div>
+                <div class="text-xs font-normal">
+                  <div class="rounded-full bg-white px-3 py-1 text-primary">2 Sharing Room</div>
+                </div>
+                <div class="text-xs font-normal">
+                  <div class="rounded-full bg-white px-3 py-1 text-primary">Private Room</div>
+                </div>
+              </div>
+            </th>
+            <th class="border-l border-white/20 px-6 py-4 text-center">
+              <div class="flex flex-col">
+                <span class="text-lg font-semibold">Book Now</span>
+                <span class="text-sm font-normal opacity-80">Limited Offer</span>
+              </div>
+            </th>
+          </tr>
+        </thead>
+
+        <!-- Dates Table Body - 2025 -->
+        <tbody class="dates-table" id="dates-2025">
+          {
+            dates['2025'].map((date, index) => {
+              const badge = getAvailabilityBadge(date.status, date.seatsLeft);
+              return (
+                <tr class="border-b border-gray-200 transition-colors hover:bg-gray-50">
+                  <td class="px-6 py-4">
+                    <div class="flex items-center gap-3">
+                      <div>
+                        <p class="font-semibold text-gray-800">
+                          {date.startDate} To {date.endDate} 2025
+                        </p>
+                        <span
+                          class:list={[
+                            `mt-1 inline-block rounded-full px-3 py-1 text-xs font-semibold`,
+                            `${badge.class}`,
+                          ]}
+                        >
+                          {badge.text}
+                        </span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-4 py-4 text-center">
+                    <p class="font-semibold text-gray-800">{courseInfo.fees.shared4.amount}</p>
+                    <p class="text-xs text-gray-500 line-through">$866</p>
+                    <p class="text-xs text-gray-600">(Females Only)</p>
+                  </td>
+                  <td class="border-l border-gray-100 px-4 py-4 text-center">
+                    <p class="font-semibold text-gray-800">{courseInfo.fees.shared3.amount}</p>
+                    <p class="text-xs text-gray-500 line-through">$1065</p>
+                    <p class="text-xs text-gray-600">(Females Only)</p>
+                  </td>
+                  <td class="border-l border-gray-100 px-4 py-4 text-center">
+                    <p class="font-semibold text-gray-800">{courseInfo.fees.shared.amount}</p>
+                    <p class="text-xs text-gray-500 line-through">$1332</p>
+                  </td>
+                  <td class="border-l border-gray-100 px-4 py-4 text-center">
+                    <p class="font-semibold text-gray-800">{courseInfo.fees.private.amount}</p>
+                    <p class="text-xs text-gray-500 line-through">$1599</p>
+                  </td>
+                  <td class="border-l border-gray-100 px-6 py-4 text-center">
+                    <Button
+                      class:list={[
+                        'rounded px-6 py-2 font-semibold transition-colors',
+                        {
+                          'cursor-not-allowed bg-gray-300 text-gray-500': date.status === 'full',
+                          'bg-primary text-white hover:bg-primary/90': date.status !== 'full',
+                        },
+                      ]}
+                      disabled={date.status === 'full'}
+                      href={
+                        date.status !== 'full' ? `/contact?course=200hour&date=${date.id}` : '#'
+                      }
+                    >
+                      Book Now
+                    </Button>
+                  </td>
+                </tr>
+              );
+            })
+          }
+        </tbody>
+
+        <!-- Dates Table Body - 2026 -->
+        <tbody class="dates-table hidden" id="dates-2026">
+          {
+            dates['2026'].map((date, index) => {
+              const badge = getAvailabilityBadge(date.status, date.seatsLeft);
+              return (
+                <tr class="border-b border-gray-200 transition-colors hover:bg-gray-50">
+                  <td class="px-6 py-4">
+                    <div class="flex items-center gap-3">
+                      <div>
+                        <p class="font-semibold text-gray-800">
+                          {date.startDate} To {date.endDate} 2026
+                        </p>
+                        <span
+                          class:list={[
+                            `mt-1 inline-block rounded-full px-3 py-1 text-xs font-semibold`,
+                            `${badge.class}`,
+                          ]}
+                        >
+                          {badge.text}
+                        </span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-4 py-4 text-center">
+                    <p class="font-semibold text-gray-800">{courseInfo.fees.shared4.amount}</p>
+                    <p class="text-xs text-gray-500 line-through">$866</p>
+                    <p class="text-xs text-gray-600">(Females Only)</p>
+                  </td>
+                  <td class="border-l border-gray-100 px-4 py-4 text-center">
+                    <p class="font-semibold text-gray-800">{courseInfo.fees.shared3.amount}</p>
+                    <p class="text-xs text-gray-500 line-through">$1065</p>
+                    <p class="text-xs text-gray-600">(Females Only)</p>
+                  </td>
+                  <td class="border-l border-gray-100 px-4 py-4 text-center">
+                    <p class="font-semibold text-gray-800">{courseInfo.fees.shared.amount}</p>
+                    <p class="text-xs text-gray-500 line-through">$1332</p>
+                  </td>
+                  <td class="border-l border-gray-100 px-4 py-4 text-center">
+                    <p class="font-semibold text-gray-800">{courseInfo.fees.private.amount}</p>
+                    <p class="text-xs text-gray-500 line-through">$1599</p>
+                  </td>
+                  <td class="border-l border-gray-100 px-6 py-4 text-center">
+                    <Button
+                      class="rounded bg-primary px-6 py-2 font-semibold text-white transition-colors hover:bg-primary/90"
+                      href={`/contact?course=200hour&date=${date.id}`}
+                    >
+                      Book Now
+                    </Button>
+                  </td>
+                </tr>
+              );
+            })
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Mobile Card View -->
+    <div class="lg:hidden">
+
+      <!-- Mobile Date Cards - 2025 -->
+      <div class="mobile-dates-container space-y-4" id="mobile-dates-2025">
+        {
+          dates['2025'].map((date) => {
+            const badge = getAvailabilityBadge(date.status, date.seatsLeft);
+            return (
+              <div class="bg-white rounded-lg border-2 border-gray-200 p-6 shadow-sm">
+                <!-- Date Header -->
+                <div class="text-center mb-4">
+                  <h3 class="text-lg font-semibold text-gray-800">
+                    {date.startDate} To {date.endDate} Mar 2025
+                  </h3>
+                  <span
+                    class:list={[
+                      `inline-block mt-2 rounded-full px-4 py-2 text-sm font-semibold`,
+                      `${badge.class}`,
+                    ]}
+                  >
+                    {badge.text}
+                  </span>
+                </div>
+
+                <!-- Pricing Grid -->
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                  <div class="text-center">
+                    <div class="bg-primary text-white px-4 py-2 mb-2">
+                      <span class="text-lg font-bold">{courseInfo.fees.shared4.amount}</span>
+                      <span class="text-sm line-through opacity-75 ml-2">$866</span>
+                    </div>
+                    <div class="text-xs text-gray-600">(Females Only)</div>
+                    <div class="bg-primary text-white  px-3 py-1 text-xs font-medium mt-1">
+                      4 Sharing Room
+                    </div>
+                  </div>
+
+                  <div class="text-center">
+                    <div class="bg-primary text-white  px-4 py-2 mb-2">
+                      <span class="text-lg font-bold">{courseInfo.fees.shared3.amount}</span>
+                      <span class="text-sm line-through opacity-75 ml-2">$1065</span>
+                    </div>
+                    <div class="text-xs text-gray-600">(Females Only)</div>
+                    <div class="bg-primary text-white  px-3 py-1 text-xs font-medium mt-1">
+                      3 Sharing Room
+                    </div>
+                  </div>
+
+                  <div class="text-center">
+                    <div class="bg-primary text-white px-4 py-2 mb-2">
+                      <span class="text-lg font-bold">{courseInfo.fees.shared.amount}</span>
+                      <span class="text-sm line-through opacity-75 ml-2">$1332</span>
+                    </div>
+                    <div class="bg-primary text-white rounded-full px-3 py-1 text-xs font-medium mt-1">
+                      2 Sharing Room
+                    </div>
+                  </div>
+
+                  <div class="text-center">
+                    <div class="bg-primary text-white px-4 py-2 mb-2">
+                      <span class="text-lg font-bold">{courseInfo.fees.private.amount}</span>
+                      <span class="text-sm line-through opacity-75 ml-2">$1599</span>
+                    </div>
+                    <div class="bg-primary text-white px-3 py-1 text-xs font-medium mt-1">
+                      Private Room
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Dotted Line -->
+                <div class="border-t-2 border-dotted border-gray-300 my-4"></div>
+
+                <!-- Book Now Button -->
+                <div class="text-center">
+                  {date.status === 'full' ? (
+                    <button
+                      class="cursor-not-allowed bg-gray-300 text-gray-500 border-gray-300 px-8 py-3 font-semibold rounded border-2"
+                      disabled
+                    >
+                      Book Now
+                    </button>
+                  ) : (
+                    <Button
+                      class="bg-white text-primary border-primary hover:bg-primary hover:text-white px-8 py-3 font-semibold rounded transition-colors border-2"
+                      href={`/contact?course=200hour&date=${date.id}`}
+                    >
+                      Book Now
+                    </Button>
+                  )}
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+
+      <!-- Mobile Date Cards - 2026 -->
+      <div class="mobile-dates-container space-y-4 hidden" id="mobile-dates-2026">
+        {
+          dates['2026'].map((date) => {
+            const badge = getAvailabilityBadge(date.status, date.seatsLeft);
+            return (
+              <div class="bg-white rounded-lg border-2 border-gray-200 p-6 shadow-sm">
+                <!-- Date Header -->
+                <div class="text-center mb-4">
+                  <h3 class="text-lg font-semibold text-gray-800">
+                    {date.startDate} To {date.endDate} 2026
+                  </h3>
+                  <span
+                    class:list={[
+                      `inline-block mt-2 rounded-full px-4 py-2 text-sm font-semibold`,
+                      `${badge.class}`,
+                    ]}
+                  >
+                    {badge.text}
+                  </span>
+                </div>
+
+                <!-- Pricing Grid -->
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                  <div class="text-center">
+                    <div class="bg-primary text-white rounded-full px-4 py-2 mb-2">
+                      <span class="text-lg font-bold">{courseInfo.fees.shared4.amount}</span>
+                      <span class="text-sm line-through opacity-75 ml-2">$866</span>
+                    </div>
+                    <div class="text-xs text-gray-600">(Females Only)</div>
+                    <div class="bg-primary text-white rounded-full px-3 py-1 text-xs font-medium mt-1">
+                      4 Sharing Room
+                    </div>
+                  </div>
+
+                  <div class="text-center">
+                    <div class="bg-primary text-white rounded-full px-4 py-2 mb-2">
+                      <span class="text-lg font-bold">{courseInfo.fees.shared3.amount}</span>
+                      <span class="text-sm line-through opacity-75 ml-2">$1065</span>
+                    </div>
+                    <div class="text-xs text-gray-600">(Females Only)</div>
+                    <div class="bg-primary text-white rounded-full px-3 py-1 text-xs font-medium mt-1">
+                      3 Sharing Room
+                    </div>
+                  </div>
+
+                  <div class="text-center">
+                    <div class="bg-primary text-white rounded-full px-4 py-2 mb-2">
+                      <span class="text-lg font-bold">{courseInfo.fees.shared.amount}</span>
+                      <span class="text-sm line-through opacity-75 ml-2">$1332</span>
+                    </div>
+                    <div class="bg-primary text-white rounded-full px-3 py-1 text-xs font-medium mt-1">
+                      2 Sharing Room
+                    </div>
+                  </div>
+
+                  <div class="text-center">
+                    <div class="bg-primary text-white rounded-full px-4 py-2 mb-2">
+                      <span class="text-lg font-bold">{courseInfo.fees.private.amount}</span>
+                      <span class="text-sm line-through opacity-75 ml-2">$1599</span>
+                    </div>
+                    <div class="bg-primary text-white rounded-full px-3 py-1 text-xs font-medium mt-1">
+                      Private Room
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Dotted Line -->
+                <div class="border-t-2 border-dotted border-gray-300 my-4"></div>
+
+                <!-- Book Now Button -->
+                <div class="text-center">
+                  <Button
+                    class="bg-white text-primary border-2 border-primary px-8 py-3 font-semibold rounded transition-colors hover:bg-primary hover:text-white"
+                    href={`/contact?course=200hour&date=${date.id}`}
+                  >
+                    Book Now
+                  </Button>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+
+    <!-- Bottom Actions -->
+    <div class="mt-8 flex flex-col items-center">
+      <!-- WhatsApp Button -->
+      <div class="mb-6">
+        <a
+          class="inline-flex items-center gap-3 rounded-full bg-green-500 px-8 py-3 font-semibold text-white shadow-lg transition-colors hover:bg-green-600"
+          href="https://wa.me/919119070101"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i class="fab fa-whatsapp text-2xl"></i>
+          <span>Enroll Now</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const yearTabs = document.querySelectorAll('.year-tab');
+    const dateTables = document.querySelectorAll('.dates-table');
+    const mobileDateContainers = document.querySelectorAll('.mobile-dates-container');
+
+    yearTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const selectedYear = tab.getAttribute('data-year');
+
+        // Update active tab styles
+        yearTabs.forEach(t => {
+          if (t.getAttribute('data-year') === selectedYear) {
+            t.classList.remove('bg-white', 'text-primary', 'hover:bg-primary/90');
+            t.classList.add('bg-primary', 'text-white');
+          } else {
+            t.classList.remove('bg-primary', 'text-white');
+            t.classList.add('bg-white', 'text-primary', 'hover:bg-primary/90');
+          }
+        });
+
+        // Show/hide desktop date tables
+        dateTables.forEach(table => {
+          if (table.id === `dates-${selectedYear}`) {
+            table.classList.remove('hidden');
+          } else {
+            table.classList.add('hidden');
+          }
+        });
+
+        // Show/hide mobile date containers
+        mobileDateContainers.forEach(container => {
+          if (container.id === `mobile-dates-${selectedYear}`) {
+            container.classList.remove('hidden');
+          } else {
+            container.classList.add('hidden');
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<style>
+  /* Responsive table styles */
+  @media (max-width: 768px) {
+    table {
+      font-size: 0.875rem;
+    }
+
+    th,
+    td {
+      padding: 0.75rem 0.5rem;
+    }
+
+    .year-tab {
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+    }
+  }
+</style>
