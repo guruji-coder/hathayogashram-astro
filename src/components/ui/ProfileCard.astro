@@ -20,21 +20,16 @@ const {
 } = Astro.props;
 ---
 
-<div class={cardClass}>
+<div class:list={cardClass}>
   <!-- Profile Image -->
-  <div class={profileContainerClass}>
-    <div class={profileImageWrapperClass}>
-      <img
-        src={image}
-        alt={imageAlt}
-        class={profileImageClass}
-        loading="lazy"
-      />
+  <div class:list={profileContainerClass}>
+    <div class:list={profileImageWrapperClass}>
+      <img alt={imageAlt} class:list={profileImageClass} loading="lazy" src={image} />
     </div>
   </div>
 
   <!-- Content -->
-  <div class={contentContainerClass}>
+  <div class:list={contentContainerClass}>
     <slot />
   </div>
 </div>

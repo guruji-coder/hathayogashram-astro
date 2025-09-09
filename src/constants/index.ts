@@ -8,42 +8,37 @@
  */
 
 // Home Page Constants
-export * from "./homePageConstants";
+export * from './HomePage/homePageConstants';
 
 // UI Constants
-export * from "./uiConstants";
+export * from './uiConstants';
 
 // Header/Navigation Constants
-export * from "./headerConstants";
+export * from './headerConstants';
 
 // Contact Constants
-export * from "./contactConstants";
+export * from './contactConstants';
 
 // FAQ Constants
-export * from "./faqConstants";
+export * from './faqConstants';
 
 // Reviews Constants
-export * from "./reviewsConstants";
+export * from './reviewsConstants';
 
 // Carousel Constants
-export * from "./carousel";
+export * from './carousel';
 
 // Location Constants
-export * from "./locationConstants";
+export * from './locationConstants';
 
 // Course Constants
-export * from "./courseConstants";
+export * from './courseConstants';
+
 // Route Constants
-export * from "./routesConstants";
+export * from './routesConstants';
 
 // Teachers Constants
-export * from "./teachersConstants";
-
-// Training 200 Constants
-export * from "./training200Constants";
-
-// Training Carousel Constants
-export * from "./trainingCarouselConstants";
+export * from './teachersConstants';
 
 // Yoga Gurus Constants
-export * from "./yogaGurusConstants";
+export * from './yogaGurusConstants';

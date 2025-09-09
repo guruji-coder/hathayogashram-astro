@@ -16,7 +16,7 @@ This directory contains comprehensive SEO keyword databases and utility function
 
 ```typescript
 // Import all SEO constants
-import * as YogaSEO from "../lib/yoga-seo-constants";
+import * as YogaSEO from '../lib/yoga-seo-constants';
 
 // Access specific category
 const asanaKeywords = YogaSEO.AsanaKeywords.ASANA_KEYWORDS;
@@ -27,22 +27,22 @@ const healingKeywords = YogaSEO.HealingKeywords.HEALING_KEYWORDS;
 
 ```typescript
 // Import specific constants directly
-import { ASANA_KEYWORDS } from "../lib/asana-keywords";
-import { HEALING_KEYWORDS, CONDITION_ASANA_MAP } from "../lib/healing-keywords";
+import { ASANA_KEYWORDS } from '../lib/asana-keywords';
+import { HEALING_KEYWORDS, CONDITION_ASANA_MAP } from '../lib/healing-keywords';
 ```
 
 ### Generating Meta Tags
 
 ```typescript
-import { generateKeywordsString } from "../utils/seo-utils";
-import { HEALING_KEYWORDS } from "../lib/healing-keywords";
+import { generateKeywordsString } from '../utils/seo-utils';
+import { HEALING_KEYWORDS } from '../lib/healing-keywords';
 
 // Generate keywords for a specific page
 const backPainKeywords = [
-  ...HEALING_KEYWORDS.physicalHealing.filter((kw) => kw.includes("back pain")),
-  "yoga for back pain relief",
-  "back pain healing poses",
-  "spine alignment yoga",
+  ...HEALING_KEYWORDS.physicalHealing.filter(kw => kw.includes('back pain')),
+  'yoga for back pain relief',
+  'back pain healing poses',
+  'spine alignment yoga',
 ];
 
 // Convert to meta tag format
@@ -52,25 +52,23 @@ const keywordsString = generateKeywordsString(backPainKeywords);
 ### Creating SEO-Optimized Pages
 
 ```typescript
-import { generateSEO } from "../utils/seo-utils";
-import { conditionSpecificSchema } from "../schemas/healing-benefits";
-import { CONDITION_ASANA_MAP } from "../lib/healing-keywords";
+import { generateSEO } from '../utils/seo-utils';
+import { conditionSpecificSchema } from '../schemas/healing-benefits';
+import { CONDITION_ASANA_MAP } from '../lib/healing-keywords';
 
 // Generate SEO metadata for a therapeutic yoga page
 const seoData = generateSEO({
-  pageType: "healing",
+  pageType: 'healing',
   values: {
-    condition: "Back Pain",
-    benefit: "natural back pain relief",
+    condition: 'Back Pain',
+    benefit: 'natural back pain relief',
   },
-  path: "/healing/back-pain",
+  path: '/healing/back-pain',
   structuredData: conditionSpecificSchema({
-    name: "Back Pain",
-    description:
-      "Yoga therapy approaches for back pain treatment and management.",
-    yogaSolution:
-      "Specific yoga sequences strengthen core, improve flexibility, and realign spine",
-    recommendedPoses: CONDITION_ASANA_MAP["Back Pain"],
+    name: 'Back Pain',
+    description: 'Yoga therapy approaches for back pain treatment and management.',
+    yogaSolution: 'Specific yoga sequences strengthen core, improve flexibility, and realign spine',
+    recommendedPoses: CONDITION_ASANA_MAP['Back Pain'],
   }),
 });
 ```

@@ -1,106 +1,142 @@
 ---
-import Layout from "$components/layout/Layout.astro";
-import SectionHeader from "$components/ui/SectionHeader.astro";
-import { ROUTE_CONTACT } from "$constants/routesConstants";
-import { TRAINING_CAROUSEL_IMAGES } from "$constants/trainingCarouselConstants";
-import { TRAINING_200_TITLE, TRAINING_200_DETAILS, TRAINING_200_FEES } from "$constants/training200Constants";
-import TTCHeroSection from "$components/sections/TTC/TTCHeroSection.astro";
-import Button from "$components/ui/Button.astro";
-import { LocationSection } from "$components/sections";
-import DailyScheduleSection from "$components/sections/TTC/DailyScheduleSection.astro";
-import { FaqSection } from "$components/svelte";
-import { FAQ_SECTION, FAQ_STYLES } from "$constants/faqConstants";
+import Layout from '$components/layout/Layout.astro';
+import SectionHeader from '$components/ui/SectionHeader.astro';
+import { ROUTE_CONTACT } from '$constants/routesConstants';
+import {
+  PRICE_TAB_DATA,
+  TRAINING_200_DAILY_SCHEDULE,
+  TTC_NAVBAR_DATA,
+  TRAINING_200_TITLE,
+  TRAINING_200_DETAILS,
+  TRAINING_200_FEES,
+  TRAINING_200_CAROUSEL_IMAGES,
+  TRAINING_200_COURSE_HIGHLIGHTS,
+  TRAINING_200_COURSE_FAQ_SECTION,
+  TRAINING_200_COURSE_FAQ_STYLES,
+  GALLERY_CAROUSEL_IMAGES,
+  TRAINING_200_INCLUDED_EXCLUDED_SECTION,
+  MINI_CAROUSEL_IMAGES,
+  TRAINING_200_CURRICULUM_SECTION,
+  TRAINING_200_EXCURSIONS_SECTION,
+} from '$constants/TTC/200hour';
+import { FaqSection } from '$components/svelte';
+import {
+  TTCHeroSection,
+  TTCDailyScheduleSection,
+  TTCDatesSection,
+  TTCourseHighlightsSection,
+  TTCPriceTab,
+  TTCNavbarTab,
+  TTCGuideIndia,
+  TTCExcursionsSection,
+  TTC_CurriculumSection,
+} from '$components/sections/TTC';
+import { LocationSection, GallerySection } from '$components/sections';
+import IncludedExcludedSection from '$svelte/ui/IncludedExcludedSection.svelte';
 ---
 
-<!-- <style>
-/* Small subtle shine animation */
-@keyframes shine-alt2 {
-  0%   { opacity: 0; transform: translateX(-10px) skewX(0deg); }
-  50%  { opacity: 0.5; transform: translateX(10px) skewX(0deg); }
-  100% { opacity: 0; transform: translateX(-10px) skewX(0deg); }
-}
-.shine-alt2 {
-  animation: shine-alt2 1s ease-in-out infinite;
-}
-</style> -->
-
 <Layout
-  title="Best 200 Hour Yoga Teacher Training in Rishikesh, India - Hatha Yogashram"
-  description="Join authentic 200/300 hour Yoga Teacher Training in Rishikesh with Hatha Yogashram. Yoga Alliance RYS certified residential courses with Indian masters. Traditional Hatha & Ashtanga Yoga, Sanskrit mantras, philosophy from ancient texts."
   canonical="https://hathayogashram.com/"
+  description="Join authentic 200/300 hour Yoga Teacher Training in Rishikesh with Hatha Yogashram. Yoga Alliance RYS certified residential courses with Indian masters. Traditional Hatha & Ashtanga Yoga, Sanskrit mantras, philosophy from ancient texts."
   image="https://hathayogashram.com/yogaschoolpic.jpg"
+  title="Best 200 Hour Yoga Teacher Training in Rishikesh, India - Hatha Yogashram"
 >
   <!-- Training 200 Section -->
-  <!-- <TTCHeroSection 
-    images={TRAINING_CAROUSEL_IMAGES}
-    title={TRAINING_200_TITLE}
+  <TTCHeroSection
+    contactRoute={ROUTE_CONTACT}
     details={TRAINING_200_DETAILS}
     fees={TRAINING_200_FEES}
-    contactRoute={ROUTE_CONTACT}
-  /> -->
-
-  <section id="BestCourse" class="m-10">
-    <SectionHeader
-      title="Best 200 Hour Yoga Teacher Training Course in Rishikesh"}
-    />
-
-    <div class="flex w-full flex-col lg:flex-row">
-      <div class="lg:w-1/2 w-full font-bold text-lg lg:text-xl">
-        <h3 class="">Become yoga alliance registered yoga teacher (ryt 200) through Vinyasa Yoga Ashram’s 200 hour yoga teacher training course and start your career in yoga. Our comprehensive and professional program is designed for all levels of practitioners which includes several aspects of yoga, I.E. From asanas to kriyas and prepares you to become an independent yoga teacher.
-
-Be a part of this life-changing experience at Vinyasa Yoga Ashram and begin your pleasant journey to lighten up your true self through yoga. Our 200 hour yoga teacher training course will provide you the deepest possible knowledge of yoga both in the form of theory as well as practical.</h3>
-<button id="read-more-btn" class="mt-4 px-4 py-2 rounded bg-primary text-white">Read More</button>
-</div>
-      <div class="lg:w-1/2 w-full mt-10 lg:mt-0">
-      <img src="https://www.vinyasayogaashram.com/image/200hrs-yoga-teacher-training-course.jpg?v=125" alt="">
-      </div>
-   </div>
-
-   <div id="read-more-content" class="read-more font-bold text-xl hidden mt-5">
-    Our highly qualified and veteran Yog Gurus will provide in-depth knowledge of Asana, Meditation, Ayurveda, Pranayama, Yoga Philosophy and Anatomy. Moreover, asana alignments, modifications, contradictions, use of props, adjustment techniques, teaching methodology and teaching practice will also be covered during this course Both beginners, as well as experienced practitioners, can reap the benefits of this course as it will not only deepen your yogic knowledge but also sharpen your skills as a facilitator. We aim to incorporate yoga into your daily life and help you in becoming a confident yoga teacher. So, get ready and join us in our beautiful journey of The 200 Hour Yoga Teacher Training Certification Course at Vinyasa Yoga Ashram
-   </div>
-
-  
-  <!-- Toggle script for Read More -->
-  <script type="module">
-    const btn = document.getElementById('read-more-btn');
-    const content = document.getElementById('read-more-content');
-    if (btn && content) {
-      btn.addEventListener('click', () => {
-        const hidden = content.classList.toggle('hidden');
-        btn.textContent = hidden ? 'Read More' : 'Show Less';
-      });
-    }
-  </script>
-  </section>
-
-
-  <!-- Daily Schedule Section -->
-  <DailyScheduleSection />
-  <FaqSection
-    sectionData={FAQ_SECTION}
-    styles={FAQ_STYLES}
-    client:load
+    images={TRAINING_200_CAROUSEL_IMAGES}
+    title={TRAINING_200_TITLE}
   />
 
+  <!-- Sticky Navigation Bar -->
+  <TTCNavbarTab navbarData={TTC_NAVBAR_DATA} />
 
+  <section class="m-10" id="BestCourse">
+    <SectionHeader title="Best 200 Hour Yoga Teacher Training Course in Rishikesh" />
 
-  <section class="NavbarTTC fixed bottom-0 left-0 w-full bg-white shadow-lg z-10 pt-2 lg:pt-5">
-    <div class="w-full flex lg:justify-around flex-col lg:flex-row text-center justify-center items-center">
-      <img src="/hya.jpg" class="w-10 h-10 rounded-full text-center"  alt="">
-      <div class="font-bold text-lg">
-        <h1 class="text-sm lg:text-xl">200 Hour Yoga Teacher Training Course International</h1>
-        <h2 class="text-primary">Starts From : <strike>$1049.00</strike> $899.00/- </h2>
+    <div class="flex w-full flex-col lg:flex-row">
+      <div class="w-full text-lg font-bold text-primary lg:w-1/2 lg:text-xl">
+        <h3 class="">
+          Become yoga alliance registered yoga teacher (ryt 200) through Vinyasa Yoga Ashram’s 200
+          hour yoga teacher training course and start your career in yoga. Our comprehensive and
+          professional program is designed for all levels of practitioners which includes several
+          aspects of yoga, I.E. From asanas to kriyas and prepares you to become an independent yoga
+          teacher. Be a part of this life-changing experience at Vinyasa Yoga Ashram and begin your
+          pleasant journey to lighten up your true self through yoga. Our 200 hour yoga teacher
+          training course will provide you the deepest possible knowledge of yoga both in the form
+          of theory as well as practical.
+        </h3>
+        <button
+          class="mt-4 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:from-orange-600 hover:to-orange-700"
+          id="read-more-btn">Read More</button
+        >
       </div>
-
-      <div class="px-5 flex flex-row font-bold justify-around gap-4">
-  <Button href={ROUTE_CONTACT} class="bg-orange-500 lg:px-20 py-2 px-10 w-full text-white">ENQUIRE</Button>
-        <!-- <button>INTINERARY</button> -->
-  <Button href={ROUTE_CONTACT} class="bg-green-500 lg:px-20 py-2 px-10 w-full text-white whitespace-nowrap">BOOK NOW</Button>
+      <div class="mt-10 w-full lg:mt-0 lg:w-1/2">
+        <img
+          alt=""
+          class="rounded-lg shadow-lg"
+          src="https://www.vinyasayogaashram.com/image/200hrs-yoga-teacher-training-course.jpg?v=125"
+        />
       </div>
     </div>
+
+    <div
+      class="read-more mt-5 hidden rounded-lg border-l-4 border-orange-500 bg-gradient-to-r from-purple-50 to-orange-50 p-6 text-xl font-bold text-primary"
+      id="read-more-content"
+    >
+      Our highly qualified and veteran Yog Gurus will provide in-depth knowledge of Asana,
+      Meditation, Ayurveda, Pranayama, Yoga Philosophy and Anatomy. Moreover, asana alignments,
+      modifications, contradictions, use of props, adjustment techniques, teaching methodology and
+      teaching practice will also be covered during this course Both beginners, as well as
+      experienced practitioners, can reap the benefits of this course as it will not only deepen
+      your yogic knowledge but also sharpen your skills as a facilitator. We aim to incorporate yoga
+      into your daily life and help you in becoming a confident yoga teacher. So, get ready and join
+      us in our beautiful journey of The 200 Hour Yoga Teacher Training Certification Course at
+      Vinyasa Yoga Ashram
+    </div>
+
+    <!-- Toggle script for Read More -->
+    <script type="module">
+      const btn = document.getElementById('read-more-btn');
+      const content = document.getElementById('read-more-content');
+      if (btn && content) {
+        btn.addEventListener('click', () => {
+          const hidden = content.classList.toggle('hidden');
+          btn.textContent = hidden ? 'Read More' : 'Show Less';
+        });
+      }
+    </script>
   </section>
 
+  <!-- Daily Schedule Section -->
+  <TTCDailyScheduleSection schedule={TRAINING_200_DAILY_SCHEDULE} />
+
+  <!-- Dates Section -->
+  <TTCDatesSection />
+  <IncludedExcludedSection client:load section={TRAINING_200_INCLUDED_EXCLUDED_SECTION} />
+  <TTCExcursionsSection section={TRAINING_200_EXCURSIONS_SECTION} />
+  <TTCGuideIndia />
+  <TTC_CurriculumSection curriculumData={TRAINING_200_CURRICULUM_SECTION} />
+  <!-- Course Highlights Section -->
+  <TTCourseHighlightsSection sectionData={TRAINING_200_COURSE_HIGHLIGHTS} />
+
+  <!-- Gallery Section with Infinite Carousels -->
+  <GallerySection
+    galleryImages={GALLERY_CAROUSEL_IMAGES}
+    id="Gallery"
+    miniImages={MINI_CAROUSEL_IMAGES}
+    showMiniCarousel={true}
+  />
+
+  <FaqSection
+    client:load
+    sectionData={TRAINING_200_COURSE_FAQ_SECTION}
+    styles={TRAINING_200_COURSE_FAQ_STYLES}
+  />
 
   <LocationSection />
+
+  <TTCPriceTab data={PRICE_TAB_DATA} />
 </Layout>

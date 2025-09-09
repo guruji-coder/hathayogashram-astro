@@ -1,19 +1,19 @@
 ---
-import { HOME_STYLES, FOUNDER_SECTION } from "$constants/homePageConstants";
-import SectionHeader from "$ui/SectionHeader.astro";
-import FounderImages from "$features/founder/FounderImages.astro";
-import FounderInfo from "$features/founder/FounderInfo.astro";
-import FounderAwards from "$features/founder/FounderAwards.astro";
+import { HOME_STYLES, FOUNDER_SECTION } from '$constants/HomePage/homePageConstants';
+import SectionHeader from '$ui/SectionHeader.astro';
+import FounderImages from '$features/founder/FounderImages.astro';
+import FounderInfo from '$features/founder/FounderInfo.astro';
+import FounderAwards from '$features/founder/FounderAwards.astro';
 ---
 
-<section class={`${HOME_STYLES.SECTION_PADDING} bg-white`}>
-  <div class={HOME_STYLES.CONTAINER}>
+<section class:list={[`${HOME_STYLES.SECTION_PADDING}`, `bg-white`]}>
+  <div class:list={HOME_STYLES.CONTAINER}>
     <!-- Section Header -->
     <SectionHeader
-      title={FOUNDER_SECTION.TITLE}
       containerClass="mb-12 text-center"
-      svgWidth={200}
       svgHeight={20}
+      svgWidth={200}
+      title={FOUNDER_SECTION.TITLE}
     />
 
     <!-- Main Content Layout -->

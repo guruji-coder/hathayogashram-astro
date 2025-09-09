@@ -1,0 +1,420 @@
+---
+interface Props {
+  images: string[];
+  autoplaySpeed?: number;
+  pauseOnHover?: boolean;
+  className?: string;
+  imageClassName?: string;
+  id?: string;
+}
+
+const {
+  images = [],
+  autoplaySpeed = 6000,
+  pauseOnHover = true,
+  className = '',
+  imageClassName = '',
+  id = 'infinite-carousel',
+} = Astro.props;
+---
+
+<div class:list={[`infinite-carousel-container`, `${className}`]} id={id}>
+  <div class="carousel-wrapper">
+    <!-- Main carousel track -->
+    <div class="carousel-track" id={`${id}-track`}>
+      {
+        images.concat(images).map((image, index) => (
+          <div class="carousel-slide">
+            <div class:list={[`image-container`, `${imageClassName}`]}>
+              <img
+                alt={`Gallery image ${(index % images.length) + 1}`}
+                class="carousel-image"
+                loading="lazy"
+                onclick={`window.toggleImageScale && window.toggleImageScale(this, '${image}', ${index % images.length})`}
+                src={image}
+              />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Image viewer modal -->
+  <div class="image-viewer-modal" id="image-viewer-modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="window.closeImageViewer && window.closeImageViewer()"
+        >&times;</button
+      >
+      <img alt="" class="modal-image" id="modal-image" src="" />
+      <div class="modal-navigation">
+        <button class="nav-btn prev-btn" onclick="window.prevImage && window.prevImage()"
+          >&lt;</button
+        >
+        <button class="nav-btn next-btn" onclick="window.nextImage && window.nextImage()"
+          >&gt;</button
+        >
+      </div>
+      <div class="image-counter">
+        <span id="current-image">1</span> / <span id="total-images">{images.length}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .infinite-carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .carousel-wrapper {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+  }
+
+  .carousel-track {
+    display: flex;
+    width: 200%;
+    height: 100%;
+    animation: infiniteSlide var(--autoplay-speed, 10s) linear infinite;
+    transition: animation-play-state 0.3s ease;
+  }
+
+  .carousel-track:hover {
+    animation-play-state: paused;
+  }
+
+  .carousel-slide {
+    flex: 0 0 auto;
+    height: 100%;
+    position: relative;
+  }
+
+  /* Responsive grid layout */
+  @media (min-width: 1024px) {
+    .carousel-slide {
+      width: calc(100% / 6); /* Show 3 images (50% of doubled track) */
+    }
+    .carousel-wrapper {
+      height: 300px;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .carousel-slide {
+      width: calc(100% / 4); /* Show 2 images (50% of doubled track) */
+    }
+    .carousel-wrapper {
+      height: 350px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .carousel-slide {
+      width: 50%; /* Show 1 image (50% of doubled track) */
+    }
+    .carousel-wrapper {
+      height: 400px;
+    }
+  }
+
+  .image-container {
+    position: relative;
+    height: 100%;
+    margin: 0 8px;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .image-container:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  .carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  /* Simple scale zoom on hover */
+  .image-container:hover .carousel-image {
+    transform: scale(1.35);
+  }
+
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(168, 85, 247, 0.8), rgba(249, 115, 22, 0.8));
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+  }
+
+  .image-container:hover .image-overlay {
+    opacity: 1;
+  }
+
+  .overlay-content {
+    text-align: center;
+    color: white;
+  }
+
+  .view-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 8px;
+  }
+
+  .view-text {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    gap: 8px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #f97316;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .dot.active,
+  .dot:hover {
+    background: #f97316;
+    transform: scale(1.2);
+  }
+
+  /* Image viewer modal */
+  .image-viewer-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(5px);
+  }
+
+  .modal-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 40px;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10001;
+    background: none;
+    border: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .close-btn:hover {
+    opacity: 0.7;
+  }
+
+  .modal-image {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
+
+  .modal-navigation {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 20px;
+    pointer-events: none;
+  }
+
+  .nav-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    pointer-events: auto;
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  @keyframes infiniteSlide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Custom autoplay speed */
+  .carousel-track[style*='--autoplay-speed'] {
+    animation-duration: var(--autoplay-speed);
+  }
+</style>
+
+<script>
+  // Global variables for image viewer
+  let currentImages: string[] = [];
+  let currentImageIndex = 0;
+
+  // Initialize carousel
+  document.addEventListener('DOMContentLoaded', function () {
+    const carousel = document.getElementById('infinite-carousel-track');
+    if (carousel) {
+      const speed = carousel.dataset.speed || '4000';
+      carousel.style.setProperty('--autoplay-speed', speed + 'ms');
+    }
+  });
+
+  // Image viewer functions
+  function openImageViewer(imageSrc: string, index: number) {
+    const modal = document.getElementById('image-viewer-modal');
+    const modalImage = document.getElementById('modal-image') as HTMLImageElement;
+    const currentImageSpan = document.getElementById('current-image');
+
+    if (!modal || !modalImage || !currentImageSpan) return;
+
+    // Get all images from the carousel
+    const imageElements = document.querySelectorAll(
+      '.carousel-image'
+    ) as NodeListOf<HTMLImageElement>;
+    const images = Array.from(imageElements).map(img => img.src);
+    const uniqueImages = [...new Set(images)]; // Remove duplicates
+
+    currentImages = uniqueImages;
+    currentImageIndex = index % uniqueImages.length;
+
+    modalImage.src = uniqueImages[currentImageIndex];
+    currentImageSpan.textContent = (currentImageIndex + 1).toString();
+    modal.style.display = 'block';
+
+    // Prevent body scroll
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeImageViewer() {
+    const modal = document.getElementById('image-viewer-modal');
+    if (modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  }
+
+  function nextImage() {
+    currentImageIndex = (currentImageIndex + 1) % currentImages.length;
+    updateModalImage();
+  }
+
+  function prevImage() {
+    currentImageIndex = currentImageIndex === 0 ? currentImages.length - 1 : currentImageIndex - 1;
+    updateModalImage();
+  }
+
+  function updateModalImage() {
+    const modalImage = document.getElementById('modal-image') as HTMLImageElement;
+    const currentImageSpan = document.getElementById('current-image');
+
+    if (modalImage && currentImageSpan) {
+      modalImage.src = currentImages[currentImageIndex];
+      currentImageSpan.textContent = (currentImageIndex + 1).toString();
+    }
+  }
+
+  // Keyboard navigation
+  document.addEventListener('keydown', function (e) {
+    const modal = document.getElementById('image-viewer-modal');
+    if (modal && modal.style.display === 'block') {
+      if (e.key === 'Escape') {
+        closeImageViewer();
+      } else if (e.key === 'ArrowLeft') {
+        prevImage();
+      } else if (e.key === 'ArrowRight') {
+        nextImage();
+      }
+    }
+  });
+
+  // Close modal when clicking outside image
+  document.getElementById('image-viewer-modal')?.addEventListener('click', function (e) {
+    if (e.target === this) {
+      closeImageViewer();
+    }
+  });
+
+  // Dot navigation
+  function goToSlide(index: number, carouselId: string) {
+    const dots = document.querySelectorAll(`#${carouselId} .dot`);
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  }
+
+  // Auto-activate first dot
+  document.addEventListener('DOMContentLoaded', function () {
+    const firstDot = document.querySelector('.dot');
+    if (firstDot) {
+      firstDot.classList.add('active');
+    }
+  });
+
+  // Make functions globally available
+  if (typeof window !== 'undefined') {
+    (window as any).openImageViewer = openImageViewer;
+    (window as any).closeImageViewer = closeImageViewer;
+    (window as any).nextImage = nextImage;
+    (window as any).prevImage = prevImage;
+    (window as any).goToSlide = goToSlide;
+  }
+</script>

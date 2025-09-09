@@ -1,0 +1,151 @@
+---
+interface Props {
+  images: string[];
+  speed?: number;
+  className?: string;
+  height?: string;
+  visibleCount?: number;
+}
+
+const {
+  images = [],
+  speed = 3000,
+  className = '',
+  height = '60px',
+  visibleCount = 6,
+} = Astro.props;
+
+// Ensure we show 4-6 images max
+const maxVisible = Math.min(Math.max(visibleCount, 4), 6);
+const displayImages = images.slice(0, maxVisible);
+---
+
+<div
+  class:list={[`mini-carousel-container`, `${className}`]}
+  style={`height: ${height}; --visible-count: ${maxVisible}`}
+>
+  <div class="mini-track">
+    {
+      displayImages.map((image, index) => (
+        <div class="mini-slide" data-index={index}>
+          <img alt={`Mini gallery ${index + 1}`} class="mini-image" loading="lazy" src={image} />
+        </div>
+      ))
+    }
+  </div>
+  {
+    images.length > maxVisible && (
+      <div class="more-indicator">
+        <span class="more-text">+{images.length - maxVisible} more</span>
+      </div>
+    )
+  }
+</div>
+
+<style>
+  .mini-carousel-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .mini-track {
+    display: flex;
+    gap: 8px;
+    height: 100%;
+    width: 100%;
+  }
+
+  .mini-slide {
+    flex: 1;
+    min-width: calc((100% - (var(--visible-count, 6) - 1) * 8px) / var(--visible-count, 6));
+    max-width: calc((100% - (var(--visible-count, 6) - 1) * 8px) / var(--visible-count, 6));
+    height: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .mini-slide:hover {
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .mini-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    transition: filter 0.2s ease;
+  }
+
+  .mini-slide:hover .mini-image {
+    filter: brightness(1.1) saturate(1.2);
+  }
+
+  .more-indicator {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    backdrop-filter: blur(4px);
+    pointer-events: none;
+  }
+
+  .more-text {
+    white-space: nowrap;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .mini-track {
+      gap: 4px;
+    }
+
+    .mini-slide {
+      min-width: calc((100% - (var(--visible-count, 6) - 1) * 4px) / var(--visible-count, 6));
+      max-width: calc((100% - (var(--visible-count, 6) - 1) * 4px) / var(--visible-count, 6));
+    }
+
+    .more-indicator {
+      right: 4px;
+      font-size: 11px;
+      padding: 3px 6px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .mini-carousel-container {
+      --visible-count: 4;
+    }
+  }
+
+  /* Add subtle glow effect */
+  .mini-carousel-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, rgba(168, 85, 247, 0.3), rgba(249, 115, 22, 0.3));
+    border-radius: 10px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .mini-carousel-container:hover::before {
+    opacity: 1;
+  }
+</style>

@@ -1,35 +1,34 @@
 ---
-import Layout from "../components/layout/Layout.astro";
-import { pageSchemas } from "../schemas";
+import Layout from '../components/layout/Layout.astro';
+import { pageSchemas } from '../schemas';
 
 // Import all home page sections from centralized location
 import {
-  HeroSection,
   BestYogaSchool,
-  ObjectiveTTC,
   CertificationsTextSection,
   FounderSection,
-  YogaAllianceRegisteredSchool,
-  ReviewSection,
+  HeroSection,
   LocationSection,
+  ObjectiveTTC,
+  ReviewSection,
+  YogaAllianceRegisteredSchool,
+  YogaFacilities,
   YogaGuruSection,
   YTTCourseSection,
-} from "$components/sections";
+} from '$components/sections';
 
-import { FaqSection } from "$svelte/sections";
-import { FAQ_SECTION, FAQ_STYLES } from "$constants/faqConstants";
-import SectionHeader from "$ui/SectionHeader.astro";
-
+import { FAQ_SECTION, FAQ_STYLES } from '$constants/faqConstants';
+import { FaqSection } from '$svelte/sections';
 // Generate schemas for home page
 const homeSchemas = pageSchemas.home();
 ---
 
 <Layout
-  title="Best Yoga Teacher Training in Rishikesh, India - Hatha Yogashram"
-  description="Join authentic 200/300 hour Yoga Teacher Training in Rishikesh with Hatha Yogashram. Yoga Alliance RYS certified residential courses with Indian masters. Traditional Hatha & Ashtanga Yoga, Sanskrit mantras, philosophy from ancient texts."
-  canonical="https://hathayogashram.com/"
-  image="https://hathayogashram.com/yogaschoolpic.jpg"
   additionalSchemas={homeSchemas}
+  canonical="https://hathayogashram.com/"
+  description="Join authentic 200/300 hour Yoga Teacher Training in Rishikesh with Hatha Yogashram. Yoga Alliance RYS certified residential courses with Indian masters. Traditional Hatha & Ashtanga Yoga, Sanskrit mantras, philosophy from ancient texts."
+  image="https://hathayogashram.com/yogaschoolpic.jpg"
+  title="Best Yoga Teacher Training in Rishikesh, India - Hatha Yogashram"
 >
   <HeroSection />
 
@@ -52,18 +51,11 @@ const homeSchemas = pageSchemas.home();
 
   <YogaGuruSection />
 
+  <YogaFacilities />
+
   <!-- Instagram Feed Section -->
 
-  <iframe
-    title="feedinstagram"
-    src="https://app.mirror-app.com/feed-instagram/19bb8f51-1bbc-4709-bd36-10fb443f0c64/preview"
-    style="width: 100%; height:700px; border: none;"></iframe>
- 
-  <FaqSection
-    sectionData={FAQ_SECTION}
-    styles={FAQ_STYLES}
-    client:load
-  />
+  <FaqSection client:load sectionData={FAQ_SECTION} styles={FAQ_STYLES} />
 
   <!-- Location Section -->
 

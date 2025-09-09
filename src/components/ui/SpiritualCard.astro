@@ -1,5 +1,5 @@
 ---
-import { YOGA_GURUS_STYLES } from "$constants/yogaGurusConstants";
+import { YOGA_GURUS_STYLES } from '$constants/yogaGurusConstants';
 
 interface Props {
   name: string;
@@ -9,22 +9,17 @@ interface Props {
 const { name, image } = Astro.props;
 ---
 
-<div class={YOGA_GURUS_STYLES.SPIRITUAL_CARD}>
+<div class:list={YOGA_GURUS_STYLES.SPIRITUAL_CARD}>
   <!-- Profile Image - No Mandala, Bigger Size -->
-  <div class={YOGA_GURUS_STYLES.PROFILE_CONTAINER}>
-    <div class={YOGA_GURUS_STYLES.PROFILE_IMAGE_WRAPPER}>
-      <img
-        src={image}
-        alt={name}
-        class={YOGA_GURUS_STYLES.PROFILE_IMAGE}
-        loading="lazy"
-      />
+  <div class:list={YOGA_GURUS_STYLES.PROFILE_CONTAINER}>
+    <div class:list={YOGA_GURUS_STYLES.PROFILE_IMAGE_WRAPPER}>
+      <img alt={name} class:list={YOGA_GURUS_STYLES.PROFILE_IMAGE} loading="lazy" src={image} />
     </div>
   </div>
 
   <!-- Guru Information -->
-  <div class={YOGA_GURUS_STYLES.CONTENT_CONTAINER}>
-    <h3 class={YOGA_GURUS_STYLES.NAME}>
+  <div class:list={YOGA_GURUS_STYLES.CONTENT_CONTAINER}>
+    <h3 class:list={YOGA_GURUS_STYLES.NAME}>
       {name}
     </h3>
   </div>

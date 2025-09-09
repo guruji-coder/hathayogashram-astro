@@ -1,4 +1,6 @@
 ---
+import { sanitizeHTML } from '../../utils/sanitize';
+
 interface Card {
   title: string;
   src: string;
@@ -20,7 +22,7 @@ const {
 } = Astro.props;
 ---
 
-<section class={`py-16 ${backgroundColor}`}>
+<section class:list={[`py-16`,`${backgroundColor}`]}>
   <div class="container mx-auto px-4">
     <!-- Section Header -->
     <div class="mb-16 text-center">
@@ -36,8 +38,7 @@ const {
     <!-- Apple Cards - Horizontal Scroll Layout -->
     <div class="relative">
       <div 
-        id="appleCardsContainer"
-        class="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-4"
+        class="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-4"         id="appleCardsContainer"
       >
         {cards.map((card, index) => (
           <div class="w-[85%] md:w-[70%] lg:w-[45%] xl:w-[30%] flex-shrink-0 snap-start">
@@ -45,10 +46,7 @@ const {
               <!-- Card Image -->
               <div class="aspect-video overflow-hidden">
                 <img
-                  src={card.src}
-                  alt={card.title}
-                  class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  loading="lazy"
+                  alt={card.title}                   class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"                   loading="lazy"                   src={card.src}
                 />
               </div>
               
@@ -58,8 +56,8 @@ const {
                   {card.title}
                 </h3>
                 
-                <!-- Card Content HTML -->
-                <div class="prose prose-sm max-w-none text-gray-700 line-clamp-6" set:html={card.content} />
+<!-- Card Content HTML -->
+                <div class="prose prose-sm max-w-none text-gray-700 line-clamp-6">{sanitizeHTML(card.content)}</div>
                 
                 <!-- Expand Button -->
                 <button 
@@ -68,7 +66,7 @@ const {
                 >
                   <span class="expand-text">Read More</span>
                   <svg class="ml-1 w-4 h-4 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
                   </svg>
                 </button>
               </div>
@@ -82,9 +80,7 @@ const {
         <div class="flex justify-center mt-8 space-x-2">
           {cards.map((_, index) => (
             <button
-              class="scroll-indicator w-3 h-3 rounded-full bg-purple-300 transition-all duration-300 hover:bg-purple-500 cursor-pointer"
-              data-index={index}
-              aria-label={`Go to card ${index + 1}`}
+              aria-label={`Go to card ${index + 1}`}               class="scroll-indicator w-3 h-3 rounded-full bg-purple-300 transition-all duration-300 hover:bg-purple-500 cursor-pointer"               data-index={index}
             ></button>
           ))}
         </div>

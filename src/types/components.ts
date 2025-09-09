@@ -8,7 +8,7 @@ export interface CarouselSlide {
   primaryButton: {
     text: string;
     href: string;
-    variant: "primary" | "secondary";
+    variant: 'primary' | 'secondary';
   };
 }
 

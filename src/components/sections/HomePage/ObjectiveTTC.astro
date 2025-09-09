@@ -1,18 +1,15 @@
 ---
-import { HOME_STYLES, OBJECTIVE_SECTION, TTC_COURSES_SECTION } from '../../../constants/homePageConstants';
+import { HOME_STYLES, OBJECTIVE_SECTION, TTC_COURSES_SECTION } from '../../../constants/HomePage/homePageConstants';
 import { BUTTON_STYLES } from '../../../constants/uiConstants';
 import SectionHeader from '../../ui/SectionHeader.astro';
 ---
 
 <!-- Objective Section -->
-<section class={`${HOME_STYLES.SECTION_PADDING} bg-yellow-50`}>
-	<div class={HOME_STYLES.CONTAINER}>
+<section class:list={[`${HOME_STYLES.SECTION_PADDING}`,`bg-yellow-50`]}>
+	<div class:list={HOME_STYLES.CONTAINER}>
 		<!-- Main Heading with Decorative Underline -->
 		<SectionHeader 
-			title={OBJECTIVE_SECTION.TITLE}
-			containerClass="mb-12 text-center"
-			svgWidth={200}
-			svgHeight={20}
+			containerClass="mb-12 text-center"    svgHeight={20}    svgWidth={200}    title={OBJECTIVE_SECTION.TITLE}
 		/>
 
 		<!-- Content Paragraphs -->
@@ -42,8 +39,8 @@ import SectionHeader from '../../ui/SectionHeader.astro';
 			</p>
 		</div>
 
-		<section class={`${HOME_STYLES.SECTION_PADDING}`}>
-			<div class={HOME_STYLES.CONTAINER}>
+		<section class:list={`${HOME_STYLES.SECTION_PADDING}`}>
+			<div class:list={HOME_STYLES.CONTAINER}>
 				<!-- Section Header -->
 
 				<!-- Courses Grid -->
@@ -57,10 +54,7 @@ import SectionHeader from '../../ui/SectionHeader.astro';
 								<!-- Course Image on Left - Small Square -->
 								<div class="w-full md:w-1/2 h-full">
 									<img
-										src={course.IMAGE}
-										alt={course.TITLE}
-										class="h-full w-full object-cover"
-										loading="lazy"
+										alt={course.TITLE}           class="h-full w-full object-cover"           loading="lazy"           src={course.IMAGE}
 									/>
 								</div>
 
@@ -86,8 +80,7 @@ import SectionHeader from '../../ui/SectionHeader.astro';
 									<!-- Read More Button -->
 									<div class="flex justify-end">
 										<a
-											href={course.URL}
-											class={`${BUTTON_STYLES.BASE} ${BUTTON_STYLES.VARIANTS.PRIMARY} border-2 border-purple-900`}
+											class:list={[`${BUTTON_STYLES.BASE}`,`${BUTTON_STYLES.VARIANTS.PRIMARY}`,`border-2 border-purple-900`]}            href={course.URL}
 										>
 											{course.BUTTON_TEXT}
 										</a>

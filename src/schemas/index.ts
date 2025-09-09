@@ -1,16 +1,16 @@
-export { organizationSchema } from "./organization";
-export { coursesSchema } from "./courses";
-export { philosophySchema } from "./philosophy";
-export { mantrasSchema } from "./mantras";
-export { faqSchema } from "./faq";
-export { mastersSchema, classicalTextsSchema, dhyanaSchema } from "./masters";
+export { organizationSchema } from './organization';
+export { coursesSchema } from './courses';
+export { philosophySchema } from './philosophy';
+export { mantrasSchema } from './mantras';
+export { faqSchema } from './faq';
+export { mastersSchema, classicalTextsSchema, dhyanaSchema } from './masters';
 
-import { organizationSchema } from "./organization";
-import { coursesSchema } from "./courses";
-import { philosophySchema } from "./philosophy";
-import { mantrasSchema } from "./mantras";
-import { faqSchema } from "./faq";
-import { mastersSchema, classicalTextsSchema, dhyanaSchema } from "./masters";
+import { organizationSchema } from './organization';
+import { coursesSchema } from './courses';
+import { philosophySchema } from './philosophy';
+import { mantrasSchema } from './mantras';
+import { faqSchema } from './faq';
+import { mastersSchema, classicalTextsSchema, dhyanaSchema } from './masters';
 
 export interface SchemaConfig {
   includeOrganization?: boolean;
@@ -40,8 +40,7 @@ export function generateSchemas(config: SchemaConfig = {}) {
   if (includePhilosophy) schemas.push(philosophySchema);
   if (includeMantras) schemas.push(mantrasSchema);
   if (includeFaq) schemas.push(faqSchema);
-  if (includeMasters)
-    schemas.push(mastersSchema, classicalTextsSchema, dhyanaSchema);
+  if (includeMasters) schemas.push(mastersSchema, classicalTextsSchema, dhyanaSchema);
 
   return [...schemas, ...customSchemas];
 }

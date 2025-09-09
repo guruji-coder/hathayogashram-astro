@@ -1,0 +1,139 @@
+---
+import { ROUTE_CONTACT } from '../../../constants/routesConstants';
+import Button from '../../ui/Button.astro';
+import SectionHeader from '../../ui/SectionHeader.astro';
+
+interface Props {
+  sectionData: {
+    title: string;
+    subtitle: string;
+    benefits: Array<{
+      category: string;
+      items: Array<string | { subItems: Array<{ label: string; description: string }> }>;
+    }>;
+    courseHighlight: {
+      title: string;
+      pricing: {
+        twinShared: { label: string; price: string; originalPrice: string };
+        private: { label: string; price: string; originalPrice: string };
+      };
+      details: Array<{ label: string; value: string; icon: string }>;
+      bookingButton: { text: string; class: string };
+    };
+  };
+}
+
+const { sectionData } = Astro.props;
+---
+
+<section class="py-16 bg-gray-50" id="CourseHighlights">
+  <div class="container mx-auto px-4">
+
+    <!-- Header -->
+    <SectionHeader
+      containerClass="mb-12"
+      title={sectionData.subtitle}
+    />
+
+    <!-- Content Grid -->
+    <div class="grid lg:grid-cols-3 gap-8">
+
+      <!-- Benefits Content -->
+      <div class="lg:col-span-2 space-y-6">
+        {sectionData.benefits.map((benefit) => (
+          <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+
+            <!-- Category header -->
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center gap-3">
+              <span class="w-2 h-2 bg-primary rounded-full"></span>
+              {benefit.category}
+            </h3>
+
+            <!-- Benefit items -->
+            <div class="space-y-4">
+              {benefit.items.map((item) => (
+                <div>
+                  {typeof item === 'string' ? (
+                    <div class="flex items-start gap-3 text-gray-600">
+                      <span class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></span>
+                      <p>{item}</p>
+                    </div>
+                  ) : (
+                    <div class="space-y-3">
+                      <p class="font-semibold text-gray-800">Comprehensive Curriculum:</p>
+                      {item.subItems && (
+                        <div class="ml-6 space-y-2">
+                          {item.subItems.map((subItem) => (
+                            <div class="flex gap-2">
+                              <span class="font-medium text-orange-600">{subItem.label}:</span>
+                              <span class="text-gray-600">{subItem.description}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Course Highlight Card -->
+      <div class="lg:col-span-1">
+        <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100 sticky top-24">
+
+          <!-- Course title -->
+          <h3 class="text-2xl font-bold text-center text-gray-800 mb-8">
+            {sectionData.courseHighlight.title}
+          </h3>
+
+          <!-- Pricing -->
+          <div class="grid grid-cols-2 gap-4 mb-8 p-4 bg-gray-50 rounded-lg">
+            <div class="text-center">
+              <p class="text-xs font-medium text-gray-500 uppercase mb-1">{sectionData.courseHighlight.pricing.twinShared.label}</p>
+              <p class="text-2xl font-bold text-primary">{sectionData.courseHighlight.pricing.twinShared.price}</p>
+              <p class="text-sm text-gray-400 line-through">{sectionData.courseHighlight.pricing.twinShared.originalPrice}</p>
+            </div>
+            <div class="text-center border-l border-gray-200">
+              <p class="text-xs font-medium text-gray-500 uppercase mb-1">{sectionData.courseHighlight.pricing.private.label}</p>
+              <p class="text-2xl font-bold text-orange-600">{sectionData.courseHighlight.pricing.private.price}</p>
+              <p class="text-sm text-gray-400 line-through">{sectionData.courseHighlight.pricing.private.originalPrice}</p>
+            </div>
+          </div>
+
+          <!-- Course details -->
+          <div class="space-y-3 mb-8">
+            {sectionData.courseHighlight.details.map((detail) => (
+              <div class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class="w-10 h-10 flex items-center justify-center" class:list={[`fas`,`fa-${detail.icon}`,`text-primary`]}></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="text-sm font-medium text-gray-600">{detail.label}</p>
+                  <p class="text-sm text-gray-800 font-semibold">{detail.value}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="space-y-3">
+            <Button
+              class="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-6 rounded-lg transition-colors"               href={ROUTE_CONTACT}
+            >
+              Book Now
+            </Button>
+            <Button
+              class="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors"               href={ROUTE_CONTACT}
+            >
+              Enquire
+            </Button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

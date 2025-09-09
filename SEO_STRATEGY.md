@@ -164,16 +164,16 @@ generateAdvancedMetaTags(page, keywords) {
 ```typescript
 // astro.config.mjs
 export default defineConfig({
-  output: "static",
-  site: "https://hathayogashram.com",
+  output: 'static',
+  site: 'https://hathayogashram.com',
   integrations: [
     sitemap({
       customPages: [
-        "https://hathayogashram.com/200-hour-yoga-teacher-training/",
-        "https://hathayogashram.com/blog/eight-limbs-of-yoga/",
+        'https://hathayogashram.com/200-hour-yoga-teacher-training/',
+        'https://hathayogashram.com/blog/eight-limbs-of-yoga/',
       ],
       priority: 0.9,
-      changefreq: "weekly",
+      changefreq: 'weekly',
     }),
   ],
   vite: {

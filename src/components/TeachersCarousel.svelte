@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-  import TeacherCard from "./TeacherCard.svelte";
+  import { onMount } from 'svelte';
+  import TeacherCard from './TeacherCard.svelte';
 
   export let teachers: Array<{
     id: number;
@@ -11,16 +11,19 @@
   }>;
 
   let currentIndex = 0;
+  // eslint-disable-next-line no-undef
   let carousel: HTMLElement;
-  let interval: number;
+  // eslint-disable-next-line no-undef
+  let interval: ReturnType<typeof setInterval>;
 
   onMount(() => {
     // Auto-scroll every 4 seconds
+    // eslint-disable-next-line no-undef
     interval = setInterval(() => {
       currentIndex = (currentIndex + 1) % teachers.length;
       updateCarousel();
     }, 4000);
-
+    // eslint-disable-next-line no-undef
     return () => clearInterval(interval);
   });
 
@@ -36,15 +39,15 @@
 
     const translateX = -(currentIndex * (100 / itemsPerView));
 
-    carousel.style.transition = "transform 0.5s ease-in-out";
+    carousel.style.transition = 'transform 0.5s ease-in-out';
     carousel.style.transform = `translateX(${translateX}%)`;
   }
 
   // Handle resize
   onMount(() => {
     const handleResize = () => updateCarousel();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   });
 </script>
 

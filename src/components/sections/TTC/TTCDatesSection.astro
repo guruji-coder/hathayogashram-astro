@@ -1,0 +1,171 @@
+---
+import Button from '$components/ui/Button.astro';
+import SectionHeader from '$components/ui/SectionHeader.astro';
+import CourseDatesTable from '$components/ui/CourseDatesTable.astro';
+import CourseDateCard from '$components/ui/CourseDateCard.astro';
+import YearTabSelector from '$components/ui/YearTabSelector.astro';
+import { TRAINING_200_COURSE_DATES_SECTION } from '$constants/TTC/200hour';
+
+const { title, subtitle, dates, courseInfo, bookingButton, years } =
+  TRAINING_200_COURSE_DATES_SECTION;
+---
+
+<section class="bg-gradient-to-b from-gray-50 to-white py-16" id="Dates">
+  <div class="container mx-auto px-4">
+    <!-- Header -->
+    <SectionHeader title={title} />
+
+    <!-- Year Tabs -->
+    <YearTabSelector defaultYear="2025" years={years} />
+
+    <!-- Desktop Table View -->
+    <div class="hidden overflow-x-auto lg:block">
+      <table class="mx-auto w-full max-w-6xl rounded-lg bg-white shadow-sm">
+        <thead>
+          <tr class="bg-primary text-white">
+            <th class="px-6 py-4 text-left">
+              <div class="flex flex-col">
+                <span class="text-lg font-semibold">Course Date</span>
+                <span class="text-sm font-normal opacity-80">Availability</span>
+              </div>
+            </th>
+            <th class="border-l border-white/20 px-4 py-4 text-center" colspan="4">
+              <span class="text-lg font-semibold">Course Price</span>
+              <div class="mt-2 grid grid-cols-4 gap-2">
+                <div class="text-xs font-normal">
+                  <div class="rounded-full bg-white px-3 py-1 text-primary">4 Sharing Room</div>
+                </div>
+                <div class="text-xs font-normal">
+                  <div class="rounded-full bg-white px-3 py-1 text-primary">3 Sharing Room</div>
+                </div>
+                <div class="text-xs font-normal">
+                  <div class="rounded-full bg-white px-3 py-1 text-primary">2 Sharing Room</div>
+                </div>
+                <div class="text-xs font-normal">
+                  <div class="rounded-full bg-white px-3 py-1 text-primary">Private Room</div>
+                </div>
+              </div>
+            </th>
+            <th class="border-l border-white/20 px-6 py-4 text-center">
+              <div class="flex flex-col">
+                <span class="text-lg font-semibold">Book Now</span>
+                <span class="text-sm font-normal opacity-80">Limited Offer</span>
+              </div>
+            </th>
+          </tr>
+        </thead>
+
+        <!-- Dates Table Body - 2025 -->
+        <!-- Dates Table Body - 2025 -->
+        <CourseDatesTable courseInfo={courseInfo} dates={dates['2025']} year="2025" />
+
+        <!-- Dates Table Body - 2026 -->
+        <CourseDatesTable
+          courseInfo={courseInfo}
+          dates={dates['2026']}
+          isVisible={false}
+          year="2026"
+        />
+      </table>
+    </div>
+
+    <!-- Mobile Card View -->
+    <div class="lg:hidden">
+      <!-- Mobile Date Cards - 2025 -->
+      <div class="mobile-dates-container space-y-4" id="mobile-dates-2025">
+        {
+          dates['2025'].map(date => (
+            <CourseDateCard courseInfo={courseInfo} date={date} year="2025" />
+          ))
+        }
+      </div>
+
+      <!-- Mobile Date Cards - 2026 -->
+      <div class="mobile-dates-container hidden space-y-4" id="mobile-dates-2026">
+        {
+          dates['2026'].map(date => (
+            <CourseDateCard courseInfo={courseInfo} date={date} year="2026" />
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Bottom Actions -->
+    <div class="mt-8 flex flex-col items-center">
+      <!-- WhatsApp Button -->
+      <div class="mb-6">
+        <a
+          class="inline-flex items-center gap-3 rounded-full bg-green-500 px-8 py-3 font-semibold text-white shadow-lg transition-colors hover:bg-green-600"
+          href="https://wa.me/919119070101"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i class="fab fa-whatsapp text-2xl"></i>
+          <span>Enroll Now</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const yearTabs = document.querySelectorAll('.year-tab');
+    const dateTables = document.querySelectorAll('.dates-table');
+    const mobileDateContainers = document.querySelectorAll('.mobile-dates-container');
+
+    yearTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const selectedYear = tab.getAttribute('data-year');
+
+        // Update active tab styles
+        yearTabs.forEach(t => {
+          if (t.getAttribute('data-year') === selectedYear) {
+            t.classList.remove('bg-white', 'text-primary', 'hover:bg-primary/90');
+            t.classList.add('bg-primary', 'text-white');
+          } else {
+            t.classList.remove('bg-primary', 'text-white');
+            t.classList.add('bg-white', 'text-primary', 'hover:bg-primary/90');
+          }
+        });
+
+        // Show/hide desktop date tables
+        dateTables.forEach(table => {
+          if (table.id === `dates-${selectedYear}`) {
+            table.classList.remove('hidden');
+          } else {
+            table.classList.add('hidden');
+          }
+        });
+
+        // Show/hide mobile date containers
+        mobileDateContainers.forEach(container => {
+          if (container.id === `mobile-dates-${selectedYear}`) {
+            container.classList.remove('hidden');
+          } else {
+            container.classList.add('hidden');
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<style>
+  /* Responsive table styles */
+  @media (max-width: 768px) {
+    table {
+      font-size: 0.875rem;
+    }
+
+    th,
+    td {
+      padding: 0.75rem 0.5rem;
+    }
+
+    .year-tab {
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+    }
+  }
+</style>

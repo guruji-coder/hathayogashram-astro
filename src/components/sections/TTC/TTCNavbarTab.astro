@@ -1,0 +1,165 @@
+---
+import { TTC_NAVBAR_DATA } from '$constants/TTC/200hour';
+
+interface Props {
+  navbarData?: typeof TTC_NAVBAR_DATA;
+}
+
+const { navbarData = TTC_NAVBAR_DATA } = Astro.props;
+const { navigationLinks, styling, animation } = navbarData;
+---
+
+<!-- Strategic Trigger Placement -->
+<div class="-mt-px h-px bg-transparent" id="navbar-trigger"></div>
+
+<!-- Sticky Navbar (Initially Hidden) -->
+<nav class:list={styling.navbarClass} id="NavbarTTC">
+  <!-- Better responsive navigation -->
+  <div class:list={styling.containerClass}>
+    <!-- Decorative divider -->
+
+    <!-- Responsive Navigation Links -->
+    <div class="flex flex-wrap items-center justify-center gap-2 pb-3 sm:gap-4">
+      {
+        navigationLinks.map((link, index) => (
+          <>
+            <a class:list={styling.linkClass} href={link.href}>
+              {link.label}
+            </a>
+            {index < navigationLinks.length - 1 && <div class:list={styling.dividerClass} />}
+          </>
+        ))
+      }
+    </div>
+  </div>
+</nav>
+
+<!-- Enhanced Navbar Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    console.log('🚀 Initializing sticky navbar...');
+
+    const navbar = document.getElementById('NavbarTTC');
+    const trigger = document.getElementById('navbar-trigger');
+    const header = document.querySelector('header');
+
+    if (!navbar || !trigger) {
+      console.error('❌ Missing elements:', { navbar: !!navbar, trigger: !!trigger });
+      return;
+    }
+
+    // Calculate header height for positioning
+    const getHeaderHeight = () => (header ? header.offsetHeight : 0);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const isVisible = entry.isIntersecting;
+        const hasScrolledPast = entry.boundingClientRect.top < 0;
+
+        console.log('📍 Navbar trigger:', {
+          isVisible,
+          hasScrolledPast,
+          top: entry.boundingClientRect.top,
+        });
+
+        if (!isVisible && hasScrolledPast) {
+          // Show navbar with proper header offset
+          const headerHeight = getHeaderHeight();
+          navbar.style.top = `${headerHeight}px`;
+          navbar.style.transform = 'translateY(0)';
+          navbar.style.opacity = '1';
+          navbar.style.pointerEvents = 'auto';
+          console.log('📤 Showing navbar at', headerHeight + 'px');
+        } else {
+          // Hide navbar
+          navbar.style.transform = 'translateY(-100%)';
+          navbar.style.opacity = '0';
+          navbar.style.pointerEvents = 'none';
+          console.log('📥 Hiding navbar');
+        }
+      },
+      {
+        threshold: 0,
+        rootMargin: '-1px 0px 0px 0px', // Slight offset for better detection
+      }
+    );
+
+    observer.observe(trigger);
+
+    // Handle resize events
+    let resizeTimeout: ReturnType<typeof setTimeout>;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        if (navbar.style.opacity === '1') {
+          navbar.style.top = `${getHeaderHeight()}px`;
+        }
+      }, 100);
+    });
+
+    console.log('✅ Navbar observer ready');
+  });
+</script>
+
+<!-- Enhanced CSS -->
+<style>
+  .nav-link {
+    @apply rounded-lg bg-primary px-2 py-1 text-sm font-medium text-white transition-all duration-300 sm:px-3 sm:py-2 sm:text-lg;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .nav-link:hover {
+    @apply scale-105 shadow-lg;
+    background: linear-gradient(135deg, #7c3aed, #a855f7, #c084fc);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
+  }
+
+  .nav-link:hover::before {
+    left: 100%;
+  }
+
+  .nav-link:active {
+    transform: translateY(0) scale(1.02);
+    transition: transform 0.1s ease;
+  }
+
+  .nav-divider {
+    @apply h-3 w-px bg-gradient-to-b from-primary/20 via-primary to-primary/20 sm:h-4;
+    transition: all 0.3s ease;
+  }
+
+  .nav-link:hover + .nav-divider,
+  .nav-divider:has(+ .nav-link:hover) {
+    background: linear-gradient(
+      to bottom,
+      rgba(124, 58, 237, 0.4),
+      rgba(168, 85, 247, 0.8),
+      rgba(192, 132, 252, 0.4)
+    );
+    height: 1rem;
+    transform: scaleY(1.2);
+  }
+
+  @media (max-width: 640px) {
+    .nav-divider {
+      display: none;
+    }
+  }
+</style>

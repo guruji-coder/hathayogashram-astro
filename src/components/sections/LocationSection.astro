@@ -1,0 +1,68 @@
+---
+import { LOCATION_SECTION, LOCATION_STYLES } from '$constants/locationConstants';
+import SectionHeader from '$ui/SectionHeader.astro';
+---
+
+<!-- Location Section -->
+<section class:list={LOCATION_STYLES.SECTION_BACKGROUND} id="Location">
+  <div class:list={LOCATION_STYLES.CONTAINER}>
+    <!-- Section Header -->
+    <SectionHeader
+      containerClass={LOCATION_STYLES.HEADER_CONTAINER}
+      svgHeight={20}
+      svgWidth={200}
+      title={LOCATION_SECTION.TITLE}
+      titleClass={LOCATION_STYLES.HEADER_TITLE}
+    />
+
+    <!-- Main Content - Desktop: 50% width flex, Tablet & Mobile: flex-col -->
+    <div class:list={LOCATION_STYLES.MAIN_LAYOUT}>
+      <!-- Left Column - Travel Information -->
+      <div class:list={LOCATION_STYLES.COLUMN_WIDTH}>
+        <div class:list={LOCATION_STYLES.TRAVEL_CARD}>
+          <!-- Travel Methods - Dynamic Loop -->
+          {
+            LOCATION_SECTION.TRAVEL_METHODS.map(method => (
+              <div class:list={LOCATION_STYLES.TRAVEL_SECTION}>
+                <h4 class:list={LOCATION_STYLES.TRAVEL_SECTION_TITLE}>
+                  <i class:list={[`${method.ICON}`, `p-2`]} />
+                  {method.TITLE}
+                </h4>
+                <div class:list={LOCATION_STYLES.TEXT_CONTENT}>
+                  {method.CONTENT.map(paragraph => (
+                    <p class:list={LOCATION_STYLES.PARAGRAPH}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+            ))
+          }
+
+          <!-- Assistance Note -->
+          <div class:list={LOCATION_STYLES.ASSISTANCE_CONTAINER}>
+            <p class:list={LOCATION_STYLES.ASSISTANCE_TEXT}>
+              <i class:list={LOCATION_STYLES.ASSISTANCE_ICON}></i>
+              <strong>{LOCATION_SECTION.ASSISTANCE_NOTE.TITLE}</strong>
+              {LOCATION_SECTION.ASSISTANCE_NOTE.TEXT}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column - Google Map -->
+      <div class:list={LOCATION_STYLES.COLUMN_WIDTH}>
+        <div class:list={LOCATION_STYLES.MAP_CARD}>
+          <div class:list={LOCATION_STYLES.MAP_CONTAINER}>
+            <!-- Google Map Embed for Rishikesh, Uttarakhand -->
+            <iframe
+              allowfullscreen=""
+              class="h-96 w-full rounded-lg md:h-[500px] lg:h-[600px]"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src={LOCATION_SECTION.MAP_INFO.IFRAME_SRC}
+              style="border:0;"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

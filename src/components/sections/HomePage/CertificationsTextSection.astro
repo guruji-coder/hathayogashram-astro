@@ -1,22 +1,19 @@
 ---
-import {
-  CERTIFICATIONS_SECTION,
-  HOME_STYLES,
-} from "$constants/homePageConstants";
-import SectionHeader from "$components/ui/SectionHeader.astro";
+import { CERTIFICATIONS_SECTION, HOME_STYLES } from '$constants/HomePage/homePageConstants';
+import SectionHeader from '$components/ui/SectionHeader.astro';
 ---
 
 <!-- Certifications & Accreditations Section -->
-<section class={`${HOME_STYLES.SECTION_PADDING} bg-white`}>
-  <div class={HOME_STYLES.CONTAINER}>
+<section class:list={[`${HOME_STYLES.SECTION_PADDING}`, `bg-white`]}>
+  <div class:list={HOME_STYLES.CONTAINER}>
     <!-- Section Header -->
     <SectionHeader title={CERTIFICATIONS_SECTION.TITLE} />
 
     <!-- Content Paragraphs -->
     <div class="mx-auto mb-12 max-w-full space-y-6">
       {
-        CERTIFICATIONS_SECTION.PARAGRAPHS.slice(0, 4).map((paragraph) => (
-          <p class={`${HOME_STYLES.CERTIFICATION_PARAGRAPH}`}>{paragraph}</p>
+        CERTIFICATIONS_SECTION.PARAGRAPHS.slice(0, 4).map(paragraph => (
+          <p class:list={`${HOME_STYLES.CERTIFICATION_PARAGRAPH}`}>{paragraph}</p>
         ))
       }
 
@@ -24,18 +21,18 @@ import SectionHeader from "$components/ui/SectionHeader.astro";
       <div class="my-8 flex justify-center">
         <div class="transition-transform duration-300 hover:scale-105">
           <img
-            src="/yoga-alliance-logo.png"
             alt="Yoga Alliance Registered School Logo"
             class=""
             loading="lazy"
+            src="/yoga-alliance-logo.png"
           />
         </div>
       </div>
 
       <!-- Remaining paragraphs after the logo -->
       {
-        CERTIFICATIONS_SECTION.PARAGRAPHS.slice(4).map((paragraph) => (
-          <p class={`${HOME_STYLES.CERTIFICATION_PARAGRAPH}`}>{paragraph}</p>
+        CERTIFICATIONS_SECTION.PARAGRAPHS.slice(4).map(paragraph => (
+          <p class:list={`${HOME_STYLES.CERTIFICATION_PARAGRAPH}`}>{paragraph}</p>
         ))
       }
     </div>

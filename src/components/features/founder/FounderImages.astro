@@ -1,5 +1,5 @@
 ---
-import { FOUNDER_SECTION } from "../../../constants/homePageConstants";
+import { FOUNDER_SECTION } from '../../../constants/HomePage/homePageConstants';
 ---
 
 <div class="flex flex-col lg:w-1/2">
@@ -8,39 +8,33 @@ import { FOUNDER_SECTION } from "../../../constants/homePageConstants";
     <!-- Top Row: Two Images Side by Side -->
     <div class="flex gap-4">
       <!-- Image 1 - Seated Spinal Twist -->
-      <div
-        class="relative flex-1 overflow-hidden rounded-xl border-2 border-orange-400 shadow-md"
-      >
+      <div class="relative flex-1 overflow-hidden rounded-xl border-2 border-orange-400 shadow-md">
         <img
-          src={FOUNDER_SECTION.IMAGES[0].src}
           alt={FOUNDER_SECTION.IMAGES[0].alt}
           class="h-48 w-full object-cover"
           loading="lazy"
+          src={FOUNDER_SECTION.IMAGES[0].src}
         />
       </div>
 
       <!-- Image 2 - Side Plank Variation -->
-      <div
-        class="relative flex-1 overflow-hidden rounded-xl border-2 border-orange-400 shadow-md"
-      >
+      <div class="relative flex-1 overflow-hidden rounded-xl border-2 border-orange-400 shadow-md">
         <img
-          src={FOUNDER_SECTION.IMAGES[1].src}
           alt={FOUNDER_SECTION.IMAGES[1].alt}
           class="h-48 w-full object-cover"
           loading="lazy"
+          src={FOUNDER_SECTION.IMAGES[1].src}
         />
       </div>
     </div>
 
     <!-- Bottom Row: Large Image (Full Width) -->
-    <div
-      class="relative overflow-hidden rounded-xl border-2 border-orange-400 shadow-md"
-    >
+    <div class="relative overflow-hidden rounded-xl border-2 border-orange-400 shadow-md">
       <img
-        src={FOUNDER_SECTION.IMAGES[2].src}
         alt={FOUNDER_SECTION.IMAGES[2].alt}
         class="h-56 w-full object-cover"
         loading="lazy"
+        src={FOUNDER_SECTION.IMAGES[2].src}
       />
     </div>
   </div>

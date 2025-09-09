@@ -1,0 +1,32 @@
+# ESLint ignore patterns
+node_modules/
+dist/
+build/
+.astro/
+
+# Generated files
+*.d.ts
+env.d.ts
+
+# Configuration files that should not be linted
+*.config.js
+*.config.mjs
+*.config.ts
+astro.config.*
+
+# Dependencies
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# IDE and editor files
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp

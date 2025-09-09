@@ -1,0 +1,47 @@
+---
+import Button from '$components/ui/Button.astro';
+import { ROUTE_CONTACT } from '$constants/routesConstants';
+import { PRICE_TAB_DATA } from '$constants/TTC/200hour';
+interface Props {
+  data?: typeof PRICE_TAB_DATA;
+}
+const { imageSrc, title, originalPrice, price, btnEnquireText, btnBookText } =
+  Astro.props.data ?? PRICE_TAB_DATA;
+---
+
+<section
+  class="PriceTTC fixed bottom-0 left-0 z-10 w-full bg-gradient-to-r from-white via-purple-50 to-orange-50 pt-2 shadow-lg lg:pt-5"
+>
+  <div
+    class="flex w-full flex-col items-center justify-center text-center lg:flex-row lg:justify-around"
+  >
+    <img
+      alt=""
+      class="h-12 w-12 rounded-full border-2 border-orange-500 text-center"
+      src={imageSrc}
+    />
+    <div class="text-lg font-bold">
+      <h1 class="text-sm text-primary lg:text-xl">{title}</h1>
+      <h2 class="font-extrabold text-orange-600">
+        Starts From : <strike class="text-gray-500">{originalPrice}</strike>
+        {price}
+      </h2>
+    </div>
+
+    <div class="flex flex-row justify-around gap-4 px-5 font-bold">
+      <Button
+        class="w-full bg-gradient-to-r from-orange-500 to-orange-600 px-10 py-3 text-white shadow-lg transition-all duration-300 hover:from-orange-600 hover:to-orange-700 lg:px-20"
+        href={ROUTE_CONTACT}
+      >
+        {btnEnquireText}
+      </Button>
+      <!-- <button>INTINERARY</button> -->
+      <Button
+        class="w-full whitespace-nowrap bg-gradient-to-r from-primary to-purple-600 px-10 py-3 text-white shadow-lg transition-all duration-300 hover:from-purple-600 hover:to-purple-700 lg:px-20"
+        href={ROUTE_CONTACT}
+      >
+        {btnBookText}
+      </Button>
+    </div>
+  </div>
+</section>

@@ -7,9 +7,6 @@ interface Props {
 const { href, class: className = '' } = Astro.props;
 ---
 
-<a
-  href={href}
-  class={`inline-block cursor-pointer ${className}`}
->
+<a class:list={[`inline-block cursor-pointer`, `${className}`]} href={href}>
   <slot />
 </a>

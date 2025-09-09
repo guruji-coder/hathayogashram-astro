@@ -1,13 +1,13 @@
 // Layout components
-export { default as Footer } from "./layout/Footer.astro";
-export { default as Header } from "./layout/Header.astro";
+export { default as Footer } from './layout/Footer.astro';
+export { default as Header } from './layout/Header.astro';
 
 // Navigation components - Export individual navigation components
-export { default as Logo } from "./navigation/Logo.astro";
-export { default as TopBar } from "./navigation/TopBar.astro";
-export { default as DesktopNavigation } from "./navigation/DesktopNavigation.astro";
-export { default as MobileMenu } from "./navigation/MobileMenu.astro";
-export { default as MobileMenuButton } from "./navigation/MobileMenuButton.astro";
+export { default as Logo } from './navigation/Logo.astro';
+export { default as TopBar } from './navigation/TopBar.astro';
+export { default as DesktopNavigation } from './navigation/DesktopNavigation.astro';
+export { default as MobileMenu } from './navigation/MobileMenu.astro';
+export { default as MobileMenuButton } from './navigation/MobileMenuButton.astro';
 
 // UI components
 // export { default as AppleCardsCarousel } from '$ui/AppleCardsCarousel.svelte';
