@@ -1,7 +1,9 @@
 // TTC Course Sections
+export { default as TTC_CurriculumSection } from './TTC_CurriculumSection.astro';
 export { default as TTCDailyScheduleSection } from './TTCDailyScheduleSection.astro';
 export { default as TTCDatesSection } from './TTCDatesSection.astro';
 // export { default as TTCFAQSection } from './TTCFAQSection.astro';
+export { default as TTCExcursionsSection } from './TTCExcursionsSection.astro';
 export { default as TTCGuideIndia } from './TTCGuideIndia.astro';
 export { default as TTCHeroSection } from './TTCHeroSection.astro';
 export { default as TTCNavbarTab } from './TTCNavbarTab.astro';

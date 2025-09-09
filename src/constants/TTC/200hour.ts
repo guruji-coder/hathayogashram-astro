@@ -192,127 +192,666 @@ export const TRAINING_200_CAROUSEL_IMAGES = [
 // 200 HOUR CURRICULUM DATA
 // ===========================================
 
-export const TRAINING_200_CURRICULUM = {
-  TITLE: '200 Hour Yoga Teacher Training Curriculum',
-  MODULES: [
+export const TRAINING_200_CURRICULUM_SECTION: CurriculumSection = {
+  title: '200 Hour Yoga Teacher Training Curriculum',
+  items: [
     {
-      id: 1,
-      title: 'Yoga Philosophy & Ethics',
-      isExpanded: false,
+      id: 'mantra-chanting',
+      title: 'Mantra & Mantra Chanting',
       sections: [
         {
-          subtitle: 'Introduction to Yoga Philosophy',
-          description: 'Understanding the philosophical foundations of yoga practice',
+          title: 'Mantra',
+          description:
+            'Mantras are sacred sounds, words, or phrases which are recited to attain spiritual attention. In other words, a mantra is a tool of the mind. It helps the mind in focusing better.',
           items: [
-            'History and origins of yoga',
-            'The Eight Limbs of Yoga (Ashtanga)',
-            'Yamas and Niyamas - Ethical guidelines',
-            'Understanding Sanskrit terminology',
+            'Art of Mantra',
+            'Science of Mantra',
+            'Power of Mantra',
+            'Formation of Mantra',
+            'Mantra as a Religion',
+            'Vibration of Sound',
+          ],
+        },
+        {
+          title: 'Mantra Chanting',
+          description:
+            'Mantra Chanting is a powerful tool which develops a spiritual connection inside you. It, in turn, creates a balance between the body, mind, and spirit.',
+          items: [
+            'How to chant the mantra properly?',
+            'Om Mantra',
+            'Peaceful Shiva Mantra',
+            'Energetic Durga Mantra',
+            'Kundalini Mantra',
+            'Ganesha Mantra for removing hurdles',
+            'Joyous Krishna Mantra',
+            'Gayatri Mantra for the purification of the mind',
+            'Sahana Mantra for Guru Disciple Study',
+            'Guru Mantra for paying homage to Guru',
+            'Early Morning Chant - asato ma sadgamaya, tamaso ma jyotirgamaya, mrtyorma amrtam gamaya, om shanti shanti shanti ||',
+            'Surrender Mantra - twameva mata cha pita twameva, tvameva bandhushcha sakha tvameva, tvameva vidya dravinam tvameva, tvameva sarvam mama deva deva ||',
+            'Maha Mritunjaya Mantra - Om Tryambak Yajamahe, Sugandhim Pushtee-Vardhanam, Urvarukmeva Bandhanaan, Mrtyoh-Mrukshiya MaaMmrataat',
+            'Patanjali Mantra (Yogenacittasya)',
+            'Suryanamaskar 12 Mantra - Om Mitraaya Namaha, Om Ravaye Namaha, Om Suryaaya Namaha, Om Bhaanave Namaha, Om Khagaya Namaha, Om Pooshne Namaha, Om Hiranyagarbhaaya Namaha, Om Mareechaye Namaha, Om Adityaaya Namaha, Om Savitre Namaha, Om Aarkaaya Namaha, Om Bhaskaraaya Namaha',
           ],
         },
       ],
     },
     {
-      id: 2,
-      title: 'Asana Practice & Alignment',
-      isExpanded: false,
+      id: 'traditional-hatha-yoga',
+      title: 'Traditional Hatha Yoga',
       sections: [
         {
-          subtitle: 'Fundamental Postures',
-          description: 'Master the essential yoga postures with proper alignment',
+          title: 'Practice Sessions',
+          description:
+            "Traditional Hatha Yoga sessions conducted by our school are a positive workout for one's physical and mental wellness. It originated years ago with the aim to attain health and peace. The practice also benefits you with strength and flexibility.",
           items: [
-            'Sun Salutations (Surya Namaskara)',
-            'Standing postures and their variations',
-            'Seated postures and forward bends',
-            'Backbends and heart opening poses',
-            'Twisting postures',
-            'Inversions and arm balances',
+            'PavanMuktasana series 1 (15 practices)',
+            'PavanMuktasana series 2 (10 practices)',
+            'PavanMuktasana series 3 (10 practices)',
+            'Centering postures series (Yoga Sequence Builder) (5 practices)',
+            'Surya Namaskar (Sun Salutation) (12 asana series)',
+            'Chandra Namaskar (Moon Salutation) (12 Asana Series)',
+            'Standing postures series (10 practices)',
+            'Kneeling postures series (5 practices)',
+            'Sitting Postures series (10 practices)',
+            'Forward bending postures series (5 practices)',
+            'Backward bending postures series (5 practices)',
+            'Supine postures series (6 practices)',
+            'Prone Postures series (5 practices)',
+            'Fire Series series (5 practices)',
+            'Inversions series (5 practices)',
+            'Twisting postures series (5 practices)',
+            'Balancing Postures series (5 practices)',
+            'Relaxing Posture series (5 practices)',
+            'Meditative Asana Series (5 practices)',
+          ],
+        },
+        {
+          title: 'Theory of Hatha Yoga',
+          description:
+            'You have done practice sessions but what about theory? It is also as important as practice sessions. If you are not theoretically aware of Hatha yoga and its elements, you are not able to practice it well.',
+          items: [
+            'Hatha Yoga Philosophy',
+            'Ancient Scriptures & Texts of Hatha Yoga',
+            'Aim and Objectives',
+            'Yoga as a Therapy',
+            'Yoga as Balancing',
+            'Connection of Hatha Yoga with Chakras, Nadis, Kundalini, and the Subtle Body',
           ],
         },
       ],
     },
     {
-      id: 3,
-      title: 'Pranayama & Breathwork',
-      isExpanded: false,
+      id: 'ashtanga-yoga',
+      title: 'Ashtanga Yoga',
       sections: [
         {
-          subtitle: 'Breathing Techniques',
-          description: 'Learn ancient breathing practices for health and spiritual growth',
+          title: 'Theory and Foundation',
+          description:
+            'More than a teaching session conducted by yog gurus, Ashtanga Yoga is a self-assisted and practice class. All students are doing the same sequence and postures, supported by experienced teachers.',
           items: [
-            'Basic breathing awareness',
-            'Ujjayi breath (Victorious breath)',
-            'Nadi Shodhana (Alternate nostril breathing)',
-            'Kapalabhati (Skull shining breath)',
-            'Bhastrika (Bellows breath)',
-            'Bhramari (Bee breath)',
+            'Introduction',
+            'History',
+            'Awakening the Inner Fire',
+            'The Breath of Life (Prana)',
+            'Chakras',
+            'Eight Limbs of Yoga (Ashtanga Yoga)',
+            'The practice of K.Pattabhi Jois',
+            'Bandha practice',
+            'Drishti (Focusing the Attention)',
+            'Cleansing & Purification',
+            'Developing a pious platform for yogic practice',
+            'Use of yoga props and instruments',
+            'Sun Salutation A & B (week 1) - Surya Namaskar Series A & B',
+            'Standing Asana Series (week 2)',
+            'Sitting Asana Series (Week 3)',
+            'Finishing Asana Series (Week 3)',
+            'Teaching Practices (Traditional & Mysore Style- Week 4)',
+          ],
+        },
+        {
+          title: 'Standing and Sitting Postures',
+          description: '',
+          items: [
+            'Padangustasana (Big toes Posture)',
+            'Pada hastasana (Hand under foot posture)',
+            'Utthita trikoṇasana (A+B) (Triangle posture)',
+            'Utthita parsvakonasana (A+B) (Extended side angle pose)',
+            'Prasarita padottanasana (A,B,C,D) (Intense wide leg stretch)',
+            'Parsvottanasana (Intense side stretch posture)',
+            'Utthita Hasta Padangusṭasana- hand to big toe posture',
+            'Ardha bandha padmottanasana (Half-bound lotus forward bend)',
+            'Utkatasana (Fierce pose)',
+            'Virabhadrasana (Warrier pose) A+B',
+            'Dandasana (Staff pose)',
+            'Pascimattanasana (Intense west stretch or sitting forward bend)',
+            'Purvattanasana (Intense east stretch)',
+            'Ardha bandha padma pascimattanasana (Half bound lotus forward bend)',
+            'Tiryangmukha Eka pada pascimattanasana (Reverse the leg, one leg intense stretch)',
+            'Janusirsasana (Head-to-knee pose)',
+            'Marichyasana (Leg Binding Pose)',
+            'Navasana (Boat Pose)',
+            'Bhujapiḍasana (Shoulder Pressure Pose)',
+            'Kurmasana (Tortoise Pose)',
+            'Suptakurmasana (Reclining Turtle Pose Yoga)',
+            'Garbhapindasana (Womb Pose)',
+            'Kukkutasana (Cockerel Pose, or Rooster Posture)',
+            'Baddha Konasana (Bound Angle Pose, Butterfly Pos',
+            'Upavistha Konasana (Seated Angle Posture)',
+            'Suptakonasana',
+            'Supta Padangustasna',
+            'Ubhaya Padangustasna',
+            'Urdhvamukha Pascimattanasana',
+            'Setubandhasana (Bridge Pose)',
+          ],
+        },
+        {
+          title: 'Finishing Postures',
+          description: '',
+          items: [
+            'Urdhva Dhanurasana (upward bow posture)',
+            'Salaṁba sarvangasana (shoulder stand posture)',
+            'Halasana (plough posture)',
+            'Karṇa pidasana (ear pressure posture)',
+            'Pindasana (Embryo Pose)',
+            'Matsyasana (Fish Pose)',
+            'Uttanapadasana (Leg Lifting Posture)',
+            'Chakrasana (Wheel Pose)',
+            'Shirshasana (Yoga Headstand)',
+            'Baddhapadmāsana (Bound Lotus Posture)',
+            'Yoga Mudra',
+            'Padmasana (Lotus Pose)',
+            'Utpluthiḥ',
+            'Savasana (Corpse Pose)',
           ],
         },
       ],
     },
     {
-      id: 4,
-      title: 'Meditation & Mindfulness',
-      isExpanded: false,
+      id: 'pranayama',
+      title: 'Pranayama (Breathing Practices)',
       sections: [
         {
-          subtitle: 'Meditation Practices',
-          description: 'Develop concentration and inner awareness',
+          title: 'Theory and Foundation',
+          description:
+            'Prana, the life energy Yama means control. It is the foundation practice of traditional form of yoga. It is not just a breathing practice but much more than this. The class of pranayama reveals its secrets and the power of pranayama to gain the right health, peace, and balance.',
           items: [
-            'Concentration techniques (Dharana)',
-            'Mindfulness meditation',
-            'Walking meditation',
-            'Loving-kindness meditation',
-            'Chakra meditation',
-            'Mantra meditation',
+            'Definition of Prana',
+            'Definition of Pranayama',
+            'Definition of breath',
+            'Connection of the Prana and the breath',
+            'Importance of Pranayama',
+            'Benefits of Pranayama',
+            'Preparing ourselves to practice pranayama',
+            'Aspects of Breathing',
+            'Ancient Texts of Breathing',
+            'General understanding',
+            'Knowledge of nostrils',
+            'Activating nostrils for pranayama',
+            'Secrets of Pranayama',
+            'Breath flow in 5 elements',
+            'Unit of Prana',
+            'Function of Prana',
+            'Three levels of Prana',
+            'Three Gunas',
+            'Flow of Prana',
+            'Quality of breath',
+            'Imbalance of Prana',
+            'Retention of breath',
+            '6 Sitting postures for Pranayama practices',
+            'Breathing pattern',
+            'Chakras and Kundalini connect with Prana',
+          ],
+        },
+        {
+          title: 'Beginners and Intermediate Practices',
+          description: '',
+          items: [
+            'Clavicular Pranayama',
+            'Thoracic Pranayama',
+            'Diaphragmatic Pranayama',
+            'Yogic Pranayama',
+            'Pranava Pranayama (Om Meditation Breathing)',
+            'Nadi Shodhana Pranayama or Anulom Vilom Pranayama',
+            'Bhastrika Pranayama (Bellows Breath)',
+            'Kapalbhati Pranayama (Skull Shining Breath)',
+            'Bhramari Pranayama (Humming Bee Breath)',
+            'Ujjayi Pranayama (Ocean Breath)',
+            'Sitali Pranayama (Cooling Breath)',
+            'Sitkari Pranayama (Hissing Breath)',
+            'Murcha Pranayama (Swooning Breath Yoga)',
+            'Surya Bhedi Pranayama (Right Nostril Breathing)',
+            'Chandra Bhedi Pranayama (Left Nostril Breathing)',
           ],
         },
       ],
     },
     {
-      id: 5,
-      title: 'Anatomy & Physiology',
-      isExpanded: false,
+      id: 'meditation',
+      title: 'Meditation (Dhyana)',
       sections: [
         {
-          subtitle: 'Yoga Anatomy',
-          description: 'Understanding the body in yoga practice',
+          title: 'Foundation and Theory',
+          description:
+            'Just like you involve your body in physical exercise for its benefits, in the same way, meditation is an exercise for mental health. With the power of meditation, you can control your mind and block negative and unnecessary thoughts. You enter into a deep state of relaxation where peace is the ultimate goal.',
           items: [
-            'Basic anatomy for yoga teachers',
-            'Common injuries and prevention',
-            'Modifications and props usage',
-            'Understanding body alignment',
-            'Respiratory and nervous system',
-            'Chakras and energy anatomy',
+            'What is Meditation?',
+            'History and Origin of Meditation',
+            'How to prepare yourself for Meditation?',
+            'What Meditation is actually?',
+            'What Meditation is not?',
+            'Why to meditate?',
+            'How to meditate?',
+            'Where to meditate?',
+            'When to meditate?',
+            'Philosophy of Meditation',
+            'Meditation Traditions',
+            'Meditation Scriptures',
+            'Aim and Objectives of Meditation',
+            'Sitting Positions',
+            'How to Sit Correctly',
+            'Preliminary Practices Before Practicing Meditation',
+            'Diaphragmatic Breathing in Meditation',
+            'Correct Breathing in Meditation',
+            'How to Relax in Meditation?',
+            'Lifestyle in Meditation',
+            'Diet of Meditation',
+            'Why should one sleep while meditating?',
+            'What are the rules of meditation?',
+          ],
+        },
+        {
+          title: 'Meditation Practices',
+          description: '',
+          items: [
+            'Basics Foundation Meditation Practice',
+            'Breath- Mind- Mantra Awareness',
+            'Trataka Meditation',
+            'Music Meditation',
+            'Om Meditation',
+            'Mantra Power Meditation',
+            'Dynamic Moving Meditation (Osho)',
+            'Buddha Walking Meditation',
+            'Karma Yoga Meditation',
+            'Natraj Meditation',
+            'Sufi Meditation',
+            'Gaurishankar Meditation',
+            'Ajna Chakra Awakening Meditation',
+            'Kundalini Active Meditation',
+            'Breath Awareness (Anapana)',
+            'Mindfulness and Sensation',
+            'Total Awareness Practice',
+            'How to Do Japa (recitation)',
+            'Kirtan Even and Creating a Spiritual Vibe',
+            'One-Day Silence Meditation',
+            'Silence Practice',
           ],
         },
       ],
     },
     {
-      id: 6,
+      id: 'yoga-nidra',
+      title: 'Yoga Nidra (Psychic Sleep)',
+      sections: [
+        {
+          title: 'Theory and Practice',
+          description:
+            'Yoga Nidra is also known as Psychic Sleep. The practice creates a state between waking and sleeping. It is a state of consciousness. One can go into this deep and conscious sleep with the practice of guided meditation. Yoga Nidra can also be termed as the victory over sleep.',
+          items: [
+            'Basics of Yoga Nidra',
+            'Meaning of Yoga Nidra',
+            'Purpose of Yoga Nidra',
+            'Different Schools of Yoga Nidra',
+            'Traditions of Yoga Nidra',
+            'Tantric Origin of Yoga Nidra',
+            'Lifestyle for Yoga Nidra Practitioners',
+            'Rules for Yoga Nidra Practitioners',
+            'Benefits of Yoga Nidra',
+            'Risks of Yoga Nidra',
+            'Difference Between Yoga Nidra and Meditation',
+            'Yoga Nidra Experience',
+            'Yoga Nidra and Healing',
+            '4 States of Consciousness',
+            '3 Body Awareness',
+            'Tension Relaxation',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'shatkarma',
+      title: 'Yoga Cleansing (Shatkarma)',
+      sections: [
+        {
+          title: 'Theory and Practices',
+          description:
+            'Shat means Six and Karma means Actions. Thus, as per yogic science, Shatkarma is six cleansing actions that help to clean your body and mind. It is well described in the Hatha Yoga Tradition.',
+          items: [
+            'Introduction to Shatkarma',
+            'Benefits of Shatkarma',
+            'Risks of Shatkarma',
+            'Who should practice it?',
+            'Who should not practice it?',
+            'Experiences',
+            'Preparation to Shatkarma',
+            'Practices After Completing It',
+            'Cleansing of Nadis or Energy Channels',
+            'Jihwa Dhauti (Tongue Cleansing)',
+            'Danta Dhauti (Teeth Cleansing)',
+            'Karna Dhauti (Ear Cleansing)',
+            'Jalaneti (Cleansing with Water)',
+            'Kapalbhati (Mind Cleansing)',
+            'Agnisara (Cleansing with Fire)',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'yoga-philosophy',
+      title: 'Yoga Philosophy (Yoga Darshana)',
+      sections: [
+        {
+          title: 'The World of Wisdom (Week 1)',
+          description:
+            "Yoga Philosophy is a powerful subject that can change one's life. Many are confused that it only exists in Patanjali's Yoga Sutras but this is not true. It is the philosophy of life.",
+          items: [
+            'Introduction to Indian Culture',
+            'Spirituality and Himalayan Tradition',
+            'Introduction to the Ancient Scriptures of Yoga and Spirituality',
+            'Meaning of Indian Philosophy',
+            'Purpose of Indian Philosophy',
+            'Introduction to 9 Major Indian Philosophy',
+            'What is Yoga Philosophy the Most Important among All?',
+            'History of Yoga',
+            'Types of Yoga',
+          ],
+        },
+        {
+          title: 'Yoga Sutras of Patanjali (Week 2)',
+          description: '',
+          items: [
+            'Patanjali and His Work',
+            'Introduction to Yoga Sutras Text',
+            'Eight Limbs of Yoga (Ahimsa, Satya, Asteya, Brahmacharya, Aparigraha, Saucha, Santosha, and Tapas)',
+            'Yamas & Niyamas',
+            'Philosophy of Asana & Pranayama',
+            'Karmic Science',
+          ],
+        },
+        {
+          title: 'Internal Limbs and Wisdom (Week 3-4)',
+          description: '',
+          items: [
+            'Concentration, Meditation, and Samadhi',
+            'First Chapter',
+            'Second Chapter',
+            'Third and Fourth Chapters of Patanjali',
+            'Mind and Its Control',
+            'Introduction to Bhagavat Geeta & Upanishad',
+            'Chakras',
+            'Nadi',
+            'Kundalini',
+            'Three Fold Pain',
+            'Three Bodies (Sharira)',
+            'Pancha kosha',
+            'Tri-guna',
+            'Mahabhuta (Theory of Elements)',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'anatomy-physiology',
+      title: 'Anatomy & Physiology (Sharir Vijnan)',
+      sections: [
+        {
+          title: 'Physical Anatomy',
+          description:
+            'In yoga, anatomy is a crucial subject for yoga teachers and learners. In the class, you will get to know physical anatomy and spiritual anatomy.',
+          items: [
+            'Introduction to Body',
+            'Bodily Structures',
+            'Body Planes',
+            'Anatomical Movements',
+            'Bones of the Skull',
+            'Cervical Vertebrae',
+            'Shoulder Girdle/ Arm Bones/ Pelvic Region',
+            'Deformities of the Spine',
+            'Lower Extremity',
+            'Tendons and Ligaments',
+            'Muscular System',
+            'Nervous System',
+            'Respiratory System',
+          ],
+        },
+        {
+          title: 'Spiritual Anatomy',
+          description: '',
+          items: [
+            'Nadi (Energy Channel)',
+            'Chakras (Energy Centres)',
+            'Kundalini (Prime Energy and Souce of All Creativity)',
+            'Pancha kosha (5 Layers)',
+            'Pancha Mahabhuta (5 Elements and Body Structure)',
+            'Tri-Guna (Three Attributes)',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'yoga-therapy',
+      title: 'Yoga Therapy',
+      sections: [
+        {
+          title: 'Healing Through Yoga',
+          description:
+            'Yoga is the wellness science for nurturing the body, mind and spirit. It is the natural healing process to keep you healthy and free from illness.',
+          items: [
+            'Definition of Yoga Therapy',
+            'Rules and Regulations of Yoga Therapy',
+            'Healing Through Asana, Pranayama and Meditation',
+            'Therapy for Common Diseases',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'ayurveda',
+      title: 'Ayurveda',
+      sections: [
+        {
+          title: 'Science of Life',
+          description:
+            'Ayurveda is the oldest and the most natural system of medicine that originated in India years ago. It is approximately 3000 years ago medicinal science.',
+          items: [
+            'What is Ayurveda?',
+            'Ayurvedic Treatment and its Unique Features',
+            'Ayurveda and Its Diversified Areas',
+            'Ashtanga Ayurveda',
+            'Fundamentals of Ayurveda',
+            'Panchamahabhuta [Earth (Prithvi), Water (Jal), Fire (Agni), Air (Vayu) and Aether / Space (Aakash)]',
+            'Kapha',
+            'Vata',
+            'Pitta',
+            'Prakriti- Know Your Constitution',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'mudras',
+      title: 'Mudras',
+      sections: [
+        {
+          title: 'Symbolic Gestures',
+          description:
+            'Mudra is a symbolic gesture. It is normally practices with hands and fingers, explaining the flow of energy in the subtle body. It brings a wondrous change in body and mind.',
+          items: [
+            'Mudras',
+            'The Secrets of Mudra',
+            'The Position of Elements in the Hands',
+            'The Need for Mudra',
+            'Advantages of Mudras',
+            'Special Guidelines About Mudra',
+            'Gyan Mudra (Gesture of Wisdom)',
+            'Purn Gyan Mudra (Gesture of Complete Wisdom)',
+            'Vairagya Mudra (Gesture of Dispassion)',
+            'Abhaya Mudra (Gesture of Fearlessness)',
+            'Dhyana Mudra (Meditation Mudra)',
+            'Vayu Mudra (Gesture of Air)',
+            'Pran Mudra (Gesture of Prana)',
+            'Prithvi Mudra (Gesture of Earth)',
+            'Surya Mudra (Gesture of Sun)',
+            'Varun Mudra (Gesture of God of Water)',
+            'Shoonya mudra (Gesture of Openness, Space)',
+            'Pran-Apan Mudra (Gesture of Prana Apana)',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'bandhas',
+      title: 'Bandhas (Energy Lock)',
+      sections: [
+        {
+          title: 'Theory and Practices',
+          description:
+            'Bandhas is the Sanskrit word which means Lock. The aim of it is to block the energy flow from a particular part of the body. When the lock is opened, then the energy flows properly throughout the body.',
+          items: [
+            'Meaning and Importance of Energy Lock',
+            'Why the Energy Lock and How Our Energy Gets Drained',
+            'Energy Knots and How to Open Them',
+            'Understanding the Three Chakras (Muladhara, Manipura, Visuddhi)',
+            'Experience with Energy Lock',
+            'Benefits and Risks of Bandha Practices',
+            'Agnisar (Preparation to Uddiyana)',
+            'Vahir Kumbhaka (External Retention)',
+            'Antar Kumbhaka (Internal Rentention)',
+            'Ashwini Mudra to prepare Mulabandha',
+            'Vajroli Mudra to prepare Mulabandha',
+            'Mula bandhas (Root lock)',
+            'Uddiyana bandha (Abdominal lock)',
+            'Jalandhar Bandha (Throat Lock)',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'teaching-methodology',
       title: 'Teaching Methodology',
-      isExpanded: false,
       sections: [
         {
-          subtitle: 'Art of Teaching',
-          description: 'Learn effective teaching techniques and class management',
+          title: 'From Student to Teacher',
+          description:
+            'While being a student, it is also necessary to learn to teach. You are on a journey from being a student to a teacher.',
           items: [
-            'Class sequencing principles',
-            'Verbal and physical adjustments',
-            'Creating a safe learning environment',
-            'Working with different student levels',
-            'Teaching ethics and boundaries',
-            'Practice teaching sessions',
+            'Proper sequence',
+            'Avoid injuries',
+            'Happiness during and after the practice',
+            'Work with various styles of yoga and in all levels',
+            'Meditative experience',
+            'Managing the energy flow',
+            'Balancing the energy flow',
+            'Proper demonstration of a Yoga practice',
+            'The proper way to instruct and guide a lesson',
+            'Proper alignment of yoga postures',
+            'Proper adjustment with/ without props',
+            'Yogic personality establishment',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'alignment',
+      title: 'Alignment',
+      sections: [
+        {
+          title: 'Correct Positioning',
+          description:
+            'In yoga, alignment is the right way to perform any asana so that one can minimise the risk of injury and reap maximum benefits from it.',
+          items: [
+            'Sense of alignment',
+            'Role of alignment in daily practice',
+            'Balancing prana & chakras',
+            'Alignment and 5 koshas',
+            'Importance of Alignment',
+            'A different aspect of Alignment',
+            'Minimising the risk of injuries',
+            'Increase the movement of joints',
+            'Alignment based on body regions',
+            'Upper Limb alignment',
+            'Lower Limb alignment',
+            'Torso – Thorax - Abdomen – Pelvis Alignment',
+            'Alignment of Head & Neck',
+            'Alignment of the spine',
+            'Basic postures of alignment',
+            'Bringing the body into comfortable zone',
+            'Balancing the body and mind',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'adjustment',
+      title: 'Adjustment',
+      sections: [
+        {
+          title: 'Adjustment Techniques',
+          description: 'Adjustment in yoga is also about learning the correct technique of yoga.',
+          items: [
+            'What is yoga adjustment?',
+            'Sense of yoga adjustment',
+            'Level of yoga adjustment',
+            'Why adjustment is needed in yoga asana',
+            'Role of adjustments in yoga asana class',
+            'The right technique for perfect adjustment',
+            'Bandhas',
+            'Dynamics of each asana',
+            'How to adjust self adjust in a posture',
+            'How to adjust to others during the class',
+            'Methods of Adjustment',
+            'Tools and props to achieve the peak in the posture',
+            'Body weight management',
+            'Safety rules',
+            'Preparations for adjustment',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'yoga-for-health',
+      title: 'Yoga For Health',
+      sections: [
+        {
+          title: 'Therapeutic Applications',
+          description: '',
+          items: [
+            'Yogic counselling for a healthy life.',
+            'Yogic techniques to use in daily lifestyle.',
+            'Yoga cures common diseases like Headaches, migraine, colds, sinus, etc.',
+            'Yoga tools for back issues like backache, slipped disk, sciatica, diabetes, thyroid, spinal deformities, obesity, etc.',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'evaluation-certification',
+      title: 'Evaluation & Certification',
+      sections: [
+        {
+          title: 'Assessment Criteria',
+          description: '',
+          items: [
+            'Performance during the course',
+            'Attendance',
+            'Practical asana demonstration test',
+            'Written test (Objective and subjective type)',
+            'Behavior',
           ],
         },
       ],
     },
   ],
-  CTA: {
-    SUBTITLE: 'Ready to begin your transformational yoga journey?',
-    BUTTON_TEXT: 'Enroll Now',
-    LINK: '/contact',
-  },
 };
 
 // ===========================================
@@ -330,35 +869,125 @@ export const TRAINING_200_COURSE_DATES_SECTION = {
       private: { type: 'Private Room', amount: '$1199' },
       shared: { type: '2 Sharing Room', amount: '$999' },
       shared3: { type: '3 Sharing Room', amount: '$799', note: 'Females Only' },
-      shared4: { type: '4 Sharing Room', amount: '$649', note: 'Females Only' }
+      shared4: { type: '4 Sharing Room', amount: '$649', note: 'Females Only' },
     },
-    withoutStay: { amount: '$699', note: 'Food included' }
+    withoutStay: { amount: '$699', note: 'Food included' },
   },
   dates: {
     '2025': [
-      { id: 'oct-2025', startDate: '1st Oct', endDate: '24th Oct', status: 'available', seatsLeft: 18 },
-      { id: 'nov-2025', startDate: '1st Nov', endDate: '24th Nov', status: 'available', seatsLeft: 20 },
-      { id: 'dec-2025', startDate: '1st Dec', endDate: '24th Dec', status: 'available', seatsLeft: 20 }
+      {
+        id: 'oct-2025',
+        startDate: '1st Oct',
+        endDate: '24th Oct',
+        status: 'available',
+        seatsLeft: 18,
+      },
+      {
+        id: 'nov-2025',
+        startDate: '1st Nov',
+        endDate: '24th Nov',
+        status: 'available',
+        seatsLeft: 20,
+      },
+      {
+        id: 'dec-2025',
+        startDate: '1st Dec',
+        endDate: '24th Dec',
+        status: 'available',
+        seatsLeft: 20,
+      },
     ],
     '2026': [
-      { id: 'jan-2026', startDate: '1st Jan', endDate: '24th Jan', status: 'available', seatsLeft: 20 },
-      { id: 'feb-2026', startDate: '1st Feb', endDate: '24th Feb', status: 'available', seatsLeft: 20 },
-      { id: 'mar-2026', startDate: '1st Mar', endDate: '24th Mar', status: 'available', seatsLeft: 20 },
-      { id: 'apr-2026', startDate: '1st Apr', endDate: '24th Apr', status: 'available', seatsLeft: 20 },
-      { id: 'may-2026', startDate: '1st May', endDate: '24th May', status: 'available', seatsLeft: 20 },
-      { id: 'jun-2026', startDate: '1st Jun', endDate: '24th Jun', status: 'available', seatsLeft: 20 },
-      { id: 'jul-2026', startDate: '1st Jul', endDate: '24th Jul', status: 'available', seatsLeft: 20 },
-      { id: 'aug-2026', startDate: '1st Aug', endDate: '24th Aug', status: 'available', seatsLeft: 20 },
-      { id: 'sep-2026', startDate: '1st Sep', endDate: '24th Sep', status: 'available', seatsLeft: 20 },
-      { id: 'oct-2026', startDate: '1st Oct', endDate: '24th Oct', status: 'available', seatsLeft: 20 },
-      { id: 'nov-2026', startDate: '1st Nov', endDate: '24th Nov', status: 'available', seatsLeft: 20 },
-      { id: 'dec-2026', startDate: '1st Dec', endDate: '24th Dec', status: 'available', seatsLeft: 20 }
-    ]
+      {
+        id: 'jan-2026',
+        startDate: '1st Jan',
+        endDate: '24th Jan',
+        status: 'available',
+        seatsLeft: 20,
+      },
+      {
+        id: 'feb-2026',
+        startDate: '1st Feb',
+        endDate: '24th Feb',
+        status: 'available',
+        seatsLeft: 20,
+      },
+      {
+        id: 'mar-2026',
+        startDate: '1st Mar',
+        endDate: '24th Mar',
+        status: 'available',
+        seatsLeft: 20,
+      },
+      {
+        id: 'apr-2026',
+        startDate: '1st Apr',
+        endDate: '24th Apr',
+        status: 'available',
+        seatsLeft: 20,
+      },
+      {
+        id: 'may-2026',
+        startDate: '1st May',
+        endDate: '24th May',
+        status: 'available',
+        seatsLeft: 20,
+      },
+      {
+        id: 'jun-2026',
+        startDate: '1st Jun',
+        endDate: '24th Jun',
+        status: 'available',
+        seatsLeft: 20,
+      },
+      {
+        id: 'jul-2026',
+        startDate: '1st Jul',
+        endDate: '24th Jul',
+        status: 'available',
+        seatsLeft: 20,
+      },
+      {
+        id: 'aug-2026',
+        startDate: '1st Aug',
+        endDate: '24th Aug',
+        status: 'available',
+        seatsLeft: 20,
+      },
+      {
+        id: 'sep-2026',
+        startDate: '1st Sep',
+        endDate: '24th Sep',
+        status: 'available',
+        seatsLeft: 20,
+      },
+      {
+        id: 'oct-2026',
+        startDate: '1st Oct',
+        endDate: '24th Oct',
+        status: 'available',
+        seatsLeft: 20,
+      },
+      {
+        id: 'nov-2026',
+        startDate: '1st Nov',
+        endDate: '24th Nov',
+        status: 'available',
+        seatsLeft: 20,
+      },
+      {
+        id: 'dec-2026',
+        startDate: '1st Dec',
+        endDate: '24th Dec',
+        status: 'available',
+        seatsLeft: 20,
+      },
+    ],
   },
   bookingButton: {
     text: 'Book Now',
-    whatsappText: 'Enroll Now'
-  }
+    whatsappText: 'Enroll Now',
+  },
 };
 
 // ===========================================
@@ -402,7 +1031,6 @@ export const MINI_CAROUSEL_IMAGES = [
   'https://images.unsplash.com/photo-1591382696684-b3d1a1f0b1fe?w=200',
 ];
 
-
 // ...existing code...
 
 export const TRAINING_200_INCLUDED_EXCLUDED_SECTION = {
@@ -418,8 +1046,8 @@ export const TRAINING_200_INCLUDED_EXCLUDED_SECTION = {
         'Daily nutritious vegetarian, vegan meals',
         'Kirtan night',
         'Full body massage',
-        'Weekend excursions'
-      ]
+        'Weekend excursions',
+      ],
     },
     {
       id: 'excluded',
@@ -428,8 +1056,8 @@ export const TRAINING_200_INCLUDED_EXCLUDED_SECTION = {
       items: [
         'Ayurvedic Panchakarma & Treatment',
         'Air-conditioner (On Additional Charges)',
-        'Visa fee/Air fare/Taxi pick-up from Delhi, Haridwar'
-      ]
+        'Visa fee/Air fare/Taxi pick-up from Delhi, Haridwar',
+      ],
     },
     {
       id: 'bring',
@@ -445,34 +1073,34 @@ export const TRAINING_200_INCLUDED_EXCLUDED_SECTION = {
             'Outer layer (sweatshirt or light jacket/fleece)',
             'Sleepwear',
             'Sandals or flip-flops',
-            'Please carry a bath towel'
-          ]
+            'Please carry a bath towel',
+          ],
         },
         {
           title: 'Yoga Mat',
           items: [
             'Our schools offer mats however, if you are used to your own, bring one from home',
-            'We Provide You All The Course Material'
-          ]
+            'We Provide You All The Course Material',
+          ],
         },
         {
           title: 'Toiletries',
           items: [
             'Carry essentials like deodorants, mosquito-repellents, sanitary towels',
-            'Soap or Shampoo (You can also buy locally from nearby shop)'
-          ]
+            'Soap or Shampoo (You can also buy locally from nearby shop)',
+          ],
         },
         {
           title: 'Medicines',
           items: [
             'Multivitamins and supplements if not used to vegetarian meals',
             'Prescription medicines, allergy medicines, flu medicines',
-            'Muscle pain relief or eye drops for dryness'
-          ]
-        }
-      ]
-    }
-  ]
+            'Muscle pain relief or eye drops for dryness',
+          ],
+        },
+      ],
+    },
+  ],
 };
 
 export const TRAINING_200_COURSE_FAQ_SECTION = {
@@ -541,6 +1169,53 @@ export const TRAINING_200_COURSE_FAQ_SECTION = {
   },
 };
 
+// ===========================================
+// EXCURSION SECTION DATA
+// ===========================================
+
+export interface ExcursionItem {
+  src: string;
+  label: string;
+}
+
+export interface ExcursionSection {
+  title: string;
+  description: string;
+  items: ExcursionItem[];
+}
+
+export const TRAINING_200_EXCURSIONS_SECTION: ExcursionSection = {
+  title: 'Excursion With This Course',
+  description: `We know how important it is for our students to feel connected to the place they are studying yoga. That’s why our curriculum includes spiritual, educational, and relaxing trips to Yogic Caves, the sacred river Ganges, the Himalayan mountain, local sightseeing and much more!`,
+  items: [
+    { src: '/vys-excursion1.jpg', label: 'Ganga Aarti' },
+    { src: '/vys-excursion2.jpg', label: 'Rafting' },
+    { src: '/vys-excursion3.jpg', label: 'Vashishtha Cave' },
+    { src: '/vys-excursion4.jpg', label: 'Waterfall' },
+    { src: '/vys-excursion5.jpg', label: 'Kunjapuri Temple' },
+    // Add more excursion images as needed
+  ],
+};
+
+// ===========================================
+// 200 HOUR CURRICULUM DETAILED DATA
+// ===========================================
+
+export interface CurriculumItem {
+  id: string;
+  title: string;
+  sections: Array<{
+    title: string;
+    description: string;
+    items: string[];
+  }>;
+}
+
+export interface CurriculumSection {
+  title: string;
+  items: CurriculumItem[];
+}
+
 export const TRAINING_200_COURSE_FAQ_STYLES = {
   SECTION_PADDING: 'py-16 px-4',
   CONTAINER: 'container mx-auto max-w-full mx-30',
@@ -558,9 +1233,8 @@ export const TRAINING_200_COURSE_FAQ_STYLES = {
   ANSWER_CONTAINER: 'bg-gray-50 px-6 py-4',
   ANSWER_TEXT: 'text-gray-700 leading-relaxed text-sm md:text-base pl-12',
   CTA_BUTTON:
-    'inline-block bg-purple-900 text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-800 transition-colors duration-300 shadow-lg hover:shadow-xl',
+    'inline-block bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-800 transition-colors duration-300 shadow-lg hover:shadow-xl',
 };
-
 
 export const PRICE_TAB_DATA = {
   imageSrc: '/hya.jpg',
@@ -577,14 +1251,15 @@ export const PRICE_TAB_DATA = {
 
 export const TTC_NAVBAR_DATA = {
   navigationLinks: [
-    { label: 'Curriculum', href: '#BestCourse', id: 'curriculum' },
+    { label: 'Curriculum', href: '#Curriculum', id: 'curriculum' },
     { label: 'Schedule', href: '#DailySchedule', id: 'schedule' },
     { label: 'Dates', href: '#Dates', id: 'dates' },
     { label: 'Location', href: '#Location', id: 'location' },
   ],
   styling: {
     containerClass: 'container mx-auto px-4',
-    navbarClass: 'pointer-events-none fixed left-0 right-0 top-0 z-50 -translate-y-full transform border-b border-orange-200 bg-white/95 opacity-0 shadow-lg backdrop-blur-md transition-all duration-300 ease-in-out',
+    navbarClass:
+      'pointer-events-none fixed left-0 right-0 top-0 z-50 -translate-y-full transform border-b border-orange-200 bg-white/95 opacity-0 shadow-lg backdrop-blur-md transition-all duration-300 ease-in-out',
     linkClass: 'nav-link',
     dividerClass: 'nav-divider',
   },

@@ -10,20 +10,28 @@ import {
 <div class:list={HEADER_STYLES.TOP_BAR_BACKGROUND}>
   <div class="container mx-auto px-4">
     <div
-      class:list={[`flex justify-between items-center`,`${HEADER_STYLES.TOP_BAR_TEXT_SIZE}`,`text-gray-600`]}
+      class:list={[
+        `flex items-center justify-between`,
+        `${HEADER_STYLES.TOP_BAR_TEXT_SIZE}`,
+        `text-gray-600`,
+      ]}
     >
       <div class="flex items-center space-x-4">
         <a
-          class:list={[`flex items-center`,`${HEADER_STYLES.TOP_BAR_LINK_COLORS}`]}           href={HEADER_CONTACT.ADDRESS.GOOGLE_MAPS_URL}           rel="noopener noreferrer"           target="_blank"
+          class:list={[`flex items-center`, `${HEADER_STYLES.TOP_BAR_LINK_COLORS}`]}
+          href={HEADER_CONTACT.ADDRESS.GOOGLE_MAPS_URL}
+          rel="noopener noreferrer"
+          target="_blank"
         >
-          <i class:list={[`${HEADER_CONTACT.ADDRESS.ICON}`,`mr-2`]}></i>
+          <i class:list={[`${HEADER_CONTACT.ADDRESS.ICON}`, `mr-2`]}></i>
           <span class="inline lg:hidden">LOCATION</span>
           <span class="hidden lg:inline">{HEADER_CONTACT.ADDRESS.TEXT}</span>
         </a>
         <a
-          class:list={[`flex items-center`,`${HEADER_STYLES.TOP_BAR_LINK_COLORS}`]}           href={HEADER_CONTACT.PHONE.WHATSAPP_URL}
+          class:list={[`flex items-center`, `${HEADER_STYLES.TOP_BAR_LINK_COLORS}`]}
+          href={HEADER_CONTACT.PHONE.WHATSAPP_URL}
         >
-          <i class:list={[`${HEADER_CONTACT.PHONE.ICON}`,`mr-2`]}></i>
+          <i class:list={[`${HEADER_CONTACT.PHONE.ICON}`, `mr-2`]}></i>
           <span class="hidden md:inline">{HEADER_CONTACT.PHONE.DISPLAY_TEXT}</span>
           <span class="inline md:hidden">CALL</span>
         </a>
@@ -32,7 +40,11 @@ import {
         {
           HEADER_SOCIAL_MEDIA.map(social => (
             <a
-              aria-label={social.ARIA_LABEL}               class:list={social.HOVER_COLOR_CLASS}               href={social.URL}               rel="noopener noreferrer"               target="_blank"
+              aria-label={social.ARIA_LABEL}
+              class:list={social.HOVER_COLOR_CLASS}
+              href={social.URL}
+              rel="noopener noreferrer"
+              target="_blank"
             >
               <i class:list={social.ICON_CLASS} />
             </a>

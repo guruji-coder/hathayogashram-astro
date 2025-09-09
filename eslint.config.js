@@ -21,7 +21,7 @@ export default [
     },
   },
   {
-    ignores: ['dist/', '.astro/', 'node_modules/', '*.config.js', '*.config.ts']
+    ignores: ['dist/', '.astro/', 'node_modules/', '*.config.js', '*.config.ts'],
   },
   {
     files: ['**/*.{ts,tsx}'],
@@ -60,15 +60,15 @@ export default [
       parser: svelteParser,
       parserOptions: {
         parser: typescriptParser,
-        sourceType: 'module'
-      }
+        sourceType: 'module',
+      },
     },
     processor: 'svelte/svelte',
     rules: {
-      ...eslintPluginSvelte.configs.recommended.rules
-    }
+      ...eslintPluginSvelte.configs.recommended.rules,
+    },
   },
   {
-    ignores: ['dist/**/*', '.astro/**/*', 'node_modules/**/*', '*.config.js', '*.config.ts']
-  }
+    ignores: ['dist/**/*', '.astro/**/*', 'node_modules/**/*', '*.config.js', '*.config.ts'],
+  },
 ];

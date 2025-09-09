@@ -9,11 +9,11 @@ export function sanitizeHTML(content: string): string {
     "'": '&#39;',
     '/': '&#x2F;',
     '`': '&#x60;',
-    '=': '&#x3D;'
+    '=': '&#x3D;',
   };
 
   // Replace HTML tags and entities
-  return content.replace(/[&<>"'`=/]/g, (s) => entityMap[s]);
+  return content.replace(/[&<>"'`=/]/g, s => entityMap[s]);
 }
 
 // Function to sanitize JSON for script tags

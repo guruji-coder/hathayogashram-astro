@@ -11,7 +11,6 @@ export { default as YogaFacilities } from './HomePage/YogaFacilities.astro';
 export { default as YogaGuruSection } from './HomePage/YogaGuruSection.astro';
 export { default as YTTCourseSection } from './HomePage/YTTCourseSection.astro';
 
-
 // TTC Page Sections
 export { default as GallerySection } from './GallerySection.astro';
 export { default as LocationSection } from './LocationSection.astro';

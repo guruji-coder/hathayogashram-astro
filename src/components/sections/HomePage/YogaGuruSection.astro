@@ -10,12 +10,17 @@ import SpiritualCard from '$ui/SpiritualCard.astro';
   <div class:list={YOGA_GURUS_STYLES.CONTAINER}>
     <!-- Section Header -->
     <SectionHeader
-      containerClass="text-center"       svgHeight={20}       svgWidth={200}       title={YOGA_GURUS_SECTION.TITLE}       titleClass={YOGA_GURUS_STYLES.TITLE}
+      containerClass="text-center"
+      svgHeight={20}
+      svgWidth={200}
+      title={YOGA_GURUS_SECTION.TITLE}
+      titleClass={YOGA_GURUS_STYLES.TITLE}
     />
 
     <!-- Gurus - Horizontal scroll: 1 for mobile, 2 for tablet, 3 for desktop -->
     <HorizontalCarousel
-      containerClass={YOGA_GURUS_STYLES.CARDS_CONTAINER}       id="gurusContainer"
+      containerClass={YOGA_GURUS_STYLES.CARDS_CONTAINER}
+      id="gurusContainer"
       scrollInterval={4000}
     >
       {YOGA_GURUS_SECTION.GURUS.map(guru => <SpiritualCard image={guru.image} name={guru.name} />)}
@@ -26,7 +31,9 @@ import SpiritualCard from '$ui/SpiritualCard.astro';
       {
         YOGA_GURUS_SECTION.GURUS.map((_, index) => (
           <button
-            aria-label={`Go to guru ${index + 1}`}             class:list={[`scroll-indicator`,`${YOGA_GURUS_STYLES.INDICATOR}`]}             data-index={index}
+            aria-label={`Go to guru ${index + 1}`}
+            class:list={[`scroll-indicator`, `${YOGA_GURUS_STYLES.INDICATOR}`]}
+            data-index={index}
           />
         ))
       }

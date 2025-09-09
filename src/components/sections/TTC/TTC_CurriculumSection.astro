@@ -1,0 +1,171 @@
+---
+export interface Props {
+  curriculumData: {
+    title: string;
+    items: Array<{
+      id: string;
+      title: string;
+      sections: Array<{
+        title: string;
+        description: string;
+        items: string[];
+      }>;
+    }>;
+  };
+}
+
+const { curriculumData } = Astro.props;
+---
+
+<section class="py-16 bg-white" id="Curriculum">
+  <div class="container mx-auto px-4">
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+        {curriculumData.title}
+      </h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-orange-400 to-orange-600 mx-auto"></div>
+    </div>
+
+    <!-- Curriculum Items -->
+    <div class="max-w-5xl mx-auto space-y-4">
+      {curriculumData.items.map((item) => (
+        <div class="curriculum-item border border-gray-200 rounded-lg shadow-sm bg-white overflow-hidden">
+          <!-- Header - Mobile: Button, Desktop: Static -->
+          <div
+            class="curriculum-header px-6 py-4 md:bg-primary cursor-pointer md:cursor-default"
+            data-target={item.id}
+          >
+            <div class="flex items-center justify-between">
+              <h3 class="text-lg md:text-xl font-semibold md:font-bold md:text-white">
+                {item.title}
+              </h3>
+              <i class="curriculum-icon fas fa-plus text-gray-500 text-2xl md:hidden"></i>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div
+            class="curriculum-content hidden md:block"
+            id={item.id}
+          >
+            <div class="p-6">
+              {item.sections.map((section) => (
+                <div class="mb-8 last:mb-0">
+                  <h4 class="text-xl font-bold text-gray-800 mb-3">
+                    {section.title}
+                  </h4>
+                  {section.description && (
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                      {section.description}
+                    </p>
+                  )}
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {section.items.map((listItem) => (
+                      <div class="flex items-start space-x-3">
+                        <span class="text-sm text-orange-400">ॐ</span>
+                        <span class="text-gray-700 text-sm leading-relaxed">
+                          {listItem}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const headers = document.querySelectorAll('.curriculum-header');
+    const isMobile = () => window.innerWidth < 768;
+
+    headers.forEach(header => {
+      header.addEventListener('click', () => {
+        if (!isMobile()) return;
+
+        const targetId = header.getAttribute('data-target');
+        if (!targetId) return;
+
+        const content = document.getElementById(targetId);
+        const icon = header.querySelector('.curriculum-icon');
+        const title = header.querySelector('h3');
+
+        if (!content || !icon) return;
+
+        const isOpen = !content.classList.contains('hidden');
+
+        // Close all items
+        document.querySelectorAll('.curriculum-content').forEach(c => c.classList.add('hidden'));
+        document.querySelectorAll('.curriculum-icon').forEach(i => {
+          i.classList.remove('fa-minus', 'text-white');
+          i.classList.add('fa-plus', 'text-gray-500');
+        });
+        document.querySelectorAll('.curriculum-header').forEach(h => {
+          h.classList.remove('bg-primary');
+          const t = h.querySelector('h3');
+          if (t) t.classList.remove('text-white');
+        });
+
+        // Toggle current item
+        if (!isOpen) {
+          content.classList.remove('hidden');
+          icon.classList.remove('fa-plus', 'text-gray-500');
+          icon.classList.add('fa-minus', 'text-white');
+          header.classList.add('bg-primary');
+          if (title) title.classList.add('text-white');
+        }
+      });
+    });
+
+    // Handle resize
+    window.addEventListener('resize', () => {
+      if (!isMobile()) {
+        // Desktop: show all content
+        document.querySelectorAll('.curriculum-content').forEach(c => c.classList.remove('hidden'));
+      } else {
+        // Mobile: hide all content
+        document.querySelectorAll('.curriculum-content').forEach(c => c.classList.add('hidden'));
+        document.querySelectorAll('.curriculum-header').forEach(h => {
+          h.classList.remove('bg-primary');
+          const t = h.querySelector('h3');
+          if (t) t.classList.remove('text-white');
+        });
+        document.querySelectorAll('.curriculum-icon').forEach(i => {
+          i.classList.remove('fa-minus', 'text-white');
+          i.classList.add('fa-plus', 'text-gray-500');
+        });
+      }
+    });
+  });
+</script>
+
+<style>
+  @media (max-width: 767px) {
+    .curriculum-header {
+      transition: all 0.3s ease;
+    }
+
+    .curriculum-header:hover {
+      background-color: #f9fafb;
+    }
+
+    .curriculum-header.bg-primary:hover {
+      background-color: #e501f0;
+    }
+  }
+
+  .curriculum-content {
+    animation: slideDown 0.3s ease-out;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; max-height: 0; }
+    to { opacity: 1; max-height: 2000px; }
+  }
+</style>

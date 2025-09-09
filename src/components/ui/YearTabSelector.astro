@@ -1,0 +1,30 @@
+---
+export interface Props {
+  years: string[];
+  defaultYear: string;
+}
+
+const { years, defaultYear } = Astro.props;
+---
+
+<div class="mb-8 flex justify-center">
+  <div class="inline-flex">
+    {
+      years.map(year => (
+        <button
+          class:list={[
+            'year-tab border-2 px-8 py-3 font-semibold transition-all duration-200',
+            {
+              'border-primary bg-primary text-white hover:text-white': year === defaultYear,
+              'border-primary bg-white text-primary hover:bg-primary/90 hover:text-white':
+                year !== defaultYear,
+            },
+          ]}
+          data-year={year}
+        >
+          Dates Of {year}
+        </button>
+      ))
+    }
+  </div>
+</div>

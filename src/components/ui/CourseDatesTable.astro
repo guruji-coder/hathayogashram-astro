@@ -1,0 +1,97 @@
+---
+export interface Props {
+  year: string;
+  dates: Array<{
+    id: string;
+    startDate: string;
+    endDate: string;
+    status: string;
+    seatsLeft?: number;
+  }>;
+  courseInfo: {
+    fees: {
+      shared4: { amount: string };
+      shared3: { amount: string };
+      shared: { amount: string };
+      private: { amount: string };
+    };
+  };
+  isVisible?: boolean;
+}
+
+const { year, dates, courseInfo, isVisible = true } = Astro.props;
+
+function getAvailabilityBadge(status: string, seatsLeft?: number) {
+  if (status === 'full') {
+    return { text: 'Fully Booked', class: 'bg-red-500 text-white' };
+  } else if (status === 'limited' && seatsLeft) {
+    return {
+      text: `${String(seatsLeft).padStart(2, '0')} Seats left`,
+      class: 'bg-orange-500 text-white',
+    };
+  }
+  return { text: 'Available', class: 'bg-green-500 text-white' };
+}
+---
+
+<tbody class:list={['dates-table', { hidden: !isVisible }]} id={`dates-${year}`}>
+  {
+    dates.map(date => {
+      const badge = getAvailabilityBadge(date.status, date.seatsLeft);
+      return (
+        <tr class="border-b border-gray-200 transition-colors hover:bg-gray-50">
+          <td class="px-6 py-4">
+            <div class="flex items-center gap-3">
+              <div>
+                <p class="font-semibold text-gray-800">
+                  {date.startDate} To {date.endDate} {year}
+                </p>
+                <span
+                  class:list={[
+                    'mt-1 inline-block rounded-full px-3 py-1 text-xs font-semibold',
+                    badge.class,
+                  ]}
+                >
+                  {badge.text}
+                </span>
+              </div>
+            </div>
+          </td>
+          <td class="px-4 py-4 text-center">
+            <p class="font-semibold text-gray-800">{courseInfo.fees.shared4.amount}</p>
+            <p class="text-xs text-gray-500 line-through">$866</p>
+            <p class="text-xs text-gray-600">(Females Only)</p>
+          </td>
+          <td class="border-l border-gray-100 px-4 py-4 text-center">
+            <p class="font-semibold text-gray-800">{courseInfo.fees.shared3.amount}</p>
+            <p class="text-xs text-gray-500 line-through">$1065</p>
+            <p class="text-xs text-gray-600">(Females Only)</p>
+          </td>
+          <td class="border-l border-gray-100 px-4 py-4 text-center">
+            <p class="font-semibold text-gray-800">{courseInfo.fees.shared.amount}</p>
+            <p class="text-xs text-gray-500 line-through">$1332</p>
+          </td>
+          <td class="border-l border-gray-100 px-4 py-4 text-center">
+            <p class="font-semibold text-gray-800">{courseInfo.fees.private.amount}</p>
+            <p class="text-xs text-gray-500 line-through">$1599</p>
+          </td>
+          <td class="border-l border-gray-100 px-6 py-4 text-center">
+            <a
+              class:list={[
+                'inline-block rounded px-6 py-2 font-semibold transition-colors',
+                {
+                  'pointer-events-none cursor-not-allowed bg-gray-300 text-gray-500':
+                    date.status === 'full',
+                  'bg-primary text-white hover:bg-primary/90': date.status !== 'full',
+                },
+              ]}
+              href={date.status !== 'full' ? `/contact?course=200hour&date=${date.id}` : '#'}
+            >
+              Book Now
+            </a>
+          </td>
+        </tr>
+      );
+    })
+  }
+</tbody>

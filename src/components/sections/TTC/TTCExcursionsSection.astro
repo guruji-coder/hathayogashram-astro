@@ -1,0 +1,43 @@
+---
+import SectionHeader from '$components/ui/SectionHeader.astro';
+interface Props {
+  section: {
+    title: string;
+    description: string;
+    items: Array<{ label: string; src: string }>;
+  };
+}
+const { section } = Astro.props as Props;
+---
+
+<div>
+  <SectionHeader title={section.title} />
+
+  <h2 class="text-center text-lg font-bold">Excursion for this Course</h2>
+
+  <p class="mx-auto mb-6 max-w-4xl text-center text-gray-700">
+    {section.description}
+  </p>
+
+  <div
+    class="mx-auto grid w-full max-w-6xl grid-cols-1 justify-items-center gap-4 p-4 sm:grid-cols-3 lg:grid-cols-6"
+  >
+    {
+      section.items.map(item => (
+        <div class="relative h-auto overflow-hidden rounded-lg shadow-lg sm:h-60">
+          <img
+            alt={item.label}
+            class="block h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+            crossorigin="anonymous"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src={item.src}
+          />
+          <div class="absolute bottom-0 w-full bg-gradient-to-t from-black/70 to-transparent py-2 text-center text-sm font-medium text-white">
+            {item.label}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>

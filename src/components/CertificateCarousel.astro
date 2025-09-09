@@ -41,7 +41,9 @@ const certificates = [
             tabindex="0"
           >
             <img
-              alt={cert.title}               class="h-full w-full rounded-lg object-contain shadow-lg"               src={cert.image}
+              alt={cert.title}
+              class="h-full w-full rounded-lg object-contain shadow-lg"
+              src={cert.image}
             />
             <div class="absolute bottom-6 left-4 right-4">
               <div class="rounded-lg bg-black bg-opacity-70 px-4 py-3 backdrop-blur-sm">
@@ -74,7 +76,8 @@ const certificates = [
 
 <!-- Modal -->
 <div
-  class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-90 p-4"   id="certificateModal"
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-90 p-4"
+  id="certificateModal"
   onclick="closeModal()"
   onkeydown="event.key === 'Escape' && closeModal()"
   role="dialog"

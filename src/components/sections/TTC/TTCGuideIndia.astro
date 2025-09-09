@@ -197,8 +197,10 @@ const rightColumnItems: AccordionItem[] = [
     const triggers = document.querySelectorAll('.accordion-trigger');
 
     triggers.forEach(trigger => {
-      trigger.addEventListener('click', function () {
+      trigger.addEventListener('click', function (this: HTMLElement) {
         const targetId = this.getAttribute('data-accordion-target');
+        if (!targetId) return;
+
         const content = document.getElementById(`content-${targetId}`);
         const isExpanded = this.getAttribute('aria-expanded') === 'true';
         const plusIcon = this.querySelector('.fa-plus');
@@ -206,9 +208,11 @@ const rightColumnItems: AccordionItem[] = [
 
         // Close all other accordions in the same column
         const parentColumn = this.closest('.space-y-4');
-        parentColumn?.querySelectorAll('.accordion-trigger').forEach(otherTrigger => {
+        parentColumn?.querySelectorAll('.accordion-trigger').forEach((otherTrigger: Element) => {
           if (otherTrigger !== this) {
             const otherId = otherTrigger.getAttribute('data-accordion-target');
+            if (!otherId) return;
+
             const otherContent = document.getElementById(`content-${otherId}`);
             const otherPlus = otherTrigger.querySelector('.fa-plus');
             const otherMinus = otherTrigger.querySelector('.fa-minus');

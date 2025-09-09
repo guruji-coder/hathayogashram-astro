@@ -12,11 +12,15 @@ import SectionHeader from '../../ui/SectionHeader.astro';
 ---
 
 <!-- Welcome Section with Decorative Styling -->
-<section class:list={[`${HOME_STYLES.SECTION_PADDING}`,`bg-white`]}>
+<section class:list={[`${HOME_STYLES.SECTION_PADDING}`, `bg-white`]}>
   <div class:list={HOME_STYLES.CONTAINER}>
     <!-- Main Heading with Decorative Underline -->
     <SectionHeader
-      containerClass="mb-8 text-center"       svgHeight={20}       svgWidth={200}       title={HOME_HERO.TITLE}       titleClass={HOME_STYLES.HERO_TITLE}
+      containerClass="mb-8 text-center"
+      svgHeight={20}
+      svgWidth={200}
+      title={HOME_HERO.TITLE}
+      titleClass={HOME_STYLES.HERO_TITLE}
     />
 
     <!-- Rating and Welcome Message -->
@@ -36,7 +40,7 @@ import SectionHeader from '../../ui/SectionHeader.astro';
       {
         HOME_HIGHLIGHTS.map(highlight => (
           <div class:list={HOME_STYLES.HIGHLIGHT_BOX}>
-            <i class:list={[`${highlight.ICON}`,`${HOME_STYLES.HIGHLIGHT_ICON}`]} />
+            <i class:list={[`${highlight.ICON}`, `${HOME_STYLES.HIGHLIGHT_ICON}`]} />
             <p class:list={HOME_STYLES.HIGHLIGHT_TEXT}>{highlight.TEXT}</p>
           </div>
         ))
@@ -61,12 +65,15 @@ import SectionHeader from '../../ui/SectionHeader.astro';
           </p>
 
           <!-- Mobile Images (shown after first paragraph on mobile only) -->
-          <div class:list={[`lg:hidden`,`${HOME_STYLES.IMAGE_GRID}`,`mb-6`]}>
+          <div class:list={[`lg:hidden`, `${HOME_STYLES.IMAGE_GRID}`, `mb-6`]}>
             {
               HOME_GALLERY.IMAGES.map((image, index) => (
                 <div class:list={HOME_STYLES.IMAGE_ITEM}>
                   <img
-                    alt={`${HOME_GALLERY.ALT_TEXT} - Image ${index + 1}`}                     class:list={HOME_STYLES.IMAGE_STYLING}                     loading="lazy"                     src={image}
+                    alt={`${HOME_GALLERY.ALT_TEXT} - Image ${index + 1}`}
+                    class:list={HOME_STYLES.IMAGE_STYLING}
+                    loading="lazy"
+                    src={image}
                   />
                 </div>
               ))
@@ -85,7 +92,8 @@ import SectionHeader from '../../ui/SectionHeader.astro';
             {
               HOME_COURSES.map(course => (
                 <a
-                  class:list={[`${BUTTON_STYLES.BASE}`,`${BUTTON_STYLES.VARIANTS.PRIMARY}`]}                   href={course.URL}
+                  class:list={[`${BUTTON_STYLES.BASE}`, `${BUTTON_STYLES.VARIANTS.PRIMARY}`]}
+                  href={course.URL}
                 >
                   {course.TITLE}
                 </a>
@@ -101,7 +109,10 @@ import SectionHeader from '../../ui/SectionHeader.astro';
               HOME_GALLERY.IMAGES.map((image, index) => (
                 <div class:list={HOME_STYLES.IMAGE_ITEM}>
                   <img
-                    alt={`${HOME_GALLERY.ALT_TEXT} - Image ${index + 1}`}                     class:list={HOME_STYLES.IMAGE_STYLING}                     loading="lazy"                     src={image}
+                    alt={`${HOME_GALLERY.ALT_TEXT} - Image ${index + 1}`}
+                    class:list={HOME_STYLES.IMAGE_STYLING}
+                    loading="lazy"
+                    src={image}
                   />
                 </div>
               ))

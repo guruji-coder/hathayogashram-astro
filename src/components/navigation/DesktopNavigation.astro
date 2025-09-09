@@ -14,21 +14,34 @@ import {
     HEADER_NAVIGATION_ITEMS.map(item =>
       item.items ? (
         <div class="group relative">
-          <button class:list={[`${HEADER_STYLES.NAV_LINK_COLORS}`,`flex items-center`]}>
+          <button class:list={[`${HEADER_STYLES.NAV_LINK_COLORS}`, `flex items-center`]}>
             {item.label}
             <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
-                d="M19 9l-7 7-7-7"                 stroke-linecap="round"                 stroke-linejoin="round"                 stroke-width="2"
+                d="M19 9l-7 7-7-7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
               />
             </svg>
           </button>
           <div
-            class:list={[`absolute left-0 top-full mt-2`,`${HEADER_DROPDOWN_WIDTHS[item.label as keyof typeof HEADER_DROPDOWN_WIDTHS] || 'w-64'}`,`invisible rounded-lg border bg-white opacity-0 shadow-lg`,`${HEADER_ANIMATIONS.DESKTOP_DROPDOWN_TRANSITION}`]}
+            class:list={[
+              `absolute left-0 top-full mt-2`,
+              `${HEADER_DROPDOWN_WIDTHS[item.label as keyof typeof HEADER_DROPDOWN_WIDTHS] || 'w-64'}`,
+              `invisible rounded-lg border bg-white opacity-0 shadow-lg`,
+              `${HEADER_ANIMATIONS.DESKTOP_DROPDOWN_TRANSITION}`,
+            ]}
           >
             <div class="py-2">
               {item.items.map(subItem => (
                 <a
-                  class:list={[`block px-4 py-2`,`${HEADER_STYLES.NAV_LINK_COLORS}`,`hover:bg-primary hover:text-white`]}                   href={subItem.href}
+                  class:list={[
+                    `block px-4 py-2`,
+                    `${HEADER_STYLES.NAV_LINK_COLORS}`,
+                    `hover:bg-primary hover:text-white`,
+                  ]}
+                  href={subItem.href}
                 >
                   {subItem.label}
                 </a>

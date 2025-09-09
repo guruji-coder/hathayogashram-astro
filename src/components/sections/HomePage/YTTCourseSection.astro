@@ -38,7 +38,9 @@ const tabs = [
 ---
 
 <!-- Yoga Teacher Training Courses Section -->
-<section class:list={[`${HOME_STYLES.SECTION_PADDING}`,`bg-gradient-to-br from-purple-50 to-orange-50`]}>
+<section
+  class:list={[`${HOME_STYLES.SECTION_PADDING}`, `bg-gradient-to-br from-purple-50 to-orange-50`]}
+>
   <div class:list={HOME_STYLES.CONTAINER}>
     <!-- Section Header -->
     <div class="mb-12 text-center">
@@ -56,12 +58,20 @@ const tabs = [
       <p class="mb-6 text-lg text-gray-700">Ready to start your yoga journey?</p>
       <div class="flex flex-col justify-center gap-4 sm:flex-row">
         <a
-          class:list={[`${BUTTON_STYLES.BASE}`,`text-white bg-purple-900 border-purple-900 hover:bg-white hover:text-purple-900 hover:border-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2text-5xl`]}           href={ROUTE_CONTACT}
+          class:list={[
+            `${BUTTON_STYLES.BASE}`,
+            `focus:ring-offset-2text-5xl border-purple-900 bg-purple-900 text-white hover:border-purple-900 hover:bg-white hover:text-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500`,
+          ]}
+          href={ROUTE_CONTACT}
         >
           Contact Us
         </a>
         <a
-          class:list={[`${BUTTON_STYLES.BASE}`,`bg-orange-500 px-8 py-4 text-lg text-white hover:bg-orange-600`]}           href={ROUTE_COURSES}
+          class:list={[
+            `${BUTTON_STYLES.BASE}`,
+            `bg-orange-500 px-8 py-4 text-lg text-white hover:bg-orange-600`,
+          ]}
+          href={ROUTE_COURSES}
         >
           View All Courses
         </a>

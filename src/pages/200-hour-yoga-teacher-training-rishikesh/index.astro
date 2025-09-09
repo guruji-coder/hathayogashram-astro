@@ -16,6 +16,8 @@ import {
   GALLERY_CAROUSEL_IMAGES,
   TRAINING_200_INCLUDED_EXCLUDED_SECTION,
   MINI_CAROUSEL_IMAGES,
+  TRAINING_200_CURRICULUM_SECTION,
+  TRAINING_200_EXCURSIONS_SECTION,
 } from '$constants/TTC/200hour';
 import { FaqSection } from '$components/svelte';
 import {
@@ -26,6 +28,8 @@ import {
   TTCPriceTab,
   TTCNavbarTab,
   TTCGuideIndia,
+  TTCExcursionsSection,
+  TTC_CurriculumSection,
 } from '$components/sections/TTC';
 import { LocationSection, GallerySection } from '$components/sections';
 import IncludedExcludedSection from '$svelte/ui/IncludedExcludedSection.svelte';
@@ -112,8 +116,9 @@ import IncludedExcludedSection from '$svelte/ui/IncludedExcludedSection.svelte';
   <!-- Dates Section -->
   <TTCDatesSection />
   <IncludedExcludedSection client:load section={TRAINING_200_INCLUDED_EXCLUDED_SECTION} />
+  <TTCExcursionsSection section={TRAINING_200_EXCURSIONS_SECTION} />
   <TTCGuideIndia />
-
+  <TTC_CurriculumSection curriculumData={TRAINING_200_CURRICULUM_SECTION} />
   <!-- Course Highlights Section -->
   <TTCourseHighlightsSection sectionData={TRAINING_200_COURSE_HIGHLIGHTS} />
 

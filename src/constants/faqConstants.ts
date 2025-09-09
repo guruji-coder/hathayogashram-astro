@@ -81,5 +81,5 @@ export const FAQ_STYLES = {
   ANSWER_CONTAINER: 'bg-gray-50 px-6 py-4',
   ANSWER_TEXT: 'text-gray-700 leading-relaxed text-sm md:text-base pl-12',
   CTA_BUTTON:
-    'inline-block bg-purple-900 text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-800 transition-colors duration-300 shadow-lg hover:shadow-xl',
+    'inline-block bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-800 transition-colors duration-300 shadow-lg hover:shadow-xl',
 };

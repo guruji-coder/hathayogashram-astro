@@ -117,7 +117,9 @@ const socialLinks = [
           {
             socialLinks.map(social => (
               <a
-                aria-label={social.name}                 class="text-lg text-gray-400 transition-colors hover:text-orange-400"                 href={social.url}
+                aria-label={social.name}
+                class="text-lg text-gray-400 transition-colors hover:text-orange-400"
+                href={social.url}
               >
                 <i class:list={social.icon} />
               </a>
@@ -168,7 +170,8 @@ const socialLinks = [
           <li class="flex items-center">
             <i class="fas fa-envelope mr-3 mt-1 flex-shrink-0 text-orange-400"></i>
             <a
-              class="break-all transition-colors hover:text-orange-400"               href={`mailto:${contactInfo.email}`}
+              class="break-all transition-colors hover:text-orange-400"
+              href={`mailto:${contactInfo.email}`}
             >
               {contactInfo.email}
             </a>
@@ -188,7 +191,8 @@ const socialLinks = [
           {
             allLinks.map((link, index) => [
               <a
-                class="inline-block rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm text-gray-300 transition-all duration-300 hover:border-orange-400 hover:bg-orange-500 hover:text-white"                 href={link.href}
+                class="inline-block rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm text-gray-300 transition-all duration-300 hover:border-orange-400 hover:bg-orange-500 hover:text-white"
+                href={link.href}
               >
                 {link.label}
               </a>,

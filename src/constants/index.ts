@@ -40,6 +40,5 @@ export * from './routesConstants';
 // Teachers Constants
 export * from './teachersConstants';
 
-
 // Yoga Gurus Constants
 export * from './yogaGurusConstants';

@@ -19,13 +19,18 @@ import Button from '$components/ui/Button.astro';
 <div class="block min-h-[50vh] w-full flex-col md:flex md:min-h-screen md:flex-row">
   <!-- Carousel -->
   <div
-    class="relative h-[300px] w-full flex-none overflow-hidden rounded-t-2xl bg-red-400 md:h-screen md:w-2/3 md:rounded-l-2xl"     id="carousel-container"
+    class="relative h-[300px] w-full flex-none overflow-hidden rounded-t-2xl bg-red-400 md:h-screen md:w-2/3 md:rounded-l-2xl"
+    id="carousel-container"
   >
     <img
-      alt="Training course image"       class="h-full w-full object-cover"       id="carousel-image"       src={images[0]}
+      alt="Training course image"
+      class="h-full w-full object-cover"
+      id="carousel-image"
+      src={images[0]}
     />
     <button
-      class="absolute bottom-2 left-2 z-10 rounded-full p-2 md:left-auto md:right-10"       id="prev-btn"
+      class="absolute bottom-2 left-2 z-10 rounded-full p-2 md:left-auto md:right-10"
+      id="prev-btn"
     >
       <i class="fas fa-chevron-left text-lg text-white md:text-xl"></i>
     </button>
@@ -48,7 +53,11 @@ import Button from '$components/ui/Button.astro';
         {
           details.map(({ label, value }, idx) => (
             <div
-              class:list={[`flex justify-between text-sm md:text-base`,` pb-1`,{"border-b border-gray-700": idx === 0, "border-b border-gray-200": idx !== 0}]}
+              class:list={[
+                `flex justify-between text-sm md:text-base`,
+                `pb-1`,
+                { 'border-b border-gray-700': idx === 0, 'border-b border-gray-200': idx !== 0 },
+              ]}
             >
               <div class="text-orange-500">
                 <span class="text-primary-600">◆</span>
@@ -97,7 +106,8 @@ import Button from '$components/ui/Button.astro';
 
       <div class="w-full pt-1 text-center md:pt-2">
         <Button
-          class="w-full cursor-pointer rounded-md bg-primary px-4 py-2 text-base text-white transition-colors hover:bg-primary/90"           href={contactRoute}
+          class="w-full cursor-pointer rounded-md bg-primary px-4 py-2 text-base text-white transition-colors hover:bg-primary/90"
+          href={contactRoute}
         >
           Book Now
         </Button>

@@ -1,0 +1,117 @@
+---
+export interface Props {
+  date: {
+    id: string;
+    startDate: string;
+    endDate: string;
+    status: string;
+    seatsLeft?: number;
+  };
+  year: string;
+  courseInfo: {
+    fees: {
+      shared4: { amount: string };
+      shared3: { amount: string };
+      shared: { amount: string };
+      private: { amount: string };
+    };
+  };
+}
+
+const { date, year, courseInfo } = Astro.props;
+
+function getAvailabilityBadge(status: string, seatsLeft?: number) {
+  if (status === 'full') {
+    return { text: 'Fully Booked', class: 'bg-red-500 text-white' };
+  } else if (status === 'limited' && seatsLeft) {
+    return {
+      text: `${String(seatsLeft).padStart(2, '0')} Seats left`,
+      class: 'bg-orange-500 text-white',
+    };
+  }
+  return { text: 'Available', class: 'bg-green-500 text-white' };
+}
+
+const badge = getAvailabilityBadge(date.status, date.seatsLeft);
+
+const roomTypes = [
+  {
+    amount: courseInfo.fees.shared4.amount,
+    original: '$866',
+    label: '4 Sharing Room',
+    femaleOnly: true,
+  },
+  {
+    amount: courseInfo.fees.shared3.amount,
+    original: '$1065',
+    label: '3 Sharing Room',
+    femaleOnly: true,
+  },
+  {
+    amount: courseInfo.fees.shared.amount,
+    original: '$1332',
+    label: '2 Sharing Room',
+    femaleOnly: false,
+  },
+  {
+    amount: courseInfo.fees.private.amount,
+    original: '$1599',
+    label: 'Private Room',
+    femaleOnly: false,
+  },
+];
+---
+
+<div class="rounded-lg border-2 border-gray-200 bg-white p-6 shadow-sm">
+  <!-- Date Header -->
+  <div class="mb-4 text-center">
+    <h3 class="text-lg font-semibold text-gray-800">
+      {date.startDate} To {date.endDate}
+      {year}
+    </h3>
+    <span
+      class:list={['mt-2 inline-block rounded-full px-4 py-2 text-sm font-semibold', badge.class]}
+    >
+      {badge.text}
+    </span>
+  </div>
+
+  <!-- Pricing Grid -->
+  <div class="mb-6 grid grid-cols-2 gap-4">
+    {
+      roomTypes.map(room => (
+        <div class="text-center">
+          <div class="mb-2 rounded-lg border border-primary px-4 py-3">
+            <span class="text-xl font-bold text-primary">{room.amount}</span>
+            <span class="ml-2etext-sm text-primary line-through opacity-75">{room.original}</span>
+          </div>
+          {room.femaleOnly && <div class="mb-2 text-xs text-gray-600">(Females Only)</div>}
+          <div class="rounded-full bg-primary px-4 py-2 text-sm font-medium text-white">
+            {room.label}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Dotted Line -->
+  <div class="my-4 border-t-2 border-dotted border-gray-300"></div>
+
+  <!-- Book Now Button -->
+  <div class="text-center">
+    <a
+      class:list={[
+        'inline-block rounded border-2 px-8 py-3 font-semibold transition-colors',
+        {
+          'pointer-events-none cursor-not-allowed border-gray-300 bg-gray-300 text-gray-500':
+            date.status === 'full',
+          'border-primary bg-white text-primary hover:bg-primary hover:text-white':
+            date.status !== 'full',
+        },
+      ]}
+      href={date.status !== 'full' ? `/contact?course=200hour&date=${date.id}` : '#'}
+    >
+      Book Now
+    </a>
+  </div>
+</div>
