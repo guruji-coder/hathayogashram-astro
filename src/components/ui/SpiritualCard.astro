@@ -4,9 +4,12 @@ import { YOGA_GURUS_STYLES } from '$constants/yogaGurusConstants';
 interface Props {
   name: string;
   image: string;
+  specialty?: string;
+  experience?: string;
+  description?: string;
 }
 
-const { name, image } = Astro.props;
+const { name, image, specialty, experience, description } = Astro.props;
 ---
 
 <div class:list={YOGA_GURUS_STYLES.SPIRITUAL_CARD}>
@@ -22,6 +25,27 @@ const { name, image } = Astro.props;
     <h3 class:list={YOGA_GURUS_STYLES.NAME}>
       {name}
     </h3>
+    
+    <!-- Specialty/Profession -->
+    {specialty && (
+      <p class="text-center text-sm text-orange-600 font-semibold mt-3 px-2 leading-tight">
+        {specialty}
+      </p>
+    )}
+    
+    <!-- Experience -->
+    {experience && (
+      <p class="text-center text-xs text-gray-500 mt-2 px-2 font-medium">
+        {experience}
+      </p>
+    )}
+    
+    <!-- Description -->
+    {description && (
+      <p class="text-center text-xs text-gray-600 mt-3 px-3 leading-relaxed italic">
+        {description}
+      </p>
+    )}
   </div>
 </div>
 

@@ -12,9 +12,10 @@ const { navigationLinks, styling, animation } = navbarData;
 <!-- Strategic Trigger Placement -->
 <div class="-mt-px h-px bg-transparent" id="navbar-trigger"></div>
 
-<!-- Sticky Navbar (Initially Hidden) -->
-<nav class:list={styling.navbarClass} id="NavbarTTC">
-  <!-- Better responsive navigation -->
+<!-- Sticky Navbar (Initially Hidden) with proper z-index -->
+<nav class:list={[styling.navbarClass, "z-40"]} id="NavbarTTC">
+
+  <!-- Better responsive navigation class:list={[styling.navbarClass, "z-40"]} -->
   <div class:list={styling.containerClass}>
     <!-- Decorative divider -->
 
@@ -101,14 +102,24 @@ const { navigationLinks, styling, animation } = navbarData;
   });
 </script>
 
-<!-- Enhanced CSS -->
+<!-- Enhanced CSS with proper z-index hierarchy -->
 <style>
+  /*
+  Z-INDEX HIERARCHY:
+  - Main Header/Navbar: z-50 (highest priority)
+  - Section Tabs (TTCNavbarTab): z-40 (medium priority)  
+  - Page Content: z-0 (default/lowest priority)
+  - Dropdowns in header: z-50 (same as header)
+  */
+
   .nav-link {
     @apply rounded-lg bg-gradient-to-r from-primary to-purple-600 px-2 py-1 text-sm font-medium text-white transition-all duration-300 sm:px-3 sm:py-2 sm:text-lg;
     position: relative;
     overflow: hidden;
     border: 2px solid transparent;
     background-clip: padding-box;
+    /* Ensure section tabs are below main header but above content */
+    z-index: inherit;
   }
 
   .nav-link::before {

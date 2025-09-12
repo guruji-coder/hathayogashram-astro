@@ -8,7 +8,6 @@ export { default as OverviewTTC } from './HomePage/OverviewTTC.astro';
 export { default as ReviewSection } from './HomePage/ReviewSection.astro';
 export { default as YogaAllianceRegisteredSchool } from './HomePage/YogaAllianceRegisteredSchool.astro';
 export { default as YogaFacilities } from './HomePage/YogaFacilities.astro';
-export { default as YogaGuruSection } from './HomePage/YogaGuruSection.astro';
 export { default as YTTCourseSection } from './HomePage/YTTCourseSection.astro';
 
 // TTC Page Sections
@@ -17,3 +16,5 @@ export { default as LocationSection } from './LocationSection.astro';
 export { default as CourseTimeline } from './TTC/CourseOpen.astro';
 export { default as TTCCourseCombo } from './TTC/TTC_CourseCombo.astro';
 export { default as TTCBlogs } from './TTC/TTCBlogs.astro';
+
+export { default as TeacherSection } from '../ui/TeacherScroll.astro';

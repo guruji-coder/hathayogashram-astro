@@ -1405,7 +1405,7 @@ export const TTC_NAVBAR_DATA = {
   styling: {
     containerClass: 'container mx-auto px-4',
     navbarClass:
-      'pointer-events-none fixed left-0 right-0 top-0 z-50 -translate-y-full transform border-b border-orange-200 bg-white/95 opacity-0 shadow-lg backdrop-blur-md transition-all duration-300 ease-in-out',
+      'pointer-events-none fixed left-0 right-0 top-0 z-40 -translate-y-full transform border-b border-orange-200 pt-5 bg-white opacity-0 shadow-lg backdrop-blur-md transition-all duration-300 ease-in-out',
     linkClass: 'nav-link',
     dividerClass: 'nav-divider',
   },
@@ -1565,7 +1565,6 @@ export interface AddOnCombination {
 }
 
 export interface CourseComboSection {
-  title: string;
   subtitle: string;
   description: string;
   detailDescription: string;
@@ -1586,7 +1585,6 @@ export interface CourseComboSection {
 }
 
 export const TRAINING_200_COURSE_COMBO_SECTION: CourseComboSection = {
-  title: 'Add-On Courses',
   subtitle: 'Create Your Own Yoga Training Combo',
   description:
     'At Rishikesh Yogkulam, we believe in giving you the freedom to customize your yoga journey. Now, along with your 200 Hour Yoga Teacher Training (YTTC) or 300 Hour Yoga Teacher Training (YTTC), you can add specialized short courses to deepen your skills.',
@@ -1596,6 +1594,12 @@ export const TRAINING_200_COURSE_COMBO_SECTION: CourseComboSection = {
     'If you are interested in these unique add-on programs, please feel free to inquire via email or WhatsApp. Our team will guide you with the details and help you design the perfect path for your yoga career.',
   popularTitle: 'Popular Add-On Combinations',
   addOnCombinations: [
+   {
+      id: 'kundalini-yoga',
+      title: 'Kundalini Yoga Teacher Training',
+      description: 'Awaken your inner energy and elevate your consciousness',
+      featured: true,
+    },
     {
       id: 'prenatal-yoga',
       title: 'Prenatal Yoga Teacher Training',
@@ -1603,34 +1607,9 @@ export const TRAINING_200_COURSE_COMBO_SECTION: CourseComboSection = {
       featured: true,
     },
     {
-      id: 'ayurveda-class',
-      title: 'Ayurveda Class',
-      description: 'Timeless wisdom of Ayurveda to balance body, mind, and spirit.',
-      featured: true,
-    },
-    {
-      id: 'meditation-intensive',
-      title: 'Meditation Intensive',
-      description: 'Deepen your meditation practice and teaching skills',
-      featured: false,
-    },
-    {
-      id: 'yin-yoga',
-      title: 'Yin Yoga Certification',
-      description: 'Learn the gentle, restorative practice of Yin Yoga',
-      featured: false,
-    },
-    {
-      id: 'sound-healing',
-      title: 'Sound Healing Workshop',
-      description: 'Explore the therapeutic benefits of sound and vibration',
-      featured: false,
-    },
-    {
-      id: 'reiki-training',
-      title: 'Reiki Level 1 & 2',
-      description: 'Master the ancient art of energy healing',
-      featured: false,
+      id: 'aerial-healing',
+      title: 'Aerial Healing Course',
+      description: 'Experience the therapeutic benefits of aerial yoga and healing',
     },
   ],
   ctaButtons: {
@@ -1673,9 +1652,7 @@ export const TRAINING_200_COURSE_TIMELINE_SECTION: CourseTimelineSection = {
     {
       id: 'check-in',
       title: 'Check In',
-      icon: `<svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
-        <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM12 17c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM15.1 8H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
-      </svg>`,
+      icon: 'fas fa-key',
       startDate: 'Start Date:',
       date: 'One day before the course start date',
       time: 'After 05:00 PM IST',
@@ -1684,9 +1661,7 @@ export const TRAINING_200_COURSE_TIMELINE_SECTION: CourseTimelineSection = {
     {
       id: 'opening-ceremony',
       title: 'Opening Ceremony',
-      icon: `<svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
-        <path d="M12.5 6.9c1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-.53.12-1.03.3-1.48.54l1.47 1.47c.41-.17.91-.27 1.51-.27zM5.33 4.06L4.06 5.33 7.5 8.77c0 2.08 1.56 3.21 3.91 3.91l3.51 3.51c-.34.48-1.05.91-2.42.91-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c.96-.18 1.82-.55 2.45-1.12l2.22 2.22 1.27-1.27L5.33 4.06z"/>
-      </svg>`,
+      icon: 'fas fa-fire',
       startDate: 'Date:',
       date: '1st of the month',
       time: '09:00 AM IST',
@@ -1695,10 +1670,7 @@ export const TRAINING_200_COURSE_TIMELINE_SECTION: CourseTimelineSection = {
     {
       id: 'certification-ceremony',
       title: 'Certification Ceremony',
-      icon: `<svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
-        <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
-        <path d="M9,13V15.5L10.5,14L12,15.5V13H15V11H9V13Z"/>
-      </svg>`,
+      icon: 'fas fa-certificate',
       startDate: 'Date:',
       date: '24th of the month',
       time: '11:00 AM IST',
@@ -1707,9 +1679,7 @@ export const TRAINING_200_COURSE_TIMELINE_SECTION: CourseTimelineSection = {
     {
       id: 'check-out',
       title: 'Check Out',
-      icon: `<svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
-        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,15.4L16.2,16.2Z"/>
-      </svg>`,
+      icon: 'fas fa-clock',
       startDate: 'Date:',
       date: '25th of the month',
       time: '10:00 AM IST',

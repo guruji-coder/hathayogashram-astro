@@ -15,7 +15,7 @@ interface Props {
 const { timelineData } = Astro.props;
 ---
 
-<section class="py-16 bg-purple-50">
+<section class="py-16 bg-white font-quicksand">
   <div class="container mx-auto px-4">
     <!-- Section Header -->
     <div class="mb-12 text-center">
@@ -37,21 +37,18 @@ const { timelineData } = Astro.props;
             <div class="bg-white rounded-xl p-6 hover:shadow-xl duration-300">
               <div class="flex items-start space-x-4">
                 <!-- Icon -->
-                <div class="flex-shrink-0 w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center">
-                  <i class:list={['fas', event.icon, 'text-orange-600', 'text-3xl']}></i>
+                <div class="flex-shrink-0 w-20 h-20 rounded-full flex items-center justify-center">
+                  <i class:list={['fas', event.icon, 'text-orange-600', 'text-5xl']}></i>
                 </div>
 
                 <!-- Content -->
                 <div class="flex-1">
-                  <h3 class="text-xl font-bold text-gray-800 mb-2">
+                  <h3 class="text-3xl font-bold text-gray-800 mb-2">
                     {event.title}
                   </h3>
                   <div class="space-y-1">
-                    <p class="text-gray-600">
-                      <span class="font-semibold text-orange-600">Date:</span> {event.date}
-                    </p>
-                    <p class="text-gray-600">
-                      <span class="font-semibold text-orange-600">Time:</span> {event.time}
+                    <p class="">
+                      <span class="font-semibold text-primary text-lg">{event.date} | {event.time}</span>
                     </p>
                   </div>
                 </div>

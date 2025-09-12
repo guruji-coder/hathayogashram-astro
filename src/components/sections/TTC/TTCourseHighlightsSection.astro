@@ -31,7 +31,7 @@ const { sectionData } = Astro.props;
 
     <!-- Header -->
     <SectionHeader
-      containerClass="mb-12"
+      containerClass="mb-3 md:mb-12"
       title={sectionData.subtitle}
     />
 
@@ -41,7 +41,7 @@ const { sectionData } = Astro.props;
       <!-- Benefits Content -->
       <div class="lg:col-span-2 space-y-6">
         {sectionData.benefits.map((benefit) => (
-          <div class="bg-white rounded-xl p-8 shadow-sm ">
+          <div class="bg-white rounded-xl px-6 shadow-sm ">
 
 
             <p
@@ -65,7 +65,7 @@ const { sectionData } = Astro.props;
                       {item.subItems && (
                         <div class="ml-6 space-y-2">
                           {item.subItems.map((subItem) => (
-                            <div class="flex gap-2">
+                            <div class="md:flex gap-2 block">
                               <span class="font-medium text-orange-600">{subItem.label}:</span>
                               <span class="text-gray-600">{subItem.description}</span>
                             </div>
@@ -94,7 +94,7 @@ const { sectionData } = Astro.props;
           <div class="grid grid-cols-2  rounded-lg">
             <div class="text-center">
               <p class="text-xs font-medium text-gray-500 uppercase mb-1">{sectionData.courseHighlight.pricing.twinShared.label}</p>
-              <p class="text-2xl font-bold text-primary">{sectionData.courseHighlight.pricing.twinShared.price}</p>
+              <p class="text-2xl font-semibold text-primary">{sectionData.courseHighlight.pricing.twinShared.price}</p>
               <p class="text-sm text-gray-400 line-through">{sectionData.courseHighlight.pricing.twinShared.originalPrice}</p>
             </div>
             <div class="text-center border-l border-gray-200">
@@ -105,15 +105,15 @@ const { sectionData } = Astro.props;
           </div>
 
           <!-- Course details -->
-          <div class="space-y-3 mb-8 mx-5 ">
+          <div class="space-y-3 my-8 mx-5 ">
             {sectionData.courseHighlight.details.map((detail) => (
               <div class="flex items-center rounded-lg hover:bg-gray-50 transition-colors">
                 <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0">
                   <i class="w-10 h-10 flex items-center justify-center" class:list={[`fas`,`fa-${detail.icon}`,`text-primary`]}></i>
                 </div>
                 <div class="min-w-0 flex-1">
-                  <p class="text-sm font-medium text-gray-600">{detail.label}</p>
-                  <p class="text-xs text-gray-800 font-light">{detail.value}</p>
+                  <p class="text-sm text-gray-800 font-bold ">{detail.value}</p>
+                  <p class="text-xs font-light text-gray-600">{detail.label}</p>
                 </div>
               </div>
             ))}

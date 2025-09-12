@@ -312,7 +312,6 @@ export const TEACHERS_SECTION = {
       specialty: 'Ashtanga Yoga & Alignment',
       experience: 'Experience 23+ Years',
       image: '/yogashala-founder1.jpg',
-      description: 'Master in traditional Ashtanga Yoga and precise alignment techniques.',
     },
     {
       id: 2,
@@ -320,7 +319,6 @@ export const TEACHERS_SECTION = {
       specialty: 'Traditional Hatha Yoga',
       experience: 'Experience 25+ Years',
       image: '/yogashala-founder2.jpg',
-      description: 'Expert in traditional Hatha Yoga practices and ancient techniques.',
     },
     {
       id: 3,
@@ -328,7 +326,6 @@ export const TEACHERS_SECTION = {
       specialty: 'Meditation & Pranayama',
       experience: 'Experience 21+ Years',
       image: '/yogashala-founder3.jpg',
-      description: 'Specialist in meditation practices and breathing techniques.',
     },
     {
       id: 4,
@@ -336,7 +333,6 @@ export const TEACHERS_SECTION = {
       specialty: 'Yoga Anatomy & Mantra Chanting',
       experience: 'Experience 21+ Years',
       image: '/yogashala-founder1.jpg',
-      description: 'Expert in yoga anatomy and the art of mantra chanting.',
     },
     {
       id: 5,

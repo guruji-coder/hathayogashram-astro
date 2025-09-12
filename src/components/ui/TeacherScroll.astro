@@ -1,37 +1,74 @@
 ---
 import { YOGA_GURUS_SECTION, YOGA_GURUS_STYLES } from '$constants/yogaGurusConstants';
+import { TEACHERS_SECTION } from '$constants/HomePage/homePageConstants';
 import SectionHeader from '$ui/SectionHeader.astro';
 import HorizontalCarousel from '$ui/HorizontalCarousel.astro';
 import SpiritualCard from '$ui/SpiritualCard.astro';
+
+// Component Props Interface
+export interface Props {
+  teachersData?: typeof TEACHERS_SECTION;
+  containerClass?: string;
+  backgroundClass?: string;
+}
+
+const {
+  teachersData,
+  containerClass = YOGA_GURUS_STYLES.CONTAINER,
+  backgroundClass = 'bg-yellow-50 px-4 py-16',
+} = Astro.props;
+
+// Use props data or fallback to existing constants
+const data = teachersData || {
+  TITLE: YOGA_GURUS_SECTION.TITLE,
+  TEACHERS: YOGA_GURUS_SECTION.GURUS.map((guru, index) => ({
+    id: guru.id || index + 1,
+    name: guru.name,
+    specialty: '',
+    experience: '',
+    image: guru.image,
+    description: '',
+  })),
+};
 ---
 
 <!-- Spiritual Yoga Gurus Section -->
-<section class="bg-yellow-50 px-4 py-16">
-  <div class:list={YOGA_GURUS_STYLES.CONTAINER}>
+<section class:list={[backgroundClass]}>
+  <div class:list={[containerClass]}>
     <!-- Section Header -->
     <SectionHeader
       containerClass="text-center"
       svgHeight={20}
       svgWidth={200}
-      title={YOGA_GURUS_SECTION.TITLE}
+      title={data.TITLE}
       titleClass={YOGA_GURUS_STYLES.TITLE}
     />
 
-    <!-- Gurus - Horizontal scroll: 1 for mobile, 2 for tablet, 3 for desktop -->
+    <!-- Teachers/Gurus - Horizontal scroll: 1 for mobile, 2 for tablet, 3 for desktop -->
     <HorizontalCarousel
       containerClass={YOGA_GURUS_STYLES.CARDS_CONTAINER}
       id="gurusContainer"
       scrollInterval={4000}
     >
-      {YOGA_GURUS_SECTION.GURUS.map(guru => <SpiritualCard image={guru.image} name={guru.name} />)}
+      {
+        data.TEACHERS.map(teacher => (
+          <SpiritualCard
+            description={'description' in teacher ? teacher.description : ''}
+            experience={teacher.experience || ''}
+            image={teacher.image}
+            name={teacher.name}
+            specialty={teacher.specialty || ''}
+          />
+        ))
+      }
     </HorizontalCarousel>
 
     <!-- Scroll Indicators/Tabs -->
     <div class:list={YOGA_GURUS_STYLES.INDICATORS_CONTAINER}>
       {
-        YOGA_GURUS_SECTION.GURUS.map((_, index) => (
+        data.TEACHERS.map((_, index) => (
           <button
-            aria-label={`Go to guru ${index + 1}`}
+            aria-label={`Go to teacher ${index + 1}`}
             class:list={[`scroll-indicator`, `${YOGA_GURUS_STYLES.INDICATOR}`]}
             data-index={index}
           />
