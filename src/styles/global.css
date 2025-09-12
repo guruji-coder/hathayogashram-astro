@@ -4,6 +4,19 @@
 
 /* Your custom styles here */
 
+/* 
+===========================================
+Z-INDEX HIERARCHY SYSTEM
+===========================================
+This ensures proper layering of UI elements:
+- Main Header/Navigation: z-50 (highest)
+- Dropdown menus from header: z-50 (same as header)
+- Section Tabs (sticky navbars): z-40 (medium)
+- Modal overlays: z-30 (if needed)
+- Page content: z-0 (default/lowest)
+===========================================
+*/
+
 p {
   font-size: 15px;
 }
@@ -46,4 +59,8 @@ p {
 
 .no-visible-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
 }

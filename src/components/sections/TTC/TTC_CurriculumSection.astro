@@ -1,4 +1,6 @@
 ---
+import OmListItem from '../../ui/OmListItem.astro';
+
 export interface Props {
   curriculumData: {
     title: string;
@@ -62,12 +64,7 @@ const { curriculumData } = Astro.props;
                   )}
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {section.items.map((listItem) => (
-                      <div class="flex items-start space-x-3">
-                        <span class="text-sm text-orange-400">ॐ</span>
-                        <span class="text-gray-700 text-sm leading-relaxed">
-                          {listItem}
-                        </span>
-                      </div>
+                      <OmListItem text={listItem} />
                     ))}
                   </div>
                 </div>

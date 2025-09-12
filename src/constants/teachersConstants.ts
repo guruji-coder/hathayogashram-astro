@@ -24,7 +24,7 @@ export const TEACHERS_CAROUSEL_SECTION = {
     {
       id: 2,
       name: 'Yogini Priya Sharma',
-      specialty: 'Vinyasa & Yin Yoga',
+      specialty: 'Hatha & Yin Yoga',
       experience: '12+ Years Experience',
       image: '/yogashala-founder2.jpg',
     },

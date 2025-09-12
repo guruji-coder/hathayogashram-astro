@@ -1,0 +1,94 @@
+---
+import SectionHeader from '$components/ui/SectionHeader.astro';
+import OmListItem from '../../ui/OmListItem.astro';
+
+interface Props {
+  rulesData: {
+    title: string;
+    codeOfConduct: {
+      title: string;
+      description: string;
+      rules: ReadonlyArray<string>;
+    };
+    policies: {
+      title: string;
+      policies: ReadonlyArray<string>;
+    };
+    refundPolicy: {
+      title: string;
+      policies: ReadonlyArray<string>;
+    };
+  };
+}
+
+const { rulesData } = Astro.props;
+---
+
+<section class="bg-gradient-to-b from-white via-purple-50/20 to-orange-50/20 py-16 mx-5">
+  <div class="container mx-auto px-4">
+    <!-- Section Header -->
+    <SectionHeader containerClass="mb-12" title={rulesData.title} />
+
+    <div class="mx-auto max-w-4xl space-y-12">
+      <!-- Code of Conduct Section -->
+      <div>
+        <h3
+          class="mb-6 border-b-2 border-purple-400 pb-3 text-2xl font-bold text-purple-900 md:text-3xl"
+        >
+          {rulesData.codeOfConduct.title}
+        </h3>
+
+        <p class="mb-6 text-justify leading-relaxed text-gray-700">
+          {rulesData.codeOfConduct.description}
+        </p>
+
+        <ul class="space-y-4">
+          {rulesData.codeOfConduct.rules.map(rule => <OmListItem text={rule} />)}
+        </ul>
+      </div>
+
+      <!-- Policies Section -->
+      <div>
+        <h3
+          class="mb-6 border-b-2 border-purple-400 pb-3 text-2xl font-bold text-purple-900 md:text-3xl"
+        >
+          {rulesData.policies.title}
+        </h3>
+
+        <ul class="space-y-4">
+          {rulesData.policies.policies.map(policy => <OmListItem text={policy} />)}
+        </ul>
+      </div>
+
+      <!-- Refund Policy Section -->
+      <div>
+        <h3
+          class="mb-6 border-b-2 border-purple-400 pb-3 text-2xl font-bold text-purple-900 md:text-3xl"
+        >
+          {rulesData.refundPolicy.title}
+        </h3>
+
+        <ul class="space-y-4">
+          {rulesData.refundPolicy.policies.map(policy => <OmListItem text={policy} />)}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+
+  /* Backdrop blur support */
+  /* Hover effects */
+  li:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+</style>

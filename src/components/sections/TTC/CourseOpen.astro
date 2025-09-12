@@ -1,0 +1,230 @@
+---
+import type { CourseTimelineSection } from '../../../constants/TTC/200hour';
+
+// Course Timeline component for displaying course milestones
+export interface Props {
+  timelineData?: CourseTimelineSection;
+  containerClass?: string;
+  backgroundClass?: string;
+}
+
+const {
+  timelineData,
+  containerClass = "container mx-auto px-4 max-w-7xl",
+  backgroundClass = "py-16 bg-gradient-to-br from-purple-50 via-white to-purple-100 font-quicksand"
+} = Astro.props;
+
+// Default fallback data if no props provided
+const defaultTimelineData: CourseTimelineSection = {
+  title: 'Course Timeline - 200 Hour Yoga TTC',
+  subtitle: 'Your journey from arrival to certification',
+  events: [
+    {
+      id: 'check-in',
+      title: 'Check In',
+      icon: 'fas fa-key',
+      startDate: 'Start Date:',
+      date: 'One day before the course start date',
+      time: 'After 05:00 PM IST'
+    },
+    {
+      id: 'opening-ceremony',
+      title: 'Opening Ceremony',
+      icon: 'fas fa-fire',
+      startDate: 'Date:',
+      date: '1st of the month',
+      time: '09:00 AM IST'
+    },
+    {
+      id: 'certification-ceremony',
+      title: 'Certification Ceremony',
+      icon: 'fas fa-certificate',
+      startDate: 'Date:',
+      date: '24th of the month',
+      time: '11:00 AM IST'
+    },
+    {
+      id: 'check-out',
+      title: 'Check Out',
+      icon: 'fas fa-clock',
+      startDate: 'Date:',
+      date: '25th of the month',
+      time: '10:00 AM IST'
+    }
+  ]
+};
+
+const data = timelineData || defaultTimelineData;
+---
+
+<section class:list={[backgroundClass]}>
+  <div class:list={[containerClass]}>
+    <!-- Header Section -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-purple-900 mb-6 font-serif">
+        {data.title}
+      </h2>
+
+      <!-- Decorative ornament matching the image -->
+      <div class="flex items-center justify-center mb-8">
+        <div class="flex-grow h-px bg-purple-300 max-w-32"></div>
+        <div class="mx-6 relative">
+          <!-- Ornate decorative element -->
+          <svg class="w-20 h-12 text-purple-600" fill="currentColor" viewBox="0 0 80 48">
+            <!-- Central lotus-like design -->
+            <path d="M40 8 C32 8, 28 12, 28 20 C28 24, 32 28, 40 28 C48 28, 52 24, 52 20 C52 12, 48 8, 40 8 Z" opacity="0.8"/>
+            <!-- Side flourishes -->
+            <path d="M8 24 Q20 16, 28 20 Q28 28, 20 32 Q8 32, 8 24 Z" opacity="0.6"/>
+            <path d="M72 24 Q60 16, 52 20 Q52 28, 60 32 Q72 32, 72 24 Z" opacity="0.6"/>
+            <!-- Decorative lines -->
+            <line opacity="0.4" stroke="currentColor" stroke-width="2" x1="4" x2="16" y1="24" y2="24"/>
+            <line opacity="0.4" stroke="currentColor" stroke-width="2" x1="64" x2="76" y1="24" y2="24"/>
+          </svg>
+        </div>
+        <div class="flex-grow h-px bg-purple-300 max-w-32"></div>
+      </div>
+
+      <p class="text-lg text-purple-700 max-w-2xl mx-auto">
+        {data.subtitle}
+      </p>
+    </div>
+
+    <!-- Timeline Container -->
+    <div class="relative">
+      <!-- Background connecting line -->
+      <div class="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-200 via-purple-400 to-purple-200 transform -translate-y-1/2 hidden lg:block"></div>
+
+      <!-- Timeline Events Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 relative">
+        {data.events.map((event, index) => (
+          <div class="relative group">
+            <!-- Event Card -->
+            <div class="bg-white/90 backdrop-blur-sm border-2 border-purple-200 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:border-purple-400 relative z-10">
+
+              <!-- Icon Container -->
+              <div class="flex justify-center mb-6">
+                <div class="relative">
+                  <!-- Icon background circle -->
+                  <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-purple-300 transition-all duration-300 group-hover:scale-110">
+                    <!-- Font Awesome icon rendering -->
+                    <i class:list={[event.icon, "text-white", "text-2xl"]}></i>
+                  </div>
+
+                  <!-- Pulsing ring animation -->
+                  <div class="absolute inset-0 w-16 h-16 bg-purple-400 rounded-full animate-ping opacity-20 group-hover:opacity-40"></div>
+                </div>
+              </div>
+
+              <!-- Event Title -->
+              <h3 class="text-xl font-bold text-purple-900 text-center mb-4 group-hover:text-purple-700 transition-colors duration-300">
+                {event.title}
+              </h3>
+
+              <!-- Dotted separator -->
+              <div class="border-t-2 border-dotted border-purple-300 mb-4 mx-4"></div>
+
+              <!-- Event Details -->
+              <div class="space-y-2 text-center">
+                <div class="text-sm font-semibold text-purple-800">
+                  {event.startDate}
+                </div>
+                <div class="text-gray-700 font-medium">
+                  {event.date}
+                </div>
+                <div class="text-sm font-semibold text-purple-600">
+                  Time:
+                </div>
+                <div class="text-gray-600">
+                  {event.time}
+                </div>
+              </div>
+
+              <!-- Optional description -->
+              {event.description && (
+                <div class="mt-4 pt-3 border-t border-purple-200">
+                  <p class="text-xs text-gray-600 text-center italic">
+                    {event.description}
+                  </p>
+                </div>
+              )}
+
+              <!-- Decorative corner elements -->
+              <div class="absolute top-2 left-2 w-3 h-3 border-l-2 border-t-2 border-purple-300 opacity-60"></div>
+              <div class="absolute top-2 right-2 w-3 h-3 border-r-2 border-t-2 border-purple-300 opacity-60"></div>
+              <div class="absolute bottom-2 left-2 w-3 h-3 border-l-2 border-b-2 border-purple-300 opacity-60"></div>
+              <div class="absolute bottom-2 right-2 w-3 h-3 border-r-2 border-b-2 border-purple-300 opacity-60"></div>
+            </div>
+
+            <!-- Arrow connector for desktop -->
+            {index < data.events.length - 1 && (
+              <div class="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-20">
+                <div class="w-6 h-6 text-purple-400 group-hover:text-purple-600 transition-colors duration-300">
+                  <svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                  </svg>
+                </div>
+              </div>
+            )}
+
+            <!-- Vertical connector for mobile -->
+            {index < data.events.length - 1 && (
+              <div class="lg:hidden flex justify-center mt-6 mb-2">
+                <div class="w-8 h-8 text-purple-400">
+                  <svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                  </svg>
+                </div>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Bottom decorative elements -->
+    <div class="flex justify-center mt-16">
+      <div class="flex space-x-2">
+        <div class="w-3 h-3 bg-purple-300 rounded-full animate-pulse"></div>
+        <div class="w-3 h-3 bg-purple-400 rounded-full animate-pulse" style="animation-delay: 0.2s"></div>
+        <div class="w-3 h-3 bg-purple-500 rounded-full animate-pulse" style="animation-delay: 0.4s"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .group:hover .animate-float {
+    animation: float 2s ease-in-out infinite;
+  }
+
+  /* Custom gradient animation */
+  .gradient-animate {
+    background-size: 200% 200%;
+    animation: gradientShift 4s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Smooth hover transitions */
+  .group {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Enhanced shadow effects */
+  .shadow-glow {
+    box-shadow: 0 0 20px rgba(139, 69, 193, 0.3);
+  }
+
+  .group:hover .shadow-glow {
+    box-shadow: 0 0 30px rgba(139, 69, 193, 0.5);
+  }
+</style>

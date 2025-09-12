@@ -1,10 +1,10 @@
 ---
 import {
-  HEADER_NAVIGATION_ITEMS,
-  HEADER_CTA_BUTTON,
-  HEADER_STYLES,
-  HEADER_DROPDOWN_WIDTHS,
   HEADER_ANIMATIONS,
+  HEADER_CTA_BUTTON,
+  HEADER_DROPDOWN_WIDTHS,
+  HEADER_NAVIGATION_ITEMS,
+  HEADER_STYLES,
 } from '../../constants/headerConstants';
 ---
 
@@ -27,7 +27,7 @@ import {
           </button>
           <div
             class:list={[
-              `absolute left-0 top-full mt-2`,
+              `absolute left-0 top-full mt-2 z-50`,
               `${HEADER_DROPDOWN_WIDTHS[item.label as keyof typeof HEADER_DROPDOWN_WIDTHS] || 'w-64'}`,
               `invisible rounded-lg border bg-white opacity-0 shadow-lg`,
               `${HEADER_ANIMATIONS.DESKTOP_DROPDOWN_TRANSITION}`,

@@ -14,7 +14,7 @@ export const TRAINING_200_DETAILS = [
 ];
 
 export const TRAINING_200_FEES = {
-  single: { amount: '$1099', description: '(Single Occupancy)' },
+  single: { amount: '$1099 USD', description: '(Single Occupancy)' },
   double: { amount: '$899 USD', description: '(Double Occupancy)' },
   withoutStay: { amount: '$699 USD', description: '(Food is included)' },
 };
@@ -42,36 +42,36 @@ export const TRAINING_200_COURSE_HIGHLIGHTS = {
         {
           subItems: [
             {
-              label: 'Anatomy:',
+              label: 'Anatomy',
               description: 'Learn how the body works to practice and teach yoga safely.',
             },
             {
-              label: 'Philosophy:',
+              label: 'Philosophy',
               description: 'Discover the roots and deeper meaning of yoga.',
             },
             {
-              label: 'Pranayama:',
+              label: 'Pranayama',
               description: 'Practice breathing techniques that improve your energy and health.',
             },
             {
-              label: 'Meditation:',
+              label: 'Meditation',
               description: 'Develop focus, inner peace, and mindfulness through guided techniques.',
             },
             {
-              label: 'Asanas:',
+              label: 'Asanas',
               description: 'Master the physical yoga poses with proper alignment.',
             },
             {
-              label: 'Mantras:',
+              label: 'Mantras',
               description:
                 'Use sacred chants to deepen your concentration and spiritual connection.',
             },
             {
-              label: 'Shatkarma:',
+              label: 'Shatkarma',
               description: 'Learn traditional cleansing techniques for body purification.',
             },
             {
-              label: 'Alignment & Adjustments:',
+              label: 'Alignment & Adjustments',
               description: 'Understand how to help students safely improve their posture.',
             },
           ],
@@ -79,7 +79,7 @@ export const TRAINING_200_COURSE_HIGHLIGHTS = {
       ],
     },
     {
-      category: 'Authentic Teachings From The Source:',
+      category: 'Authentic Teachings From The Source',
       items: [
         'Study yoga in Rishikesh, the birthplace of yoga and a globally known spiritual destination.',
         'Learn from experienced Indian yoga teachers who follow traditional yogic methods.',
@@ -144,7 +144,7 @@ export const TRAINING_200_COURSE_HIGHLIGHTS = {
         value: 'RYT- 200 Yoga Alliance USA',
       },
       {
-        icon: 'yoga',
+        icon: 'jedi',
         label: 'Style :',
         value: 'Multi Style( Hatha & Ashtanga Vinyasa)',
       },
@@ -178,6 +178,79 @@ export const TRAINING_200_DAILY_SCHEDULE: ScheduleItem[] = [
   { time: '04:30 PM - 05:30 PM', activity: 'Practical Teaching' },
   { time: '05:30 PM - 06:00 PM', activity: 'Evening Tea Break' },
 ];
+
+export const TRAINING_200_PRACTICAL_SESSIONS = {
+  title: 'Practical Sessions Includes',
+  sections: [
+    {
+      id: 'asana',
+      title: 'Asana',
+      items: [
+        'Core principles of hatha yoga practice.',
+        'Structuring and sequencing the postures.',
+        'Technique, teaching, method, application, contra-indication, and benefits of Asana.',
+        'Traditional sun salutation series with beej (root) mantras.',
+        'Moon salutation series',
+        'Sookshmavyaayaam( basic preparatory movements).',
+        'Standing pose',
+        'Kneeling pose Practice.',
+        'Sitting pose.',
+        'Backward bending pose. Practice.',
+        'Forward bending pose',
+        'Twisting pose.',
+        'Inverted pose.',
+        'Meditative pose.',
+      ],
+    },
+    {
+      id: 'pranayama',
+      title: 'Pranayama',
+      description:
+        'Pranayama (yogic breathing): Here the students will learn the clear concepts and practices of Pranayama including different breathing exercises mentioned in Hatha yoga & Kumbhaka (breath retention) with benefits and contra-indications.',
+      items: [
+        'What is pranayama?',
+        'What is five sub prana in yogic science?',
+        'What is Ida, Pingala, and Sushumna Nadi?',
+        'What is Nadi?',
+        'Kapalbhati pranayama.',
+        'Bhastrika pranayama.',
+        'Brahmari pranayama.',
+        'Ujjayi pranayama.',
+      ],
+    },
+    {
+      id: 'mudras',
+      title: 'Mudras',
+      description:
+        'Mudras : A mudra may involve the whole body in a combination of asana, pranayama, bandha and visualization techniques, or it may be a simple hand position. The aim is to create fixed, repetitive postures and gestures which can snap the practitioner out of instinctive habit pattern and establish a more refined consciousness.',
+      items: [
+        'Yogic gestures for stress-related problems.',
+        'Healing gestures for physical blockages.',
+        'Pranic gestures for awakening energy.',
+      ],
+    },
+    {
+      id: 'bandhas',
+      title: 'Bandhas',
+      description:
+        'Bandha: Bandha is defined as "binding" tie, hold back, restrain, or lock. The basic premise of the bandha is that by restraining or locking the muscles on a physical level, a subtle unlocking occurs on a mental or energetic level. Bandha regulates the flow of energy and assists the practitioner in asana.',
+      items: [
+        'Introduction of Bandha.',
+        'Mool Bandha(Root Lock).',
+        'Uddiya Bandha (Abdominal Lock).',
+        'Jalandhar Bandha (Throat Lock).',
+        'Maha Bandha(The great Lock).',
+      ],
+    },
+    {
+      id: 'shatkarma',
+      title: 'Shatkarma',
+      description:
+        'Shatkarma (Cleansing Process): Shatkarma is six yogic cleansing techniques for purifying the tissues and organ systems while bringing harmony in their functioning in the most simple and natural manner. Our Shatkarma class will cover:',
+      items: ['Neti.', 'Kapalabhati.', 'Trataka.', 'Dhauti', 'What is Basti?', 'What is Nauli?'],
+    },
+  ],
+} as const;
 
 // ===========================================
 // 200 HOUR CAROUSEL IMAGES
@@ -991,6 +1064,41 @@ export const TRAINING_200_COURSE_DATES_SECTION = {
 };
 
 // ===========================================
+// COURSE GAIN & TARGET AUDIENCE
+// ===========================================
+
+export const TTC_COURSE_GAIN_SECTION = {
+  title: 'What Is This Course About & What You Gain?',
+  subtitle:
+    'Discover the transformative journey that awaits you in our comprehensive yoga teacher training program',
+  gainItems: [
+    {
+      text: 'Learn authentic Yoga from an indigenous yoga school.',
+    },
+    {
+      text: 'Get comprehensive knowledge on Yoga, both theoretical and practical.',
+    },
+    {
+      text: 'Obtain a global certification from Yoga Alliance USA.',
+    },
+    {
+      text: 'Get trained in trwaditional Yoga but in the latest scientific way.',
+    },
+    {
+      text: 'Highly qualified teachers who are well-versed in both theory and practical.',
+    },
+  ],
+  targetAudience: {
+    title: 'Who Is This Course For?',
+    description:
+      'This course is best for those with an avid desire to enhance yoga knowledge as a practice, its techniques as well as its philosophy. If you are a yoga trainer looking to sharpen your yogic skills or expand your knowledge, then, in that case, this course is perfect for you.',
+    requirements: 'No prior knowledge or any degree is required for joining this course.',
+    experience:
+      'Designed to get you started on the path of Yoga and is the best way for developing a deep understanding of Hatha Ashtanga yoga. Vinyasa Yogashala is one of the best places to dip yourself and achieve growth in your yogic journey. Obtain a remarkable transforming experience that you will cherish for a lifetime.',
+  },
+} as const;
+
+// ===========================================
 // GALLERY IMAGES
 // ===========================================
 
@@ -1198,6 +1306,44 @@ export const TRAINING_200_EXCURSIONS_SECTION: ExcursionSection = {
 };
 
 // ===========================================
+// RULES & REFUND POLICY SECTION DATA
+// ===========================================
+
+export const TRAINING_200_RULES_SECTION = {
+  title: 'Rules And Refund Policy',
+  codeOfConduct: {
+    title: 'Code Of Conduct For Students And Basic Ethics',
+    description:
+      'Every school or organization must have some basic rules and code of conduct and so does the Vinyasa Yogshala have. Thus let us discuss those rules:-',
+    rules: [
+      'The students must always respect their gurus and must maintain rules and regulations.',
+      'There is no smoking and drinking rule on the campus.',
+      'Anything that has been borrowed must be duly returned and hat too in time.',
+      'Full attendance is expected in all scheduled programs. If there is any sort of emergency then complete information is to be given.',
+      'The kitchen manager must be informed if there is any other plan and the food is not required for any particular day.',
+      'Class timings are very strict and all students must maintain punctuality.',
+      'In Vinyasa Yogshala accommodation will be provided only to students and staff.',
+    ],
+  },
+  policies: {
+    title: 'Policies Of Vinyasa Yogashala',
+    policies: [
+      'Anti Harassment Police- NO student shall be responsible for any sort of harassment issue. Protections again sexual, personal, physical, harassment is a heavy punishable act.',
+      'Anti- Retaliation Policy-This is the rule for protection against any sort of violation of the code of conduct.',
+      'Attendance Policy- This policy helps students figure out all queries and questions regarding attendance and participation in different events. Attendance is very strict and everyone must follow the policy and guidelines.',
+    ],
+  },
+  refundPolicy: {
+    title: 'Refund Policy Of Vinyasa Yogashala',
+    policies: [
+      'Advance payment non-refundable. If there is an unfortunate event substitute class will be provided later.',
+      'You can cancel your course at any point in time but the deposited money shall not be refunded.',
+      'There is no extra charge for cancellation. All one needs to do is inform the authorities. But as mentioned the fees shall not be refunded.',
+    ],
+  },
+} as const;
+
+// ===========================================
 // 200 HOUR CURRICULUM DETAILED DATA
 // ===========================================
 
@@ -1217,7 +1363,7 @@ export interface CurriculumSection {
 }
 
 export const TRAINING_200_COURSE_FAQ_STYLES = {
-  SECTION_PADDING: 'py-16 px-4',
+  SECTION_PADDING: 'py-16 px-4 mx-0 lg:mx-40',
   CONTAINER: 'container mx-auto max-w-full mx-30',
   TITLE: 'text-3xl md:text-4xl font-bold text-center text-purple-900 mb-4',
   FAQ_ITEM:
@@ -1259,7 +1405,7 @@ export const TTC_NAVBAR_DATA = {
   styling: {
     containerClass: 'container mx-auto px-4',
     navbarClass:
-      'pointer-events-none fixed left-0 right-0 top-0 z-50 -translate-y-full transform border-b border-orange-200 bg-white/95 opacity-0 shadow-lg backdrop-blur-md transition-all duration-300 ease-in-out',
+      'pointer-events-none fixed left-0 right-0 top-0 z-40 -translate-y-full transform border-b border-orange-200 pt-5 bg-white opacity-0 shadow-lg backdrop-blur-md transition-all duration-300 ease-in-out',
     linkClass: 'nav-link',
     dividerClass: 'nav-divider',
   },
@@ -1268,3 +1414,276 @@ export const TTC_NAVBAR_DATA = {
     hideTransform: 'translateY(-100%)',
   },
 };
+
+// ===========================================
+// FOOD & NUTRITION SECTION
+// ===========================================
+
+export const TRAINING_200_FOOD_SECTION = {
+  title: 'FOOD FOR YOGI',
+  description:
+    'Food Whatever we eat can affect our mental and physical body. Eating balanced and nutritious food is very important for yogis. Yogic Diet is based on natural healing, rejuvenating and energizing elements from the revered science of Ayurveda.',
+  benefits: [
+    'It is a perfect food for nourishing the mind, body and souls of budding yogis.',
+    'So Vinyasa Yoga Ashram provides you yogic food which helps you physically in increasing your flexibility and stamina, mentally it helps you in being aware of your thoughts and breath. We are very adamant about bringing nutritious, vegan and gluten-free food for our students.',
+  ],
+  images: [
+    'https://www.vinyasayogaashram.com/image/food3.jpg',
+    'https://www.vinyasayogaashram.com/image/food1.jpg',
+    'https://www.vinyasayogaashram.com/image/food2.jpg',
+    'https://www.vinyasayogaashram.com/image/food4.jpg',
+  ],
+  knowMoreLink: '#food-details',
+} as const;
+
+// ===========================================
+// COURSE TIMELINE SECTION
+// ===========================================
+
+export const TRAINING_200_COURSE_TIMELINE = {
+  title: 'COURSE TIMELINE',
+  events: [
+    {
+      title: 'Check in',
+      date: '1st of Month',
+      time: '10:00 AM',
+      icon: 'fa-plane-arrival',
+    },
+    {
+      title: 'Opening Ceremony',
+      date: '1st of Month',
+      time: '04:00 PM',
+      icon: 'fa-fire',
+    },
+    {
+      title: 'Certification Ceremony',
+      date: '23rd of Month',
+      time: '10:00 AM',
+      icon: 'fa-certificate',
+    },
+    {
+      title: 'Check out',
+      date: '24th of Month',
+      time: '10:00 AM',
+      icon: 'fa-plane-departure',
+    },
+  ],
+} as const;
+
+// ===========================================
+// ACCOMMODATION SECTION
+// ===========================================
+
+export const TRAINING_200_ACCOMMODATION_SECTION = {
+  title: 'ACCOMMODATION FOR YOGI',
+  description:
+    'Soul flourishes in a healthy body in the same way our physical body requires a healthy, safe and hygienic atmosphere. Vinyasa Yoga Ashram has situated in a peaceful place and surrounded by lush green mountains and fields.',
+  additionalInfo:
+    'Keeping in mind our rooms are designed according to yoga teacher training course. Our rooms are spacious and ventilated. Our management is always your service to keep your rooms clean and hygienic.',
+  images: [
+    'https://www.vinyasayogaashram.com/image/Accomodation-3.jpg',
+    'https://www.vinyasayogaashram.com/image/Accomodation-2.jpg',
+    'https://www.vinyasayogaashram.com/image/Accomodation-1.jpg',
+    'https://www.vinyasayogaashram.com/image/Accomodation-4.jpg',
+  ],
+  knowMoreLink: '#accommodation-details',
+} as const;
+
+// ===========================================
+// TTC BLOGS SECTION DATA
+// ===========================================
+
+export interface BlogPost {
+  id: number;
+  title: string;
+  sanskritText: string;
+  image: string;
+  description: string;
+  slug?: string;
+}
+
+export interface TTCBlogsSection {
+  subtitle: string;
+  description: string;
+  closingMessage: string;
+  blogPosts: BlogPost[];
+  ctaButton: {
+    text: string;
+    link: string;
+  };
+}
+
+export const TRAINING_200_BLOGS_SECTION: TTCBlogsSection = {
+  subtitle: 'Blogs',
+  description:
+    "Looking to deepen your yoga journey? Dive into Rishikesh Yogkulam's yoga blogs, your go-to source for inspiring, informative, and soul-nourishing content. From ancient yogic wisdom and modern wellness tips to practical guidance on asanas, pranayama, Ayurveda, and teacher training—our yoga blogs are crafted to elevate your practice and lifestyle. Whether you're a curious beginner or a seasoned yogi, there's something here for everyone.",
+  closingMessage: 'Explore. Learn. Grow—one blog at a time.',
+  blogPosts: [
+    {
+      id: 1,
+      title: 'Yoga Sutra 1.15 : Drsta Anusravika Visaya Vitrsnasvya Vasikara Samjna Vairagyam',
+      sanskritText: 'DRSTA ANUSRAVIKA VISAYA VITRSNASVYA VASIKARA SAMJNA VAIRAGYAM',
+      image: '/public/blog-sutra-1.jpg',
+      description:
+        'Understanding detachment and mastery over desires through ancient yogic wisdom.',
+      slug: 'yoga-sutra-1-15-detachment-mastery-desires',
+    },
+    {
+      id: 2,
+      title: 'Yoga Sutra 1.14: Sa tu dirghakata nairantarya satkara adara asevito drdhabhumih',
+      sanskritText: 'SA TU DIRGHAKATA NAIRANTARYA SATKARA ADARA ASEVITO DRDHABHUMIH',
+      image: '/public/blog-sutra-2.jpg',
+      description:
+        'The practice becomes firmly established when it is cultivated continuously for a long period with dedication.',
+      slug: 'yoga-sutra-1-14-continuous-practice-dedication',
+    },
+    {
+      id: 3,
+      title: 'Yoga Sutra 1.13: Tatra sthitau yatno Bhyasah',
+      sanskritText: 'TATRA STHITAU YATNO BHYASAH',
+      image: '/public/blog-sutra-3.jpg',
+      description:
+        'Practice is the dedicated effort to remain firmly established in stillness of mind.',
+      slug: 'yoga-sutra-1-13-dedicated-effort-stillness-mind',
+    },
+  ],
+  ctaButton: {
+    text: 'View All Blogs',
+    link: '/blog',
+  },
+} as const;
+
+// ===========================================
+// COURSE COMBO SECTION DATA
+// ===========================================
+
+export interface AddOnCombination {
+  id: string;
+  title: string;
+  description: string;
+  featured?: boolean;
+}
+
+export interface CourseComboSection {
+  subtitle: string;
+  description: string;
+  detailDescription: string;
+  contactDescription: string;
+  popularTitle: string;
+  addOnCombinations: AddOnCombination[];
+  ctaButtons: {
+    email: {
+      text: string;
+      href: string;
+    };
+    whatsapp: {
+      text: string;
+      href: string;
+    };
+  };
+  heroImage: string;
+}
+
+export const TRAINING_200_COURSE_COMBO_SECTION: CourseComboSection = {
+  subtitle: 'Create Your Own Yoga Training Combo',
+  description:
+    'At Rishikesh Yogkulam, we believe in giving you the freedom to customize your yoga journey. Now, along with your 200 Hour Yoga Teacher Training (YTTC) or 300 Hour Yoga Teacher Training (YTTC), you can add specialized short courses to deepen your skills.',
+  detailDescription:
+    'For example, you can combine your 200 Hour YTTC with Prenatal Yoga Teacher Training or choose a 300 Hour YTTC with Prenatal Yoga for a truly holistic certification. These combo courses allow you to broaden your teaching profile, explore new areas of yoga, and stand out as a versatile yoga teacher.',
+  contactDescription:
+    'If you are interested in these unique add-on programs, please feel free to inquire via email or WhatsApp. Our team will guide you with the details and help you design the perfect path for your yoga career.',
+  popularTitle: 'Popular Add-On Combinations',
+  addOnCombinations: [
+   {
+      id: 'kundalini-yoga',
+      title: 'Kundalini Yoga Teacher Training',
+      description: 'Awaken your inner energy and elevate your consciousness',
+      featured: true,
+    },
+    {
+      id: 'prenatal-yoga',
+      title: 'Prenatal Yoga Teacher Training',
+      description: 'Specialize in safe yoga practices for expectant mothers',
+      featured: true,
+    },
+    {
+      id: 'aerial-healing',
+      title: 'Aerial Healing Course',
+      description: 'Experience the therapeutic benefits of aerial yoga and healing',
+    },
+  ],
+  ctaButtons: {
+    email: {
+      text: 'Email Us for Details',
+      href: 'mailto:info@rishikeshyogkulam.com',
+    },
+    whatsapp: {
+      text: 'WhatsApp Inquiry',
+      href: 'https://wa.me/919368154123',
+    },
+  },
+  heroImage: 'https://images.unsplash.com/photo-1588286840104-8957b019727f?w=800&h=600&fit=crop',
+} as const;
+
+// ===========================================
+// COURSE TIMELINE SECTION DATA
+// ===========================================
+
+export interface TimelineEvent {
+  id: string;
+  title: string;
+  icon: string;
+  startDate: string;
+  date: string;
+  time: string;
+  description?: string;
+}
+
+export interface CourseTimelineSection {
+  title: string;
+  subtitle: string;
+  events: TimelineEvent[];
+}
+
+export const TRAINING_200_COURSE_TIMELINE_SECTION: CourseTimelineSection = {
+  title: 'Course Timeline - 200 Hour Yoga TTC',
+  subtitle: 'Your journey from arrival to certification',
+  events: [
+    {
+      id: 'check-in',
+      title: 'Check In',
+      icon: 'fas fa-key',
+      startDate: 'Start Date:',
+      date: 'One day before the course start date',
+      time: 'After 05:00 PM IST',
+      description: 'Arrival and room allocation',
+    },
+    {
+      id: 'opening-ceremony',
+      title: 'Opening Ceremony',
+      icon: 'fas fa-fire',
+      startDate: 'Date:',
+      date: '1st of the month',
+      time: '09:00 AM IST',
+      description: 'Welcome ceremony and course introduction',
+    },
+    {
+      id: 'certification-ceremony',
+      title: 'Certification Ceremony',
+      icon: 'fas fa-certificate',
+      startDate: 'Date:',
+      date: '24th of the month',
+      time: '11:00 AM IST',
+      description: 'Certificate presentation and graduation',
+    },
+    {
+      id: 'check-out',
+      title: 'Check Out',
+      icon: 'fas fa-clock',
+      startDate: 'Date:',
+      date: '25th of the month',
+      time: '10:00 AM IST',
+      description: 'Departure and farewell',
+    },
+  ],
+} as const;

@@ -69,7 +69,7 @@ export const YOGA_GURUS_STYLES = {
 
   // Content styles
   CONTENT_CONTAINER: 'text-center',
-  NAME: 'text-lg md:text-xl text-gray-800 mt-4 font-light font-space',
+  NAME: 'text-lg md:text-xl text-gray-800 font-light font-space',
 
   // Scroll indicators
   INDICATORS_CONTAINER: 'flex justify-center mt-8 space-x-2',

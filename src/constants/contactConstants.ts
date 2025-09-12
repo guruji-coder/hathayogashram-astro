@@ -17,8 +17,8 @@ export const CONTACT_INFO = {
     icon: 'fas fa-phone',
   },
   EMAIL: {
-    address: 'vinyasayogshalaindia@gmail.com',
-    href: 'mailto:vinyasayogshalaindia@gmail.com',
+    address: 'hathayogashalaindia@gmail.com',
+    href: 'mailto:hathayogashalaindia@gmail.com',
     icon: 'fas fa-envelope',
   },
   SOCIAL_MEDIA: [

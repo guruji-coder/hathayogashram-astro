@@ -7,7 +7,7 @@
  * Easy to find, easy to modify, easy to understand.
  */
 
-import { ROUTE_TTC_200, ROUTE_TTC_100, ROUTE_TTC_300 } from '../routesConstants';
+import { ROUTE_TTC_100, ROUTE_TTC_200, ROUTE_TTC_300 } from '../routesConstants';
 
 // ===========================================
 // HERO SECTION CONSTANTS
@@ -312,7 +312,6 @@ export const TEACHERS_SECTION = {
       specialty: 'Ashtanga Yoga & Alignment',
       experience: 'Experience 23+ Years',
       image: '/yogashala-founder1.jpg',
-      description: 'Master in traditional Ashtanga Yoga and precise alignment techniques.',
     },
     {
       id: 2,
@@ -320,7 +319,6 @@ export const TEACHERS_SECTION = {
       specialty: 'Traditional Hatha Yoga',
       experience: 'Experience 25+ Years',
       image: '/yogashala-founder2.jpg',
-      description: 'Expert in traditional Hatha Yoga practices and ancient techniques.',
     },
     {
       id: 3,
@@ -328,7 +326,6 @@ export const TEACHERS_SECTION = {
       specialty: 'Meditation & Pranayama',
       experience: 'Experience 21+ Years',
       image: '/yogashala-founder3.jpg',
-      description: 'Specialist in meditation practices and breathing techniques.',
     },
     {
       id: 4,
@@ -336,7 +333,6 @@ export const TEACHERS_SECTION = {
       specialty: 'Yoga Anatomy & Mantra Chanting',
       experience: 'Experience 21+ Years',
       image: '/yogashala-founder1.jpg',
-      description: 'Expert in yoga anatomy and the art of mantra chanting.',
     },
     {
       id: 5,
@@ -370,7 +366,7 @@ export const FACILITIES_CARDS_SECTION = {
       src: 'https://plus.unsplash.com/premium_photo-1682092820451-3ce57694b514?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dHJhbnNwb3J0YXRvbiUyMGluZGlhJTIwcGNzJTIwZm9yJTIwZm9yaWVnbmVyc3xlbnwwfHwwfHx8MA%3D%3D',
     },
     {
-      title: 'Excursions',
+      title: 'ExcursexcursionConstants.ts',
       p: `This course also allows you to enjoy one full day and one half day off each week to visit the many local attractions. You can go white water rafting in the Ganges, enjoy a trip to the beautiful Kempty Falls in Mussoorie.`,
       src: 'https://plus.unsplash.com/premium_photo-1697730398251-40cd8dc57e0b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z2FuZ2F8ZW58MHx8MHx8fDA%3D',
     },
@@ -412,7 +408,7 @@ export const APPLE_CARDS_SECTION = {
 			  <p>Apart from Hatha yoga and Vinyasa yoga classes, we also have classes for Adjustment & Alignment to understand the asanas, their alignment, and how to learn modifications that deepen the practice.</p>
 			  <p>Our Vinyasa Flow teachers show you how to energize the body through movement and breath, and how to stretch the muscles and clean the body internally.</p>
 			  <p>Our Hatha yoga teacher is an expert on alignment and will demonstrate how to safely teach your students asanas without risk of pain or injury.</p>
-			
+
 			</div>  `,
     },
     {
