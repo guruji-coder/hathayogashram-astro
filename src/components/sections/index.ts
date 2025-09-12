@@ -14,3 +14,6 @@ export { default as YTTCourseSection } from './HomePage/YTTCourseSection.astro';
 // TTC Page Sections
 export { default as GallerySection } from './GallerySection.astro';
 export { default as LocationSection } from './LocationSection.astro';
+export { default as CourseTimeline } from './TTC/CourseOpen.astro';
+export { default as TTCCourseCombo } from './TTC/TTC_CourseCombo.astro';
+export { default as TTCBlogs } from './TTC/TTCBlogs.astro';

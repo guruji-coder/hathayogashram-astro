@@ -11,6 +11,8 @@ import {
   LocationSection,
   ObjectiveTTC,
   ReviewSection,
+  TTCBlogs,
+  TTCCourseCombo,
   YogaAllianceRegisteredSchool,
   YogaFacilities,
   YogaGuruSection,
@@ -18,6 +20,10 @@ import {
 } from '$components/sections';
 
 import { FAQ_SECTION, FAQ_STYLES } from '$constants/faqConstants';
+import {
+  TRAINING_200_BLOGS_SECTION,
+  TRAINING_200_COURSE_COMBO_SECTION,
+} from '$constants/TTC/200hour';
 import { FaqSection } from '$svelte/sections';
 // Generate schemas for home page
 const homeSchemas = pageSchemas.home();
@@ -52,6 +58,12 @@ const homeSchemas = pageSchemas.home();
   <YogaGuruSection />
 
   <YogaFacilities />
+
+  <!-- TTC Blogs Section -->
+  <TTCBlogs blogsData={TRAINING_200_BLOGS_SECTION} />
+
+  <!-- Course Combo Section -->
+  <TTCCourseCombo comboData={TRAINING_200_COURSE_COMBO_SECTION} />
 
   <!-- Instagram Feed Section -->
 

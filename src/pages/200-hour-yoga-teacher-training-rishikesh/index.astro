@@ -18,6 +18,13 @@ import {
   MINI_CAROUSEL_IMAGES,
   TRAINING_200_CURRICULUM_SECTION,
   TRAINING_200_EXCURSIONS_SECTION,
+  TTC_COURSE_GAIN_SECTION,
+  TRAINING_200_RULES_SECTION,
+  TRAINING_200_PRACTICAL_SESSIONS,
+  TRAINING_200_FOOD_SECTION,
+  TRAINING_200_COURSE_TIMELINE_SECTION,
+  TRAINING_200_ACCOMMODATION_SECTION,
+  TRAINING_200_COURSE_COMBO_SECTION,
 } from '$constants/TTC/200hour';
 import { FaqSection } from '$components/svelte';
 import {
@@ -30,8 +37,21 @@ import {
   TTCGuideIndia,
   TTCExcursionsSection,
   TTC_CurriculumSection,
+  TTC_CourseGain,
+  TTC_Certificate,
+  TTCPracticalSession,
+  TTCRules,
+  TTCFood,
+  TTC_CourseTimeline,
+  TTCAccommodation,
+  TTC_CourseCombo,
+  TTCBlogs,
 } from '$components/sections/TTC';
-import { LocationSection, GallerySection } from '$components/sections';
+import {
+  LocationSection,
+  GallerySection,
+  YogaAllianceRegisteredSchool,
+} from '$components/sections';
 import IncludedExcludedSection from '$svelte/ui/IncludedExcludedSection.svelte';
 ---
 
@@ -57,23 +77,23 @@ import IncludedExcludedSection from '$svelte/ui/IncludedExcludedSection.svelte';
     <SectionHeader title="Best 200 Hour Yoga Teacher Training Course in Rishikesh" />
 
     <div class="flex w-full flex-col lg:flex-row">
-      <div class="w-full text-lg font-bold text-primary lg:w-1/2 lg:text-xl">
-        <h3 class="">
-          Become yoga alliance registered yoga teacher (ryt 200) through Vinyasa Yoga Ashram’s 200
+      <div class="mr-5 w-full text-xl font-bold text-purple-400 lg:w-1/2 lg:text-xl">
+        <h5 class="text-justify">
+          Become yoga alliance registered yoga teacher (ryt 200) through Hatha Yoga Ashram’s 200
           hour yoga teacher training course and start your career in yoga. Our comprehensive and
           professional program is designed for all levels of practitioners which includes several
           aspects of yoga, I.E. From asanas to kriyas and prepares you to become an independent yoga
-          teacher. Be a part of this life-changing experience at Vinyasa Yoga Ashram and begin your
+          teacher. Be a part of this life-changing experience at Hatha Yoga Ashram and begin your
           pleasant journey to lighten up your true self through yoga. Our 200 hour yoga teacher
           training course will provide you the deepest possible knowledge of yoga both in the form
           of theory as well as practical.
-        </h3>
+        </h5>
         <button
-          class="mt-4 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:from-orange-600 hover:to-orange-700"
+          class="ml-10 mt-8 rounded-lg bg-purple-400 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:from-orange-600 hover:to-orange-700"
           id="read-more-btn">Read More</button
         >
       </div>
-      <div class="mt-10 w-full lg:mt-0 lg:w-1/2">
+      <div class="mt-10 flex h-full w-full items-center justify-center lg:mt-0 lg:w-1/2">
         <img
           alt=""
           class="rounded-lg shadow-lg"
@@ -83,7 +103,7 @@ import IncludedExcludedSection from '$svelte/ui/IncludedExcludedSection.svelte';
     </div>
 
     <div
-      class="read-more mt-5 hidden rounded-lg border-l-4 border-orange-500 bg-gradient-to-r from-purple-50 to-orange-50 p-6 text-xl font-bold text-primary"
+      class="read-more mt-5 hidden rounded-lg p-6 text-xl font-bold text-purple-400"
       id="read-more-content"
     >
       Our highly qualified and veteran Yog Gurus will provide in-depth knowledge of Asana,
@@ -94,7 +114,7 @@ import IncludedExcludedSection from '$svelte/ui/IncludedExcludedSection.svelte';
       your yogic knowledge but also sharpen your skills as a facilitator. We aim to incorporate yoga
       into your daily life and help you in becoming a confident yoga teacher. So, get ready and join
       us in our beautiful journey of The 200 Hour Yoga Teacher Training Certification Course at
-      Vinyasa Yoga Ashram
+      Hatha Yoga Ashram
     </div>
 
     <!-- Toggle script for Read More -->
@@ -110,17 +130,41 @@ import IncludedExcludedSection from '$svelte/ui/IncludedExcludedSection.svelte';
     </script>
   </section>
 
+  <!-- Course Gain Section -->
+  <TTC_CourseGain courseGainData={TTC_COURSE_GAIN_SECTION} />
+
+  <TTC_CourseTimeline timelineData={TRAINING_200_COURSE_TIMELINE_SECTION} />
+
   <!-- Daily Schedule Section -->
+  <TTCDailyScheduleSection schedule={TRAINING_200_DAILY_SCHEDULE} />
+
+  <TTCourseHighlightsSection sectionData={TRAINING_200_COURSE_HIGHLIGHTS} />
+
+  <!-- Course Highlights Section -->
+
   <TTCDailyScheduleSection schedule={TRAINING_200_DAILY_SCHEDULE} />
 
   <!-- Dates Section -->
   <TTCDatesSection />
   <IncludedExcludedSection client:load section={TRAINING_200_INCLUDED_EXCLUDED_SECTION} />
   <TTCExcursionsSection section={TRAINING_200_EXCURSIONS_SECTION} />
-  <TTCGuideIndia />
   <TTC_CurriculumSection curriculumData={TRAINING_200_CURRICULUM_SECTION} />
-  <!-- Course Highlights Section -->
-  <TTCourseHighlightsSection sectionData={TRAINING_200_COURSE_HIGHLIGHTS} />
+
+  <TTCAccommodation accommodationData={TRAINING_200_ACCOMMODATION_SECTION} />
+
+  <!-- Food Section -->
+
+  <TTCFood foodData={TRAINING_200_FOOD_SECTION} />
+
+  <TTCGuideIndia />
+
+  <YogaAllianceRegisteredSchool />
+
+  <TTCPracticalSession practicalSessionData={TRAINING_200_PRACTICAL_SESSIONS} />
+
+  <TTCRules rulesData={TRAINING_200_RULES_SECTION} />
+
+  <TTC_Certificate />
 
   <!-- Gallery Section with Infinite Carousels -->
   <GallerySection
@@ -128,6 +172,14 @@ import IncludedExcludedSection from '$svelte/ui/IncludedExcludedSection.svelte';
     id="Gallery"
     miniImages={MINI_CAROUSEL_IMAGES}
     showMiniCarousel={true}
+  />
+
+  <TTCBlogs />
+
+  <TTC_CourseCombo
+    backgroundClass="py-20 bg-custom-gradient"
+    comboData={TRAINING_200_COURSE_COMBO_SECTION}
+    containerClass="max-w-6xl mx-auto px-6"
   />
 
   <FaqSection

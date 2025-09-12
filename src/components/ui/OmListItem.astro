@@ -1,0 +1,26 @@
+---
+export interface Props {
+  text: string;
+  className?: string;
+}
+const { text, className = '' } = Astro.props;
+---
+
+<div
+  class:list={[
+    'mb-2',
+    'flex',
+    'items-center',
+    'justify-center',
+    'rounded-lg',
+    'backdrop-blur-sm',
+    'transition-all',
+    'duration-300',
+    className,
+  ]}
+>
+  <div class="mr-5 h-6 w-6 flex-shrink-0">
+    <span class="text-lg text-orange-500">ॐ</span>
+  </div>
+  <p class="flex-1 leading-relaxed text-gray-700">{text}</p>
+</div>

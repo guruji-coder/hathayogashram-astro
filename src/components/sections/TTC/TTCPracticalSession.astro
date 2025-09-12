@@ -1,0 +1,64 @@
+---
+import SectionHeader from '$components/ui/SectionHeader.astro';
+import OmListItem from '../../ui/OmListItem.astro';
+
+interface Props {
+  practicalSessionData: {
+    title: string;
+    sections: ReadonlyArray<{
+      id: string;
+      title: string;
+      description?: string;
+      items: ReadonlyArray<string>;
+    }>;
+  };
+}
+
+const { practicalSessionData } = Astro.props;
+---
+
+<section class="py-16 bg-purple-50">
+  <div class="container mx-auto px-4">
+    <!-- Section Header -->
+    <SectionHeader containerClass="mb-12" title={practicalSessionData.title} />
+
+    <div class="max-w-6xl mx-auto space-y-12">
+      {practicalSessionData.sections.map((section) => (
+        <div class=" rounded-2xl p-6 md:p-8 ">
+          <!-- Section Title -->
+          <h3 class="text-2xl md:text-3xl mb-5 bg-white/80 px-4 py-2 w-full font-bold text-purple-900 border-b-2 border-orange-400 pb-3 inline-block">
+            {section.title}
+          </h3>
+
+          <!-- Section Description (if exists) -->
+          {section.description && (
+            <p class="text-gray-700 leading-relaxed mb-6 text-justify ">
+              {section.description}
+            </p>
+          )}
+
+          <!-- Section Items -->
+          <div class="grid grid-cols-1 md:grid-cols-2 ">
+            {section.items.map((item) => (
+              <OmListItem text={item} />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .grid-cols-1 {
+      grid-template-columns: 1fr;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+
+  /* Backdrop blur support */

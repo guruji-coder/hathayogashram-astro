@@ -1,42 +1,25 @@
 ---
 interface Props {
-  foodData: {
+  accommodationData: {
     readonly title: string;
     readonly description: string;
-    readonly benefits: ReadonlyArray<string>;
-    readonly images: ReadonlyArray<string>;
+    readonly additionalInfo: string;
+    readonly images: readonly string[];
     readonly knowMoreLink?: string;
   };
 }
 
-const { foodData } = Astro.props;
+const { accommodationData } = Astro.props;
 ---
 
 <section class="bg-white py-16">
   <div class="container mx-auto px-4">
     <div class="mx-auto flex max-w-7xl flex-col items-start gap-8 lg:flex-row">
-      <!-- Images Grid - Left Side -->
-      <div class="w-full lg:w-1/2">
-        <div class="grid grid-cols-2 gap-4">
-          {
-            foodData.images.map((image, index) => (
-              <div class="overflow-hidden rounded-lg shadow-md">
-                <img
-                  alt={`Food for yogi ${index + 1}`}
-                  class="h-48 w-full object-cover transition-transform duration-300 hover:scale-105"
-                  src={image}
-                />
-              </div>
-            ))
-          }
-        </div>
-      </div>
-
-      <!-- Content - Right Side -->
-      <div class="w-full lg:w-1/2 lg:pl-8">
+      <!-- Content - Left Side -->
+      <div class="w-full lg:w-1/2 lg:pr-8">
         <!-- Title -->
         <h2 class="mb-8 text-4xl font-bold leading-tight text-primary lg:text-5xl">
-          {foodData.title}
+          {accommodationData.title}
         </h2>
 
         <!-- Underline -->
@@ -45,25 +28,44 @@ const { foodData } = Astro.props;
         <!-- Description -->
         <div class="space-y-6 text-lg leading-relaxed text-gray-700">
           <p class="text-justify">
-            {foodData.description}
+            {accommodationData.description}
           </p>
 
-          {foodData.benefits.map(benefit => <p class="text-justify">{benefit}</p>)}
+          <p class="text-justify">
+            {accommodationData.additionalInfo}
+          </p>
         </div>
 
         <!-- Know More Button -->
         {
-          foodData.knowMoreLink && (
+          accommodationData.knowMoreLink && (
             <div class="mt-8">
               <a
                 class="inline-block rounded-lg bg-orange-500 px-8 py-3 font-semibold uppercase tracking-wider text-white transition-colors duration-300 hover:bg-orange-600"
-                href={foodData.knowMoreLink}
+                href={accommodationData.knowMoreLink}
               >
                 KNOW MORE
               </a>
             </div>
           )
         }
+      </div>
+
+      <!-- Images Grid - Right Side -->
+      <div class="w-full lg:w-1/2">
+        <div class="grid grid-cols-2 gap-4">
+          {
+            accommodationData.images.map((image, index) => (
+              <div class="overflow-hidden rounded-lg shadow-md">
+                <img
+                  alt={`Accommodation ${index + 1}`}
+                  class="h-48 w-full object-cover transition-transform duration-300 hover:scale-105"
+                  src={image}
+                />
+              </div>
+            ))
+          }
+        </div>
       </div>
     </div>
   </div>

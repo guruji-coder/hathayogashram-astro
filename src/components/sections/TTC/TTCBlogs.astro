@@ -1,0 +1,139 @@
+---
+import type { TTCBlogsSection } from '../../../constants/TTC/200hour';
+import SectionHeader from "../../ui/SectionHeader.astro";
+
+// TTCBlogs component for displaying yoga sutra blog posts
+export interface Props {
+  blogsData?: TTCBlogsSection;
+  containerClass?: string;
+  backgroundClass?: string;
+}
+
+const {
+  blogsData,
+  containerClass = "container mx-auto px-4 max-w-7xl",
+  backgroundClass = "py-16 bg-purple-50 font-quicksand"
+} = Astro.props;
+
+// Default fallback data if no props provided
+const defaultBlogsData: TTCBlogsSection = {
+  subtitle: 'Blogs',
+  description: 'Looking to deepen your yoga journey? Dive into Rishikesh Yogkulam\'s yoga blogs, your go-to source for inspiring, informative, and soul-nourishing content. From ancient yogic wisdom and modern wellness tips to practical guidance on asanas, pranayama, Ayurveda, and teacher training—our yoga blogs are crafted to elevate your practice and lifestyle. Whether you\'re a curious beginner or a seasoned yogi, there\'s something here for everyone.',
+  closingMessage: 'Explore. Learn. Grow—one blog at a time.',
+  blogPosts: [
+    {
+      id: 1,
+      title: "Yoga Sutra 1.15 : Drsta Anusravika Visaya Vitrsnasvya Vasikara Samjna Vairagyam",
+      sanskritText: "DRSTA ANUSRAVIKA VISAYA VITRSNASVYA VASIKARA SAMJNA VAIRAGYAM",
+      image: "/public/blog-sutra-1.jpg",
+      description: "Understanding detachment and mastery over desires through ancient yogic wisdom."
+    },
+    {
+      id: 2,
+      title: "Yoga Sutra 1.14: Sa tu dirghakata nairantarya satkara adara asevito drdhabhumih",
+      sanskritText: "SA TU DIRGHAKATA NAIRANTARYA SATKARA ADARA ASEVITO DRDHABHUMIH",
+      image: "/public/blog-sutra-2.jpg",
+      description: "The practice becomes firmly established when it is cultivated continuously for a long period with dedication."
+    },
+    {
+      id: 3,
+      title: "Yoga Sutra 1.13: Tatra sthitau yatno Bhyasah",
+      sanskritText: "TATRA STHITAU YATNO BHYASAH",
+      image: "/public/blog-sutra-3.jpg",
+      description: "Practice is the dedicated effort to remain firmly established in stillness of mind."
+    }
+  ],
+  ctaButton: {
+    text: 'View All Blogs',
+    link: '/blog'
+  }
+};
+
+const data = blogsData || defaultBlogsData;
+---
+
+<section class:list={[backgroundClass]}>
+  <div class:list={[containerClass]}>
+    <!-- Header Section -->
+    <div class="text-center mb-12">
+
+      <SectionHeader containerClass="mb-4" title={data.subtitle} />
+
+      <p class="text-gray-600 text-lg max-w-4xl mx-auto leading-relaxed">
+        {data.description}
+      </p>
+
+      <p class="text-gray-700 text-lg mt-4 font-medium">
+        {data.closingMessage}
+      </p>
+    </div>
+
+    <!-- Blog Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      {data.blogPosts.map((post) => (
+        <div class="group cursor-pointer">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            <!-- Card Image with Parchment Background -->
+            <div class="relative h-64 bg-gradient-to-br from-amber-100 via-yellow-50 to-amber-200 flex items-center justify-center p-6">
+              <!-- Parchment texture overlay -->
+              <div class="absolute inset-0 opacity-20" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><pattern id=%22grain%22 width=%222%22 height=%222%22 patternUnits=%22userSpaceOnUse%22><circle cx=%221%22 cy=%221%22 r=%220.3%22 fill=%22%23000%22 opacity=%220.1%22/></pattern></defs><rect width=%22100%22 height=%22100%22 fill=%22url(%23grain)%22/></svg>')"></div>
+
+              <!-- Sanskrit Text -->
+              <div class="relative text-center">
+                <div class="text-amber-900 text-lg font-bold tracking-wide leading-tight">
+                  {post.sanskritText}
+                </div>
+              </div>
+
+              <!-- Decorative corners -->
+              <div class="absolute top-2 left-2 w-4 h-4 border-l-2 border-t-2 border-amber-800 opacity-60"></div>
+              <div class="absolute top-2 right-2 w-4 h-4 border-r-2 border-t-2 border-amber-800 opacity-60"></div>
+              <div class="absolute bottom-2 left-2 w-4 h-4 border-l-2 border-b-2 border-amber-800 opacity-60"></div>
+              <div class="absolute bottom-2 right-2 w-4 h-4 border-r-2 border-b-2 border-amber-800 opacity-60"></div>
+            </div>
+
+            <!-- Card Content -->
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-gray-800 mb-3 group-hover:text-orange-600 transition-colors duration-300 line-clamp-2">
+                {post.title}
+              </h3>
+              <p class="text-gray-600 text-sm leading-relaxed line-clamp-3">
+                {post.description}
+              </p>
+
+              <!-- Read More Link -->
+              <div class="mt-4">
+                <a class="text-orange-600 font-medium text-sm hover:text-orange-700 transition-colors duration-300" href={post.slug ? `/blog/${post.slug}` : '#'}>
+                  Read More →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- View All Blogs Button -->
+    <div class="text-center">
+      <a class="inline-block bg-orange-600 hover:bg-orange-700 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl" href={data.ctaButton.link}>
+        {data.ctaButton.text}
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

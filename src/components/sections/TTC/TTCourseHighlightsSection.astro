@@ -26,7 +26,7 @@ interface Props {
 const { sectionData } = Astro.props;
 ---
 
-<section class="py-16 bg-gray-50" id="CourseHighlights">
+<section class="py-16 " id="CourseHighlights">
   <div class="container mx-auto px-4">
 
     <!-- Header -->
@@ -41,21 +41,22 @@ const { sectionData } = Astro.props;
       <!-- Benefits Content -->
       <div class="lg:col-span-2 space-y-6">
         {sectionData.benefits.map((benefit) => (
-          <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+          <div class="bg-white rounded-xl p-8 shadow-sm ">
 
-            <!-- Category header -->
-            <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center gap-3">
-              <span class="w-2 h-2 bg-primary rounded-full"></span>
+
+            <p
+              class="border-b border-orange-400 bg-white/50 px-6 py-4 text-center text-sm font-bold text-gray-800 md:text-left md:text-lg"
+            >
               {benefit.category}
-            </h3>
+            </p>
 
             <!-- Benefit items -->
             <div class="space-y-4">
               {benefit.items.map((item) => (
                 <div>
                   {typeof item === 'string' ? (
-                    <div class="flex items-start gap-3 text-gray-600">
-                      <span class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></span>
+                    <div class="flex items-start gap-3 text-gray-600 my-5">
+                      <span class="w-1.5 h-1.5 text-orange-500 mr-5">ॐ</span>
                       <p>{item}</p>
                     </div>
                   ) : (
@@ -82,7 +83,7 @@ const { sectionData } = Astro.props;
 
       <!-- Course Highlight Card -->
       <div class="lg:col-span-1">
-        <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100 sticky top-24">
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 py-2 sticky top-24">
 
           <!-- Course title -->
           <h3 class="text-2xl font-bold text-center text-gray-800 mb-8">
@@ -90,7 +91,7 @@ const { sectionData } = Astro.props;
           </h3>
 
           <!-- Pricing -->
-          <div class="grid grid-cols-2 gap-4 mb-8 p-4 bg-gray-50 rounded-lg">
+          <div class="grid grid-cols-2  rounded-lg">
             <div class="text-center">
               <p class="text-xs font-medium text-gray-500 uppercase mb-1">{sectionData.courseHighlight.pricing.twinShared.label}</p>
               <p class="text-2xl font-bold text-primary">{sectionData.courseHighlight.pricing.twinShared.price}</p>
@@ -104,15 +105,15 @@ const { sectionData } = Astro.props;
           </div>
 
           <!-- Course details -->
-          <div class="space-y-3 mb-8">
+          <div class="space-y-3 mb-8 mx-5 ">
             {sectionData.courseHighlight.details.map((detail) => (
-              <div class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+              <div class="flex items-center rounded-lg hover:bg-gray-50 transition-colors">
                 <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0">
                   <i class="w-10 h-10 flex items-center justify-center" class:list={[`fas`,`fa-${detail.icon}`,`text-primary`]}></i>
                 </div>
                 <div class="min-w-0 flex-1">
                   <p class="text-sm font-medium text-gray-600">{detail.label}</p>
-                  <p class="text-sm text-gray-800 font-semibold">{detail.value}</p>
+                  <p class="text-xs text-gray-800 font-light">{detail.value}</p>
                 </div>
               </div>
             ))}
