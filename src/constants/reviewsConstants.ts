@@ -1,3 +1,5 @@
+import { GALLERY_IMAGES_FLAT } from './imageConstants';
+
 export const REVIEWS_SECTION = {
   TITLE: 'See What Our Students Say About Us!',
   VIEW_ALL_BUTTON: 'See All Google Reviews',
@@ -7,7 +9,7 @@ export const REVIEWS_SECTION = {
     {
       id: 1,
       name: 'Monica',
-      image: '/testimonial.jpg',
+      image: GALLERY_IMAGES_FLAT.TESTIMONIAL,
       rating: 5,
       text: "I'm doing the 200 hours yoga teaching training course and I have been discovering that yoga is much more than what I expected. The teachers are amazing, highly professional and knowledgeable.",
       course: '200 Hour YTTC',
@@ -17,7 +19,7 @@ export const REVIEWS_SECTION = {
     {
       id: 2,
       name: 'Megan',
-      image: '/testimonial.jpg',
+      image: GALLERY_IMAGES_FLAT.TESTIMONIAL,
       rating: 5,
       text: 'A life changing experience to live. Teachers are amazing, highly professional and knowledgeable. The whole experience exceeded my expectations in every way possible.',
       course: '200 Hour YTTC',
@@ -27,7 +29,7 @@ export const REVIEWS_SECTION = {
     {
       id: 3,
       name: 'Geneva Gray',
-      image: '/testimonial.jpg',
+      image: GALLERY_IMAGES_FLAT.TESTIMONIAL,
       rating: 5,
       text: "Namaste🙏 I've completed my 200 hours teacher training course at Hatha Yoga Ashram. To begin with, I was nervous about joining this course but the teachers made me feel comfortable.",
       course: '200 Hour YTTC',
@@ -37,7 +39,7 @@ export const REVIEWS_SECTION = {
     {
       id: 4,
       name: 'Sarah Johnson',
-      image: '/testimonial.jpg',
+      image: GALLERY_IMAGES_FLAT.TESTIMONIAL,
       rating: 5,
       text: 'The 300-hour advanced training took my practice and teaching to the next level. The depth of knowledge shared by the instructors was incredible. Highly recommend!',
       course: '300 Hour YTTC',

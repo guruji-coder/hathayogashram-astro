@@ -1,0 +1,48 @@
+---
+import type { BestCourseSectionData } from '../../../constants/TTC/200hour';
+import SectionHeader from '../../ui/SectionHeader.astro';
+
+interface Props {
+  sectionData: BestCourseSectionData;
+}
+
+const { sectionData } = Astro.props;
+---
+
+<section class:list={[sectionData.styling.sectionClass]} id={sectionData.sectionId}>
+  <SectionHeader containerClass="" title={sectionData.title} />
+
+  <div class:list={[sectionData.styling.containerClass]}>
+    <div class:list={[sectionData.styling.textContainerClass]}>
+      <h5 class:list={[sectionData.styling.shortDescriptionClass]}>
+        {sectionData.shortDescription}
+      </h5>
+      <button class:list={[sectionData.button.class]} id="read-more-btn">
+        {sectionData.button.text}
+      </button>
+    </div>
+    <div class:list={[sectionData.styling.imageContainerClass]}>
+      <img
+        alt={sectionData.image.alt}
+        class:list={[sectionData.styling.imageClass]}
+        src={sectionData.image.src}
+      />
+    </div>
+  </div>
+
+  <div class:list={[sectionData.styling.expandedDescriptionClass]} id="read-more-content">
+    {sectionData.expandedDescription}
+  </div>
+
+  <!-- Toggle script for Read More -->
+  <script define:vars={{ showLessText: sectionData.button.showLessText, readMoreText: sectionData.button.text }} type="module">
+    const btn = document.getElementById('read-more-btn');
+    const content = document.getElementById('read-more-content');
+    if (btn && content) {
+      btn.addEventListener('click', () => {
+        const hidden = content.classList.toggle('hidden');
+        btn.textContent = hidden ? readMoreText : showLessText;
+      });
+    }
+  </script>
+</section>

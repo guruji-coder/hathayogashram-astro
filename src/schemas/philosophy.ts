@@ -38,7 +38,7 @@ export const philosophySchema = {
       name: 'Gheranda Samhita',
       author: 'Sage Gheranda',
       description:
-        'Classical manual describing 32 asanas and the sevenfold yoga (Saptanga Yoga). Important text for understanding traditional Hatha Yoga practices.',
+        'Classical manual describing 32 asanas and the sevenfold yoga (Saptanga Yoga). Important text for understanding Classical & Traditional Hatha Yoga practices.',
       keywords: '32 Asanas, Saptanga Yoga, Shatkarma, Mudras',
     },
     {

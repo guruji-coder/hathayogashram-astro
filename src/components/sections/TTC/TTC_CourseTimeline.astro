@@ -1,4 +1,6 @@
 ---
+import SectionHeader from '../../ui/SectionHeader.astro';
+
 
 interface Props {
   timelineData: {
@@ -15,26 +17,19 @@ interface Props {
 const { timelineData } = Astro.props;
 ---
 
-<section class="py-16 bg-white font-quicksand">
+<section class="py-16 bg-orange-200 font-quicksand">
   <div class="container mx-auto px-4">
     <!-- Section Header -->
-    <div class="mb-12 text-center">
-      <h2 class="text-4xl font-bold text-primary mb-4">
-        {timelineData.title}
-      </h2>
-      <div class="flex justify-center mb-8">
-        <div class="w-16 h-1 bg-orange-600 rounded"></div>
-        <div class="w-4 h-1 bg-orange-400 rounded mx-1"></div>
-        <div class="w-8 h-1 bg-orange-400 rounded"></div>
-      </div>
-    </div>
+    <SectionHeader
+      title={timelineData.title}
+    />
 
     <!-- Timeline Grid -->
     <div class="mx-auto max-w-6xl">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         {
           timelineData.events.map((event) => (
-            <div class="bg-white rounded-xl p-6 hover:shadow-xl duration-300">
+            <div class="bg-white rounded-xl md:p-6 p-1 hover:shadow-xl duration-300">
               <div class="flex items-start space-x-4">
                 <!-- Icon -->
                 <div class="flex-shrink-0 w-20 h-20 rounded-full flex items-center justify-center">

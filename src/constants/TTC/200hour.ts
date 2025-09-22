@@ -2,6 +2,14 @@
 // 200 HOUR YOGA TEACHER TRAINING CONSTANTS
 // ===========================================
 
+import {
+  COURSE_IMAGES_FLAT,
+  TEACHER_IMAGES_FLAT,
+  GALLERY_IMAGES_FLAT,
+  CERTIFICATE_IMAGES,
+  ALL_EXCURSION_IMAGES,
+} from '../imageConstants';
+
 export const TRAINING_200_TITLE = `200 HOUR YOGA
 Teacher Training Course`;
 
@@ -17,6 +25,63 @@ export const TRAINING_200_FEES = {
   single: { amount: '$1099 USD', description: '(Single Occupancy)' },
   double: { amount: '$899 USD', description: '(Double Occupancy)' },
   withoutStay: { amount: '$699 USD', description: '(Food is included)' },
+};
+
+// ===========================================
+// 200 HOUR BEST COURSE SECTION
+// ===========================================
+
+export interface BestCourseSectionData {
+  title: string;
+  shortDescription: string;
+  expandedDescription: string;
+  image: {
+    src: string;
+    alt: string;
+  };
+  button: {
+    text: string;
+    showLessText: string;
+    class: string;
+  };
+  sectionId: string;
+  styling: {
+    sectionClass: string;
+    containerClass: string;
+    textContainerClass: string;
+    imageContainerClass: string;
+    shortDescriptionClass: string;
+    expandedDescriptionClass: string;
+    imageClass: string;
+  };
+}
+
+export const TRAINING_200_BEST_COURSE_SECTION: BestCourseSectionData = {
+  title: 'Best 200 Hour Yoga Teacher Training Course in Rishikesh',
+  shortDescription: `Become yoga alliance registered yoga teacher (ryt 200) through Hatha Yoga Ashram's 200 hour yoga teacher training course and start your career in yoga. Our comprehensive and professional program is designed for all levels of practitioners which includes several aspects of yoga, I.E. From asanas to kriyas and prepares you to become an independent yoga teacher. Be a part of this life-changing experience at Hatha Yoga Ashram and begin your pleasant journey to lighten up your true self through yoga. Our 200 hour yoga teacher training course will provide you the deepest possible knowledge of yoga both in the form of theory as well as practical.`,
+  expandedDescription: `Our highly qualified and veteran Yog Gurus will provide in-depth knowledge of Asana, Meditation, Ayurveda, Pranayama, Yoga Philosophy and Anatomy. Moreover, asana alignments, modifications, contradictions, use of props, adjustment techniques, teaching methodology and teaching practice will also be covered during this course Both beginners, as well as experienced practitioners, can reap the benefits of this course as it will not only deepen your yogic knowledge but also sharpen your skills as a facilitator. We aim to incorporate yoga into your daily life and help you in becoming a confident yoga teacher. So, get ready and join us in our beautiful journey of The 200 Hour Yoga Teacher Training Certification Course at Hatha Yoga Ashram`,
+  image: {
+    src: CERTIFICATE_IMAGES.BG_CERTIFICATE,
+    alt: 'Yoga Teacher Training Certificate',
+  },
+  button: {
+    text: 'Read More',
+    showLessText: 'Show Less',
+    class:
+      'mx-auto mb-5 block rounded-lg bg-purple-400 p-0 px-4 py-1 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:from-orange-600 hover:to-orange-700',
+  },
+  sectionId: 'BestCourse',
+  styling: {
+    sectionClass: 'mt-10 ',
+    containerClass: 'flex w-full flex-col gap-x-20 p-10 lg:flex-row lg:items-stretch',
+    textContainerClass:
+      'flex w-full flex-col rounded-lg pb-5 text-xl font-bold text-purple-400 lg:w-1/2 lg:text-xl',
+    imageContainerClass: 'mt-10 flex w-full items-center justify-center lg:mt-0 lg:w-1/2',
+    shortDescriptionClass: 'flex-grow p-5 text-justify',
+    expandedDescriptionClass:
+      'read-more mt-5 hidden rounded-lg p-6 text-xl font-bold text-purple-400',
+    imageClass: 'h-full w-full rounded-lg object-cover shadow-lg',
+  },
 };
 
 // ===========================================
@@ -158,7 +223,7 @@ export const TRAINING_200_COURSE_HIGHLIGHTS = {
 };
 
 // ===========================================
-// 200 HOUR DAILY SCHEDULE
+// 200 HOUR DAILY SCHEDULE SECTION
 // ===========================================
 
 export interface ScheduleItem {
@@ -166,18 +231,63 @@ export interface ScheduleItem {
   activity: string;
 }
 
-export const TRAINING_200_DAILY_SCHEDULE: ScheduleItem[] = [
-  { time: '06:30 AM - 07:30 AM', activity: 'Hatha Yoga' },
-  { time: '07:45 AM - 08:45 AM', activity: 'Pranayama' },
-  { time: '09:00 AM - 10:00 AM', activity: 'Breakfast' },
-  { time: '10:00 AM - 11:00 AM', activity: 'Yoga Philosophy' },
-  { time: '11:00 AM - 11:45 AM', activity: 'Yoga Anatomy' },
-  { time: '12:00 PM - 01:00 PM', activity: 'Lunch' },
-  { time: '02:00 PM - 03:00 PM', activity: 'Meditation & Mantras' },
-  { time: '03:15 PM - 04:15 PM', activity: 'Asana Practice' },
-  { time: '04:30 PM - 05:30 PM', activity: 'Practical Teaching' },
-  { time: '05:30 PM - 06:00 PM', activity: 'Evening Tea Break' },
-];
+export interface DailyScheduleSectionData {
+  title: string;
+  description: string;
+  weeklyScheduleText: string;
+  image: {
+    src: string;
+    alt: string;
+  };
+  buttons: {
+    book: {
+      text: string;
+      class: string;
+      href: string;
+    };
+    pay: {
+      text: string;
+      class: string;
+      href: string;
+    };
+  };
+  schedule: ScheduleItem[];
+}
+
+export const TRAINING_200_DAILY_SCHEDULE_SECTION_DATA: DailyScheduleSectionData = {
+  title: 'Daily Schedule for 200 hrs YTTC',
+  description:
+    'A well-structured daily routine forms the backbone of yoga courses, especially intensive programs like the 200 hour Yoga Teacher Training (YTT). This carefully organized schedule ensures effective learning, fosters discipline, and helps students seamlessly incorporate yogic principles into their daily lives. By maintaining a balanced schedule, students stay refreshed, energized, and focused throughout the day.',
+  weeklyScheduleText: 'Weekly Schedule: Monday to Saturday',
+  image: {
+    src: COURSE_IMAGES_FLAT.YOGA_COURSE,
+    alt: 'Yoga Daily Schedule',
+  },
+  buttons: {
+    book: {
+      text: 'Book Course',
+      class: 'rounded border bg-primary px-6 py-2 text-white',
+      href: '/contact',
+    },
+    pay: {
+      text: 'Pay Course',
+      class: 'rounded border bg-primary px-6 py-2 text-white',
+      href: '/payment',
+    },
+  },
+  schedule: [
+    { time: '06:30 AM - 07:30 AM', activity: 'Hatha Yoga' },
+    { time: '07:45 AM - 08:45 AM', activity: 'Pranayama' },
+    { time: '09:00 AM - 10:00 AM', activity: 'Breakfast' },
+    { time: '10:00 AM - 11:00 AM', activity: 'Yoga Philosophy' },
+    { time: '11:00 AM - 11:45 AM', activity: 'Yoga Anatomy' },
+    { time: '12:00 PM - 01:00 PM', activity: 'Lunch' },
+    { time: '02:00 PM - 03:00 PM', activity: 'Meditation & Mantras' },
+    { time: '03:15 PM - 04:15 PM', activity: 'Asana Practice' },
+    { time: '04:30 PM - 05:30 PM', activity: 'Practical Teaching' },
+    { time: '05:30 PM - 06:00 PM', activity: 'Evening Tea Break' },
+  ],
+};
 
 export const TRAINING_200_PRACTICAL_SESSIONS = {
   title: 'Practical Sessions Includes',
@@ -311,12 +421,12 @@ export const TRAINING_200_CURRICULUM_SECTION: CurriculumSection = {
     },
     {
       id: 'traditional-hatha-yoga',
-      title: 'Traditional Hatha Yoga',
+      title: 'Classical & Traditional Hatha Yoga',
       sections: [
         {
           title: 'Practice Sessions',
           description:
-            "Traditional Hatha Yoga sessions conducted by our school are a positive workout for one's physical and mental wellness. It originated years ago with the aim to attain health and peace. The practice also benefits you with strength and flexibility.",
+            "Classical & Traditional Hatha Yoga sessions conducted by our school are a positive workout for one's physical and mental wellness. It originated years ago with the aim to attain health and peace. The practice also benefits you with strength and flexibility.",
           items: [
             'PavanMuktasana series 1 (15 practices)',
             'PavanMuktasana series 2 (10 practices)',
@@ -1103,13 +1213,13 @@ export const TTC_COURSE_GAIN_SECTION = {
 // ===========================================
 
 export const GALLERY_CAROUSEL_IMAGES = [
-  '/yogaschoolpic.jpg',
-  '/yogacoursepic.jpg',
-  '/yogashala-founder1.jpg',
-  '/yogashala-founder2.jpg',
-  '/yogashala-founder3.jpg',
-  '/testimonial.jpg',
-  '/bg-certificate.png',
+  COURSE_IMAGES_FLAT.YOGA_SCHOOL,
+  COURSE_IMAGES_FLAT.YOGA_COURSE,
+  TEACHER_IMAGES_FLAT.FOUNDER_1,
+  TEACHER_IMAGES_FLAT.FOUNDER_2,
+  TEACHER_IMAGES_FLAT.FOUNDER_3,
+  GALLERY_IMAGES_FLAT.TESTIMONIAL,
+  CERTIFICATE_IMAGES.BG_CERTIFICATE,
   'https://www.vinyasayogaashram.com/image/200hrs-yoga-teacher-training-course.jpg?v=125',
   'https://i0.wp.com/hathayogashram.com/wp-content/uploads/2024/08/1000040970.jpg?fit=1080%2C953&ssl=1',
   'https://images.unsplash.com/photo-1545389336-cf090694435e?w=800',
@@ -1124,9 +1234,9 @@ export const GALLERY_CAROUSEL_IMAGES = [
 
 // Small continuous carousel images
 export const MINI_CAROUSEL_IMAGES = [
-  '/yogashala-founder1.jpg',
-  '/yogashala-founder2.jpg',
-  '/yogashala-founder3.jpg',
+  TEACHER_IMAGES_FLAT.FOUNDER_1,
+  TEACHER_IMAGES_FLAT.FOUNDER_2,
+  TEACHER_IMAGES_FLAT.FOUNDER_3,
   'https://images.unsplash.com/photo-1545389336-cf090694435e?w=200',
   'https://images.unsplash.com/photo-1588286840104-8957b019727f?w=200',
   'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=200',
@@ -1296,11 +1406,11 @@ export const TRAINING_200_EXCURSIONS_SECTION: ExcursionSection = {
   title: 'Excursion With This Course',
   description: `We know how important it is for our students to feel connected to the place they are studying yoga. That’s why our curriculum includes spiritual, educational, and relaxing trips to Yogic Caves, the sacred river Ganges, the Himalayan mountain, local sightseeing and much more!`,
   items: [
-    { src: '/vys-excursion1.jpg', label: 'Ganga Aarti' },
-    { src: '/vys-excursion2.jpg', label: 'Rafting' },
-    { src: '/vys-excursion3.jpg', label: 'Vashishtha Cave' },
-    { src: '/vys-excursion4.jpg', label: 'Waterfall' },
-    { src: '/vys-excursion5.jpg', label: 'Kunjapuri Temple' },
+    { src: GALLERY_IMAGES_FLAT.EXCURSION_1, label: 'Ganga Aarti' },
+    { src: GALLERY_IMAGES_FLAT.EXCURSION_2, label: 'Rafting' },
+    { src: GALLERY_IMAGES_FLAT.EXCURSION_3, label: 'Vashishtha Cave' },
+    { src: GALLERY_IMAGES_FLAT.EXCURSION_4, label: 'Waterfall' },
+    { src: GALLERY_IMAGES_FLAT.EXCURSION_5, label: 'Kunjapuri Temple' },
     // Add more excursion images as needed
   ],
 };
@@ -1383,7 +1493,7 @@ export const TRAINING_200_COURSE_FAQ_STYLES = {
 };
 
 export const PRICE_TAB_DATA = {
-  imageSrc: '/hya.jpg',
+  imageSrc: GALLERY_IMAGES_FLAT.HYA_LOGO,
   title: '200 Hour Yoga Teacher Training Course International',
   originalPrice: '$1049.00',
   price: '$899.00/-',
@@ -1594,7 +1704,7 @@ export const TRAINING_200_COURSE_COMBO_SECTION: CourseComboSection = {
     'If you are interested in these unique add-on programs, please feel free to inquire via email or WhatsApp. Our team will guide you with the details and help you design the perfect path for your yoga career.',
   popularTitle: 'Popular Add-On Combinations',
   addOnCombinations: [
-   {
+    {
       id: 'kundalini-yoga',
       title: 'Kundalini Yoga Teacher Training',
       description: 'Awaken your inner energy and elevate your consciousness',

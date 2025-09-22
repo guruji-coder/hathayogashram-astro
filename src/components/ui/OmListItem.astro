@@ -1,4 +1,6 @@
 ---
+import { ICON_IMAGES } from '$constants/imageConstants';
+
 export interface Props {
   text: string;
   className?: string;
@@ -19,8 +21,7 @@ const { text, className = '' } = Astro.props;
     className,
   ]}
 >
-  <div class="mr-5 h-6 w-6 flex-shrink-0">
-    <span class="text-lg text-orange-500">ॐ</span>
-  </div>
-  <p class="flex-1 leading-relaxed text-gray-700">{text}</p>
+       <img class="w-14 h-14 rounded-full" src={ICON_IMAGES.OM_SYMBOL}  />
+
+  <p class="flex-1 leading-relaxed text-gray-700 ml-2">{text}</p>
 </div>

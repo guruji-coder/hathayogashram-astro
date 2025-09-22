@@ -25,27 +25,31 @@ const { name, image, specialty, experience, description } = Astro.props;
     <h3 class:list={YOGA_GURUS_STYLES.NAME}>
       {name}
     </h3>
-    
+
     <!-- Specialty/Profession -->
-    {specialty && (
-      <p class="text-center text-sm text-orange-600 font-semibold mt-3 px-2 leading-tight">
-        {specialty}
-      </p>
-    )}
-    
+    {
+      specialty && (
+        <p class="mt-3 px-2 text-center text-sm font-semibold leading-tight text-orange-600">
+          {specialty}
+        </p>
+      )
+    }
+
     <!-- Experience -->
-    {experience && (
-      <p class="text-center text-xs text-gray-500 mt-2 px-2 font-medium">
-        {experience}
-      </p>
-    )}
-    
+    {
+      experience && (
+        <p class="mt-2 px-2 text-center text-xs font-medium text-gray-500">{experience}</p>
+      )
+    }
+
     <!-- Description -->
-    {description && (
-      <p class="text-center text-xs text-gray-600 mt-3 px-3 leading-relaxed italic">
-        {description}
-      </p>
-    )}
+    {
+      description && (
+        <p class="mt-3 px-3 text-center text-xs italic leading-relaxed text-gray-600">
+          {description}
+        </p>
+      )
+    }
   </div>
 </div>
 

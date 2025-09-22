@@ -39,13 +39,14 @@ import {
   ROUTE_APPLY,
 } from './routesConstants';
 import type { MenuItem } from '../types';
+import { LOGO_IMAGES } from './imageConstants';
 
 // ===========================================
 // BRANDING & LOGO CONSTANTS
 // ===========================================
 
 export const HEADER_BRANDING = {
-  LOGO_IMAGE_PATH: '/hya.jpg',
+  LOGO_IMAGE_PATH: LOGO_IMAGES.MAIN_LOGO,
   LOGO_ALT_TEXT: 'Best Yoga School in Rishikesh',
   LOGO_HEIGHT_DESKTOP: 'h-12 rounded-full',
   LOGO_HEIGHT_MOBILE: 'h-10',

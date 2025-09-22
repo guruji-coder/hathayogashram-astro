@@ -1,5 +1,7 @@
 ---
 // Simple footer data
+import Logo from '$components/navigation/Logo.astro';
+import { ICON_IMAGES } from '$constants/imageConstants';
 import {
   ROUTE_HOME,
   ROUTE_OUR_FOUNDER,
@@ -105,7 +107,7 @@ const socialLinks = [
       <!-- About Section -->
       <div>
         <div class="mb-6">
-          <img alt="Hatha Yogashram" class="mb-4 h-12 w-12 rounded-full" src="/hya.jpg" />
+          <Logo />
           <h3 class="mb-4 text-xl font-bold">Hatha Yogashram</h3>
         </div>
         <p class="mb-6 leading-relaxed text-gray-400">
@@ -139,7 +141,8 @@ const socialLinks = [
             <ul class="space-y-3">
               {section.links.map(link => (
                 <li class="flex items-center">
-                  <span class="mr-3 text-sm text-orange-400">ॐ</span>
+                  <span class="mr-3 text-sm text-orange-400">  <img class=" zw-10 h-10" src={ICON_IMAGES.OM_SYMBOL}  />
+</span>
                   <a class="text-gray-400 transition-colors hover:text-orange-400" href={link.href}>
                     {link.label}
                   </a>

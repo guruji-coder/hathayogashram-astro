@@ -1,25 +1,35 @@
 ---
 import DecorativeUnderline from '$components/ui/DecorativeUnderline.astro';
+import { BACKGROUND_IMAGES, ICON_IMAGES } from '$constants/imageConstants';
 import type { SectionHeaderProps } from '../../types';
 
 export interface Props extends SectionHeaderProps {}
 
 const {
   title,
-  titleClass = 'mb-4 text-xl font-bold text-purple-700 sm:text-lg lg:text-2xl text-center',
+  titleClass = 'mb-4 text-xl font-bold text-purple-700 sm:text-lg lg:text-2xl text-center ',
   svgWidth = 300,
   svgHeight = 30,
   svgColor = 'text-primary',
-  containerClass = 'mb-5 text-center flex w-full justify-center flex-col',
+  containerClass = 'mb-5 text-center flex w-full justify-center flex-col  text-center',
 } = Astro.props;
 ---
 
 <!-- Section Header with Decorative Underline -->
 <div class:list={containerClass}>
-  <h2 class:list={titleClass}>
+    {BACKGROUND_IMAGES?.HIGH_JEWEL && (
+    <img class="block mx-auto  w-[400px] h-[100px]" src={BACKGROUND_IMAGES.HIGH_JEWEL} />
+  )}
+  <p
+    class:list={[
+      titleClass,
+      'bg-gradient-to-r from-primary to-purple-600 px-10 text-white md:mx-20',
+    ]}
+  >
     {title}
-  </h2>
+  </p>
+  {BACKGROUND_IMAGES?.LOW_JEWEL && (
+    <img class="block mx-auto  w-[400px] h-[100px]" src={BACKGROUND_IMAGES.LOW_JEWEL} />
+  )}
 
-  <!-- Decorative Underline SVG -->
-  <DecorativeUnderline className={svgColor} height={svgHeight} width={svgWidth} />
 </div>

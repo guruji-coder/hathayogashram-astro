@@ -7,7 +7,9 @@ export default {
         primary: '#e501f0',
         primarylight: '#ea33f3',
         secondary: '#d671da',
+        bluelight: '#19A8E0',
       },
+
       fontFamily: {
         space: ['"Space Grotesk"', 'sans-serif'],
         kaushan: ['"Kaushan Script"', 'cursive'],

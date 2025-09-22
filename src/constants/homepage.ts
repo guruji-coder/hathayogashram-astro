@@ -8,6 +8,12 @@
  */
 
 import { ROUTE_TTC_200, ROUTE_TTC_100, ROUTE_TTC_300 } from './routesConstants';
+import {
+  COURSE_IMAGES_FLAT,
+  TEACHER_IMAGES_FLAT,
+  GALLERY_IMAGES_FLAT,
+  FOUNDER_IMAGE_SET,
+} from './imageConstants';
 
 // ===========================================
 // HERO SECTION
@@ -38,7 +44,7 @@ export const HOMEPAGE_HERO = {
     },
   ],
 
-  BACKGROUND_IMAGE: '/yogaschoolpic.jpg',
+  BACKGROUND_IMAGE: COURSE_IMAGES_FLAT.YOGA_SCHOOL,
   OVERLAY_OPACITY: 'bg-black bg-opacity-40',
 } as const;
 
@@ -98,10 +104,10 @@ export const HOMEPAGE_ABOUT = {
   ],
 
   GALLERY_IMAGES: [
-    '/yogaschoolpic.jpg',
-    '/yogacoursepic.jpg',
-    '/yogashala-founder1.jpg',
-    '/yogashala-founder2.jpg',
+    COURSE_IMAGES_FLAT.YOGA_SCHOOL,
+    COURSE_IMAGES_FLAT.YOGA_COURSE,
+    TEACHER_IMAGES_FLAT.FOUNDER_1,
+    TEACHER_IMAGES_FLAT.FOUNDER_2,
   ],
 } as const;
 
@@ -123,7 +129,7 @@ export const HOMEPAGE_COURSES = {
       PRICE: { SHARED: '$499', PRIVATE: '$699' },
       DESCRIPTION:
         'Perfect for beginners seeking a comprehensive introduction to yoga teaching fundamentals.',
-      IMAGE: '/yogacoursepic.jpg',
+      IMAGE: COURSE_IMAGES_FLAT.YOGA_COURSE,
       FEATURES: ['Hatha Yoga', 'Basic Anatomy', 'Teaching Methods', 'Certificate'],
       POPULAR: false,
       URL: ROUTE_TTC_100,
@@ -136,7 +142,7 @@ export const HOMEPAGE_COURSES = {
       LEVEL: 'Beginner to Intermediate',
       PRICE: { SHARED: '$899', PRIVATE: '$1099' },
       DESCRIPTION: 'The most popular certification course for aspiring yoga teachers worldwide.',
-      IMAGE: '/yogacoursepic.jpg',
+      IMAGE: COURSE_IMAGES_FLAT.YOGA_COURSE,
       FEATURES: ['Multi-Style Yoga', 'Anatomy & Physiology', 'Philosophy', 'Pranayama'],
       POPULAR: true,
       URL: ROUTE_TTC_200,
@@ -149,7 +155,7 @@ export const HOMEPAGE_COURSES = {
       LEVEL: 'Intermediate to Advanced',
       PRICE: { SHARED: '$1199', PRIVATE: '$1399' },
       DESCRIPTION: 'Advanced training to deepen your practice and teaching methodology.',
-      IMAGE: '/yogacoursepic.jpg',
+      IMAGE: COURSE_IMAGES_FLAT.YOGA_COURSE,
       FEATURES: ['Advanced Asanas', 'Therapy', 'Meditation', 'Business Skills'],
       POPULAR: false,
       URL: ROUTE_TTC_300,
@@ -186,9 +192,9 @@ export const HOMEPAGE_FOUNDER = {
     'A yogi is beyond his looks and overall appearance since the real identity of a yogi comes from his power.',
 
   IMAGES: [
-    { SRC: '/yogashala-founder1.jpg', ALT: 'Guru Ashish Ji in meditation pose' },
-    { SRC: '/yogashala-founder2.jpg', ALT: 'Guru Ashish Ji teaching yoga' },
-    { SRC: '/yogashala-founder3.jpg', ALT: 'Guru Ashish Ji in advanced pose' },
+    { SRC: TEACHER_IMAGES_FLAT.FOUNDER_1, ALT: 'Guru Ashish Ji in meditation pose' },
+    { SRC: TEACHER_IMAGES_FLAT.FOUNDER_2, ALT: 'Guru Ashish Ji teaching yoga' },
+    { SRC: TEACHER_IMAGES_FLAT.FOUNDER_3, ALT: 'Guru Ashish Ji in advanced pose' },
   ],
 
   ACHIEVEMENTS: [
@@ -289,7 +295,7 @@ export const HOMEPAGE_CTA = {
     URL: '/contact',
   },
 
-  BACKGROUND_IMAGE: '/yogaschoolpic.jpg',
+  BACKGROUND_IMAGE: COURSE_IMAGES_FLAT.YOGA_SCHOOL,
 } as const;
 
 // ===========================================
