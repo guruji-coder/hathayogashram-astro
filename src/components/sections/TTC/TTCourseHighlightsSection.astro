@@ -46,7 +46,7 @@ const { sectionData } = Astro.props;
 
 
             <p
-              class="border-b border-orange-400 bg-white/50 px-6 py-4 text-center text-sm font-bold text-gray-800 md:text-left md:text-lg"
+              class="border-b border-orange-400 bg-white/50 px-6 py-4 text-center text-lg font-bold text-gray-800 md:text-left md:text-xl"
             >
               {benefit.category}
             </p>
@@ -59,17 +59,17 @@ const { sectionData } = Astro.props;
                     <div class="flex items-center justify-center gap-3 text-gray-600 my-5">
                       <img class="w-10 h-10" src={ICON_IMAGES.OM_SYMBOL}  />
 
-                      <p>{item}</p>
+                      <p class="text-lg md:text-xl">{item}</p>
                     </div>
                   ) : (
                     <div class="space-y-3">
-                      <p class="font-semibold text-gray-800">Comprehensive Curriculum:</p>
+                      <p class="font-semibold text-gray-800 text-lg md:text-xl">Comprehensive Curriculum:</p>
                       {item.subItems && (
                         <div class="ml-6 space-y-2">
                           {item.subItems.map((subItem) => (
                             <div class="md:flex gap-2 block">
-                              <span class="font-medium text-orange-600">{subItem.label}:</span>
-                              <span class="text-gray-600">{subItem.description}</span>
+                              <span class="font-medium text-orange-600 text-base md:text-lg">{subItem.label}:</span>
+                              <span class="text-gray-600 text-base md:text-lg">{subItem.description}</span>
                             </div>
                           ))}
                         </div>
@@ -88,21 +88,21 @@ const { sectionData } = Astro.props;
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 py-2 sticky top-24">
 
           <!-- Course title -->
-          <h3 class="text-2xl font-bold text-center text-gray-800 mb-8">
+          <h3 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8 ">
             {sectionData.courseHighlight.title}
           </h3>
 
           <!-- Pricing -->
           <div class="grid grid-cols-2  rounded-lg">
             <div class="text-center">
-              <p class="text-xs font-medium text-gray-500 uppercase mb-1">{sectionData.courseHighlight.pricing.twinShared.label}</p>
-              <p class="text-2xl font-semibold text-primary">{sectionData.courseHighlight.pricing.twinShared.price}</p>
-              <p class="text-sm text-gray-400 line-through">{sectionData.courseHighlight.pricing.twinShared.originalPrice}</p>
+              <p class="text-sm md:text-base font-medium text-gray-500 uppercase mb-1">{sectionData.courseHighlight.pricing.twinShared.label}</p>
+              <p class="text-3xl md:text-4xl font-semibold text-primary">{sectionData.courseHighlight.pricing.twinShared.price}</p>
+              <p class="text-base md:text-lg text-gray-400 line-through">{sectionData.courseHighlight.pricing.twinShared.originalPrice}</p>
             </div>
             <div class="text-center border-l border-gray-200">
-              <p class="text-xs font-medium text-gray-500 uppercase mb-1">{sectionData.courseHighlight.pricing.private.label}</p>
-              <p class="text-2xl font-bold text-orange-600">{sectionData.courseHighlight.pricing.private.price}</p>
-              <p class="text-sm text-gray-400 line-through">{sectionData.courseHighlight.pricing.private.originalPrice}</p>
+              <p class="text-sm md:text-base font-medium text-gray-500 uppercase mb-1">{sectionData.courseHighlight.pricing.private.label}</p>
+              <p class="text-3xl md:text-4xl font-bold text-orange-600">{sectionData.courseHighlight.pricing.private.price}</p>
+              <p class="text-base md:text-lg text-gray-400 line-through">{sectionData.courseHighlight.pricing.private.originalPrice}</p>
             </div>
           </div>
 
@@ -114,8 +114,8 @@ const { sectionData } = Astro.props;
                   <i class="w-10 h-10 flex items-center justify-center" class:list={[`fas`,`fa-${detail.icon}`,`text-primary`]}></i>
                 </div>
                 <div class="min-w-0 flex-1">
-                  <p class="text-sm text-gray-800 font-bold ">{detail.value}</p>
-                  <p class="text-xs font-light text-gray-600">{detail.label}</p>
+                  <p class="text-base md:text-lg text-gray-800 font-bold ">{detail.value}</p>
+                  <p class="text-sm md:text-base font-light text-gray-600">{detail.label}</p>
                 </div>
               </div>
             ))}

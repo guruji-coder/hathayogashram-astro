@@ -10,7 +10,7 @@ const { text, className = '' } = Astro.props;
 
 <div
   class:list={[
-    'mb-2',
+    'm-2',
     'flex',
     'items-center',
     'justify-center',
@@ -23,5 +23,5 @@ const { text, className = '' } = Astro.props;
 >
        <img class="w-14 h-14 rounded-full" src={ICON_IMAGES.OM_SYMBOL}  />
 
-  <p class="flex-1 leading-relaxed text-gray-700 ml-2">{text}</p>
+  <p class="flex-1 leading-relaxed text-gray-700 ml-2  text-lg">{text}</p>
 </div>

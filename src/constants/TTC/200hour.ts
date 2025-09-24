@@ -90,7 +90,7 @@ export const TRAINING_200_BEST_COURSE_SECTION: BestCourseSectionData = {
 
 export const TRAINING_200_COURSE_HIGHLIGHTS = {
   title: 'What Get With This Course?',
-  subtitle: 'Why Choose Our 200 Hour Yoga Teacher Training Course In Rishikesh',
+  subtitle: 'Quick highlights for 200 hour TTC',
 
   benefits: [
     {
@@ -366,10 +366,13 @@ export const TRAINING_200_PRACTICAL_SESSIONS = {
 // 200 HOUR CAROUSEL IMAGES
 // ===========================================
 
-export const TRAINING_200_CAROUSEL_IMAGES = [
-  'https://www.vinyasayogaashram.com/image/200hrs-yoga-teacher-training-course.jpg?v=125',
-  'https://i0.wp.com/hathayogashram.com/wp-content/uploads/2024/08/1000040970.jpg?fit=1080%2C953&ssl=1',
-];
+import { YOGA_CAROUSEL_IMAGES } from '../imageConstants.js';
+
+// ===========================================
+// 200 HOUR COURSE CAROUSEL DATA - OFFICIAL
+// ===========================================
+
+export const COURSE_200_CAROUSEL_IMAGES = YOGA_CAROUSEL_IMAGES;
 
 // ===========================================
 // 200 HOUR CURRICULUM DATA
@@ -1178,7 +1181,7 @@ export const TRAINING_200_COURSE_DATES_SECTION = {
 // ===========================================
 
 export const TTC_COURSE_GAIN_SECTION = {
-  title: 'What Is This Course About & What You Gain?',
+  title: 'What Is This Course About & Facltes ncluded',
   subtitle:
     'Discover the transformative journey that awaits you in our comprehensive yoga teacher training program',
   gainItems: [

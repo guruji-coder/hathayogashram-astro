@@ -90,6 +90,67 @@ export const GALLERY_IMAGES = {
 } as const;
 
 // ===========================================
+// SIMPLE CAROUSEL DATA WITH ALT & DESCRIPTIONS
+// ===========================================
+
+export const YOGA_CAROUSEL_IMAGES = [
+  {
+    src: '/images/carousel/dilbharExtended Hand-to-Big-Toe Pose.jpeg',
+    alt: 'Utthita Hasta Padangusthasana (Extended Hand-to-Big-Toe Pose)',
+    description: 'Balancing pose that develops focus and leg strength',
+  },
+
+  {
+    src: '/images/carousel/gaganparsaritapaduttanasasana.jpg',
+    alt: 'Prasarita Padottanasana (Wide-Legged Forward Bend)',
+    description: 'Forward bend that stretches hamstrings and calms mind',
+  },
+  {
+    src: '/images/carousel/dilbharParsaritaPadottanasana.jpg',
+    alt: 'Trikonasana (Triangle Pose)',
+    description: 'Triangle pose strengthens legs and improves balance',
+  },
+  {
+    src: '/images/carousel/Classroom.jpeg',
+    alt: 'Yoga teacher training classroom session',
+    description: 'Students learning yoga philosophy and teaching methodology',
+  },
+  {
+    src: '/images/carousel/SideAnglePose.jpeg',
+    alt: 'Utthita Parsvakonasana (Extended Side Angle Pose)',
+    description: 'Side angle pose strengthens legs and opens hips',
+  },
+
+  {
+    src: '/images/carousel/Garudasana.jpeg',
+    alt: 'Garudasana (Eagle Pose)',
+    description: 'Eagle pose improves concentration and balance',
+  },
+  {
+    src: '/images/carousel/TreePose.jpeg',
+    alt: 'Vrksasana (Tree Pose)',
+    description: 'Tree pose develops stability and focus',
+  },
+
+  {
+    src: '/images/carousel/RevolvedSideAnglePoseParivrittaParchvkona.jpg',
+    alt: 'Parivrtta Parsvakonasana (Revolved Side Angle Pose)',
+    description: 'Revolved side angle pose improves spinal flexibility',
+  },
+  {
+    src: '/images/carousel/UpwardLotusPose.jpeg',
+    alt: 'Urdhva Padmasana (Upward Lotus Pose)',
+    description: 'Advanced seated pose for meditation and focus',
+  },
+
+  {
+    src: '/images/carousel/Classroom2.jpeg',
+    alt: 'Yoga training practical session',
+    description: 'Hands-on practice and alignment workshop',
+  },
+];
+
+// ===========================================
 // BACKGROUND IMAGES
 // ===========================================
 
@@ -137,6 +198,9 @@ export const FOUNDER_IMAGE_SET = [
   },
 ] as const;
 
+// Just use the simple YOGA_CAROUSEL_IMAGES directly
+export const YOGA_POSE_IMAGE_SET = YOGA_CAROUSEL_IMAGES;
+
 export const CAROUSEL_IMAGE_SET = [
   COURSE_IMAGES.SCHOOL.MAIN_BUILDING,
   COURSE_IMAGES.PROGRAMS.YOGA_COURSE,
@@ -145,10 +209,7 @@ export const CAROUSEL_IMAGE_SET = [
   CERTIFICATE_IMAGES.BG_CERTIFICATE,
 ] as const;
 
-export const TRAINING_200_CAROUSEL_IMAGES = [
-  COURSE_IMAGES.PROGRAMS.YOGA_COURSE,
-  COURSE_IMAGES.SCHOOL.MAIN_BUILDING,
-] as const;
+export const OFFICIAL_CAROUSEL_IMAGES = YOGA_CAROUSEL_IMAGES.map(img => img.src);
 
 // ===========================================
 // LEGACY MAPPINGS (for backward compatibility)
@@ -203,6 +264,9 @@ export const COURSE_IMAGES_FLAT = {
   YOGA_SCHOOL: COURSE_IMAGES.SCHOOL.MAIN_BUILDING,
 } as const;
 
+// Backward compatibility for training references
+export const TRAINING_200_CAROUSEL_IMAGES = OFFICIAL_CAROUSEL_IMAGES;
+
 // ===========================================
 // EXPORTS
 // ===========================================
@@ -215,12 +279,14 @@ export default {
   GALLERY_IMAGES,
   BACKGROUND_IMAGES,
   CERTIFICATE_IMAGES,
+  YOGA_CAROUSEL_IMAGES,
   ALL_FOUNDER_IMAGES,
   ALL_EXCURSION_IMAGES,
   ALL_COURSE_IMAGES,
   FOUNDER_IMAGE_SET,
+  YOGA_POSE_IMAGE_SET,
   CAROUSEL_IMAGE_SET,
-  TRAINING_200_CAROUSEL_IMAGES,
+  OFFICIAL_CAROUSEL_IMAGES,
   LEGACY_IMAGE_PATHS,
   // Backward compatibility
   TEACHER_IMAGES_FLAT,
