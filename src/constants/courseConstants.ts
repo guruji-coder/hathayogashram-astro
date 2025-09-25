@@ -7,6 +7,8 @@
  * Main YTTC courses are in homePageConstants.ts under YOGA_COURSES_CARDS_SECTION
  */
 
+import { COURSE_IMAGES_FLAT } from './imageConstants';
+
 // ===========================================
 // SPECIALIZED COURSE TYPES
 // ===========================================
@@ -37,7 +39,7 @@ export const YTTC_COURSES: Course[] = [
     sharedRoom: 'USD 499',
     certification: 'Yoga Alliance',
     date: '1st-12th of every month',
-    image: '/yogacoursepic.jpg',
+    image: COURSE_IMAGES_FLAT.YOGA_COURSE,
     description:
       'Perfect for beginners seeking a comprehensive introduction to yoga teaching fundamentals.',
   },
@@ -50,7 +52,7 @@ export const YTTC_COURSES: Course[] = [
     sharedRoom: 'USD 899',
     certification: 'Yoga Alliance',
     date: '1st-24th of every month',
-    image: '/yogacoursepic.jpg',
+    image: COURSE_IMAGES_FLAT.YOGA_COURSE,
     description: 'The most popular certification course for aspiring yoga teachers worldwide.',
   },
   {
@@ -62,7 +64,7 @@ export const YTTC_COURSES: Course[] = [
     sharedRoom: 'USD 1199',
     certification: 'Yoga Alliance',
     date: '1st-28th of every month',
-    image: '/yogacoursepic.jpg',
+    image: COURSE_IMAGES_FLAT.YOGA_COURSE,
     description: 'Advanced training to deepen your practice and teaching methodology.',
   },
   {
@@ -74,7 +76,7 @@ export const YTTC_COURSES: Course[] = [
     sharedRoom: 'USD 1549',
     certification: 'Yoga Alliance',
     date: '1st of every month',
-    image: '/yogacoursepic.jpg',
+    image: COURSE_IMAGES_FLAT.YOGA_COURSE,
     description: 'Complete comprehensive training combining 200hr and 300hr certifications.',
   },
 ];
@@ -93,7 +95,7 @@ export const KUNDALINI_COURSES: Course[] = [
     sharedRoom: 'USD 1699',
     certification: 'Yoga Alliance',
     date: 'Available on request',
-    image: '/yogacoursepic.jpg',
+    image: COURSE_IMAGES_FLAT.YOGA_COURSE,
     description:
       'Awaken your inner energy and learn the sacred practices of Kundalini Yoga. This transformative course combines ancient wisdom with modern teaching methodology, including Kundalini meditation techniques, pranayama and breathwork, mantra and sound healing, and chakra awakening practices.',
   },
@@ -106,7 +108,7 @@ export const KUNDALINI_COURSES: Course[] = [
     sharedRoom: 'USD 2199',
     certification: 'Yoga Alliance',
     date: 'Available on request',
-    image: '/yogacoursepic.jpg',
+    image: COURSE_IMAGES_FLAT.YOGA_COURSE,
     description:
       'Deep dive into advanced Kundalini practices including White Tantra, advanced breathing techniques, and the technology of consciousness. Perfect for experienced practitioners seeking mastery.',
   },
@@ -126,7 +128,7 @@ export const VEDIC_CHANTING_COURSES: Course[] = [
     sharedRoom: 'USD 1199',
     certification: 'Traditional Sanskrit Certification',
     date: 'Available on request',
-    image: '/yogacoursepic.jpg',
+    image: COURSE_IMAGES_FLAT.YOGA_COURSE,
     description:
       'Dive deep into the sacred tradition of Vedic chanting and learn to teach these ancient Sanskrit practices with authenticity and reverence. Includes traditional Vedic pronunciation, Sanskrit grammar fundamentals, sacred text recitation, and traditional teaching methodology.',
   },
@@ -146,7 +148,7 @@ export const ONLINE_TTC_COURSES: Course[] = [
     sharedRoom: 'USD 1199',
     certification: 'Traditional Sanskrit Certification',
     date: 'Available on request',
-    image: '/yogacoursepic.jpg',
+    image: COURSE_IMAGES_FLAT.YOGA_COURSE,
     description:
       'Dive deep into the sacred tradition of Vedic chanting and learn to teach these ancient Sanskrit practices with authenticity and reverence. Includes traditional Vedic pronunciation, Sanskrit grammar fundamentals, sacred text recitation, and traditional teaching methodology.',
   },

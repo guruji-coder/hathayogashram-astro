@@ -40,5 +40,14 @@ export * from './routesConstants';
 // Teachers Constants
 export * from './teachersConstants';
 
+// Training 200 Constants - Use TTC/200hour.ts instead
+// export * from './training200Constants';
+
+// Training Carousel Constants - Use carousel.ts instead
+// export * from './trainingCarouselConstants';
+
 // Yoga Gurus Constants
 export * from './yogaGurusConstants';
+
+// Image Constants
+export * from './imageConstants';

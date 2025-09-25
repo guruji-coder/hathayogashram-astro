@@ -1,11 +1,32 @@
 /**
  * ===========================================
- * HOME PAGE CONSTANTS - CENTRALIZED CONFIGURATION
- * ===========================================
- *
+ * HOME PAGE CONSTANTS - export const HOME_GALLERY = {
+  DEFAULT_IMAGE: COURSE_IMAGES_FLAT.YOGA_SCHOOL,
+  IMAGES: [
+    COURSE_IMAGES_FLAT.YOGA_SCHOOL,
+    COURSE_IMAGES_FLAT.YOGA_SCHOOL,
+    COURSE_IMAGES_FLAT.YOGA_SCHOOL,
+    COURSE_IMAGES_FLAT.YOGA_SCHOOL,
+  ],
+  ALT_TEXT: 'Yoga practice at Hatha Yogashram'
+} as const;ALIZED CONFIGURATION
+ * ===================================    {
+      title: 'Meditation & Pranayama',
+      src: TEACHER_IMAGES_FLAT.FOUNDER_1,
+      content: `
+				Pranayama is the practice of increasing the "Vital Energy" "Lifeforce which is in constant motion through Breathing" well. Breathing is not just the function of the Lungs and Heart but is also related to one's state of mind.
+
+Today when short breathing is very common in the modern world, Respiratory problems like Asthma, Blood Pressure, and Psychosomatic problem like Stress, Anxiety, Diabetes, Hypertension seem to be increasing by the day to counter these problems. Pranayama is the solution here. We need to understand the concept of Pranayama because it is the bridge between mind and body. Here, you learn a number of breathing techniques like Diaphragmatic breathing, Chest breathing, Alternate Nostril breathing, etc. Here, good control over your breathing can help you practice for longer, with much stability and less tiredness.
+			`,
+    },
+    {
+      title: 'Yoga Teacher Training',
+      src: TEACHER_IMAGES_FLAT.FOUNDER_2, *
  * This file contains ALL constants used in the home page.
  * Easy to find, easy to modify, easy to understand.
  */
+
+import { COURSE_IMAGES_FLAT, TEACHER_IMAGES_FLAT, GALLERY_IMAGES_FLAT } from '../imageConstants';
 
 import { ROUTE_TTC_100, ROUTE_TTC_200, ROUTE_TTC_300 } from '../routesConstants';
 
@@ -69,8 +90,13 @@ export const HOME_CONTENT = {
 // ===========================================
 
 export const HOME_GALLERY = {
-  DEFAULT_IMAGE: '/yogaschoolpic.jpg',
-  IMAGES: ['/yogaschoolpic.jpg', '/yogaschoolpic.jpg', '/yogaschoolpic.jpg', '/yogaschoolpic.jpg'],
+  DEFAULT_IMAGE: COURSE_IMAGES_FLAT.YOGA_SCHOOL,
+  IMAGES: [
+    COURSE_IMAGES_FLAT.YOGA_SCHOOL,
+    COURSE_IMAGES_FLAT.YOGA_SCHOOL,
+    COURSE_IMAGES_FLAT.YOGA_SCHOOL,
+    COURSE_IMAGES_FLAT.YOGA_SCHOOL,
+  ],
   ALT_TEXT: 'Yoga practice at Hatha Yogashram',
 } as const;
 
@@ -183,25 +209,25 @@ export const TTC_COURSES_SECTION = {
       LOCATION: 'Rishikesh, India',
       DESCRIPTION:
         "Deepen your practice of Yoga Asanas and Yoga Philosophy at the 300-hour YTTC in Rishikesh. This is an advanced and challenging course where you will learn the deeper aspects of Yoga on a physical, mental, and spiritual level. Our teachers here are well experienced and we work as a team to understand every student's perspective and to share the knowledge gained from our own experience.",
-      IMAGE: '/yogacoursepic.jpg',
+      IMAGE: COURSE_IMAGES_FLAT.YOGA_COURSE,
       BUTTON_TEXT: 'Read More',
-      URL: ROUTE_TTC_300,
+      URL: '/courses/300-hour',
     },
     {
       TITLE: '200 Hour Yoga Teacher Training in Rishikesh',
       LOCATION: 'Rishikesh, India',
       DESCRIPTION:
         'The 200 Hour YTTC is a very popular and approachable applied yoga certification course among all the Yogis. This course will guide you from the basics to more advanced levels. Most yoga practitioners who wish to become certified yoga teachers start here. We are happy to share our knowledge and experience with you and welcome you to join us in the eternal journey of yoga. "Yoga is 1% theory and 99% practice" - K. Pattabhi Jois',
-      IMAGE: '/yogacoursepic.jpg',
+      IMAGE: COURSE_IMAGES_FLAT.YOGA_COURSE,
       BUTTON_TEXT: 'Read More',
-      URL: ROUTE_TTC_200,
+      URL: '/courses/200-hour',
     },
     {
       TITLE: '100 Hour Yoga Teacher Training in Rishikesh',
       LOCATION: 'Rishikesh, India',
       DESCRIPTION:
         'Our Hatha Yoga Ashram also has a 100-hour teacher training segment or pre-teacher training course for explorers in search of a glimpse of what it is to be a yoga teacher. This is a short course that is mostly opted for by beginner students with limited time. We create space for you to follow your interest in the ancient art of the yoga. You will be able to explore our science based approach to learning from experienced teachers.',
-      IMAGE: '/yogacoursepic.jpg',
+      IMAGE: COURSE_IMAGES_FLAT.YOGA_COURSE,
       BUTTON_TEXT: 'Read More',
       URL: ROUTE_TTC_100,
     },
@@ -226,15 +252,15 @@ export const FOUNDER_SECTION = {
 
   IMAGES: [
     {
-      src: '/yogashala-founder1.jpg',
+      src: TEACHER_IMAGES_FLAT.FOUNDER_1,
       alt: 'Guru Ashish Ji performing seated spinal twist yoga pose',
     },
     {
-      src: '/yogashala-founder2.jpg',
+      src: TEACHER_IMAGES_FLAT.FOUNDER_2,
       alt: 'Guru Ashish Ji performing side plank variation yoga pose',
     },
     {
-      src: '/yogashala-founder3.jpg',
+      src: TEACHER_IMAGES_FLAT.FOUNDER_3,
       alt: 'Guru Ashish Ji performing standing balance yoga pose',
     },
   ],
@@ -298,7 +324,7 @@ export const CERTIFICATIONS_SECTION = {
 // ===========================================
 
 export const TEACHERS_SECTION = {
-  TITLE: 'Best Yoga Teachers Rishikesh India',
+  TITLE: 'Hatha Yoga Ashram Teachers',
 
   INTRO_PARAGRAPH:
     'All our teachers and gurus are experienced instructors who are well trained and well-versed in all things about yoga - ensuring that all of our graduates are fully equipped to be successful. All teachers here have a Masters in Yogic Science as well as certificates from the Yoga Alliance.',
@@ -311,35 +337,35 @@ export const TEACHERS_SECTION = {
       name: 'Ashish Rawat(Founder)',
       specialty: 'Ashtanga Yoga & Alignment',
       experience: 'Experience 23+ Years',
-      image: '/yogashala-founder1.jpg',
+      image: TEACHER_IMAGES_FLAT.FOUNDER_1,
     },
     {
       id: 2,
       name: 'Ravi Bisht',
-      specialty: 'Traditional Hatha Yoga',
+      specialty: 'Classical & Traditional Hatha Yoga',
       experience: 'Experience 25+ Years',
-      image: '/yogashala-founder2.jpg',
+      image: TEACHER_IMAGES_FLAT.FOUNDER_2,
     },
     {
       id: 3,
       name: 'Tanushree Rawat',
-      specialty: 'Meditation & Pranayama',
-      experience: 'Experience 21+ Years',
-      image: '/yogashala-founder3.jpg',
+      specialty: 'Adjustment & Alignment & Female Yoga instructor',
+      experience: 'Experience 10+ Years',
+      image: TEACHER_IMAGES_FLAT.FOUNDER_3,
     },
     {
       id: 4,
-      name: 'Shivam Rawat',
-      specialty: 'Yoga Anatomy & Mantra Chanting',
-      experience: 'Experience 21+ Years',
-      image: '/yogashala-founder1.jpg',
+      name: 'Ashish Rawat(Founder)',
+      specialty: 'Ashtanga Yoga & Alignment',
+      experience: 'Experience 23+ Years',
+      image: TEACHER_IMAGES_FLAT.FOUNDER_1,
     },
     {
       id: 5,
-      name: 'Yogi Raghav',
-      specialty: 'Bhagwat Geeta',
-      experience: 'Experience 21+ Years',
-      image: '/yogashala-founder2.jpg',
+      name: 'Ravi Bisht',
+      specialty: 'Classical & Traditional Hatha Yoga',
+      experience: 'Experience 25+ Years',
+      image: TEACHER_IMAGES_FLAT.FOUNDER_2,
     },
   ],
 } as const;
@@ -395,7 +421,7 @@ export const APPLE_CARDS_SECTION = {
   CARDS: [
     {
       title: 'HAWANA & ASANA PRACTICE',
-      src: '/yogacoursepic.jpg',
+      src: COURSE_IMAGES_FLAT.YOGA_COURSE,
       content: `
 			<div class="font-space">
 			  <p class="font-space"><strong>Hawana</strong></p>
@@ -413,7 +439,7 @@ export const APPLE_CARDS_SECTION = {
     },
     {
       title: 'Meditation & Pranayama',
-      src: '/yogashala-founder1.jpg',
+      src: TEACHER_IMAGES_FLAT.FOUNDER_1,
       content: `
 				Pranayama is the practice of increasing the “Vital Energy” “Lifeforce which is in constant motion through Breathing” well. Breathing is not just the function of the Lungs and Heart but is also related to one’s state of mind.
 
@@ -422,7 +448,7 @@ Today when short breathing is very common in the modern world, Respiratory probl
     },
     {
       title: 'Yoga Teacher Training',
-      src: '/yogashala-founder2.jpg',
+      src: TEACHER_IMAGES_FLAT.FOUNDER_2,
       content: `
 				<p>Become a certified yoga instructor with our comprehensive teacher training programs:</p>
 				<ul>
@@ -436,7 +462,7 @@ Today when short breathing is very common in the modern world, Respiratory probl
     },
     {
       title: 'Spiritual Wisdom',
-      src: '/yogashala-founder3.jpg',
+      src: TEACHER_IMAGES_FLAT.FOUNDER_3,
       content: `
 				<p>Explore the rich philosophical traditions that form the foundation of yoga:</p>
 				<ul>
@@ -450,7 +476,7 @@ Today when short breathing is very common in the modern world, Respiratory probl
     },
     {
       title: 'Ashram Life Experience',
-      src: '/yogaschoolpic.jpg',
+      src: COURSE_IMAGES_FLAT.YOGA_SCHOOL,
       content: `
 				<p>Live the authentic yogic lifestyle in our traditional ashram environment:</p>
 				<ul>
@@ -464,7 +490,7 @@ Today when short breathing is very common in the modern world, Respiratory probl
     },
     {
       title: 'Healing & Ayurveda',
-      src: '/testimonial.jpg',
+      src: GALLERY_IMAGES_FLAT.TESTIMONIAL,
       content: `
 				<p>Discover the healing arts that complement your yoga practice:</p>
 				<ul>

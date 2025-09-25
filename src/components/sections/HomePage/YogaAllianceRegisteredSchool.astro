@@ -1,6 +1,7 @@
 ---
 import SectionHeader from '../../ui/SectionHeader.astro';
 import CertificateCarousel from '../../CertificateCarousel.astro';
+import { CERTIFICATE_IMAGES } from '../../../constants/imageConstants';
 ---
 
 <!-- Trusted Yoga Alliance Registered School Section -->
@@ -10,7 +11,7 @@ import CertificateCarousel from '../../CertificateCarousel.astro';
   <!-- Background Image with Overlay -->
   <div
     class="trusted-yoga-alliance absolute inset-0 bg-cover bg-fixed bg-top"
-    style="background-image: url('/bg-certificate.png'); background-size: cover; background-position: top; background-attachment: fixed;"
+    style={`background-image: url(${CERTIFICATE_IMAGES.BG_CERTIFICATE}); background-size: cover; background-position: top; background-attachment: fixed;`}
   >
   </div>
 

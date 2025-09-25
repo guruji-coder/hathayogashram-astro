@@ -2,9 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+===========================================
+CUSTOM FONTS
+===========================================
+*/
+@font-face {
+  font-family: 'Candara';
+  src: url('/fonts/Candara.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Your custom styles here */
 
-/* 
+/*
 ===========================================
 Z-INDEX HIERARCHY SYSTEM
 ===========================================
@@ -16,6 +29,11 @@ This ensures proper layering of UI elements:
 - Page content: z-0 (default/lowest)
 ===========================================
 */
+
+* {
+  font-family: 'Candara';
+  margin-block-end: 0 !important;
+}
 
 p {
   font-size: 15px;

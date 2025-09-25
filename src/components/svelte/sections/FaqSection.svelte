@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { ICON_IMAGES } from "$constants/imageConstants";
   // FAQ data and styles passed as props
   export let sectionData: {
     TITLE: string;
@@ -73,7 +74,8 @@
             font-size={`${height * 0.8}`}
             fill="currentColor"
           >
-            ॐ
+              <img class="block mx-auto w-20 h-20" src={ICON_IMAGES.OM_SYMBOL}  />
+
           </text>
         </svg>
       </div>

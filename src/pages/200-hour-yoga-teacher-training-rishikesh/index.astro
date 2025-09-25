@@ -1,16 +1,14 @@
 ---
 import Layout from '$components/layout/Layout.astro';
-import SectionHeader from '$components/ui/SectionHeader.astro';
 import { ROUTE_CONTACT } from '$constants/routesConstants';
 import {
   PRICE_TAB_DATA,
-  TRAINING_200_DAILY_SCHEDULE,
   TTC_NAVBAR_DATA,
   TRAINING_200_TITLE,
   TRAINING_200_DETAILS,
   TRAINING_200_FEES,
-  TRAINING_200_CAROUSEL_IMAGES,
   TRAINING_200_COURSE_HIGHLIGHTS,
+  COURSE_200_CAROUSEL_IMAGES,
   TRAINING_200_COURSE_FAQ_SECTION,
   TRAINING_200_COURSE_FAQ_STYLES,
   GALLERY_CAROUSEL_IMAGES,
@@ -25,6 +23,8 @@ import {
   TRAINING_200_COURSE_TIMELINE_SECTION,
   TRAINING_200_ACCOMMODATION_SECTION,
   TRAINING_200_COURSE_COMBO_SECTION,
+  TRAINING_200_DAILY_SCHEDULE_SECTION_DATA,
+  TRAINING_200_BEST_COURSE_SECTION,
 } from '$constants/TTC/200hour';
 import { FaqSection } from '$components/svelte';
 import {
@@ -46,13 +46,17 @@ import {
   TTCAccommodation,
   TTC_CourseCombo,
   TTCBlogs,
+  TTC_BestCourse,
 } from '$components/sections/TTC';
 import {
   LocationSection,
   GallerySection,
   YogaAllianceRegisteredSchool,
+  TeacherSection,
 } from '$components/sections';
 import IncludedExcludedSection from '$svelte/ui/IncludedExcludedSection.svelte';
+import { TEACHERS_SECTION } from '$constants/index';
+import FAQFlipSection from '$components/sections/FAQFlipSection.astro';
 ---
 
 <Layout
@@ -66,69 +70,15 @@ import IncludedExcludedSection from '$svelte/ui/IncludedExcludedSection.svelte';
     contactRoute={ROUTE_CONTACT}
     details={TRAINING_200_DETAILS}
     fees={TRAINING_200_FEES}
-    images={TRAINING_200_CAROUSEL_IMAGES}
+    images={COURSE_200_CAROUSEL_IMAGES}
     title={TRAINING_200_TITLE}
   />
 
   <!-- Sticky Navigation Bar -->
   <TTCNavbarTab navbarData={TTC_NAVBAR_DATA} />
 
-  <section class="m-10" id="BestCourse">
-    <SectionHeader title="Best 200 Hour Yoga Teacher Training Course in Rishikesh" />
-
-    <div class="flex w-full flex-col lg:flex-row">
-      <div class="mr-5 w-full text-xl font-bold text-purple-400 lg:w-1/2 lg:text-xl">
-        <h5 class="text-justify">
-          Become yoga alliance registered yoga teacher (ryt 200) through Hatha Yoga Ashram’s 200
-          hour yoga teacher training course and start your career in yoga. Our comprehensive and
-          professional program is designed for all levels of practitioners which includes several
-          aspects of yoga, I.E. From asanas to kriyas and prepares you to become an independent yoga
-          teacher. Be a part of this life-changing experience at Hatha Yoga Ashram and begin your
-          pleasant journey to lighten up your true self through yoga. Our 200 hour yoga teacher
-          training course will provide you the deepest possible knowledge of yoga both in the form
-          of theory as well as practical.
-        </h5>
-        <button
-          class="ml-10 mt-8 rounded-lg bg-purple-400 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:from-orange-600 hover:to-orange-700"
-          id="read-more-btn">Read More</button
-        >
-      </div>
-      <div class="mt-10 flex h-full w-full items-center justify-center lg:mt-0 lg:w-1/2">
-        <img
-          alt=""
-          class="rounded-lg shadow-lg"
-          src="https://www.vinyasayogaashram.com/image/200hrs-yoga-teacher-training-course.jpg?v=125"
-        />
-      </div>
-    </div>
-
-    <div
-      class="read-more mt-5 hidden rounded-lg p-6 text-xl font-bold text-purple-400"
-      id="read-more-content"
-    >
-      Our highly qualified and veteran Yog Gurus will provide in-depth knowledge of Asana,
-      Meditation, Ayurveda, Pranayama, Yoga Philosophy and Anatomy. Moreover, asana alignments,
-      modifications, contradictions, use of props, adjustment techniques, teaching methodology and
-      teaching practice will also be covered during this course Both beginners, as well as
-      experienced practitioners, can reap the benefits of this course as it will not only deepen
-      your yogic knowledge but also sharpen your skills as a facilitator. We aim to incorporate yoga
-      into your daily life and help you in becoming a confident yoga teacher. So, get ready and join
-      us in our beautiful journey of The 200 Hour Yoga Teacher Training Certification Course at
-      Hatha Yoga Ashram
-    </div>
-
-    <!-- Toggle script for Read More -->
-    <script type="module">
-      const btn = document.getElementById('read-more-btn');
-      const content = document.getElementById('read-more-content');
-      if (btn && content) {
-        btn.addEventListener('click', () => {
-          const hidden = content.classList.toggle('hidden');
-          btn.textContent = hidden ? 'Read More' : 'Show Less';
-        });
-      }
-    </script>
-  </section>
+  <!-- Best Course Section -->
+  <TTC_BestCourse sectionData={TRAINING_200_BEST_COURSE_SECTION} />
 
   <!-- Course Gain Section -->
   <TTC_CourseGain courseGainData={TTC_COURSE_GAIN_SECTION} />
@@ -136,13 +86,9 @@ import IncludedExcludedSection from '$svelte/ui/IncludedExcludedSection.svelte';
   <TTC_CourseTimeline timelineData={TRAINING_200_COURSE_TIMELINE_SECTION} />
 
   <!-- Daily Schedule Section -->
-  <TTCDailyScheduleSection schedule={TRAINING_200_DAILY_SCHEDULE} />
+  <TTCDailyScheduleSection sectionData={TRAINING_200_DAILY_SCHEDULE_SECTION_DATA} />
 
   <TTCourseHighlightsSection sectionData={TRAINING_200_COURSE_HIGHLIGHTS} />
-
-  <!-- Course Highlights Section -->
-
-  <TTCDailyScheduleSection schedule={TRAINING_200_DAILY_SCHEDULE} />
 
   <!-- Dates Section -->
   <TTCDatesSection />
@@ -156,6 +102,8 @@ import IncludedExcludedSection from '$svelte/ui/IncludedExcludedSection.svelte';
 
   <TTCFood foodData={TRAINING_200_FOOD_SECTION} />
 
+  <TeacherSection teachersData={TEACHERS_SECTION} />
+
   <TTCGuideIndia />
 
   <YogaAllianceRegisteredSchool />
@@ -168,7 +116,7 @@ import IncludedExcludedSection from '$svelte/ui/IncludedExcludedSection.svelte';
 
   <!-- Gallery Section with Infinite Carousels -->
   <GallerySection
-    galleryImages={GALLERY_CAROUSEL_IMAGES}
+    galleryImages={COURSE_200_CAROUSEL_IMAGES.map(img => img.src)}
     id="Gallery"
     miniImages={MINI_CAROUSEL_IMAGES}
     showMiniCarousel={true}
@@ -187,6 +135,8 @@ import IncludedExcludedSection from '$svelte/ui/IncludedExcludedSection.svelte';
     sectionData={TRAINING_200_COURSE_FAQ_SECTION}
     styles={TRAINING_200_COURSE_FAQ_STYLES}
   />
+
+  <FAQFlipSection  />
 
   <LocationSection />
 

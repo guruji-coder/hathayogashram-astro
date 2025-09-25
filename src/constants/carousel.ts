@@ -1,9 +1,11 @@
 import type { CarouselSlide } from '../types';
 import { ROUTE_COURSES, ROUTE_TTC_200 } from './routesConstants';
+import { CERTIFICATE_IMAGES } from './imageConstants';
+
 export const carouselSlides: CarouselSlide[] = [
   {
     id: 1,
-    image: '/bg-certificate.png',
+    image: CERTIFICATE_IMAGES.BG_CERTIFICATE,
     title: 'With Hatha Yoga Ashram',
     subtitle: 'Balance Your Life',
     description:
@@ -16,7 +18,7 @@ export const carouselSlides: CarouselSlide[] = [
   },
   {
     id: 2,
-    image: '/bg-certificate.png',
+    image: CERTIFICATE_IMAGES.BG_CERTIFICATE,
     title: 'Transform Your Practice',
     subtitle: 'Deepen Your Journey',
     description:
@@ -29,7 +31,7 @@ export const carouselSlides: CarouselSlide[] = [
   },
   {
     id: 3,
-    image: '/bg-certificate.png',
+    image: CERTIFICATE_IMAGES.BG_CERTIFICATE,
     title: 'Authentic Yoga Training',
     subtitle: 'Become a Certified Teacher',
     description:

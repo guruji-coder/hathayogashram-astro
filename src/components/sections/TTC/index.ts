@@ -1,5 +1,6 @@
 // TTC Course Sections
 export { default as TTCAccommodation } from './TTC_Accommodation.astro';
+export { default as TTC_BestCourse } from './TTC_BestCourse.astro';
 export { default as TTC_Certificate } from './TTC_Certificate.astro';
 export { default as TTC_CourseCombo } from './TTC_CourseCombo.astro';
 export { default as TTC_CourseGain } from './TTC_CourseGain.astro';
@@ -13,7 +14,7 @@ export { default as TTCFood } from './TTCFood.astro';
 export { default as TTCGuideIndia } from './TTCGuideIndia.astro';
 export { default as TTCHeroSection } from './TTCHeroSection.astro';
 export { default as TTCNavbarTab } from './TTCNavbarTab.astro';
-export { default as TTCourseHighlightsSection } from './TTCourseHighlightsSection.astro';
 export { default as TTCPracticalSession } from './TTCPracticalSession.astro';
 export { default as TTCPriceTab } from './TTCPriceTab.astro';
 export { default as TTCRules } from './TTCRules.astro';
+export { default as TTCourseHighlightsSection } from './TTCourseHighlightsSection.astro';

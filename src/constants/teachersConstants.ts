@@ -6,6 +6,8 @@
  * This file contains all constants for the Teachers carousel section.
  */
 
+import { TEACHER_IMAGES_FLAT } from './imageConstants';
+
 // ===========================================
 // TEACHERS DATA
 // ===========================================
@@ -19,42 +21,42 @@ export const TEACHERS_CAROUSEL_SECTION = {
       name: 'Yogi Vishnu Panigrahi',
       specialty: 'Hatha & Ashtanga Yoga',
       experience: '15+ Years Experience',
-      image: '/yogashala-founder1.jpg',
+      image: TEACHER_IMAGES_FLAT.FOUNDER_1,
     },
     {
       id: 2,
       name: 'Yogini Priya Sharma',
       specialty: 'Hatha & Yin Yoga',
       experience: '12+ Years Experience',
-      image: '/yogashala-founder2.jpg',
+      image: TEACHER_IMAGES_FLAT.FOUNDER_2,
     },
     {
       id: 3,
       name: 'Master Raj Kumar',
       specialty: 'Pranayama & Meditation',
       experience: '20+ Years Experience',
-      image: '/yogashala-founder3.jpg',
+      image: TEACHER_IMAGES_FLAT.FOUNDER_3,
     },
     {
       id: 4,
       name: 'Yogini Anita Devi',
       specialty: 'Prenatal & Restorative Yoga',
       experience: '10+ Years Experience',
-      image: '/yogashala-founder1.jpg',
+      image: TEACHER_IMAGES_FLAT.FOUNDER_1,
     },
     {
       id: 5,
       name: 'Yogi Suresh Tiwari',
       specialty: 'Ayurveda & Sound Healing',
       experience: '18+ Years Experience',
-      image: '/yogashala-founder2.jpg',
+      image: TEACHER_IMAGES_FLAT.FOUNDER_2,
     },
     {
       id: 6,
       name: 'Master Deepak Joshi',
       specialty: 'Philosophy & Sanskrit',
       experience: '25+ Years Experience',
-      image: '/yogashala-founder3.jpg',
+      image: TEACHER_IMAGES_FLAT.FOUNDER_3,
     },
   ],
 };

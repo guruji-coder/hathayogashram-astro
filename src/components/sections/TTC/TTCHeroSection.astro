@@ -1,8 +1,10 @@
 ---
+import type { ImageInput } from '../../../types/images';
+
 interface Props {
-  images: string[];
+  images: readonly ImageInput[] | ImageInput[];
   title: string;
-  details: Array<{ label: string; value: string }>;
+  details: readonly { readonly label: string; readonly value: string }[] | { label: string; value: string }[];
   fees: {
     single: { amount: string; description: string };
     double: { amount: string; description: string };
@@ -12,6 +14,25 @@ interface Props {
 }
 
 const { images, title, details, fees, contactRoute } = Astro.props;
+
+// Helper function to get image source
+const getImageSrc = (img: ImageInput): string => {
+  return img.src;
+};
+
+// Helper function to get image alt
+const getImageAlt = (img: ImageInput): string => {
+  return img.alt;
+};
+
+// Helper function to get image description
+const getImageDescription = (img: ImageInput): string => {
+  return img.description;
+};
+
+const imageSources = images.map(getImageSrc);
+console.log('Images in TTCHeroSection:', imageSources);
+
 const [titleLine1, titleLine2] = title.split('\n');
 import Button from '$components/ui/Button.astro';
 ---
@@ -19,15 +40,52 @@ import Button from '$components/ui/Button.astro';
 <div class="block min-h-[50vh] w-full flex-col md:flex md:min-h-screen md:flex-row">
   <!-- Carousel -->
   <div
-    class="relative h-[300px] w-full flex-none overflow-hidden rounded-t-2xl bg-red-400 md:h-screen md:w-2/3 md:rounded-l-2xl"
+    class="relative h-full   w-full flex-none overflow-hidden   md:h-screen md:w-2/3"
     id="carousel-container"
   >
-    <img
-      alt="Training course image"
-      class="h-full w-full object-cover"
-      id="carousel-image"
-      src={images[0]}
-    />
+
+      <div class="grid grid-cols-2 grid-rows-2 h-full w-full gap-5 p-5" id="carousel-container-grid">
+        <img
+          alt={getImageAlt(images[0])}
+          class="h-full w-full object-cover object-center rounded-lg"
+          decoding="async"
+          height="300"
+          id="img-0"
+          loading="eager"
+          src={getImageSrc(images[0])}
+          width="400"
+        />
+        <img
+          alt={getImageAlt(images[1] || images[0])}
+          class="h-full w-full object-cover object-center rounded-lg"
+          decoding="async"
+          height="300"
+          id="img-1"
+          loading="lazy"
+          src={getImageSrc(images[1] || images[0])}
+          width="400"
+        />
+        <img
+          alt={getImageAlt(images[2] || images[0])}
+          class="h-full w-full object-cover object-center rounded-lg"
+          decoding="async"
+          height="300"
+          id="img-2"
+          loading="lazy"
+          src={getImageSrc(images[2] || images[0])}
+          width="400"
+        />
+        <img
+          alt={getImageAlt(images[3] || images[0])}
+          class="h-full w-full object-cover object-center rounded-lg"
+          decoding="async"
+          height="300"
+          id="img-3"
+          loading="lazy"
+          src={getImageSrc(images[3] || images[0])}
+          width="400"
+        />
+      </div>
     <button
       class="absolute bottom-2 left-2 z-10 rounded-full p-2 md:left-auto md:right-10"
       id="prev-btn"
@@ -71,34 +129,34 @@ import Button from '$components/ui/Button.astro';
       </div>
 
       <!-- Fees -->
-      <div class="">
-        <h3 class="mb-1 text-center text-lg font-bold text-primary md:mb-2 md:text-xl">
+      <div>
+        <h3 class="mb-1 text-center text-base font-bold text-primary lg:mb-2 lg:text-xl">
           Course Fee:
         </h3>
         <div class="grid grid-cols-1 gap-1 md:grid-cols-2 md:gap-2">
           <div class="rounded-lg border border-primary bg-primary/10 p-1 md:p-2">
-            <div class="text-xl font-bold text-primary md:text-2xl">
+            <div class="text-lg font-bold text-primary lg:text-2xl">
               {fees.single.amount}
             </div>
-            <div class="text-sm text-primary">{fees.single.description}</div>
+            <div class="text-xs text-primary lg:text-sm">{fees.single.description}</div>
           </div>
           <div class="rounded-lg border border-primary bg-primary/10 p-1 md:p-2">
-            <div class="text-xl font-bold text-primary md:text-2xl">
+            <div class="text-lg font-bold text-primary lg:text-2xl">
               {fees.double.amount}
             </div>
-            <div class="text-sm text-primary">{fees.double.description}</div>
+            <div class="text-xs text-primary lg:text-sm">{fees.double.description}</div>
           </div>
         </div>
         <div>
-        <h3 class="mb-1 text-center text-lg font-bold text-primary md:mb-2 md:text-xl">
+        <h3 class="mb-1 text-center text-base font-bold text-primary lg:mb-2 lg:text-xl">
           Course Fee Without Stay:
         </h3>
         <div class="grid grid-cols-1 md:place-items-center">
           <div class="rounded-lg border border-primary bg-primary/10 p-1 md:p-2">
-            <div class="text-xl font-bold text-primary md:text-2xl">
+            <div class="text-lg font-bold text-primary lg:text-2xl">
               {fees.withoutStay.amount}
             </div>
-            <div class="text-sm text-primary">
+            <div class="text-xs text-primary lg:text-sm">
               {fees.withoutStay.description}
             </div>
           </div>
@@ -121,43 +179,58 @@ import Button from '$components/ui/Button.astro';
 </div>
 
 <!-- Carousel Script -->
-<script defer define:vars={{ images }}>
-  let i = 0;
-  const img = document.getElementById('carousel-image');
+<script defer define:vars={{ imageSources }}>
+  let currentIndex = 0;
+  const img0 = document.getElementById('img-0');
+  const img1 = document.getElementById('img-1');
+  const img2 = document.getElementById('img-2');
+  const img3 = document.getElementById('img-3');
   const prev = document.getElementById('prev-btn');
   const next = document.getElementById('next-btn');
   const container = document.getElementById('carousel-container');
-  let t;
+  let autoSlideInterval;
 
-  function update() {
-    img.src = images[i];
-  }
-  function start() {
-    t = setInterval(() => {
-      i = (i + 1) % images.length;
-      update();
-    }, 2500);
-  }
-  function stop() {
-    clearInterval(t);
+  function updateGrid() {
+    // Show 4 images in 2x2 grid starting from currentIndex
+    if (img0) img0.src = imageSources[currentIndex % imageSources.length];
+    if (img1) img1.src = imageSources[(currentIndex + 1) % imageSources.length];
+    if (img2) img2.src = imageSources[(currentIndex + 2) % imageSources.length];
+    if (img3) img3.src = imageSources[(currentIndex + 3) % imageSources.length];
   }
 
-  if (img && prev && next && container) {
-    update();
-    start();
-    container.addEventListener('mouseenter', stop);
-    container.addEventListener('mouseleave', start);
-    prev.addEventListener('click', () => {
-      stop();
-      i = (i - 1 + images.length) % images.length;
-      update();
-      start();
-    });
-    next.addEventListener('click', () => {
-      stop();
-      i = (i + 1) % images.length;
-      update();
-      start();
-    });
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(() => {
+      currentIndex = (currentIndex + 4) % imageSources.length;
+      updateGrid();
+    }, 2500); // Change every 2.5 seconds
+  }
+
+  function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+  }
+
+  function goNext() {
+    stopAutoSlide();
+    currentIndex = (currentIndex + 4) % imageSources.length;
+    updateGrid();
+    startAutoSlide();
+  }
+
+  function goPrev() {
+    stopAutoSlide();
+    currentIndex = (currentIndex - 4 + imageSources.length) % imageSources.length;
+    updateGrid();
+    startAutoSlide();
+  }
+
+  // Initialize
+  if (imageSources.length >= 4) {
+    updateGrid();
+    startAutoSlide();
+    
+    
+    if (prev) prev.addEventListener('click', goPrev);
+    if (next) next.addEventListener('click', goNext);
   }
 </script>
+

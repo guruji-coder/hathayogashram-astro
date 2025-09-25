@@ -14,7 +14,8 @@
       "$ui/*": ["src/components/ui/*"],
       "$types/*": ["src/types/*"],
       "$features/*": ["src/components/features/*"],
-      "$svelte/*": ["src/components/svelte/*"]
+      "$svelte/*": ["src/components/svelte/*"],
+      "$images/*": ["./public/images/*"]
     }
   }
 }

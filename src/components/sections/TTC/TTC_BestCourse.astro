@@ -1,0 +1,200 @@
+---
+import type { BestCourseSectionData } from '../../../constants/TTC/200hour';
+import { YOGA_CAROUSEL_IMAGES } from '../../../constants/imageConstants';
+import SectionHeader from '../../ui/SectionHeader.astro';
+
+interface Props {
+  sectionData: BestCourseSectionData;
+}
+
+const { sectionData } = Astro.props;
+---
+
+<section class:list={[sectionData.styling.sectionClass]} id={sectionData.sectionId}>
+  <SectionHeader containerClass="px-10" title={sectionData.title} />
+
+  <div class:list={[sectionData.styling.containerClass]}>
+    <div class:list={[sectionData.styling.textContainerClass]}>
+      <h5 class:list={[sectionData.styling.shortDescriptionClass]}>
+        {sectionData.shortDescription}
+      </h5>
+      <button class:list={[sectionData.button.class]} id="read-more-btn">
+        {sectionData.button.text}
+      </button>
+    </div>
+    <div class:list={[sectionData.styling.imageContainerClass]}>
+      <!-- SEO-Optimized Auto Carousel with Fixed Height -->
+      <div class="relative overflow-hidden rounded-lg shadow-lg h-64">
+        <!-- Main carousel image with fixed height and object-cover -->
+        <img
+          alt={YOGA_CAROUSEL_IMAGES[0].alt}
+          class="w-full h-full object-cover"
+          decoding="async"
+          id="carousel-image"
+          loading="eager"
+          src={YOGA_CAROUSEL_IMAGES[0].src}
+        />
+        
+        <!-- Carousel indicators -->
+        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+          {YOGA_CAROUSEL_IMAGES.map((_, index) => (
+            <button
+              aria-label={`Go to slide ${index + 1}`}
+              class="w-3 h-3 rounded-full bg-white/50 hover:bg-white/80 transition-colors carousel-indicator"
+              data-index={index}
+            />
+          ))}
+        </div>
+        
+        
+        <!-- Navigation arrows -->
+        <button
+          aria-label="Previous image"
+          class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-colors"
+          id="carousel-prev"
+        >
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        
+        <button
+          aria-label="Next image"
+          class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-colors"
+          id="carousel-next"
+        >
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class:list={[sectionData.styling.expandedDescriptionClass]} id="read-more-content">
+    {sectionData.expandedDescription}
+  </div>
+
+  <!-- Toggle script for Read More -->
+  <script define:vars={{ showLessText: sectionData.button.showLessText, readMoreText: sectionData.button.text }} type="module">
+    const btn = document.getElementById('read-more-btn');
+    const content = document.getElementById('read-more-content');
+    if (btn && content) {
+      btn.addEventListener('click', () => {
+        const hidden = content.classList.toggle('hidden');
+        btn.textContent = hidden ? readMoreText : showLessText;
+      });
+    }
+  </script>
+
+  <!-- Auto-Carousel Script with SEO optimizations -->
+  <script type="module">
+    // Import carousel images data
+    const carouselImages = [
+      { src: '/images/carousel/TreePose.jpeg', alt: 'Vrikshasana (Tree Pose) - Balance and stability yoga posture' },
+      { src: '/images/carousel/Garudasana.jpeg', alt: 'Garudasana (Eagle Pose) - Focus and concentration yoga posture' },
+      { src: '/images/carousel/SideAnglePose.jpeg', alt: 'Utthita Parsvakonasana (Side Angle Pose) - Strength and flexibility yoga posture' },
+      { src: '/images/carousel/dilbharExtended Hand-to-Big-Toe Pose.jpeg', alt: 'Utthita Hasta Padangusthasana (Extended Hand-to-Big-Toe Pose) - Balance yoga posture' },
+      { src: '/images/carousel/dilbharParsaritaPadottanasana.jpg', alt: 'Prasarita Padottanasana (Wide-Legged Forward Bend) - Flexibility yoga posture' },
+      { src: '/images/carousel/gaganparsaritapaduttanasasana.jpg', alt: 'Prasarita Padottanasana variation - Deep forward fold yoga posture' },
+      { src: '/images/carousel/RevolvedSideAnglePoseParivrittaParchvkona.jpg', alt: 'Parivrtta Parsvakonasana (Revolved Side Angle Pose) - Twisting yoga posture' },
+      { src: '/images/carousel/UpwardLotusPose.jpeg', alt: 'Urdhva Padmasana (Upward Lotus Pose) - Advanced yoga posture' },
+      { src: '/images/carousel/UtithaHasthaPandungathasnahelp.jpg', alt: 'Utthita Hasta Padangusthasana with support - Assisted balance yoga posture' }
+    ];
+    
+    // Wait for DOM to be ready
+    document.addEventListener('DOMContentLoaded', () => {
+      const carouselImage = document.getElementById('carousel-image');
+      const prevButton = document.getElementById('carousel-prev');
+      const nextButton = document.getElementById('carousel-next');
+      const indicators = document.querySelectorAll('.carousel-indicator');
+      
+      let currentIndex = 0;
+      let intervalId;
+      
+      // Function to update carousel image and indicators
+      const updateCarousel = (index) => {
+        if (carouselImage && carouselImages[index]) {
+          // Update image with SEO attributes
+          carouselImage.src = carouselImages[index].src;
+          carouselImage.alt = carouselImages[index].alt;
+          
+          // Update active indicator
+          indicators.forEach((indicator, i) => {
+            if (i === index) {
+              indicator.classList.add('bg-white/80');
+              indicator.classList.remove('bg-white/50');
+            } else {
+              indicator.classList.add('bg-white/50');
+              indicator.classList.remove('bg-white/80');
+            }
+          });
+          
+          currentIndex = index;
+        }
+      };
+      
+      // Auto-advance carousel every 2.5 seconds
+      const startAutoCarousel = () => {
+        intervalId = setInterval(() => {
+          const nextIndex = (currentIndex + 1) % carouselImages.length;
+          updateCarousel(nextIndex);
+        }, 2500);
+      };
+      
+      // Stop auto-carousel
+      const stopAutoCarousel = () => {
+        if (intervalId) {
+          clearInterval(intervalId);
+        }
+      };
+      
+      // Navigation button handlers
+      const goToPrevious = () => {
+        const prevIndex = (currentIndex - 1 + carouselImages.length) % carouselImages.length;
+        updateCarousel(prevIndex);
+      };
+      
+      const goToNext = () => {
+        const nextIndex = (currentIndex + 1) % carouselImages.length;
+        updateCarousel(nextIndex);
+      };
+      
+      // Event listeners
+      if (prevButton) {
+        prevButton.addEventListener('click', (e) => {
+          e.preventDefault();
+          stopAutoCarousel();
+          goToPrevious();
+          startAutoCarousel();
+        });
+      }
+      
+      if (nextButton) {
+        nextButton.addEventListener('click', (e) => {
+          e.preventDefault();
+          stopAutoCarousel();
+          goToNext();
+          startAutoCarousel();
+        });
+      }
+      
+      // Indicator click handlers
+      indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', (e) => {
+          e.preventDefault();
+          stopAutoCarousel();
+          updateCarousel(index);
+          startAutoCarousel();
+        });
+      });
+      
+      // Pause on hover, resume on mouse leave for better UX
+      const carouselContainer = document.querySelector('.relative.overflow-hidden');
+      if (carouselContainer) {
+        carouselContainer.addEventListener('mouseenter', stopAutoCarousel);
+        carouselContainer.addEventListener('mouseleave', startAutoCarousel);
+      }
+      
+      // Initialize carousel
+      updateCarousel(0);
+      startAutoCarousel();
+    });
+  </script>
+</section>

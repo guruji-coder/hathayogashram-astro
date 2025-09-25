@@ -6,6 +6,8 @@
  * This file contains all constants for the Spiritual Yoga Gurus section.
  */
 
+import { TEACHER_IMAGES_FLAT } from './imageConstants';
+
 // ===========================================
 // YOGA GURUS SECTION CONTENT
 // ===========================================
@@ -17,27 +19,27 @@ export const YOGA_GURUS_SECTION = {
     {
       id: 1,
       name: 'Shri K. Pattabhi Jois',
-      image: '/yogashala-founder1.jpg',
+      image: TEACHER_IMAGES_FLAT.FOUNDER_1,
     },
     {
       id: 2,
       name: 'A. C. Bhaktivedanta Swami Prabhupada',
-      image: '/yogashala-founder1.jpg',
+      image: TEACHER_IMAGES_FLAT.FOUNDER_1,
     },
     {
       id: 3,
       name: 'Maharishi Mahesh Yogi',
-      image: '/yogashala-founder1.jpg',
+      image: TEACHER_IMAGES_FLAT.FOUNDER_1,
     },
     {
       id: 4,
       name: 'B.K.S. Iyengar',
-      image: '/yogashala-founder1.jpg',
+      image: TEACHER_IMAGES_FLAT.FOUNDER_1,
     },
     {
       id: 4,
       name: 'B.K.S. Iyengar',
-      image: '/yogashala-founder1.jpg',
+      image: TEACHER_IMAGES_FLAT.FOUNDER_1,
     },
   ],
 } as const;

@@ -14,17 +14,20 @@ const { accommodationData } = Astro.props;
 
 <section class="bg-white py-16">
   <div class="container mx-auto px-4">
-    <div class="mx-auto flex max-w-7xl flex-col items-start gap-8 lg:flex-row">
-      <!-- Images Grid - First on Large Screens -->
-      <div class="w-full lg:w-1/2 order-last lg:order-first">
-        <div class="grid grid-cols-2 gap-4">
+    <div class="mx-auto flex max-w-7xl flex-col items-start gap-6 md:gap-8 lg:flex-row">
+      <!-- Images: First on mobile, Second on desktop -->
+      <div class="w-full lg:w-1/2 lg:order-2">
+        <div class="grid grid-cols-2 gap-3 md:gap-4">
           {
             accommodationData.images.map((image, index) => (
               <div class="overflow-hidden rounded-lg shadow-md">
                 <img
-                  alt={`Accommodation ${index + 1}`}
-                  class="h-48 w-full object-cover transition-transform duration-300 hover:scale-105"
+                  alt={`${accommodationData.title} - View ${index + 1}`}
+                  class="h-32 sm:h-40 md:h-48 w-full object-cover transition-transform duration-300 hover:scale-105"
+                  height="300"
+                  loading={index < 2 ? "eager" : "lazy"}
                   src={image}
+                  width="400"
                 />
               </div>
             ))
@@ -32,18 +35,18 @@ const { accommodationData } = Astro.props;
         </div>
       </div>
 
-      <!-- Content - Second on Large Screens -->
-      <div class="w-full lg:w-1/2 lg:pr-8 order-first lg:order-last">
+      <!-- Content: Second on mobile, First on desktop -->
+      <div class="w-full lg:w-1/2 lg:order-1 lg:pr-8">
         <!-- Title -->
-        <h2 class="mb-8 text-4xl font-bold leading-tight text-primary lg:text-5xl">
+        <h2 class="mb-6 md:mb-8 text-3xl md:text-4xl font-bold leading-tight text-primary lg:text-5xl font-kaushan">
           {accommodationData.title}
         </h2>
 
         <!-- Underline -->
-        <div class="mb-8 h-1 w-24 bg-primary"></div>
+        <div class="mb-6 md:mb-8 h-1 w-20 md:w-24 bg-primary"></div>
 
         <!-- Description -->
-        <div class="space-y-6 text-lg leading-relaxed text-gray-700">
+        <div class="space-y-4 md:space-y-6 text-base md:text-lg leading-relaxed text-gray-700">
           <p class="text-justify">
             {accommodationData.description}
           </p>
@@ -56,9 +59,9 @@ const { accommodationData } = Astro.props;
         <!-- Know More Button -->
         {
           accommodationData.knowMoreLink && (
-            <div class="mt-8">
+            <div class="mt-6 md:mt-8">
               <a
-                class="inline-block rounded-lg bg-orange-500 px-8 py-3 font-semibold uppercase tracking-wider text-white transition-colors duration-300 hover:bg-orange-600"
+                class="inline-block rounded-lg bg-orange-500 px-6 md:px-8 py-2 md:py-3 font-semibold uppercase tracking-wider text-white transition-colors duration-300 hover:bg-orange-600"
                 href={accommodationData.knowMoreLink}
               >
                 KNOW MORE

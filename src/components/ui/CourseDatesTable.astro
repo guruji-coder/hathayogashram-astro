@@ -22,14 +22,48 @@ export interface Props {
 const { year, dates, courseInfo, isVisible = true } = Astro.props;
 
 function getAvailabilityBadge(status: string, seatsLeft?: number) {
-  if (status === 'full') {
-    return { text: 'Fully Booked', class: 'bg-red-500 text-white' };
-  } else if (status === 'limited' && seatsLeft) {
-    return {
-      text: `${String(seatsLeft).padStart(2, '0')} Seats left`,
-      class: 'bg-orange-500 text-white',
-    };
+  // Handle edge cases first
+  if (!status) {
+    return { text: 'Available', class: 'bg-green-500 text-white' };
   }
+  
+  if (status === 'full') {
+    return { text: 'Fully Booked', class: 'bg-red-800 text-white' };
+  } else if (status === 'limited' && typeof seatsLeft === 'number') {
+    // Different colors based on number of seats left
+    if (seatsLeft === 0) {
+      return { text: 'Fully Booked', class: 'bg-red-800 text-white' };
+    } else if (seatsLeft === 1) {
+      return {
+        text: `01 Seat left`,
+        class: 'bg-red-600 text-white animate-pulse',
+      };
+    } else if (seatsLeft <= 3) {
+      return {
+        text: `${String(seatsLeft).padStart(2, '0')} Seats left`,
+        class: 'bg-orange-700 text-white',
+      };
+    } else if (seatsLeft <= 5) {
+      return {
+        text: `${String(seatsLeft).padStart(2, '0')} Seats left`,
+        class: 'bg-orange-600 text-white',
+      };
+    } else if (seatsLeft <= 10) {
+      return {
+        text: `${String(seatsLeft).padStart(2, '0')} Seats left`,
+        class: 'bg-yellow-500 text-black',
+      };
+    } else {
+      return {
+        text: `${String(seatsLeft).padStart(2, '0')} Seats left`,
+        class: 'bg-blue-500 text-white',
+      };
+    }
+  } else if (status === 'available') {
+    return { text: 'Available', class: 'bg-green-500 text-white' };
+  }
+  
+  // Default case
   return { text: 'Available', class: 'bg-green-500 text-white' };
 }
 ---
@@ -81,11 +115,12 @@ function getAvailabilityBadge(status: string, seatsLeft?: number) {
                 'inline-block rounded px-6 py-2 font-semibold transition-colors',
                 {
                   'pointer-events-none cursor-not-allowed bg-gray-300 text-gray-500':
-                    date.status === 'full',
-                  'bg-primary text-white hover:bg-primary/90': date.status !== 'full',
+                    date.status === 'full' || (date.status === 'limited' && date.seatsLeft === 0),
+                  'bg-primary text-white hover:bg-primary/90': 
+                    date.status !== 'full' && !(date.status === 'limited' && date.seatsLeft === 0),
                 },
               ]}
-              href={date.status !== 'full' ? `/contact?course=200hour&date=${date.id}` : '#'}
+              href={date.status !== 'full' && !(date.status === 'limited' && date.seatsLeft === 0) && date.id ? `/contact?course=200hour&date=${date.id}` : '#'}
             >
               Book Now
             </a>
