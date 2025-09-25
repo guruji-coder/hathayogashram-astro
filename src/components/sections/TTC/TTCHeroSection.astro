@@ -2,9 +2,9 @@
 import type { ImageInput } from '../../../types/images';
 
 interface Props {
-  images: ImageInput[];
+  images: readonly ImageInput[] | ImageInput[];
   title: string;
-  details: Array<{ label: string; value: string }>;
+  details: readonly { readonly label: string; readonly value: string }[] | { label: string; value: string }[];
   fees: {
     single: { amount: string; description: string };
     double: { amount: string; description: string };

@@ -678,6 +678,114 @@ import { YOGA_CAROUSEL_IMAGES } from '../imageConstants.js';
 export const COURSE_200_CAROUSEL_IMAGES = YOGA_CAROUSEL_IMAGES;
 
 // ===========================================
+// CURRICULUM SPECIFIC IMAGE SETS
+// ===========================================
+
+export const CURRICULUM_IMAGE_SETS = {
+  asana: [
+    {
+      src: '/images/carousel/SideAnglePose.jpeg',
+      alt: 'Extended Side Angle Pose practice',
+      description: 'Strengthening legs in Side Angle Pose',
+    },
+    {
+      src: '/images/carousel/SideAnglePose.jpeg',
+      alt: 'Extended Side Angle Pose practice',
+      description: 'Strengthening legs in Side Angle Pose',
+    },
+    {
+      src: '/images/carousel/TreePose.jpeg',
+      alt: 'Vrksasana (Tree Pose) balance',
+      description: 'Finding stability in Tree Pose',
+    },
+  ],
+  pranayama: [
+    {
+      src: '/images/carousel/Classroom.jpeg',
+      alt: 'Pranayama breathing techniques class',
+      description: 'Learning traditional breathing methods',
+    },
+    {
+      src: '/images/carousel/gaganparsaritapaduttanasasana.jpg',
+      alt: 'Breath awareness in forward fold',
+      description: 'Combining breath with movement',
+    },
+  ],
+  mudras: [
+    {
+      src: '/images/carousel/UpwardLotusPose.jpeg',
+      alt: 'Meditation with mudras',
+      description: 'Practicing hand gestures for energy flow',
+    },
+    {
+      src: '/images/carousel/Classroom2.jpeg',
+      alt: 'Mudra instruction session',
+      description: 'Learning sacred hand positions',
+    },
+  ],
+  bandhas: [
+    {
+      src: '/images/carousel/dilbharExtended Hand-to-Big-Toe Pose.jpeg',
+      alt: 'Bandha activation in balancing pose',
+      description: 'Engaging core locks for stability',
+    },
+    {
+      src: '/images/carousel/RevolvedSideAnglePoseParivrittaParchvkona.jpg',
+      alt: 'Spinal locks in twisted pose',
+      description: 'Using bandhas in challenging asanas',
+    },
+  ],
+  shatkarma: [
+    {
+      src: '/images/carousel/Garudasana.jpeg',
+      alt: 'Cleansing practices preparation',
+      description: 'Preparing body for purification techniques',
+    },
+    {
+      src: '/images/carousel/Classroom.jpeg',
+      alt: 'Shatkarma theory and practice',
+      description: 'Learning traditional cleansing methods',
+    },
+  ],
+  philosophy: [
+    {
+      src: '/images/carousel/Classroom.jpeg',
+      alt: 'Yoga philosophy study session',
+      description: 'Exploring ancient yoga texts and wisdom',
+    },
+    {
+      src: '/images/carousel/Classroom2.jpeg',
+      alt: 'Philosophy discussion group',
+      description: 'Understanding yoga principles and ethics',
+    },
+  ],
+  anatomy: [
+    {
+      src: '/images/carousel/dilbharParsaritaPadottanasana.jpg',
+      alt: 'Anatomical awareness in poses',
+      description: 'Understanding body mechanics in yoga',
+    },
+    {
+      src: '/images/carousel/UtithaHasthaPandungathasnahelp.jpg',
+      alt: 'Alignment and anatomy study',
+      description: 'Learning safe yoga practice principles',
+    },
+  ],
+  teaching: [
+    {
+      src: '/images/carousel/Classroom2.jpeg',
+      alt: 'Teaching methodology workshop',
+      description: 'Developing effective instruction skills',
+    },
+    {
+      src: '/images/carousel/Classroom.jpeg',
+      alt: 'Student teaching practice',
+      description: 'Hands-on teaching experience',
+    },
+  ],
+} as const;
+
+// ===========================================
 // 200 HOUR CURRICULUM DATA
 // ===========================================
 

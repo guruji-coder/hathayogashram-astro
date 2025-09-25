@@ -1,6 +1,7 @@
 ---
 import SectionHeader from '$components/ui/SectionHeader.astro';
-import { ICON_IMAGES } from '$constants/imageConstants';
+import { ICON_IMAGES, YOGA_CAROUSEL_IMAGES } from '$constants/imageConstants';
+import { CURRICULUM_IMAGE_SETS as TTC_CURRICULUM_IMAGES } from '$constants/TTC/200hour';
 import OmListItem from '../../ui/OmListItem.astro';
 
 export interface Props {
@@ -11,7 +12,7 @@ export interface Props {
       title: string;
       sections: Array<{
         title: string;
-        description: string;
+        description?: string;
         items: string[];
       }>;
     }>;
@@ -19,6 +20,69 @@ export interface Props {
 }
 
 const { curriculumData } = Astro.props;
+
+/**
+ * CHUNKED ARRAYS UTILITY FUNCTION - FLEX VERSION
+ * ===============================================
+ * Purpose: Splits a long array into smaller chunks with fixed flex layout
+ * Use case: Create consistent visual blocks with images
+ * 
+ * @param arr - Array of items to be chunked
+ * @param size - Number of items per chunk (default: 4)
+ * @returns Array of arrays (chunks)
+ */
+function chunkArray(arr: string[], size: number = 4): string[][] {
+  return arr.reduce((chunks, item, index) => {
+    // Calculate which chunk this item belongs to
+    const chunkIndex = Math.floor(index / size);
+    
+    // Create new chunk if it doesn't exist
+    if (!chunks[chunkIndex]) {
+      chunks[chunkIndex] = [];
+    }
+    
+    // Add item to appropriate chunk
+    chunks[chunkIndex].push(item);
+    
+    return chunks;
+  }, [] as string[][]);
+}
+
+/**
+ * GET CURRICULUM-SPECIFIC IMAGES
+ * ==============================
+ * Purpose: Return appropriate images based on section content
+ * Strategy: Match section titles/ids to specific image sets
+ * 
+ * @param sectionTitle - Title of the curriculum section
+ * @param itemIndex - Index of current curriculum item
+ * @returns Array of contextual images
+ */
+function getCurriculumImages(sectionTitle: string, itemIndex: number) {
+  const title = sectionTitle.toLowerCase();
+  
+  // Map section titles to image sets
+  if (title.includes('asana') || title.includes('posture')) {
+    return TTC_CURRICULUM_IMAGES.asana;
+  } else if (title.includes('pranayama') || title.includes('breathing')) {
+    return TTC_CURRICULUM_IMAGES.pranayama;
+  } else if (title.includes('mudra')) {
+    return TTC_CURRICULUM_IMAGES.mudras;
+  } else if (title.includes('bandha')) {
+    return TTC_CURRICULUM_IMAGES.bandhas;
+  } else if (title.includes('shatkarma') || title.includes('cleansing')) {
+    return TTC_CURRICULUM_IMAGES.shatkarma;
+  } else if (title.includes('philosophy') || title.includes('theory')) {
+    return TTC_CURRICULUM_IMAGES.philosophy;
+  } else if (title.includes('anatomy') || title.includes('body')) {
+    return TTC_CURRICULUM_IMAGES.anatomy;
+  } else if (title.includes('teaching') || title.includes('methodology')) {
+    return TTC_CURRICULUM_IMAGES.teaching;
+  }
+  
+  // Fallback: Use general carousel images
+  return YOGA_CAROUSEL_IMAGES.slice(0, 3);
+}
 ---
 
 <section class="py-16 bg-white" id="Curriculum">
@@ -66,10 +130,65 @@ const { curriculumData } = Astro.props;
                       {section.description}
                     </p>
                   )}
-                  <div class="space-y-2">
-                    {section.items.map((listItem) => (
-                      <OmListItem text={listItem} />
-                    ))}
+                  
+                  {/*
+                    FLEX LAYOUT WITH FIXED DIMENSIONS
+                    =================================
+                    
+                    Structure:
+                    - Fixed height containers for consistency
+                    - Flex layout for responsive design
+                    - Section-specific images
+                    - Chunked content with visual breaks
+                  */}
+                  <div class="flex flex-col space-y-8">
+                    {chunkArray(section.items, 4).map((chunk, chunkIndex) => {
+                      // Get section-specific images
+                      const sectionImages = getCurriculumImages(section.title, chunkIndex);
+                      const currentImage = sectionImages[chunkIndex % sectionImages.length];
+                      
+                      return (
+                        <div class="flex flex-col lg:flex-row gap-6 min-h-[400px]">
+                          {/* Content Block - Fixed Width */}
+                          <div class="flex-1 lg:w-2/3">
+                            <div class="bg-gray-50 rounded-xl p-6 h-full flex flex-col justify-center">
+                              <div class="space-y-3">
+                                {chunk.map((listItem) => (
+                                  <OmListItem text={listItem} />
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                          
+                          {/* Image Block - Fixed Width & Height */}
+                          {chunkIndex < chunkArray(section.items, 4).length - 1 && currentImage && (
+                            <div class="lg:w-1/3 flex-shrink-0">
+                              <figure class="h-full min-h-[300px] lg:min-h-[400px]">
+                                <div class="relative overflow-hidden rounded-xl shadow-lg h-full">
+                                  <img 
+                                    alt={currentImage.alt}
+                                    class="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                                    height="400"
+                                    loading="lazy"
+                                    src={currentImage.src}
+                                    width="300"
+                                  />
+                                  {/* Image Overlay */}
+                                  <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                                  
+                                  {/* Image Caption Overlay */}
+                                  <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+                                    <p class="text-sm font-medium bg-black/50 rounded px-3 py-2 backdrop-blur-sm">
+                                      {currentImage.description}
+                                    </p>
+                                  </div>
+                                </div>
+                              </figure>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               ))}
@@ -80,6 +199,35 @@ const { curriculumData } = Astro.props;
       ))}
     </div>
   </div>
+
+  {/* 
+    STRUCTURED DATA FOR SEO
+    =======================
+    Helps search engines understand the curriculum structure
+    Improves rich snippets and course visibility
+  */}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "200 Hour Yoga Teacher Training Curriculum",
+      "description": "Comprehensive curriculum covering all aspects of yoga teacher training including philosophy, asanas, pranayama, and teaching methodology",
+      "provider": {
+        "@type": "Organization",
+        "name": "Hatha Yoga Ashram",
+        "url": "https://hathayogashram.com"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "https://schema.org/OfflineEventAttendanceMode",
+        "courseWorkload": "PT200H",
+        "location": {
+          "@type": "Place",
+          "name": "Rishikesh, India"
+        }
+      }
+    }
+  </script>
 </section>
 
 <script>

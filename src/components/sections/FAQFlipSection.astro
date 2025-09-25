@@ -21,13 +21,26 @@ const { title = "Frequently Asked Questions", subtitle = "Get answers to common 
 
     <!-- FAQ Cards Grid -->
     <div class="faq-grid grid gap-3 md:gap-4 lg:gap-6">
-      {FAQ_FLIP_CARDS.map(faq => (
-        <FAQCard 
-          answer={faq.answer}
-          category={faq.category}
-          question={faq.question}
-        />
+      {FAQ_FLIP_CARDS.map((faq, index) => (
+        <div class:list={[{ 'hidden-mobile': index >= 4 }]}>
+          <FAQCard 
+            answer={faq.answer}
+            category={faq.category}
+            question={faq.question}
+          />
+        </div>
       ))}
+    </div>
+
+    <!-- Mobile Read More Button -->
+    <div class="text-center mt-8 md:hidden">
+      <button 
+        class="bg-purple-600 text-white px-6 py-2 rounded-full font-medium hover:bg-purple-700 transition-colors"
+        id="read-more-btn"
+        onclick="document.querySelectorAll('.hidden-mobile').forEach(card => card.classList.remove('hidden-mobile')); this.style.display='none';"
+      >
+        Read More FAQs
+      </button>
     </div>
 
     <!-- Call to Action -->
@@ -59,6 +72,13 @@ const { title = "Frequently Asked Questions", subtitle = "Get answers to common 
   @media (min-width: 1024px) {
     .faq-grid {
       grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* Hide cards after 4th on mobile only */
+  @media (max-width: 767px) {
+    .hidden-mobile {
+      display: none;
     }
   }
 </style>

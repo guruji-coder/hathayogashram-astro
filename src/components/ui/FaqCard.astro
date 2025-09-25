@@ -12,7 +12,7 @@ const { question, answer, category } = Astro.props;
   <div class="faq-card group relative h-full w-full cursor-pointer transition-transform duration-700 ease-in-out hover:[transform:rotateY(180deg)] [transform-style:preserve-3d]">
     
     <!-- Front Side - Question -->
-    <div class="absolute inset-0 flex flex-col items-center justify-center p-2 md:p-4 bg-gradient-to-br from-purple-500 to-indigo-600 text-white rounded-xl shadow-lg [backface-visibility:hidden]">
+    <div class="absolute inset-0 flex flex-col items-center justify-center p-2 md:p-4 bg-gradient-to-br from-purple-500 to-primary text-white rounded-xl shadow-lg [backface-visibility:hidden]">
       <div class="text-center">
         {category && (
           <span class="text-base md:text-xs font-medium opacity-80 uppercase tracking-wide mb-2 block">{category}</span>
