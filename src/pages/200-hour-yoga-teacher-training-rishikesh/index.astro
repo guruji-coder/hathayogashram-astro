@@ -116,7 +116,7 @@ import FAQFlipSection from '$components/sections/FAQFlipSection.astro';
 
   <!-- Gallery Section with Infinite Carousels -->
   <GallerySection
-    galleryImages={COURSE_200_CAROUSEL_IMAGES}
+    galleryImages={COURSE_200_CAROUSEL_IMAGES.map(img => img.src)}
     id="Gallery"
     miniImages={MINI_CAROUSEL_IMAGES}
     showMiniCarousel={true}

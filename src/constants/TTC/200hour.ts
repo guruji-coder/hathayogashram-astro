@@ -669,8 +669,6 @@ export const TRAINING_200_PRACTICAL_SESSIONS = {
 // 200 HOUR CAROUSEL IMAGES
 // ===========================================
 
-import { YOGA_CAROUSEL_IMAGES } from '../imageConstants.js';
-
 // ===========================================
 // 200 HOUR COURSE CAROUSEL DATA - OFFICIAL
 // ===========================================

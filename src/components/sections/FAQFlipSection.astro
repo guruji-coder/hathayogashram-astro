@@ -1,5 +1,5 @@
 ---
-import FAQCard from '$ui/FAQCard.astro';
+import FaqCard from '$ui/FaqCard.astro';
 import { FAQ_FLIP_CARDS } from '$constants/faqConstants';
 
 interface Props {
@@ -23,7 +23,7 @@ const { title = "Frequently Asked Questions", subtitle = "Get answers to common 
     <div class="faq-grid grid gap-3 md:gap-4 lg:gap-6">
       {FAQ_FLIP_CARDS.map((faq, index) => (
         <div class:list={[{ 'hidden-mobile': index >= 4 }]}>
-          <FAQCard 
+          <FaqCard 
             answer={faq.answer}
             category={faq.category}
             question={faq.question}
