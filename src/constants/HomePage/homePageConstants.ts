@@ -324,7 +324,7 @@ export const CERTIFICATIONS_SECTION = {
 // ===========================================
 
 export const TEACHERS_SECTION = {
-  TITLE: 'Best Yoga Teachers Rishikesh India',
+  TITLE: 'Hatha Yoga Ashram Teachers',
 
   INTRO_PARAGRAPH:
     'All our teachers and gurus are experienced instructors who are well trained and well-versed in all things about yoga - ensuring that all of our graduates are fully equipped to be successful. All teachers here have a Masters in Yogic Science as well as certificates from the Yoga Alliance.',

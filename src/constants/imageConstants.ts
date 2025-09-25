@@ -47,7 +47,7 @@ export const COURSE_IMAGES = {
     MAIN_BUILDING: `${COURSES_PATH}/yoga-school/yogaschoolpic.jpg`,
   },
   PROGRAMS: {
-    YOGA_COURSE: `${COURSES_PATH}/programs/yogacoursepic.jpg`,
+    YOGA_COURSE: `${COURSES_PATH}/programs/dailyschedule.jpg`,
   },
 } as const;
 
@@ -95,9 +95,9 @@ export const GALLERY_IMAGES = {
 
 export const YOGA_CAROUSEL_IMAGES = [
   {
-    src: '/images/carousel/dilbharExtended Hand-to-Big-Toe Pose.jpeg',
-    alt: 'Utthita Hasta Padangusthasana (Extended Hand-to-Big-Toe Pose)',
-    description: 'Balancing pose that develops focus and leg strength',
+    src: '/images/carousel/dilbharParsaritaPadottanasana.jpg',
+    alt: 'Trikonasana (Triangle Pose)',
+    description: 'Triangle pose strengthens legs and improves balance',
   },
 
   {
@@ -105,11 +105,13 @@ export const YOGA_CAROUSEL_IMAGES = [
     alt: 'Prasarita Padottanasana (Wide-Legged Forward Bend)',
     description: 'Forward bend that stretches hamstrings and calms mind',
   },
+
   {
-    src: '/images/carousel/dilbharParsaritaPadottanasana.jpg',
-    alt: 'Trikonasana (Triangle Pose)',
-    description: 'Triangle pose strengthens legs and improves balance',
+    src: '/images/carousel/dilbharExtended Hand-to-Big-Toe Pose.jpeg',
+    alt: 'Utthita Hasta Padangusthasana (Extended Hand-to-Big-Toe Pose)',
+    description: 'Balancing pose that develops focus and leg strength',
   },
+
   {
     src: '/images/carousel/Classroom.jpeg',
     alt: 'Yoga teacher training classroom session',

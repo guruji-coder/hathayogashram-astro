@@ -56,6 +56,7 @@ import {
 } from '$components/sections';
 import IncludedExcludedSection from '$svelte/ui/IncludedExcludedSection.svelte';
 import { TEACHERS_SECTION } from '$constants/index';
+import FAQFlipSection from '$components/sections/FAQFlipSection.astro';
 ---
 
 <Layout
@@ -115,7 +116,7 @@ import { TEACHERS_SECTION } from '$constants/index';
 
   <!-- Gallery Section with Infinite Carousels -->
   <GallerySection
-    galleryImages={GALLERY_CAROUSEL_IMAGES}
+    galleryImages={COURSE_200_CAROUSEL_IMAGES}
     id="Gallery"
     miniImages={MINI_CAROUSEL_IMAGES}
     showMiniCarousel={true}
@@ -134,6 +135,8 @@ import { TEACHERS_SECTION } from '$constants/index';
     sectionData={TRAINING_200_COURSE_FAQ_SECTION}
     styles={TRAINING_200_COURSE_FAQ_STYLES}
   />
+
+  <FAQFlipSection  />
 
   <LocationSection />
 

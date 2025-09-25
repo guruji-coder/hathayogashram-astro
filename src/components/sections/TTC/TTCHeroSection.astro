@@ -44,28 +44,48 @@ import Button from '$components/ui/Button.astro';
     id="carousel-container"
   >
 
-   <div class="grid grid-cols-2 grid-rows-2 h-full w-full gap-5" id="carousel-image">
-      <img
-        alt={getImageAlt(images[0])}
-        class="rounded-lg"
-        src={getImageSrc(images[0])}
-      />
-      <img
-        alt={getImageAlt(images[1] || images[0])}
-        class="h-full w-full object-cover rounded-lg"
-        src={getImageSrc(images[1] || images[0])}
-      />
-      <img
-        alt={getImageAlt(images[2] || images[0])}
-        class="h-full w-full object-cover rounded-lg"
-        src={getImageSrc(images[2] || images[0])}
-      />
-      <img
-        alt={getImageAlt(images[3] || images[0])}
-        class="h-full w-full object-cover rounded-lg"
-        src={getImageSrc(images[3] || images[0])}
-      />
-    </div>
+      <div class="grid grid-cols-2 grid-rows-2 h-full w-full gap-5 p-5" id="carousel-container-grid">
+        <img
+          alt={getImageAlt(images[0])}
+          class="h-full w-full object-cover object-center rounded-lg"
+          decoding="async"
+          height="300"
+          id="img-0"
+          loading="eager"
+          src={getImageSrc(images[0])}
+          width="400"
+        />
+        <img
+          alt={getImageAlt(images[1] || images[0])}
+          class="h-full w-full object-cover object-center rounded-lg"
+          decoding="async"
+          height="300"
+          id="img-1"
+          loading="lazy"
+          src={getImageSrc(images[1] || images[0])}
+          width="400"
+        />
+        <img
+          alt={getImageAlt(images[2] || images[0])}
+          class="h-full w-full object-cover object-center rounded-lg"
+          decoding="async"
+          height="300"
+          id="img-2"
+          loading="lazy"
+          src={getImageSrc(images[2] || images[0])}
+          width="400"
+        />
+        <img
+          alt={getImageAlt(images[3] || images[0])}
+          class="h-full w-full object-cover object-center rounded-lg"
+          decoding="async"
+          height="300"
+          id="img-3"
+          loading="lazy"
+          src={getImageSrc(images[3] || images[0])}
+          width="400"
+        />
+      </div>
     <button
       class="absolute bottom-2 left-2 z-10 rounded-full p-2 md:left-auto md:right-10"
       id="prev-btn"
@@ -160,42 +180,57 @@ import Button from '$components/ui/Button.astro';
 
 <!-- Carousel Script -->
 <script defer define:vars={{ imageSources }}>
-  let i = 0;
-  const img = document.getElementById('carousel-image');
+  let currentIndex = 0;
+  const img0 = document.getElementById('img-0');
+  const img1 = document.getElementById('img-1');
+  const img2 = document.getElementById('img-2');
+  const img3 = document.getElementById('img-3');
   const prev = document.getElementById('prev-btn');
   const next = document.getElementById('next-btn');
   const container = document.getElementById('carousel-container');
-  let t;
+  let autoSlideInterval;
 
-  function update() {
-    img.src = imageSources[i];
-  }
-  function start() {
-    t = setInterval(() => {
-      i = (i + 1) % imageSources.length;
-      update();
-    }, 2500);
-  }
-  function stop() {
-    clearInterval(t);
+  function updateGrid() {
+    // Show 4 images in 2x2 grid starting from currentIndex
+    if (img0) img0.src = imageSources[currentIndex % imageSources.length];
+    if (img1) img1.src = imageSources[(currentIndex + 1) % imageSources.length];
+    if (img2) img2.src = imageSources[(currentIndex + 2) % imageSources.length];
+    if (img3) img3.src = imageSources[(currentIndex + 3) % imageSources.length];
   }
 
-  if (img && prev && next && container) {
-    update();
-    start();
-    container.addEventListener('mouseenter', stop);
-    container.addEventListener('mouseleave', start);
-    prev.addEventListener('click', () => {
-      stop();
-      i = (i - 1 + imageSources.length) % imageSources.length;
-      update();
-      start();
-    });
-    next.addEventListener('click', () => {
-      stop();
-      i = (i + 1) % imageSources.length;
-      update();
-      start();
-    });
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(() => {
+      currentIndex = (currentIndex + 4) % imageSources.length;
+      updateGrid();
+    }, 2500); // Change every 2.5 seconds
+  }
+
+  function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+  }
+
+  function goNext() {
+    stopAutoSlide();
+    currentIndex = (currentIndex + 4) % imageSources.length;
+    updateGrid();
+    startAutoSlide();
+  }
+
+  function goPrev() {
+    stopAutoSlide();
+    currentIndex = (currentIndex - 4 + imageSources.length) % imageSources.length;
+    updateGrid();
+    startAutoSlide();
+  }
+
+  // Initialize
+  if (imageSources.length >= 4) {
+    updateGrid();
+    startAutoSlide();
+    
+    
+    if (prev) prev.addEventListener('click', goPrev);
+    if (next) next.addEventListener('click', goNext);
   }
 </script>
+

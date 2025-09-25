@@ -22,12 +22,35 @@ const { date, year, courseInfo } = Astro.props;
 
 function getAvailabilityBadge(status: string, seatsLeft?: number) {
   if (status === 'full') {
-    return { text: 'Fully Booked', class: 'bg-red-500 text-white' };
+    return { text: 'Fully Booked', class: 'bg-red-600 text-white' };
   } else if (status === 'limited' && seatsLeft) {
-    return {
-      text: `${String(seatsLeft).padStart(2, '0')} Seats left`,
-      class: 'bg-orange-500 text-white',
-    };
+    // Different colors based on number of seats left
+    if (seatsLeft === 1) {
+      return {
+        text: `${String(seatsLeft).padStart(2, '0')} Seat left`,
+        class: 'bg-red-500 text-white animate-pulse',
+      };
+    } else if (seatsLeft <= 3) {
+      return {
+        text: `${String(seatsLeft).padStart(2, '0')} Seats left`,
+        class: 'bg-orange-600 text-white',
+      };
+    } else if (seatsLeft <= 5) {
+      return {
+        text: `${String(seatsLeft).padStart(2, '0')} Seats left`,
+        class: 'bg-orange-500 text-white',
+      };
+    } else if (seatsLeft <= 10) {
+      return {
+        text: `${String(seatsLeft).padStart(2, '0')} Seats left`,
+        class: 'bg-yellow-500 text-black',
+      };
+    } else {
+      return {
+        text: `${String(seatsLeft).padStart(2, '0')} Seats left`,
+        class: 'bg-blue-500 text-white',
+      };
+    }
   }
   return { text: 'Available', class: 'bg-green-500 text-white' };
 }
@@ -77,16 +100,16 @@ const roomTypes = [
   </div>
 
   <!-- Pricing Grid -->
-  <div class="mb-6 grid grid-cols-2 gap-4">
+  <div class="mb-6 grid grid-cols-2 gap-4 mt-10">
     {
       roomTypes.map(room => (
         <div class="text-center">
           <div class="mb-2 rounded-lg border border-primary px-4 py-3">
-            <span class="text-xl font-bold text-primary">{room.amount}</span>
+            <span class="text-xl font-bold text-primary my-2">{room.amount}</span>
             <span class="ml-2etext-sm text-primary line-through opacity-75">{room.original}</span>
           </div>
           {room.femaleOnly && <div class="mb-2 text-xs text-gray-600">(Females Only)</div>}
-          <div class="rounded-full bg-primary px-4 py-2 text-sm font-medium text-white">
+          <div class="rounded-full bg-primary px-4 py-2 text-sm font-medium text-white my-5">
             {room.label}
           </div>
         </div>

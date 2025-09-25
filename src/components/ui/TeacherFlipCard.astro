@@ -1,0 +1,109 @@
+---
+interface Props {
+  teacher: {
+    id: number;
+    name: string;
+    title: string;
+    image: string;
+    experience: string;
+    specialty: string;
+    bio: string;
+    credentials: string[];
+    expertise: string[];
+  };
+}
+
+const { teacher } = Astro.props;
+---
+
+<div class="teacher-card-container w-full h-80 perspective-1000">
+  <div class="teacher-card w-full h-full relative preserve-3d transition-transform duration-700 hover:rotate-y-180">
+    <!-- Front Side -->
+    <div class="teacher-card-front absolute inset-0 w-full h-full backface-hidden bg-white rounded-xl shadow-lg overflow-hidden">
+      <div class="relative h-full">
+        <img 
+          alt={teacher.name}
+          class="w-full h-48 object-cover"
+          src={teacher.image} 
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+        
+        <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+          <h3 class="text-xl font-bold mb-1">{teacher.name}</h3>
+          <p class="text-sm opacity-90 mb-2">{teacher.title}</p>
+          <div class="flex justify-between items-center">
+            <span class="text-xs bg-white/20 px-2 py-1 rounded">{teacher.experience}</span>
+            <span class="text-xs bg-primary/80 px-2 py-1 rounded">{teacher.specialty}</span>
+          </div>
+        </div>
+        
+        <!-- Hover indicator -->
+        <div class="absolute top-4 right-4 text-white/80">
+          <i class="fas fa-redo text-sm"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back Side -->
+    <div class="teacher-card-back absolute inset-0 w-full h-full backface-hidden bg-gradient-to-br from-primary to-purple-600 rounded-xl shadow-lg p-6 text-white rotate-y-180">
+      <div class="h-full flex flex-col">
+        <h3 class="text-lg font-bold mb-2">{teacher.name}</h3>
+        <p class="text-sm mb-4 flex-grow">{teacher.bio}</p>
+        
+        <div class="space-y-3">
+          <div>
+            <h4 class="text-xs font-semibold mb-1 opacity-80">CREDENTIALS</h4>
+            <div class="flex flex-wrap gap-1">
+              {teacher.credentials.slice(0, 2).map(cred => (
+                <span class="text-xs bg-white/20 px-2 py-1 rounded">{cred}</span>
+              ))}
+            </div>
+          </div>
+          
+          <div>
+            <h4 class="text-xs font-semibold mb-1 opacity-80">EXPERTISE</h4>
+            <div class="flex flex-wrap gap-1">
+              {teacher.expertise.slice(0, 3).map(skill => (
+                <span class="text-xs bg-white/10 px-2 py-1 rounded">{skill}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+        
+        <!-- Back indicator -->
+        <div class="absolute top-4 right-4 text-white/60">
+          <i class="fas fa-undo text-sm"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  
+  .teacher-card:hover {
+    transform: rotateY(180deg);
+  }
+  
+  /* Mobile: tap to flip */
+  @media (max-width: 768px) {
+    .teacher-card:active {
+      transform: rotateY(180deg);
+    }
+  }
+</style>

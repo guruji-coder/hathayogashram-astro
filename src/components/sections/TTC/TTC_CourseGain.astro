@@ -3,19 +3,16 @@ import OmListItem from '$components/ui/OmListItem.astro';
 import { ICON_IMAGES } from '$constants/imageConstants';
 import SectionHeader from '../../ui/SectionHeader.astro';
 
+interface CourseSection {
+  readonly heading: string;
+  readonly items: readonly string[];
+}
+
 interface Props {
   courseGainData: {
-    title: string;
-    subtitle: string;
-    gainItems: ReadonlyArray<{
-      text: string;
-    }>;
-    targetAudience: {
-      title: string;
-      description: string;
-      requirements: string;
-      experience: string;
-    };
+    readonly title: string;
+    readonly subtitle: string;
+    readonly sections: readonly CourseSection[];
   };
 }
 
@@ -27,63 +24,21 @@ const { courseGainData } = Astro.props;
     <!-- Section Header -->
     <SectionHeader title={courseGainData.title} />
 
-    <!-- Course Gains Section -->
-    <div class="mx-auto max-w-full">
-      <p
-        class="mb-8 border-b border-orange-400 bg-white/50 px-6 py-4 text-center text-sm font-bold text-gray-800 md:text-left md:text-lg"
-      >
-        What Will You Gain From This Course At Hatha Yogashala?
-      </p>
+    <!-- Dynamic Sections -->
+    {courseGainData.sections.map((section) => (
+      <div class="mx-auto max-w-full mb-8">
+        <p
+          class="mb-8 border-b border-orange-400 bg-white/50 px-6 py-4 text-center text-sm font-bold text-gray-800 md:text-left md:text-lg"
+        >
+          {section.heading}
+        </p>
 
-      <!-- Gain Items Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2">
-        {
-          courseGainData.gainItems.map(item => (
-            <OmListItem text={item.text} />
-          ))
-        }
+        <!-- Section Items -->
+          {section.items.map((item) => (
+            <OmListItem text={item} />
+          ))}
       </div>
-    </div>
-
-    <!-- Target Audience Section -->
-    <div class="mx-auto max-w-full">
-      <p
-        class="mb-8 border-b border-orange-400 bg-white/50 px-6 py-4 text-center text-sm font-bold text-gray-800 md:text-left md:text-lg"
-      >
-        {courseGainData.targetAudience.title}
-      </p>
-
-      <div class="space-y-6">
-        <!-- Main Description -->
-
-        <div class="mb-2 flex items-center justify-center rounded-lg backdrop-blur-sm transition-all duration-300">
-          <div class="mr-5 h-10 w-10 flex-shrink-0">
-            <img class="w-full h-full object-contain" src={ICON_IMAGES.OM_SYMBOL} />
-          </div>
-          <p class="flex-1 leading-relaxed text-gray-700">
-            {courseGainData.targetAudience.description}
-          </p>
-        </div>
-        <!-- Requirements -->
-        <div class="mb-2 flex items-center justify-center rounded-lg backdrop-blur-sm transition-all duration-300">
-          <div class="mr-5 h-10 w-10 flex-shrink-0">
-            <img class="w-full h-full object-contain" src={ICON_IMAGES.OM_SYMBOL} />
-          </div>
-          <p class="flex-1 leading-relaxed text-gray-700">
-            {courseGainData.targetAudience.requirements}
-          </p>
-        </div>
-        <!-- Experience -->
-        <div class="mb-2 flex items-center justify-center rounded-lg backdrop-blur-sm transition-all duration-300">
-          <div class="mr-5 h-10 w-10 flex-shrink-0">
-            <img class="w-full h-full object-contain" src={ICON_IMAGES.OM_SYMBOL} />
-          </div>
-          <p class="flex-1 leading-relaxed text-gray-700">
-            {courseGainData.targetAudience.experience}
-          </p>
-        </div>
-      </div>
-    </div>
+    ))}
   </div>
 </section>
 

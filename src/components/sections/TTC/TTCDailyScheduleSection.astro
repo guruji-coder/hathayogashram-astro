@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import type { DailyScheduleSectionData } from '../../../constants/TTC/200hour';
 
 interface Props {
@@ -9,6 +10,7 @@ const { sectionData } = Astro.props;
 import { ROUTE_CONTACT, ROUTE_PAYMENT } from '../../../constants/routesConstants';
 import Button from '../../ui/Button.astro';
 import SectionHeader from '../../ui/SectionHeader.astro';
+import ScheduleItem from '$ui/ScheduleItem.astro';
 ---
 
 <section class="relative mx-10 mb-10 mt-20 font-bold md:mx-20" id="DailySchedule">
@@ -18,13 +20,7 @@ import SectionHeader from '../../ui/SectionHeader.astro';
     <div class="mt-0 w-full space-y-6 md:mt-24 md:w-1/3">
       {
         sectionData.schedule.slice(0, 5).map(({ time, activity }) => (
-          <div class="relative flex flex-col items-center pb-16">
-            <div class="bg-bluelight absolute -right-0 flex w-full skew-x-[-15deg] justify-center px-4 py-2 text-white md:-right-10">
-              <span class="inline-block skew-x-[5deg] font-bold">
-                {time} - {activity}
-              </span>
-            </div>
-          </div>
+          <ScheduleItem activity={activity} time={time} />
         ))
       }
     </div>
@@ -32,16 +28,22 @@ import SectionHeader from '../../ui/SectionHeader.astro';
     <div
       class="z-10 my-5 mt-10 w-full rounded-lg border border-black bg-white p-6 py-5 text-center font-space shadow-lg md:mt-0 md:w-1/3"
     >
+      
+        <Image 
+          alt={sectionData.image.alt}
+          class="mt-4 mx-auto rounded-lg object-cover"
+          decoding="async"
+          height={200}
+          loading="lazy"
+          src={sectionData.image.src}
+          width={300}
+        />
       <h3 class="font-bold">{sectionData.title}</h3>
       <p class="mt-4 text-sm font-light">
         {sectionData.description}
       </p>
       <h4 class="mt-6 font-semibold">{sectionData.weeklyScheduleText}</h4>
-      <img 
-        alt={sectionData.image.alt} 
-        class="mt-4 w-full rounded-lg" 
-        src={sectionData.image.src} 
-      />
+      
       <div class="mt-10 block justify-center gap-4 lg:flex">
         <Button class:list={[sectionData.buttons.book.class]} href={ROUTE_CONTACT}>
           {sectionData.buttons.book.text}
@@ -51,16 +53,10 @@ import SectionHeader from '../../ui/SectionHeader.astro';
         </Button>
       </div>
     </div>
-    <div class="mt-0 w-full space-y-6 md:mt-24 md:w-1/3">
+    <div class="mt-5 w-full space-y-6 md:mt-24 md:w-1/3">
       {
         sectionData.schedule.slice(5).map(({ time, activity }) => (
-          <div class="relative flex flex-col items-center pb-16">
-            <div class="bg-bluelight absolute -right-0 flex w-full skew-x-[-15deg] justify-center px-4 py-2 text-white md:-left-10">
-              <span class="inline-block skew-x-[5deg] font-bold">
-                {time} - {activity}
-              </span>
-            </div>
-          </div>
+          <ScheduleItem activity={activity} alignRight time={time} />
         ))
       }
     </div>

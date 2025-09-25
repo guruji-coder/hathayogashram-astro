@@ -1,4 +1,5 @@
 ---
+import SectionHeader from '$components/ui/SectionHeader.astro';
 import { ICON_IMAGES } from '$constants/imageConstants';
 import OmListItem from '../../ui/OmListItem.astro';
 
@@ -30,6 +31,8 @@ const { curriculumData } = Astro.props;
       <div class="w-24 h-1 bg-gradient-to-r from-orange-400 to-orange-600 mx-auto"></div>
     </div>
 
+    <SectionHeader title={curriculumData.title} />
+
     <!-- Curriculum Items -->
     <div class="max-w-5xl mx-auto space-y-4">
       {curriculumData.items.map((item) => (
@@ -52,25 +55,25 @@ const { curriculumData } = Astro.props;
             class="curriculum-content hidden md:block"
             id={item.id}
           >
-            <div class="p-6">
+            <div class="">
               {item.sections.map((section) => (
-                <div class="mb-8 last:mb-0">
-                  <h4 class="text-xl font-bold text-gray-800 mb-3">
+                <div class="mb-8 last:mb-0 my-5">
+                  <h4 class="text-xl font-bold text-gray-800 mb-3 ml-6">
                     {section.title}
                   </h4>
                   {section.description && (
-                    <p class="text-gray-600 mb-4 leading-relaxed">
+                    <p class="text-gray-600 mb-4 leading-relaxed ml-6">
                       {section.description}
                     </p>
                   )}
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div class="space-y-2">
                     {section.items.map((listItem) => (
                       <OmListItem text={listItem} />
-
                     ))}
                   </div>
                 </div>
               ))}
+              
             </div>
           </div>
         </div>

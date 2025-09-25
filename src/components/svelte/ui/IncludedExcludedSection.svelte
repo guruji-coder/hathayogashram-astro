@@ -36,7 +36,7 @@
     </div>
 
     <!-- Tab Content -->
-    <div class="max-w-full mx-auto">
+    <div class="max-w-full mx-auto mt-5">
       {#each tabs as tab}
         {#if activeTab === tab.id}
           <div

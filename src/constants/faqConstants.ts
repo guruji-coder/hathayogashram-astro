@@ -1,3 +1,122 @@
+/**
+ * ===========================================
+ * FAQ CONSTANTS - FREQUENTLY ASKED QUESTIONS
+ * ===========================================
+ */
+
+export interface FAQItem {
+  id: number;
+  question: string;
+  answer: string;
+  category?: string;
+}
+
+// Enhanced FAQ data with categories for flip cards
+export const FAQ_FLIP_CARDS: FAQItem[] = [
+  {
+    id: 1,
+    question: 'What is included in 200-hour YTT?',
+    answer:
+      'Complete curriculum covering asanas, pranayama, philosophy, anatomy, meditation, and teaching methodology with certification.',
+    category: 'Course',
+  },
+  {
+    id: 2,
+    question: 'Do I need prior experience?',
+    answer:
+      'Basic yoga knowledge is recommended but not mandatory. Our course welcomes dedicated beginners.',
+    category: 'Requirements',
+  },
+  {
+    id: 3,
+    question: 'What accommodation options?',
+    answer: 'Twin sharing and private rooms with all meals included. Comfortable ashram stay.',
+    category: 'Stay',
+  },
+  {
+    id: 4,
+    question: 'Is certification recognized?',
+    answer: 'Yes, Yoga Alliance approved and recognized worldwide for professional teaching.',
+    category: 'Certification',
+  },
+  {
+    id: 5,
+    question: 'What should I bring?',
+    answer: 'Comfortable yoga clothes, notebook, water bottle. Mats and props provided.',
+    category: 'Preparation',
+  },
+  {
+    id: 6,
+    question: "What's the daily schedule?",
+    answer:
+      'Morning meditation, asana practice, philosophy, pranayama, evening sessions. Balanced learning.',
+    category: 'Schedule',
+  },
+  {
+    id: 7,
+    question: 'Are meals included?',
+    answer:
+      'Yes, all vegetarian meals included - breakfast, lunch, dinner, herbal tea. Fresh sattvic food.',
+    category: 'Meals',
+  },
+  {
+    id: 8,
+    question: 'Can I get refund?',
+    answer: 'Refund policy varies by cancellation timing. Contact us for detailed terms.',
+    category: 'Booking',
+  },
+  {
+    id: 9,
+    question: 'Where is the ashram?',
+    answer: 'Spiritual heart of Rishikesh, surrounded by Himalayas, close to holy Ganges.',
+    category: 'Location',
+  },
+  {
+    id: 10,
+    question: 'How to reach ashram?',
+    answer: 'Fly to Dehradun or train to Rishikesh. Pickup services available.',
+    category: 'Travel',
+  },
+  {
+    id: 11,
+    question: 'Is WiFi available?',
+    answer: 'Yes, complimentary WiFi in common areas to stay connected.',
+    category: 'Facilities',
+  },
+  {
+    id: 12,
+    question: "What's the weather like?",
+    answer: 'Pleasant year-round. Best time: October-March and June-August.',
+    category: 'Weather',
+  },
+  {
+    id: 13,
+    question: 'What yoga style taught?',
+    answer:
+      'Traditional Hatha Yoga with alignment focus, Ashtanga sequences, authentic philosophy.',
+    category: 'Style',
+  },
+  {
+    id: 14,
+    question: 'Can I teach after course?',
+    answer: 'Yes, comprehensive training for confident teaching with proper skills.',
+    category: 'Teaching',
+  },
+  {
+    id: 15,
+    question: 'Any age restrictions?',
+    answer: 'Minimum 18 years. No upper limit - yoga for everyone with dedication.',
+    category: 'Requirements',
+  },
+  {
+    id: 16,
+    question: 'What makes school special?',
+    answer:
+      'Authentic teachings, experienced gurus, Himalayan setting, small classes, personal attention.',
+    category: 'School',
+  },
+];
+
 export const FAQ_SECTION = {
   TITLE: 'FAQs - Yoga School In Rishikesh India',
   FAQS: [

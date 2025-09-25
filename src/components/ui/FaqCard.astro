@@ -1,0 +1,68 @@
+---
+interface Props {
+  question: string;
+  answer: string;
+  category?: string;
+}
+
+const { question, answer, category } = Astro.props;
+---
+
+<div class="aspect-square w-full perspective-1000 max-w-xs mx-auto md:max-w-none">
+  <div class="faq-card group relative h-full w-full cursor-pointer transition-transform duration-700 ease-in-out hover:[transform:rotateY(180deg)] [transform-style:preserve-3d]">
+    
+    <!-- Front Side - Question -->
+    <div class="absolute inset-0 flex flex-col items-center justify-center p-2 md:p-4 bg-gradient-to-br from-purple-500 to-indigo-600 text-white rounded-xl shadow-lg [backface-visibility:hidden]">
+      <div class="text-center">
+        {category && (
+          <span class="text-base md:text-xs font-medium opacity-80 uppercase tracking-wide mb-2 block">{category}</span>
+        )}
+        <i class="fas fa-question-circle text-5xl md:text-3xl mb-2 md:mb-4 opacity-90"></i>
+        <h3 class="text-lg md:text-sm lg:text-base font-semibold leading-tight">{question}</h3>
+      </div>
+    </div>
+
+    <!-- Back Side - Answer -->
+    <div class="absolute inset-0 flex flex-col items-center justify-center p-2 md:p-4 bg-gradient-to-br from-orange-500 to-red-500 text-white rounded-xl shadow-lg [backface-visibility:hidden] [transform:rotateY(180deg)]">
+      <div class="text-center">
+        <i class="fas fa-lightbulb text-5xl md:text-3xl mb-2 md:mb-4 opacity-90"></i>
+        <p class="text-base md:text-xs lg:text-sm leading-relaxed">{answer}</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Mobile click support with JavaScript -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.faq-card');
+    
+    cards.forEach((card) => {
+      card.addEventListener('click', function(this: HTMLElement) {
+        // Toggle flip state on mobile/touch devices
+        if ('ontouchstart' in window) {
+          this.classList.toggle('mobile-flipped');
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  /* Mobile click flip state */
+  .mobile-flipped {
+    transform: rotateY(180deg);
+  }
+  
+  /* Ensure smooth animation on all devices */
+  @media (hover: none) {
+    .faq-card:hover {
+      transform: none;
+    }
+  }
+</style>
