@@ -334,8 +334,8 @@ export const TEACHERS_SECTION = {
   TEACHERS: [
     {
       id: 1,
-      name: 'Ashish Rawat(Founder)',
-      specialty: 'Ashtanga Yoga & Alignment',
+      name: 'ParmYog Satya Praash(Founder)',
+      specialty: 'undaln & Hatha Yoga',
       experience: 'Experience 23+ Years',
       image: TEACHER_IMAGES_FLAT.FOUNDER_1,
     },

@@ -359,7 +359,7 @@ export interface BestCourseSectionData {
   };
 }
 
-export const TRAINING_200_BEST_COURSE_SECTION: BestCourseSectionData = {
+export const TRAINING_200_BEST_TRAINING_SECTION: BestCourseSectionData = {
   title: 'Best 200 Hour Yoga Teacher Training Course in Rishikesh',
   shortDescription: `Become yoga alliance registered yoga teacher (ryt 200) through Hatha Yoga Ashram's 200 hour yoga teacher training course and start your career in yoga. Our comprehensive and professional program is designed for all levels of practitioners which includes several aspects of yoga, I.E. From asanas to kriyas and prepares you to become an independent yoga teacher. Be a part of this life-changing experience at Hatha Yoga Ashram and begin your pleasant journey to lighten up your true self through yoga. Our 200 hour yoga teacher training course will provide you the deepest possible knowledge of yoga both in the form of theory as well as practical.`,
   expandedDescription: `Our highly qualified and veteran Yog Gurus will provide in-depth knowledge of Asana, Meditation, Ayurveda, Pranayama, Yoga Philosophy and Anatomy. Moreover, asana alignments, modifications, contradictions, use of props, adjustment techniques, teaching methodology and teaching practice will also be covered during this course Both beginners, as well as experienced practitioners, can reap the benefits of this course as it will not only deepen your yogic knowledge but also sharpen your skills as a facilitator. We aim to incorporate yoga into your daily life and help you in becoming a confident yoga teacher. So, get ready and join us in our beautiful journey of The 200 Hour Yoga Teacher Training Certification Course at Hatha Yoga Ashram`,
@@ -391,7 +391,7 @@ export const TRAINING_200_BEST_COURSE_SECTION: BestCourseSectionData = {
 // 200 HOUR COURSE HIGHLIGHTS & BENEFITS
 // ===========================================
 
-export const TRAINING_200_COURSE_HIGHLIGHTS = {
+export const TRAINING_200_HIGHLIGHTS = {
   title: 'What Get With This Course?',
   subtitle: 'Quick highlights for 200 hour TTC',
 
@@ -673,7 +673,7 @@ export const TRAINING_200_PRACTICAL_SESSIONS = {
 // 200 HOUR COURSE CAROUSEL DATA - OFFICIAL
 // ===========================================
 
-export const COURSE_200_CAROUSEL_IMAGES = YOGA_CAROUSEL_IMAGES;
+export const TRAINING_200_CAROUSEL_IMAGES = YOGA_CAROUSEL_IMAGES;
 
 // ===========================================
 // CURRICULUM SPECIFIC IMAGE SETS
@@ -1589,7 +1589,7 @@ export const TRAINING_200_COURSE_DATES_SECTION = {
 // COURSE GAIN & TARGET AUDIENCE
 // ===========================================
 
-export const TTC_COURSE_GAIN_SECTION = {
+export const TTC_TRAINING_GAIN_SECTION = {
   title: 'What Is This Course About & Facilities Included',
   subtitle:
     'Discover the transformative journey that awaits you in our comprehensive yoga teacher training program',
@@ -1667,7 +1667,6 @@ export const TRAINING_200_INCLUDED_EXCLUDED_SECTION = {
       items: [
         '25 Days & 24 Nights Accommodation',
         'Yoga material',
-        'Kirtan Night',
         'Daily nutritious vegetarian, vegan meals',
         'Kirtan night',
         'Full body massage',
@@ -1728,7 +1727,7 @@ export const TRAINING_200_INCLUDED_EXCLUDED_SECTION = {
   ],
 };
 
-export const TRAINING_200_COURSE_FAQ_SECTION = {
+export const TRAINING_200_FAQ_SECTION = {
   TITLE: 'FAQs - Yoga School In Rishikesh India',
   FAQS: [
     {
@@ -1879,7 +1878,7 @@ export interface CurriculumSection {
   items: CurriculumItem[];
 }
 
-export const TRAINING_200_COURSE_FAQ_STYLES = {
+export const TRAINING_200_FAQ_STYLES = {
   SECTION_PADDING: 'py-16 px-4 mx-0 lg:mx-40',
   CONTAINER: 'container mx-auto max-w-full mx-30',
   TITLE: 'text-3xl md:text-4xl font-bold text-center text-purple-900 mb-4',
@@ -2101,7 +2100,7 @@ export interface CourseComboSection {
   heroImage: string;
 }
 
-export const TRAINING_200_COURSE_COMBO_SECTION: CourseComboSection = {
+export const TRAINING_200_COMBO_SECTION: CourseComboSection = {
   subtitle: 'Create Your Own Yoga Training Combo',
   description:
     'At Rishikesh Yogkulam, we believe in giving you the freedom to customize your yoga journey. Now, along with your 200 Hour Yoga Teacher Training (YTTC) or 300 Hour Yoga Teacher Training (YTTC), you can add specialized short courses to deepen your skills.',
@@ -2162,7 +2161,7 @@ export interface CourseTimelineSection {
   events: TimelineEvent[];
 }
 
-export const TRAINING_200_COURSE_TIMELINE_SECTION: CourseTimelineSection = {
+export const TRAINING_200_TIMELINE_SECTION: CourseTimelineSection = {
   title: 'Course Timeline - 200 Hour Yoga TTC',
   subtitle: 'Your journey from arrival to certification',
   events: [

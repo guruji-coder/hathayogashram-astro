@@ -65,7 +65,7 @@ const { navigationLinks, styling, animation } = navbarData;
         if (!isVisible && hasScrolledPast) {
           // Show navbar with proper header offset
           const headerHeight = getHeaderHeight();
-          navbar.style.top = `${headerHeight}px`;
+          navbar.style.top = `${headerHeight}px` ;
           navbar.style.transform = 'translateY(0)';
           navbar.style.opacity = '1';
           navbar.style.pointerEvents = 'auto';

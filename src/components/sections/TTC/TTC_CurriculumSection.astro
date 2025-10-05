@@ -3,6 +3,7 @@ import SectionHeader from '$components/ui/SectionHeader.astro';
 import { ICON_IMAGES, YOGA_CAROUSEL_IMAGES } from '$constants/imageConstants';
 import { CURRICULUM_IMAGE_SETS as TTC_CURRICULUM_IMAGES } from '$constants/TTC/200hour';
 import OmListItem from '../../ui/OmListItem.astro';
+import CarouselImage  from '../../ui/CarouselImage.astro';
 
 export interface Props {
   curriculumData: {
@@ -22,26 +23,47 @@ export interface Props {
 const { curriculumData } = Astro.props;
 
 /**
- * CHUNKED ARRAYS UTILITY FUNCTION - FLEX VERSION
- * ===============================================
- * Purpose: Splits a long array into smaller chunks with fixed flex layout
- * Use case: Create consistent visual blocks with images
+ * DYNAMIC CHUNKED ARRAYS UTILITY FUNCTION
+ * =======================================
+ * Purpose: Splits array into chunks based on total number of elements
+ * Use case: Create balanced visual blocks that adapt to content size
  * 
  * @param arr - Array of items to be chunked
- * @param size - Number of items per chunk (default: 4)
- * @returns Array of arrays (chunks)
+ * @returns Array of arrays (chunks) with dynamic sizing
  */
-function chunkArray(arr: string[], size: number = 4): string[][] {
+function chunkArray(arr: string[]): string[][] {
+  const totalItems = arr.length;
+  
+  // Determine optimal chunk size based on total elements
+  let chunkSize: number;
+  
+  if (totalItems <= 4) {
+    // Small lists: 1-2 items per chunk
+    chunkSize = Math.ceil(totalItems / 2);
+  } else if (totalItems <= 8) {
+    // Medium lists: 2-3 items per chunk
+    chunkSize = Math.ceil(totalItems / 3);
+  } else if (totalItems <= 15) {
+    // Large lists: 3-4 items per chunk
+    chunkSize = Math.ceil(totalItems / 4);
+  } else if (totalItems <= 24) {
+    // Very large lists: 4-6 items per chunk
+    chunkSize = Math.ceil(totalItems / 5);
+  } else {
+    // Extra large lists: 6-8 items per chunk
+    chunkSize = Math.ceil(totalItems / 6);
+  }
+  
+  // Ensure minimum chunk size of 1 and maximum of 8
+  chunkSize = Math.max(1, Math.min(8, chunkSize));
+  
   return arr.reduce((chunks, item, index) => {
-    // Calculate which chunk this item belongs to
-    const chunkIndex = Math.floor(index / size);
+    const chunkIndex = Math.floor(index / chunkSize);
     
-    // Create new chunk if it doesn't exist
     if (!chunks[chunkIndex]) {
       chunks[chunkIndex] = [];
     }
     
-    // Add item to appropriate chunk
     chunks[chunkIndex].push(item);
     
     return chunks;
@@ -87,15 +109,10 @@ function getCurriculumImages(sectionTitle: string, itemIndex: number) {
 
 <section class="py-16 bg-white" id="Curriculum">
   <div class="container mx-auto px-4">
-    <!-- Section Header -->
-    <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
-        {curriculumData.title}
-      </h2>
-      <div class="w-24 h-1 bg-gradient-to-r from-orange-400 to-orange-600 mx-auto"></div>
-    </div>
 
     <SectionHeader title={curriculumData.title} />
+
+    
 
     <!-- Curriculum Items -->
     <div class="max-w-5xl mx-auto space-y-4">
@@ -142,15 +159,15 @@ function getCurriculumImages(sectionTitle: string, itemIndex: number) {
                     - Chunked content with visual breaks
                   */}
                   <div class="flex flex-col space-y-8">
-                    {chunkArray(section.items, 4).map((chunk, chunkIndex) => {
+                    {chunkArray(section.items).map((chunk, chunkIndex) => {
                       // Get section-specific images
                       const sectionImages = getCurriculumImages(section.title, chunkIndex);
                       const currentImage = sectionImages[chunkIndex % sectionImages.length];
                       
                       return (
-                        <div class="flex flex-col lg:flex-row gap-6 min-h-[400px]">
+                        <div class="flex flex-col lg:flex-row gap-6 min-h-[250px]">
                           {/* Content Block - Fixed Width */}
-                          <div class="flex-1 lg:w-2/3">
+                          <div class="flex-1 lg:w-3/5">
                             <div class="bg-gray-50 rounded-xl p-6 h-full flex flex-col justify-center">
                               <div class="space-y-3">
                                 {chunk.map((listItem) => (
@@ -160,32 +177,19 @@ function getCurriculumImages(sectionTitle: string, itemIndex: number) {
                             </div>
                           </div>
                           
-                          {/* Image Block - Fixed Width & Height */}
-                          {chunkIndex < chunkArray(section.items, 4).length - 1 && currentImage && (
-                            <div class="lg:w-1/3 flex-shrink-0">
-                              <figure class="h-full min-h-[300px] lg:min-h-[400px]">
-                                <div class="relative overflow-hidden rounded-xl shadow-lg h-full">
-                                  <img 
-                                    alt={currentImage.alt}
-                                    class="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                                    height="400"
-                                    loading="lazy"
-                                    src={currentImage.src}
-                                    width="300"
-                                  />
-                                  {/* Image Overlay */}
-                                  <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                                  
-                                  {/* Image Caption Overlay */}
-                                  <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-                                    <p class="text-sm font-medium bg-black/50 rounded px-3 py-2 backdrop-blur-sm">
-                                      {currentImage.description}
-                                    </p>
-                                  </div>
-                                </div>
-                              </figure>
+                          {/* Image Block - Two Parallel Carousels */}
+                          <div class="lg:w-2/5 flex-shrink-0">
+                            <div class="flex gap-2 h-full">
+                              <CarouselImage
+                                autoPlayInterval={2500}
+                                class="w-full h-1/2"
+                                id={`${item.id}-${chunkIndex}-1`}
+                                images={[...sectionImages]}
+                                showNavButtons={false}
+                                startIndex={0}
+                              />
                             </div>
-                          )}
+                          </div>
                         </div>
                       );
                     })}
@@ -204,7 +208,7 @@ function getCurriculumImages(sectionTitle: string, itemIndex: number) {
     STRUCTURED DATA FOR SEO
     =======================
     Helps search engines understand the curriculum structure
-    Improves rich snippets and course visibility
+    Improves rich snippets and training visibility
   */}
   <script type="application/ld+json">
     {

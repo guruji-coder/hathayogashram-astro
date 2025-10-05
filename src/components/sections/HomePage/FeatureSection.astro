@@ -4,22 +4,29 @@ import SectionHeader from '$ui/SectionHeader.astro';
 import FounderImages from '$features/founder/FounderImages.astro';
 import FounderInfo from '$features/founder/FounderInfo.astro';
 import FounderAwards from '$features/founder/FounderAwards.astro';
+
+interface Props {
+  styles: typeof HOME_STYLES;
+  section: typeof FOUNDER_SECTION;
+}
+
+const { styles, section } = Astro.props as Props;
 ---
 
-<section class:list={[`${HOME_STYLES.SECTION_PADDING}`, `bg-white`]}>
-  <div class:list={HOME_STYLES.CONTAINER}>
+<section class:list={[`${styles.SECTION_PADDING}`, `bg-white`]}>
+  <div class:list={styles.CONTAINER}>
     <!-- Section Header -->
     <SectionHeader
       containerClass="mb-12 text-center"
       svgHeight={20}
       svgWidth={200}
-      title={FOUNDER_SECTION.TITLE}
+      title={section.TITLE}
     />
 
     <!-- Main Content Layout -->
     <div class="mx-10 max-w-full text-[15px]">
-      <p class="">
-        {FOUNDER_SECTION.INTRO_TEXT}
+      <p>
+        {section.INTRO_TEXT}
       </p>
 
       <div class="my-10 flex flex-col gap-8 lg:flex-row lg:gap-12">

@@ -1,0 +1,282 @@
+---
+import SectionHeader from '../../ui/SectionHeader.astro';
+import OmListItem from '../../ui/OmListItem.astro';
+
+export interface Props {
+  curriculumData: {
+    title: string;
+    items: Array<{
+      id: string;
+      title: string;
+      sections: Array<{
+        title: string;
+        description?: string;
+        items: string[];
+      }>;
+    }>;
+  };
+}
+
+const { curriculumData } = Astro.props;
+
+// Smart image mapping based on content
+const contentImageMap = {
+  asana: {
+    keywords: ['sun salutation', 'warrior', 'downward dog', 'triangle', 'standing', 'sitting', 'backward', 'forward', 'twisting', 'inverted', 'balancing'],
+    images: [
+      '/images/carousel/SideAnglePose.jpeg',
+      '/images/carousel/TreePose.jpeg',
+      '/images/carousel/dilbharExtended Hand-to-Big-Toe Pose.jpeg',
+      '/images/carousel/Garudasana.jpeg'
+    ]
+  },
+  pranayama: {
+    keywords: ['ujjayi', 'kapalbhati', 'nadi shodhana', 'breathing', 'pranayama', 'bhastrika', 'brahmari'],
+    images: [
+      '/images/carousel/Classroom.jpeg',
+      '/images/carousel/gaganparsaritapaduttanasasana.jpg',
+      '/images/carousel/UpwardLotusPose.jpeg'
+    ]
+  },
+  meditation: {
+    keywords: ['dhyana', 'concentration', 'mindfulness', 'samadhi', 'meditation', 'trataka'],
+    images: [
+      '/images/carousel/UpwardLotusPose.jpeg',
+      '/images/carousel/Classroom.jpeg',
+      '/images/carousel/Classroom2.jpeg'
+    ]
+  },
+  philosophy: {
+    keywords: ['patanjali', 'sutras', 'yamas', 'niyamas', 'eight limbs', 'philosophy', 'theory', 'scriptures'],
+    images: [
+      '/images/carousel/Classroom.jpeg',
+      '/images/carousel/Classroom2.jpeg',
+      '/images/carousel/UpwardLotusPose.jpeg'
+    ]
+  },
+  anatomy: {
+    keywords: ['spine', 'alignment', 'muscles', 'joints', 'body', 'anatomy', 'skeletal', 'nervous'],
+    images: [
+      '/images/carousel/dilbharParsaritaPadottanasana.jpg',
+      '/images/carousel/UtithaHasthaPandungathasnahelp.jpg',
+      '/images/carousel/SideAnglePose.jpeg'
+    ]
+  },
+  mudras: {
+    keywords: ['mudra', 'gestures', 'hand', 'pranic', 'healing'],
+    images: [
+      '/images/carousel/UpwardLotusPose.jpeg',
+      '/images/carousel/Classroom2.jpeg'
+    ]
+  },
+  bandhas: {
+    keywords: ['bandha', 'lock', 'mool', 'uddiya', 'jalandhar', 'energy'],
+    images: [
+      '/images/carousel/dilbharExtended Hand-to-Big-Toe Pose.jpeg',
+      '/images/carousel/RevolvedSideAnglePoseParivrittaParchvkona.jpg'
+    ]
+  },
+  teaching: {
+    keywords: ['teaching', 'methodology', 'instruction', 'adjustment', 'alignment', 'sequencing'],
+    images: [
+      '/images/carousel/Classroom2.jpeg',
+      '/images/carousel/Classroom.jpeg'
+    ]
+  },
+  cleansing: {
+    keywords: ['shatkarma', 'neti', 'cleansing', 'purification', 'dhauti', 'basti', 'nauli'],
+    images: [
+      '/images/carousel/Garudasana.jpeg',
+      '/images/carousel/Classroom.jpeg'
+    ]
+  }
+};
+
+// Smart image selection function
+function getSmartImage(sectionTitle: string, items: string[]): string {
+  const allText = (sectionTitle + ' ' + items.join(' ')).toLowerCase();
+  
+  // Find the best matching category
+  let bestMatch = { category: '', score: 0 };
+  
+  for (const [category, data] of Object.entries(contentImageMap)) {
+    const matchCount = data.keywords.filter(keyword => 
+      allText.includes(keyword.toLowerCase())
+    ).length;
+    
+    if (matchCount > bestMatch.score) {
+      bestMatch = { category, score: matchCount };
+    }
+  }
+  
+  if (bestMatch.score > 0) {
+    const categoryData = contentImageMap[bestMatch.category as keyof typeof contentImageMap];
+    return categoryData.images[Math.floor(Math.random() * categoryData.images.length)];
+  }
+  
+  // Fallback
+  return '/images/carousel/SideAnglePose.jpeg';
+}
+
+// No chunking - keep all items together for flexible layout
+// Process curriculum with smart image selection
+const scrollableChunks: Array<{
+  id: string;
+  title: string;
+  sectionTitle: string;
+  items: string[];
+  backgroundImage: string;
+  chunkIndex: number;
+}> = [];
+
+curriculumData.items.forEach((item) => {
+  item.sections.forEach((section, sectionIndex) => {
+    scrollableChunks.push({
+      id: `${item.id}-${section.title.replace(/\s+/g, '-').toLowerCase()}`,
+      title: item.title,
+      sectionTitle: section.title,
+      items: section.items,
+      backgroundImage: getSmartImage(section.title, section.items),
+      chunkIndex: sectionIndex
+    });
+  });
+});
+---
+
+<!-- Scroll Container -->
+<section 
+  aria-label="Yoga Teacher Training Curriculum"
+  class="min-h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth"
+  id="ScrollableCurriculum"
+>
+  {scrollableChunks.map((slide, index) => (
+    <article 
+      aria-labelledby={`heading-${slide.id}`}
+      class="relative min-h-screen w-full snap-start flex items-center justify-center overflow-hidden curriculum-slide py-20"
+      data-bg-image={slide.backgroundImage}
+      data-slide-index={index}
+      id={slide.id}
+    >
+      <!-- Background Image -->
+      <div 
+        aria-label={`${slide.sectionTitle} background`}
+        class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-700 ease-out opacity-0 scale-105"
+        role="img"
+        style={`background-image: url('${slide.backgroundImage}');`}
+      />
+      
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60 backdrop-blur-[2px]" />
+      
+      <!-- Content -->
+      <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header -->
+        <header class="text-center mb-8 transition-all duration-700 opacity-0 -translate-y-4">
+          <h2 
+            class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2 drop-shadow-2xl"
+            id={`heading-${slide.id}`}
+          >
+            {slide.title}
+          </h2>
+          <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold text-orange-400 mb-3 drop-shadow-lg">
+            {slide.sectionTitle}
+          </h3>
+          <div class="w-20 h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent mx-auto rounded-full shadow-lg shadow-orange-500/50" />
+        </header>
+
+        <!-- 2 Rows Grid - Auto-fit columns with minimal space -->
+        <div 
+          class="two-row-grid transition-all duration-700 opacity-0 translate-y-4" 
+          role="list"
+        >
+          {slide.items.map((item, itemIndex) => (
+            <div 
+              class="bg-white/95 backdrop-blur-md rounded-xl px-4 py-3 sm:px-5 sm:py-4 shadow-xl border border-white/20 transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-orange-500/20 hover:bg-white hover:border-orange-500/30 opacity-0 translate-y-6 scale-95"
+              role="listitem"
+              style={`animation-delay: ${itemIndex * 50}ms`}
+            >
+              <p class="text-center text-gray-800 font-medium text-sm sm:text-base leading-snug">
+                {item}
+              </p>
+            </div>
+          ))}
+        </div>
+
+
+      </div>
+    </article>
+  ))}
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.curriculum-slide');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const slide = entry.target as HTMLElement;
+          const bg = slide.querySelector('div[role="img"]') as HTMLElement;
+          const header = slide.querySelector('header') as HTMLElement;
+          const grid = slide.querySelector('[role="list"]') as HTMLElement;
+          const cards = slide.querySelectorAll('[role="listitem"]');
+          
+          bg?.classList.remove('opacity-0', 'scale-105');
+          bg?.classList.add('opacity-100', 'scale-100');
+          header?.classList.remove('opacity-0', '-translate-y-4');
+          header?.classList.add('opacity-100', 'translate-y-0');
+          grid?.classList.remove('opacity-0', 'translate-y-4');
+          grid?.classList.add('opacity-100', 'translate-y-0');
+          
+          cards.forEach((card, i) => {
+            setTimeout(() => {
+              card.classList.remove('opacity-0', 'translate-y-6', 'scale-95');
+              card.classList.add('opacity-100', 'translate-y-0', 'scale-100');
+            }, i * 100);
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    slides.forEach(slide => {
+      observer.observe(slide);
+      const bgImage = (slide as HTMLElement).dataset.bgImage;
+      if (bgImage) new Image().src = bgImage;
+    });
+    
+    // Dot navigation
+    document.querySelectorAll('[data-dot-index]').forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        slides[index]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  });
+</script>
+
+<style>
+  /* 2 Columns Grid - Auto rows with minimal space */
+  .two-row-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Responsive: Switch to single column on small screens */
+  @media (max-width: 640px) {
+    .two-row-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>

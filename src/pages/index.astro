@@ -17,15 +17,29 @@ import {
   YogaAllianceRegisteredSchool,
   YogaFacilities,
   YTTCourseSection,
-} from '$components/sections';
+ } from '$components/sections';
+import {
+  HOME_HERO,
+  HOME_HIGHLIGHTS,
+  HOME_CONTENT,
+  HOME_GALLERY,
+  HOME_COURSES,
+  HOME_STYLES,
+  OBJECTIVE_SECTION,
+  TTC_COURSES_SECTION,
+  CERTIFICATIONS_SECTION,
+  FACILITIES_CARDS_SECTION,
+  FOUNDER_SECTION,
+} from '$constants/HomePage/homePageConstants';
 
 import { FAQ_SECTION, FAQ_STYLES } from '$constants/faqConstants';
 import {
   TRAINING_200_BLOGS_SECTION,
-  TRAINING_200_COURSE_COMBO_SECTION,
+  TRAINING_200_COMBO_SECTION,
 } from '$constants/TTC/200hour';
 import { FaqSection } from '$svelte/sections';
 import { TEACHERS_SECTION } from '../constants';
+import FAQFlipSection from '$components/sections/FAQFlipSection.astro';
 // Generate schemas for home page
 const homeSchemas = pageSchemas.home();
 ---
@@ -33,23 +47,40 @@ const homeSchemas = pageSchemas.home();
 <Layout
   additionalSchemas={homeSchemas}
   canonical="https://hathayogashram.com/"
-  description="Join authentic 200/300 hour Yoga Teacher Training in Rishikesh with Hatha Yogashram. Yoga Alliance RYS certified residential courses with Indian masters. Traditional Hatha & Ashtanga Yoga, Sanskrit mantras, philosophy from ancient texts."
+  description="Join authentic 200/300 hour Yoga Teacher Training in Rishikesh with Hatha Yogashram. Yoga Alliance RYS certified residential programs with Indian masters. Traditional Hatha & Ashtanga Yoga, Sanskrit mantras, philosophy from ancient texts."
   image="https://hathayogashram.com/yogaschoolpic.jpg"
   title="Best Yoga Teacher Training in Rishikesh, India - Hatha Yogashram"
 >
   <HeroSection />
 
   <!-- Best Yoga School Section -->
-  <BestYogaSchool />
+  <BestYogaSchool
+    content={HOME_CONTENT}
+    courses={HOME_COURSES}
+    gallery={HOME_GALLERY}
+    hero={HOME_HERO}
+    highlights={HOME_HIGHLIGHTS}
+    styles={HOME_STYLES}
+  />
 
   <!-- Objective + TTC Courses Section -->
-  <ObjectiveTTC />
+  <ObjectiveTTC
+    coursesSection={TTC_COURSES_SECTION}
+    objective={OBJECTIVE_SECTION}
+    styles={HOME_STYLES}
+  />
 
   <!-- Certifications & Accreditations Section -->
-  <CertificationsTextSection />
+  <CertificationsTextSection
+    section={CERTIFICATIONS_SECTION}
+    styles={HOME_STYLES}
+  />
 
   <!-- Founder Section -->
-  <FounderSection />
+  <FounderSection
+    section={FOUNDER_SECTION}
+    styles={HOME_STYLES}
+  />
   <YTTCourseSection />
 
   <YogaAllianceRegisteredSchool />
@@ -58,17 +89,20 @@ const homeSchemas = pageSchemas.home();
 
   <TeacherSection teachersData={TEACHERS_SECTION} />
 
-  <YogaFacilities />
+  <YogaFacilities section={FACILITIES_CARDS_SECTION} />
 
   <!-- TTC Blogs Section -->
   <TTCBlogs blogsData={TRAINING_200_BLOGS_SECTION} />
 
-  <!-- Course Combo Section -->
-  <TTCCourseCombo comboData={TRAINING_200_COURSE_COMBO_SECTION} />
+  <!-- Training Combo Section -->
+  <TTCCourseCombo comboData={TRAINING_200_COMBO_SECTION} />
 
   <!-- Instagram Feed Section -->
 
-  <FaqSection client:load sectionData={FAQ_SECTION} styles={FAQ_STYLES} />
+  <!-- <FaqSection client:load sectionData={FAQ_SECTION} styles={FAQ_STYLES} /> -->
+
+  <FAQFlipSection />
+
 
   <!-- Location Section -->
 

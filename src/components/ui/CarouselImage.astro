@@ -1,0 +1,165 @@
+---
+export interface CarouselImage {
+  src: string;
+  alt: string;
+}
+
+interface Props {
+  images: CarouselImage[];
+  id: string;
+  startIndex?: number;
+  autoPlayInterval?: number;
+  class?: string;
+  showNavButtons?: boolean;
+}
+
+const { 
+  images, 
+  id, 
+  startIndex = 0, 
+  autoPlayInterval = 2500,
+  class: className = "",
+  showNavButtons = true,
+} = Astro.props;
+---
+
+<div class:list={[`relative overflow-hidden shadow-lg h-full`,`${className}`]}>
+  <!-- Main carousel image -->
+  <img
+    alt={images[startIndex].alt}
+    class="w-full h-full object-cover p-0 m-0"
+    decoding="async"
+    id={`carousel-image-${id}`}
+    loading="eager"
+    src={images[startIndex].src}
+  />
+  
+  <!-- Navigation buttons -->
+  {showNavButtons && (
+    <>
+      <button
+        aria-label={`Previous image in carousel ${id}`}
+        class="absolute left-2 top-1/2 -translate-y-1/2 transform rounded-full bg-black/50 p-1.5 text-white transition-all hover:bg-black/70"
+        id={`carousel-prev-${id}`}
+      >
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+        </svg>
+      </button>
+      <button
+        aria-label={`Next image in carousel ${id}`}
+        class="absolute right-2 top-1/2 -translate-y-1/2 transform rounded-full bg-black/50 p-1.5 text-white transition-all hover:bg-black/70"
+        id={`carousel-next-${id}`}
+      >
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+        </svg>
+      </button>
+    </>
+  )}
+  
+  <!-- Indicators -->
+  <div class="absolute bottom-4 left-1/2 flex -translate-x-1/2 transform space-x-2">
+    {images.map((_, index) => (
+      <button
+        aria-label={`Go to image ${index + 1} in carousel ${id}`}
+        class:list={[`carousel-indicator-${id}`,`h-2 w-2 rounded-full transition-all`,
+          {"bg-white/80": index === startIndex, "bg-white/50": index !== startIndex}
+        ]}
+        data-index={index}
+      />
+    ))}
+  </div>
+</div>
+
+<script define:vars={{ images, id, startIndex, autoPlayInterval }}>
+  // Initialize carousel
+  const carouselImage = document.getElementById(`carousel-image-${id}`);
+  const prevButton = document.getElementById(`carousel-prev-${id}`);
+  const nextButton = document.getElementById(`carousel-next-${id}`);
+  const indicators = document.querySelectorAll(`.carousel-indicator-${id}`);
+  
+  let currentIndex = startIndex;
+  let intervalId;
+  
+  // Update carousel image and indicators
+  const updateCarousel = (index) => {
+    if (carouselImage && images[index]) {
+      carouselImage.src = images[index].src;
+      carouselImage.alt = images[index].alt;
+      
+      indicators.forEach((indicator, i) => {
+        if (i === index) {
+          indicator.classList.add('bg-white/80');
+          indicator.classList.remove('bg-white/50');
+        } else {
+          indicator.classList.add('bg-white/50');
+          indicator.classList.remove('bg-white/80');
+        }
+      });
+      
+      currentIndex = index;
+    }
+  };
+  
+  // Auto-advance carousel
+  const startAutoCarousel = () => {
+    intervalId = setInterval(() => {
+      const nextIndex = (currentIndex + 1) % images.length;
+      updateCarousel(nextIndex);
+    }, autoPlayInterval);
+  };
+  
+  // Stop auto-carousel
+  const stopAutoCarousel = () => {
+    if (intervalId) {
+      clearInterval(intervalId);
+    }
+  };
+  
+  // Navigation handlers
+  const goToPrevious = () => {
+    const prevIndex = (currentIndex - 1 + images.length) % images.length;
+    updateCarousel(prevIndex);
+  };
+  
+  const goToNext = () => {
+    const nextIndex = (currentIndex + 1) % images.length;
+    updateCarousel(nextIndex);
+  };
+  
+  // Event listeners
+  prevButton?.addEventListener('click', (e) => {
+    e.preventDefault();
+    stopAutoCarousel();
+    goToPrevious();
+    startAutoCarousel();
+  });
+  
+  nextButton?.addEventListener('click', (e) => {
+    e.preventDefault();
+    stopAutoCarousel();
+    goToNext();
+    startAutoCarousel();
+  });
+  
+  // Indicator click handlers
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', (e) => {
+      e.preventDefault();
+      stopAutoCarousel();
+      updateCarousel(index);
+      startAutoCarousel();
+    });
+  });
+  
+  // Pause on hover
+  const carouselContainer = carouselImage?.closest('.relative.overflow-hidden');
+  if (carouselContainer) {
+    carouselContainer.addEventListener('mouseenter', stopAutoCarousel);
+    carouselContainer.addEventListener('mouseleave', startAutoCarousel);
+  }
+  
+  // Start carousel
+  startAutoCarousel();
+</script>

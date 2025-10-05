@@ -1,47 +1,58 @@
 ---
-import {
+import type {
   HOME_HERO,
   HOME_HIGHLIGHTS,
   HOME_CONTENT,
   HOME_GALLERY,
   HOME_COURSES,
   HOME_STYLES,
-} from '../../../constants/HomePage/homePageConstants';
-import { BUTTON_STYLES } from '../../../constants/uiConstants';
-import SectionHeader from '../../ui/SectionHeader.astro';
+} from '$constants/HomePage/homePageConstants';
+
+interface Props {
+  hero: typeof HOME_HERO;
+  highlights: typeof HOME_HIGHLIGHTS;
+  content: typeof HOME_CONTENT;
+  gallery: typeof HOME_GALLERY;
+  courses: typeof HOME_COURSES;
+  styles: typeof HOME_STYLES;
+}
+
+const { hero, highlights, content, gallery, courses, styles } = Astro.props as Props;
+import { BUTTON_STYLES } from '$constants/uiConstants';
+import SectionHeader from '$ui/SectionHeader.astro';
 ---
 
 <!-- Welcome Section with Decorative Styling -->
-<section class:list={[`${HOME_STYLES.SECTION_PADDING}`, `bg-white`]}>
-  <div class:list={HOME_STYLES.CONTAINER}>
+<section class:list={[`${styles.SECTION_PADDING}`, `bg-white`]}>
+  <div class:list={styles.CONTAINER}>
     <!-- Main Heading with Decorative Underline -->
     <SectionHeader
       containerClass="mb-8 text-center"
       svgHeight={20}
       svgWidth={200}
-      title={HOME_HERO.TITLE}
-      titleClass={HOME_STYLES.HERO_TITLE}
+      title={hero.TITLE}
+      titleClass={styles.HERO_TITLE}
     />
 
     <!-- Rating and Welcome Message -->
     <div class="mb-8 text-center">
       <div class="mb-4 flex items-center justify-center">
-        <span class:list={HOME_STYLES.RATING_NUMBER}>{HOME_HERO.RATING.STARS}</span>
+        <span class:list={styles.RATING_NUMBER}>{hero.RATING.STARS}</span>
         <i class="fas fa-star mr-2 text-xl text-yellow-400"></i>
-        <span class:list={HOME_STYLES.RATING_TEXT}>{HOME_HERO.RATING.TEXT}</span>
+        <span class:list={styles.RATING_TEXT}>{hero.RATING.TEXT}</span>
       </div>
-      <p class:list={HOME_STYLES.HERO_SUBTITLE}>
-        {HOME_HERO.SUBTITLE}
+      <p class:list={styles.HERO_SUBTITLE}>
+        {hero.SUBTITLE}
       </p>
     </div>
 
     <!-- Highlight Boxes Grid -->
-    <div class:list={HOME_STYLES.HIGHLIGHT_GRID}>
+    <div class:list={styles.HIGHLIGHT_GRID}>
       {
-        HOME_HIGHLIGHTS.map(highlight => (
-          <div class:list={HOME_STYLES.HIGHLIGHT_BOX}>
-            <i class:list={[`${highlight.ICON}`, `${HOME_STYLES.HIGHLIGHT_ICON}`]} />
-            <p class:list={HOME_STYLES.HIGHLIGHT_TEXT}>{highlight.TEXT}</p>
+        highlights.map(highlight => (
+          <div class:list={styles.HIGHLIGHT_BOX}>
+            <i class:list={[`${highlight.ICON}`, `${styles.HIGHLIGHT_ICON}`]} />
+            <p class:list={styles.HIGHLIGHT_TEXT}>{highlight.TEXT}</p>
           </div>
         ))
       }
@@ -49,29 +60,29 @@ import SectionHeader from '../../ui/SectionHeader.astro';
 
     <!-- Intro Paragraph -->
     <div class="mx-auto max-w-full">
-      <p class:list={HOME_STYLES.INTRO_PARAGRAPH}>
-        {HOME_CONTENT.INTRO_PARAGRAPH}
+      <p class:list={styles.INTRO_PARAGRAPH}>
+        {content.INTRO_PARAGRAPH}
       </p>
     </div>
 
     <!-- Two Column Layout: Content + Images -->
     <div class="mx-auto max-w-full">
-      <div class:list={HOME_STYLES.TWO_COLUMN_GRID}>
+      <div class:list={styles.TWO_COLUMN_GRID}>
         <!-- Left Column: Description Paragraphs -->
-        <div class:list={HOME_STYLES.CONTENT_CONTAINER}>
+        <div class:list={styles.CONTENT_CONTAINER}>
           <!-- First Paragraph -->
-          <p class:list={HOME_STYLES.CONTENT_PARAGRAPH}>
-            {HOME_CONTENT.PARAGRAPHS[0]}
+          <p class:list={styles.CONTENT_PARAGRAPH}>
+            {content.PARAGRAPHS[0]}
           </p>
 
           <!-- Mobile Images (shown after first paragraph on mobile only) -->
-          <div class:list={[`lg:hidden`, `${HOME_STYLES.IMAGE_GRID}`, `mb-6`]}>
+          <div class:list={[`lg:hidden`, `${styles.IMAGE_GRID}`, `mb-6`]}>
             {
-              HOME_GALLERY.IMAGES.map((image, index) => (
-                <div class:list={HOME_STYLES.IMAGE_ITEM}>
+              gallery.IMAGES.map((image, index) => (
+                <div class:list={styles.IMAGE_ITEM}>
                   <img
-                    alt={`${HOME_GALLERY.ALT_TEXT} - Image ${index + 1}`}
-                    class:list={HOME_STYLES.IMAGE_STYLING}
+                    alt={`${gallery.ALT_TEXT} - Image ${index + 1}`}
+                    class:list={styles.IMAGE_STYLING}
                     loading="lazy"
                     src={image}
                   />
@@ -82,15 +93,15 @@ import SectionHeader from '../../ui/SectionHeader.astro';
 
           <!-- Remaining Paragraphs -->
           {
-            HOME_CONTENT.PARAGRAPHS.slice(1).map(paragraph => (
-              <p class:list={HOME_STYLES.CONTENT_PARAGRAPH}>{paragraph}</p>
+            content.PARAGRAPHS.slice(1).map(paragraph => (
+              <p class:list={styles.CONTENT_PARAGRAPH}>{paragraph}</p>
             ))
           }
 
           <!-- Course Buttons -->
-          <div class:list={HOME_STYLES.COURSE_BUTTONS_CONTAINER}>
+          <div class:list={styles.COURSE_BUTTONS_CONTAINER}>
             {
-              HOME_COURSES.map(course => (
+              courses.map(course => (
                 <a
                   class:list={[`${BUTTON_STYLES.BASE}`, `${BUTTON_STYLES.VARIANTS.PRIMARY}`]}
                   href={course.URL}
@@ -104,13 +115,13 @@ import SectionHeader from '../../ui/SectionHeader.astro';
 
         <!-- Right Column: Image Gallery (desktop only) -->
         <div class="hidden lg:block">
-          <div class:list={HOME_STYLES.IMAGE_GRID}>
+          <div class:list={styles.IMAGE_GRID}>
             {
-              HOME_GALLERY.IMAGES.map((image, index) => (
-                <div class:list={HOME_STYLES.IMAGE_ITEM}>
+              gallery.IMAGES.map((image, index) => (
+                <div class:list={styles.IMAGE_ITEM}>
                   <img
-                    alt={`${HOME_GALLERY.ALT_TEXT} - Image ${index + 1}`}
-                    class:list={HOME_STYLES.IMAGE_STYLING}
+                    alt={`${gallery.ALT_TEXT} - Image ${index + 1}`}
+                    class:list={styles.IMAGE_STYLING}
                     loading="lazy"
                     src={image}
                   />
