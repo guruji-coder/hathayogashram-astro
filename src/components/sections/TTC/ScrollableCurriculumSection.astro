@@ -1,6 +1,4 @@
 ---
-import SectionHeader from '../../ui/SectionHeader.astro';
-import OmListItem from '../../ui/OmListItem.astro';
 
 export interface Props {
   curriculumData: {
@@ -28,7 +26,8 @@ const contentImageMap = {
       '/images/carousel/TreePose.jpeg',
       '/images/carousel/dilbharExtended Hand-to-Big-Toe Pose.jpeg',
       '/images/carousel/Garudasana.jpeg'
-    ]
+    ],
+    textColor: 'text-orange-300'
   },
   pranayama: {
     keywords: ['ujjayi', 'kapalbhati', 'nadi shodhana', 'breathing', 'pranayama', 'bhastrika', 'brahmari'],
@@ -36,7 +35,8 @@ const contentImageMap = {
       '/images/carousel/Classroom.jpeg',
       '/images/carousel/gaganparsaritapaduttanasasana.jpg',
       '/images/carousel/UpwardLotusPose.jpeg'
-    ]
+    ],
+    textColor: 'text-cyan-300'
   },
   meditation: {
     keywords: ['dhyana', 'concentration', 'mindfulness', 'samadhi', 'meditation', 'trataka'],
@@ -44,7 +44,8 @@ const contentImageMap = {
       '/images/carousel/UpwardLotusPose.jpeg',
       '/images/carousel/Classroom.jpeg',
       '/images/carousel/Classroom2.jpeg'
-    ]
+    ],
+    textColor: 'text-purple-300'
   },
   philosophy: {
     keywords: ['patanjali', 'sutras', 'yamas', 'niyamas', 'eight limbs', 'philosophy', 'theory', 'scriptures'],
@@ -52,7 +53,8 @@ const contentImageMap = {
       '/images/carousel/Classroom.jpeg',
       '/images/carousel/Classroom2.jpeg',
       '/images/carousel/UpwardLotusPose.jpeg'
-    ]
+    ],
+    textColor: 'text-yellow-300'
   },
   anatomy: {
     keywords: ['spine', 'alignment', 'muscles', 'joints', 'body', 'anatomy', 'skeletal', 'nervous'],
@@ -60,40 +62,45 @@ const contentImageMap = {
       '/images/carousel/dilbharParsaritaPadottanasana.jpg',
       '/images/carousel/UtithaHasthaPandungathasnahelp.jpg',
       '/images/carousel/SideAnglePose.jpeg'
-    ]
+    ],
+    textColor: 'text-green-300'
   },
   mudras: {
     keywords: ['mudra', 'gestures', 'hand', 'pranic', 'healing'],
     images: [
       '/images/carousel/UpwardLotusPose.jpeg',
       '/images/carousel/Classroom2.jpeg'
-    ]
+    ],
+    textColor: 'text-pink-300'
   },
   bandhas: {
     keywords: ['bandha', 'lock', 'mool', 'uddiya', 'jalandhar', 'energy'],
     images: [
       '/images/carousel/dilbharExtended Hand-to-Big-Toe Pose.jpeg',
       '/images/carousel/RevolvedSideAnglePoseParivrittaParchvkona.jpg'
-    ]
+    ],
+    textColor: 'text-violet-300'
   },
   teaching: {
     keywords: ['teaching', 'methodology', 'instruction', 'adjustment', 'alignment', 'sequencing'],
     images: [
       '/images/carousel/Classroom2.jpeg',
       '/images/carousel/Classroom.jpeg'
-    ]
+    ],
+    textColor: 'text-indigo-300'
   },
   cleansing: {
     keywords: ['shatkarma', 'neti', 'cleansing', 'purification', 'dhauti', 'basti', 'nauli'],
     images: [
       '/images/carousel/Garudasana.jpeg',
       '/images/carousel/Classroom.jpeg'
-    ]
+    ],
+    textColor: 'text-teal-300'
   }
 };
 
-// Smart image selection function
-function getSmartImage(sectionTitle: string, items: string[]): string {
+// Smart image selection function with colors
+function getSmartImageAndColors(sectionTitle: string, items: string[]): { image: string; textColor: string } {
   const allText = (sectionTitle + ' ' + items.join(' ')).toLowerCase();
   
   // Find the best matching category
@@ -111,11 +118,17 @@ function getSmartImage(sectionTitle: string, items: string[]): string {
   
   if (bestMatch.score > 0) {
     const categoryData = contentImageMap[bestMatch.category as keyof typeof contentImageMap];
-    return categoryData.images[Math.floor(Math.random() * categoryData.images.length)];
+    return {
+      image: categoryData.images[Math.floor(Math.random() * categoryData.images.length)],
+      textColor: categoryData.textColor
+    };
   }
   
   // Fallback
-  return '/images/carousel/SideAnglePose.jpeg';
+  return {
+    image: '/images/carousel/SideAnglePose.jpeg',
+    textColor: 'text-gray-300'
+  };
 }
 
 // No chunking - keep all items together for flexible layout
@@ -126,17 +139,20 @@ const scrollableChunks: Array<{
   sectionTitle: string;
   items: string[];
   backgroundImage: string;
+  textColor: string;
   chunkIndex: number;
 }> = [];
 
 curriculumData.items.forEach((item) => {
   item.sections.forEach((section, sectionIndex) => {
+    const { image, textColor } = getSmartImageAndColors(section.title, section.items);
     scrollableChunks.push({
       id: `${item.id}-${section.title.replace(/\s+/g, '-').toLowerCase()}`,
       title: item.title,
       sectionTitle: section.title,
       items: section.items,
-      backgroundImage: getSmartImage(section.title, section.items),
+      backgroundImage: image,
+      textColor: textColor,
       chunkIndex: sectionIndex
     });
   });
@@ -157,16 +173,36 @@ curriculumData.items.forEach((item) => {
       data-slide-index={index}
       id={slide.id}
     >
-      <!-- Background Image -->
+      <!-- Background Images -->
+      <!-- Mobile: Single background -->
       <div 
         aria-label={`${slide.sectionTitle} background`}
-        class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-700 ease-out opacity-0 scale-105"
+        class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-700 ease-out opacity-0 scale-105 md:hidden"
         role="img"
         style={`background-image: url('${slide.backgroundImage}');`}
       />
       
+      <!-- Laptop: Split background (2 images side by side) -->
+      <div class="absolute inset-0 hidden md:flex">
+        <!-- Left half -->
+        <div 
+          aria-label={`${slide.sectionTitle} background left`}
+          class="w-1/2 bg-cover bg-center bg-no-repeat transition-all duration-700 ease-out opacity-0 scale-105"
+          role="img"
+          style={`background-image: url('${slide.backgroundImage}');`}
+        />
+        <!-- Right half -->
+        <div 
+          aria-label={`${slide.sectionTitle} background right`}
+          class="w-1/2 bg-cover bg-center bg-no-repeat transition-all duration-700 ease-out opacity-0 scale-105"
+          role="img"
+          style={`background-image: url('${getSmartImageAndColors(slide.sectionTitle, slide.items).image}');`}
+        />
+      </div>
+      
       <!-- Overlay -->
-      <div class="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60 backdrop-blur-[2px]" />
+      <div class="absolute inset-0 " /> 
+      {/* backdrop-blur-[2px] */}
       
       <!-- Content -->
       <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -177,12 +213,13 @@ curriculumData.items.forEach((item) => {
             class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2 drop-shadow-2xl"
             id={`heading-${slide.id}`}
           >
+            
             {slide.title}
           </h2>
           <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold text-orange-400 mb-3 drop-shadow-lg">
             {slide.sectionTitle}
           </h3>
-          <div class="w-20 h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent mx-auto rounded-full shadow-lg shadow-orange-500/50" />
+          {/* <div class="w-20 h-20 bg-gradient-to-r from-transparent via-orange-500 to-transparent mx-auto rounded-full shadow-lg shadow-orange-500/50" /> */}
         </header>
 
         <!-- 2 Rows Grid - Auto-fit columns with minimal space -->
@@ -192,11 +229,12 @@ curriculumData.items.forEach((item) => {
         >
           {slide.items.map((item, itemIndex) => (
             <div 
-              class="bg-white/95 backdrop-blur-md rounded-xl px-4 py-3 sm:px-5 sm:py-4 shadow-xl border border-white/20 transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-orange-500/20 hover:bg-white hover:border-orange-500/30 opacity-0 translate-y-6 scale-95"
+              class=" rounded-xl   transition-all duration-300 hover:scale-125  opacity-0 translate-y-6 scale-95 hover:bg-white"
               role="listitem"
               style={`animation-delay: ${itemIndex * 50}ms`}
             >
-              <p class="text-center text-gray-800 font-medium text-sm sm:text-base leading-snug">
+              <p class:list={['text-center', slide.textColor, 'font-bold', 'text-xl', 'sm:text-2xl', 'leading-snug', 'drop-shadow-lg']}> 
+                {/* text-[#ffeb3b] */}
                 {item}
               </p>
             </div>
@@ -217,13 +255,23 @@ curriculumData.items.forEach((item) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const slide = entry.target as HTMLElement;
-          const bg = slide.querySelector('div[role="img"]') as HTMLElement;
+          const mobileBg = slide.querySelector('div[role="img"].md\\:hidden') as HTMLElement;
+          const leftBg = slide.querySelector('.md\\:flex > div:first-child[role="img"]') as HTMLElement;
+          const rightBg = slide.querySelector('.md\\:flex > div:last-child[role="img"]') as HTMLElement;
           const header = slide.querySelector('header') as HTMLElement;
           const grid = slide.querySelector('[role="list"]') as HTMLElement;
           const cards = slide.querySelectorAll('[role="listitem"]');
           
-          bg?.classList.remove('opacity-0', 'scale-105');
-          bg?.classList.add('opacity-100', 'scale-100');
+          // Animate mobile background
+          mobileBg?.classList.remove('opacity-0', 'scale-105');
+          mobileBg?.classList.add('opacity-100', 'scale-100');
+          
+          // Animate laptop backgrounds
+          leftBg?.classList.remove('opacity-0', 'scale-105');
+          leftBg?.classList.add('opacity-100', 'scale-100');
+          rightBg?.classList.remove('opacity-0', 'scale-105');
+          rightBg?.classList.add('opacity-100', 'scale-100');
+          
           header?.classList.remove('opacity-0', '-translate-y-4');
           header?.classList.add('opacity-100', 'translate-y-0');
           grid?.classList.remove('opacity-0', 'translate-y-4');
