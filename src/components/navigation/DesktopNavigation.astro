@@ -1,11 +1,12 @@
 ---
+import type { MenuItem } from '$types/navigation';
 import {
   HEADER_ANIMATIONS,
   HEADER_CTA_BUTTON,
   HEADER_DROPDOWN_WIDTHS,
   HEADER_NAVIGATION_ITEMS,
   HEADER_STYLES,
-} from '../../constants/headerConstants';
+} from '$constants/components/navigation';
 ---
 
 <!-- Desktop Navigation -->
@@ -34,7 +35,7 @@ import {
             ]}
           >
             <div class="py-2">
-              {item.items.map(subItem => (
+              {item.items.map((subItem: MenuItem) => (
                 <a
                   class:list={[
                     `block px-4 py-2`,

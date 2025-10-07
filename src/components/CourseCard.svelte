@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { BUTTON_STYLES } from "../constants/uiConstants";
+  import { BUTTON_STYLES } from "$constants/shared/ui";
 
   export let course: {
     id: number;

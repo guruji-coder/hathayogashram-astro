@@ -1,0 +1,438 @@
+09:12:40 [types] Generated 36ms
+09:12:40 [check] Getting diagnostics for Astro files in /Users/ishaan/Desktop/hathayogashram/hathayogashram-astro...
+[96mscripts/validate-constants.js[0m:[93m9[0m:[93m12[0m - [93mwarning[0m[90m ts(80001): [0mFile is a CommonJS module; it may be converted to an ES module.
+
+[7m9[0m const fs = require('fs');
+[7m [0m [93m           ~~~~~~~~~~~~~[0m
+
+[96msrc/components/CertificateCarousel.astro[0m:[93m88[0m:[93m56[0m - [93mwarning[0m[90m ts(6385): [0m'event' is deprecated.
+
+[7m88[0m   <div class="relative max-h-full max-w-full" onclick="event.stopPropagation()" role="none">
+[7m  [0m [93m                                                       ~~~~~[0m
+[96msrc/components/CertificateCarousel.astro[0m:[93m84[0m:[93m14[0m - [93mwarning[0m[90m ts(6385): [0m'event' is deprecated.
+
+[7m84[0m   onkeydown="event.key === 'Escape' && closeModal()"
+[7m  [0m [93m             ~~~~~[0m
+[96msrc/components/CertificateCarousel.astro[0m:[93m41[0m:[93m24[0m - [93mwarning[0m[90m ts(6385): [0m'event' is deprecated.
+
+[7m41[0m             onkeydown="event.key === 'Enter' && openModal(this.dataset.image, this.dataset.title)"
+[7m  [0m [93m                       ~~~~~[0m
+
+[96msrc/components/SEO.astro[0m:[93m192[0m:[93m18[0m - [93mwarning[0m[90m ts(6133): [0m'schema' is declared but its value is never read.
+
+[7m192[0m   allSchemas.map(schema => (
+[7m   [0m [93m                 ~~~~~~[0m
+[96msrc/components/SEO.astro[0m:[93m232[0m:[93m183[0m - [93mwarning[0m[90m ts(6133): [0m'rel' is declared but its value is never read.
+
+[7m232[0m   href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Space+Grotesk:wght@400;500;600&family=Quicksand:wght@400;500;600&display=swap"   onload="this.onload=null;this.rel='stylesheet'"   rel="stylesheet"
+[7m   [0m [93m                                                                                                                                                                                      ~~~[0m
+[96msrc/components/SEO.astro[0m:[93m232[0m:[93m166[0m - [93mwarning[0m[90m ts(6133): [0m'onload' is declared but its value is never read.
+
+[7m232[0m   href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Space+Grotesk:wght@400;500;600&family=Quicksand:wght@400;500;600&display=swap"   onload="this.onload=null;this.rel='stylesheet'"   rel="stylesheet"
+[7m   [0m [93m                                                                                                                                                                     ~~~~~~[0m
+
+[96msrc/components/features/founder/FounderInfo.astro[0m:[93m2[0m:[93m10[0m - [93mwarning[0m[90m ts(6133): [0m'HOME_STYLES' is declared but its value is never read.
+
+[7m2[0m import { HOME_STYLES, FOUNDER_SECTION } from '$constants/pages/home';
+[7m [0m [93m         ~~~~~~~~~~~[0m
+
+[96msrc/components/layout/Layout.astro[0m:[93m52[0m:[93m37[0m - [93mwarning[0m[90m ts(6133): [0m'rel' is declared but its value is never read.
+
+[7m52[0m       onload="this.onload=null;this.rel='stylesheet'"
+[7m  [0m [93m                                    ~~~[0m
+[96msrc/components/layout/Layout.astro[0m:[93m52[0m:[93m20[0m - [93mwarning[0m[90m ts(6133): [0m'onload' is declared but its value is never read.
+
+[7m52[0m       onload="this.onload=null;this.rel='stylesheet'"
+[7m  [0m [93m                   ~~~~~~[0m
+
+[96msrc/components/navigation/DesktopNavigation.astro[0m:[93m37[0m:[93m31[0m - [91merror[0m[90m ts(2345): [0mArgument of type '(subItem: { label: string; href: string; }) => any' is not assignable to parameter of type '(value: MenuItem, index: number, array: MenuItem[]) => any'.
+  Types of parameters 'subItem' and 'value' are incompatible.
+
+[7m 37[0m               {item.items.map((subItem: { label: string; href: string }) => (
+[7m   [0m [91m                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m 38[0m                 <a
+[7m   [0m [91m~~~~~~~~~~~~~~~~~~[0m
+[7m...[0m 
+[7m 47[0m                 </a>
+[7m   [0m [91m~~~~~~~~~~~~~~~~~~~~[0m
+[7m 48[0m               ))}
+[7m   [0m [91m~~~~~~~~~~~~~~~[0m
+
+[96msrc/components/navigation/MobileMenu.astro[0m:[93m43[0m:[93m31[0m - [91merror[0m[90m ts(2345): [0mArgument of type '(subItem: { label: string; href: string; }) => any' is not assignable to parameter of type '(value: MenuItem, index: number, array: MenuItem[]) => any'.
+  Types of parameters 'subItem' and 'value' are incompatible.
+
+[7m 43[0m               {item.items.map((subItem: { label: string; href: string }) => (
+[7m   [0m [91m                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m 44[0m                 <a
+[7m   [0m [91m~~~~~~~~~~~~~~~~~~[0m
+[7m...[0m 
+[7m 49[0m                 </a>
+[7m   [0m [91m~~~~~~~~~~~~~~~~~~~~[0m
+[7m 50[0m               ))}
+[7m   [0m [91m~~~~~~~~~~~~~~~[0m
+
+[96msrc/components/navigation/MobileMenuButton.astro[0m:[93m5[0m:[93m3[0m - [93mwarning[0m[90m ts(6133): [0m'HEADER_ANIMATIONS' is declared but its value is never read.
+
+[7m5[0m   HEADER_ANIMATIONS,
+[7m [0m [93m  ~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/components/sections/FAQFlipSection.astro[0m:[93m36[0m:[93m3[0m - [93mwarning[0m[90m ts(6133): [0m'subtitle' is declared but its value is never read.
+
+[7m36[0m   subtitle = "Get answers to common questions about our yoga teacher training programs",
+[7m  [0m [93m  ~~~~~~~~[0m
+[96msrc/components/sections/FAQFlipSection.astro[0m:[93m12[0m:[93m11[0m - [93mwarning[0m[90m ts(6196): [0m'OriginalFaqData' is declared but never used.
+
+[7m12[0m interface OriginalFaqData {
+[7m  [0m [93m          ~~~~~~~~~~~~~~~[0m
+
+[96msrc/components/sections/GallerySection.astro[0m:[93m21[0m:[93m3[0m - [93mwarning[0m[90m ts(6133): [0m'miniImages' is declared but its value is never read.
+
+[7m21[0m   miniImages = MINI_CAROUSEL_IMAGES
+[7m  [0m [93m  ~~~~~~~~~~[0m
+[96msrc/components/sections/GallerySection.astro[0m:[93m20[0m:[93m3[0m - [93mwarning[0m[90m ts(6133): [0m'galleryImages' is declared but its value is never read.
+
+[7m20[0m   galleryImages = GALLERY_CAROUSEL_IMAGES,
+[7m  [0m [93m  ~~~~~~~~~~~~~[0m
+
+[96msrc/components/sections/HomePage/AppleCardsSection.astro[0m:[93m135[0m:[93m15[0m - [93mwarning[0m[90m ts(6133): [0m'cardIndex' is declared but its value is never read.
+
+[7m135[0m         const cardIndex = btn.getAttribute('data-card-index');
+[7m   [0m [93m              ~~~~~~~~~[0m
+
+[96msrc/components/sections/HomePage/CertificationsTextSection.astro[0m:[93m2[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'BUTTON_STYLES' is declared but its value is never read.
+
+[7m2[0m import { BUTTON_STYLES } from '$constants/shared/ui';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/components/sections/HomePage/OverviewTTC.astro[0m:[93m4[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'AppleCardsCarousel' is declared but its value is never read.
+
+[7m4[0m import AppleCardsCarousel from '$ui/AppleCardsSection.astro';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/components/sections/HomePage/OverviewTTC.astro[0m:[93m2[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'SectionHeader' is declared but its value is never read.
+
+[7m2[0m import SectionHeader from '../../ui/SectionHeader.astro';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/components/sections/HomePage/ReviewSection.astro[0m:[93m39[0m:[93m53[0m - [93mwarning[0m[90m ts(6133): [0m'index' is declared but its value is never read.
+
+[7m39[0m       {generateStars(review.rating).map((starClass, index) => (
+[7m  [0m [93m                                                    ~~~~~[0m
+
+[96msrc/components/sections/HomePage/YogaAllianceRegisteredSchool.astro[0m:[93m2[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'SectionHeader' is declared but its value is never read.
+
+[7m2[0m import SectionHeader from '../../ui/SectionHeader.astro';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/components/sections/HomePage/YogaFacilities.astro[0m:[93m2[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'FocusCards' is declared but its value is never read.
+
+[7m2[0m import FocusCards from '$ui/FocusCards.astro';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/components/sections/TTC/TTCDatesSection.astro[0m:[93m9[0m:[93m45[0m - [93mwarning[0m[90m ts(6133): [0m'bookingButton' is declared but its value is never read.
+
+[7m9[0m const { title, subtitle, dates, courseInfo, bookingButton, years } =
+[7m [0m [93m                                            ~~~~~~~~~~~~~[0m
+[96msrc/components/sections/TTC/TTCDatesSection.astro[0m:[93m9[0m:[93m16[0m - [93mwarning[0m[90m ts(6133): [0m'subtitle' is declared but its value is never read.
+
+[7m9[0m const { title, subtitle, dates, courseInfo, bookingButton, years } =
+[7m [0m [93m               ~~~~~~~~[0m
+[96msrc/components/sections/TTC/TTCDatesSection.astro[0m:[93m2[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'Button' is declared but its value is never read.
+
+[7m2[0m import Button from '$components/ui/Button.astro';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/components/sections/TTC/TTCHeroSection.astro[0m:[93m29[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'getImageDescription' is declared but its value is never read.
+
+[7m29[0m const getImageDescription = (img: ImageInput): string => {
+[7m  [0m [93m      ~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/components/sections/TTC/TTCHeroSection.astro[0m:[93m190[0m:[93m9[0m - [93mwarning[0m[90m ts(6133): [0m'container' is declared but its value is never read.
+
+[7m190[0m   const container = document.getElementById('carousel-container');
+[7m   [0m [93m        ~~~~~~~~~[0m
+[96msrc/components/sections/TTC/TTCHeroSection.astro[0m:[93m182[0m:[93m9[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m182[0m <script defer define:vars={{ imageSources }}>
+[7m   [0m [93m        ~~~~~[0m
+
+[96msrc/components/sections/TTC/TTCNavbarTab.astro[0m:[93m9[0m:[93m35[0m - [93mwarning[0m[90m ts(6133): [0m'animation' is declared but its value is never read.
+
+[7m9[0m const { navigationLinks, styling, animation } = navbarData;
+[7m [0m [93m                                  ~~~~~~~~~[0m
+
+[96msrc/components/sections/TTC/TTC_BestCourse.astro[0m:[93m6[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'fade' is declared but its value is never read.
+
+[7m6[0m import { fade } from 'astro:transitions';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/components/sections/TTC/TTC_BestCourse.astro[0m:[93m69[0m:[93m11[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m69[0m   <script type="module">
+[7m  [0m [93m          ~~~~[0m
+[96msrc/components/sections/TTC/TTC_BestCourse.astro[0m:[93m57[0m:[93m11[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m57[0m   <script define:vars={{ showLessText: sectionData.button.showLessText, readMoreText: sectionData.button.text }} type="module">
+[7m  [0m [93m          ~~~~~~~~~~~[0m
+
+[96msrc/components/sections/TTC/TTC_CourseGain.astro[0m:[93m3[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'ICON_IMAGES' is declared but its value is never read.
+
+[7m3[0m import { ICON_IMAGES } from '$constants/shared/images';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/components/sections/TTC/TTC_CurriculumSection.astro[0m:[93m165[0m:[93m29[0m - [93mwarning[0m[90m ts(6133): [0m'currentImage' is declared but its value is never read.
+
+[7m165[0m                       const currentImage = sectionImages[chunkIndex % sectionImages.length];
+[7m   [0m [93m                            ~~~~~~~~~~~~[0m
+[96msrc/components/sections/TTC/TTC_CurriculumSection.astro[0m:[93m83[0m:[93m52[0m - [93mwarning[0m[90m ts(6133): [0m'itemIndex' is declared but its value is never read.
+
+[7m83[0m function getCurriculumImages(sectionTitle: string, itemIndex: number) {
+[7m  [0m [93m                                                   ~~~~~~~~~[0m
+[96msrc/components/sections/TTC/TTC_CurriculumSection.astro[0m:[93m3[0m:[93m10[0m - [93mwarning[0m[90m ts(6133): [0m'ICON_IMAGES' is declared but its value is never read.
+
+[7m3[0m import { ICON_IMAGES, YOGA_CAROUSEL_IMAGES } from '$constants/shared/images';
+[7m [0m [93m         ~~~~~~~~~~~[0m
+[96msrc/components/sections/TTC/TTC_CurriculumSection.astro[0m:[93m213[0m:[93m11[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m213[0m   <script type="application/ld+json">
+[7m   [0m [93m          ~~~~[0m
+
+[96msrc/components/sections/TTC/TTCourseHighlightsSection.astro[0m:[93m2[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'ICON_IMAGES' is declared but its value is never read.
+
+[7m2[0m import { ICON_IMAGES } from '$constants/shared/images';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/components/ui/AppleCardsSection.astro[0m:[93m136[0m:[93m15[0m - [93mwarning[0m[90m ts(6133): [0m'cardIndex' is declared but its value is never read.
+
+[7m136[0m         const cardIndex = target.getAttribute('data-card-index');
+[7m   [0m [93m              ~~~~~~~~~[0m
+
+[96msrc/components/ui/CarouselImage.astro[0m:[93m75[0m:[93m9[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m75[0m <script define:vars={{ images, id, startIndex, autoPlayInterval }}>
+[7m  [0m [93m        ~~~~~~~~~~~[0m
+
+[96msrc/components/ui/FaqCard.astro[0m:[93m8[0m:[93m27[0m - [93mwarning[0m[90m ts(6133): [0m'category' is declared but its value is never read.
+
+[7m8[0m const { question, answer, category } = Astro.props;
+[7m [0m [93m                          ~~~~~~~~[0m
+
+[96msrc/components/ui/HorizontalCarousel.astro[0m:[93m12[0m:[93m3[0m - [93mwarning[0m[90m ts(6133): [0m'cardClass' is declared but its value is never read.
+
+[7m12[0m   cardClass = '',
+[7m  [0m [93m  ~~~~~~~~~[0m
+[96msrc/components/ui/HorizontalCarousel.astro[0m:[93m23[0m:[93m9[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m23[0m <script define:vars={{ id, scrollInterval }}>
+[7m  [0m [93m        ~~~~~~~~~~~[0m
+
+[96msrc/components/ui/InfiniteCarousel.astro[0m:[93m14[0m:[93m3[0m - [93mwarning[0m[90m ts(6133): [0m'pauseOnHover' is declared but its value is never read.
+
+[7m14[0m   pauseOnHover = true,
+[7m  [0m [93m  ~~~~~~~~~~~~[0m
+[96msrc/components/ui/InfiniteCarousel.astro[0m:[93m13[0m:[93m3[0m - [93mwarning[0m[90m ts(6133): [0m'autoplaySpeed' is declared but its value is never read.
+
+[7m13[0m   autoplaySpeed = 6000,
+[7m  [0m [93m  ~~~~~~~~~~~~~[0m
+[96msrc/components/ui/InfiniteCarousel.astro[0m:[93m322[0m:[93m28[0m - [93mwarning[0m[90m ts(6133): [0m'imageSrc' is declared but its value is never read.
+
+[7m322[0m   function openImageViewer(imageSrc: string, index: number) {
+[7m   [0m [93m                           ~~~~~~~~[0m
+
+[96msrc/components/ui/MiniCarousel.astro[0m:[93m12[0m:[93m3[0m - [93mwarning[0m[90m ts(6133): [0m'speed' is declared but its value is never read.
+
+[7m12[0m   speed = 3000,
+[7m  [0m [93m  ~~~~~[0m
+
+[96msrc/components/ui/SectionHeader.astro[0m:[93m13[0m:[93m3[0m - [93mwarning[0m[90m ts(6133): [0m'svgColor' is declared but its value is never read.
+
+[7m13[0m   svgColor = 'text-primary',
+[7m  [0m [93m  ~~~~~~~~[0m
+[96msrc/components/ui/SectionHeader.astro[0m:[93m12[0m:[93m3[0m - [93mwarning[0m[90m ts(6133): [0m'svgHeight' is declared but its value is never read.
+
+[7m12[0m   svgHeight = 30,
+[7m  [0m [93m  ~~~~~~~~~[0m
+[96msrc/components/ui/SectionHeader.astro[0m:[93m11[0m:[93m3[0m - [93mwarning[0m[90m ts(6133): [0m'svgWidth' is declared but its value is never read.
+
+[7m11[0m   svgWidth = 300,
+[7m  [0m [93m  ~~~~~~~~[0m
+[96msrc/components/ui/SectionHeader.astro[0m:[93m3[0m:[93m29[0m - [93mwarning[0m[90m ts(6133): [0m'ICON_IMAGES' is declared but its value is never read.
+
+[7m3[0m import { BACKGROUND_IMAGES, ICON_IMAGES } from '$constants/shared/images';
+[7m [0m [93m                            ~~~~~~~~~~~[0m
+[96msrc/components/ui/SectionHeader.astro[0m:[93m2[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'DecorativeUnderline' is declared but its value is never read.
+
+[7m2[0m import DecorativeUnderline from '$components/ui/DecorativeUnderline.astro';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/constants/pages/home/index.ts[0m:[93m31[0m:[93m40[0m - [93mwarning[0m[90m ts(6133): [0m'ROUTE_TTC_300' is declared but its value is never read.
+
+[7m31[0m import { ROUTE_TTC_100, ROUTE_TTC_200, ROUTE_TTC_300 } from '../../shared/routes';
+[7m  [0m [93m                                       ~~~~~~~~~~~~~[0m
+[96msrc/constants/pages/home/index.ts[0m:[93m31[0m:[93m25[0m - [93mwarning[0m[90m ts(6133): [0m'ROUTE_TTC_200' is declared but its value is never read.
+
+[7m31[0m import { ROUTE_TTC_100, ROUTE_TTC_200, ROUTE_TTC_300 } from '../../shared/routes';
+[7m  [0m [93m                        ~~~~~~~~~~~~~[0m
+
+[96msrc/constants/pages/ttc/200hour.ts[0m:[93m10[0m:[93m3[0m - [93mwarning[0m[90m ts(6133): [0m'ALL_EXCURSION_IMAGES' is declared but its value is never read.
+
+[7m10[0m   ALL_EXCURSION_IMAGES,
+[7m  [0m [93m  ~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/examples/seo-implementation-example.ts[0m:[93m8[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'PRANAYAMA_TECHNIQUES' is declared but its value is never read.
+
+[7m8[0m import { PRANAYAMA_TECHNIQUES } from '../lib/pranayama-keywords';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/layouts/SEOLayout.astro[0m:[93m4[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'sanitizeJSON' is declared but its value is never read.
+
+[7m4[0m import { sanitizeJSON } from '../utils/sanitize';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/layouts/SEOLayout.astro[0m:[93m175[0m:[93m13[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m175[0m     <script type="application/ld+json">
+[7m   [0m [93m            ~~~~[0m
+[96msrc/layouts/SEOLayout.astro[0m:[93m123[0m:[93m17[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m123[0m         <script type="application/ld+json">{sanitizeJSON(structuredData)}</script>
+[7m   [0m [93m                ~~~~[0m
+
+[96msrc/pages/blog-sitemap.xml.ts[0m:[93m171[0m:[93m33[0m - [93mwarning[0m[90m ts(6133): [0m'index' is declared but its value is never read.
+
+[7m171[0m     config.posts.forEach((post, index) => {
+[7m   [0m [93m                                ~~~~~[0m
+
+[96msrc/pages/index.astro[0m:[93m40[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'FaqSection' is declared but its value is never read.
+
+[7m40[0m import { FaqSection } from '$svelte/sections';
+[7m  [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/pages/index.astro[0m:[93m35[0m:[93m1[0m - [93mwarning[0m[90m ts(6192): [0mAll imports in import declaration are unused.
+
+[7m35[0m import { FAQ_SECTION, FAQ_STYLES } from '$constants/pages/home/faq';
+[7m  [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/pages/location-sitemap.xml.ts[0m:[93m4[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'LOCATION_KEYWORDS' is declared but its value is never read.
+
+[7m4[0m import { LOCATION_KEYWORDS } from '../lib/location-seo-keywords';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/pages/seo-constants-showcase.astro[0m:[93m24[0m:[93m5[0m - [93mwarning[0m[90m ts(6133): [0m'homePageConstants' is declared but its value is never read.
+
+[7m24[0m let homePageConstants = {};
+[7m  [0m [93m    ~~~~~~~~~~~~~~~~~[0m
+[96msrc/pages/seo-constants-showcase.astro[0m:[93m23[0m:[93m5[0m - [93mwarning[0m[90m ts(6133): [0m'reviewsConstants' is declared but its value is never read.
+
+[7m23[0m let reviewsConstants = {};
+[7m  [0m [93m    ~~~~~~~~~~~~~~~~[0m
+[96msrc/pages/seo-constants-showcase.astro[0m:[93m22[0m:[93m5[0m - [93mwarning[0m[90m ts(6133): [0m'faqConstants' is declared but its value is never read.
+
+[7m22[0m let faqConstants = {};
+[7m  [0m [93m    ~~~~~~~~~~~~[0m
+[96msrc/pages/seo-constants-showcase.astro[0m:[93m21[0m:[93m5[0m - [93mwarning[0m[90m ts(6133): [0m'carouselConstants' is declared but its value is never read.
+
+[7m21[0m let carouselConstants = {};
+[7m  [0m [93m    ~~~~~~~~~~~~~~~~~[0m
+[96msrc/pages/seo-constants-showcase.astro[0m:[93m20[0m:[93m5[0m - [93mwarning[0m[90m ts(6133): [0m'seoKeywords' is declared but its value is never read.
+
+[7m20[0m let seoKeywords = {};
+[7m  [0m [93m    ~~~~~~~~~~~[0m
+
+[96msrc/pages/200-hour-yoga-teacher-training-rishikesh/index.astro[0m:[93m27[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'FaqSection' is declared but its value is never read.
+
+[7m27[0m import { FaqSection } from '$components/svelte';
+[7m  [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/pages/blog/dhyana-meditation-mastery/index.astro[0m:[93m3[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'ICON_IMAGES' is declared but its value is never read.
+
+[7m3[0m import { ICON_IMAGES } from '$constants/shared/images';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/pages/content-review/index.astro[0m:[93m17[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'yogaGurusConstants' is declared but its value is never read.
+
+[7m17[0m import * as yogaGurusConstants from '$constants/features/teachers/gurus';
+[7m  [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/pages/content-review/index.astro[0m:[93m16[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'uiConstants' is declared but its value is never read.
+
+[7m16[0m import * as uiConstants from '$constants/shared/ui';
+[7m  [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/pages/content-review/index.astro[0m:[93m15[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'routesConstants' is declared but its value is never read.
+
+[7m15[0m import * as routesConstants from '$constants/shared/routes';
+[7m  [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/pages/content-review/index.astro[0m:[93m14[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'imageConstants' is declared but its value is never read.
+
+[7m14[0m import * as imageConstants from '$constants/shared/images';
+[7m  [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/pages/content-review/index.astro[0m:[93m13[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'navigationConstants' is declared but its value is never read.
+
+[7m13[0m import * as navigationConstants from '$constants/components/navigation';
+[7m  [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/pages/content-review/index.astro[0m:[93m12[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'contactConstants' is declared but its value is never read.
+
+[7m12[0m import * as contactConstants from '$constants/pages/home/contact';
+[7m  [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/pages/content-review/index.astro[0m:[93m436[0m:[93m30[0m - [93mwarning[0m[90m ts(6133): [0m'i' is declared but its value is never read.
+
+[7m436[0m           obj.forEach((item, i) => {
+[7m   [0m [93m                             ~[0m
+[96msrc/pages/content-review/index.astro[0m:[93m381[0m:[93m28[0m - [93mwarning[0m[90m ts(6133): [0m'index' is declared but its value is never read.
+
+[7m381[0m         obj.forEach((item, index) => {
+[7m   [0m [93m                           ~~~~~[0m
+[96msrc/pages/content-review/index.astro[0m:[93m313[0m:[93m11[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m313[0m   <script define:vars={{ processedContent }}>
+[7m   [0m [93m          ~~~~~~~~~~~[0m
+
+[96msrc/pages/masters/lord-shiva/index.astro[0m:[93m3[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'ICON_IMAGES' is declared but its value is never read.
+
+[7m3[0m import { ICON_IMAGES } from '$constants/shared/images';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/pages/usa/200-hour-yoga-teacher-training.astro[0m:[93m379[0m:[93m44[0m - [93mwarning[0m[90m ts(6133): [0m'index' is declared but its value is never read.
+
+[7m379[0m           usFAQSchema.mainEntity.map((faq, index) => (
+[7m   [0m [93m                                           ~~~~~[0m
+[96msrc/pages/usa/200-hour-yoga-teacher-training.astro[0m:[93m19[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'usContent' is declared but its value is never read.
+
+[7m19[0m const usContent = generateLocationSpecificContent('usa');
+[7m  [0m [93m      ~~~~~~~~~[0m
+
+Result (161 files): 
+- 2 errors
+- 0 warnings
+- 82 hints
+

@@ -1,13 +1,13 @@
 ---
-import { YOGA_COURSES_CARDS_SECTION, HOME_STYLES } from '$constants/HomePage/homePageConstants';
-import { BUTTON_STYLES } from '$constants/uiConstants';
+import { YOGA_COURSES_CARDS_SECTION, HOME_STYLES } from '$constants/pages/home';
+import { BUTTON_STYLES } from '$constants/shared/ui';
 import {
   KUNDALINI_COURSES,
   VEDIC_CHANTING_COURSES,
   YTTC_COURSES,
   ONLINE_TTC_COURSES,
-} from '$constants/courseConstants';
-import { ROUTE_CONTACT, ROUTE_COURSES } from '$constants/routesConstants';
+} from '$constants/features/courses';
+import { ROUTE_CONTACT, ROUTE_COURSES } from '$constants/shared/routes';
 import CourseTab from '../../svelte/ui/CourseTab.svelte';
 
 const { TITLE, SUBTITLE } = YOGA_COURSES_CARDS_SECTION;

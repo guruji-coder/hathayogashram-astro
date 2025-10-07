@@ -1,10 +1,10 @@
 ---
-import { BUTTON_STYLES } from '$constants/uiConstants';
+import { BUTTON_STYLES } from '$constants/shared/ui';
 import SectionHeader from '$components/ui/SectionHeader.astro';
 
 interface Props {
-  section: typeof import('$constants/HomePage/homePageConstants').CERTIFICATIONS_SECTION;
-  styles: typeof import('$constants/HomePage/homePageConstants').HOME_STYLES;
+  section: typeof import('$constants/pages/home').CERTIFICATIONS_SECTION;
+  styles: typeof import('$constants/pages/home').HOME_STYLES;
 }
 
 const { section, styles } = Astro.props as Props;

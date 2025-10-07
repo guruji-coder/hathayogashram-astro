@@ -1,5 +1,5 @@
 ---
-import type { CourseTimelineSection } from '../../../constants/TTC/200hour';
+import type { CourseTimelineSection } from '$constants/pages/ttc/200hour';
 
 // Course Timeline component for displaying course milestones
 export interface Props {
@@ -96,7 +96,7 @@ const data = timelineData || defaultTimelineData;
 
       <!-- Timeline Events Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 relative">
-        {data.events.map((event, index) => (
+        {data.events.map((event: any, index: number) => (
           <div class="relative group">
             <!-- Event Card -->
             <div class="bg-white/90 backdrop-blur-sm border-2 border-purple-200 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:border-purple-400 relative z-10">

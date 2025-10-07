@@ -26,9 +26,9 @@ Today when short breathing is very common in the modern world, Respiratory probl
  * Easy to find, easy to modify, easy to understand.
  */
 
-import { COURSE_IMAGES_FLAT, TEACHER_IMAGES_FLAT, GALLERY_IMAGES_FLAT } from '../imageConstants';
+import { COURSE_IMAGES_FLAT, TEACHER_IMAGES_FLAT, GALLERY_IMAGES_FLAT } from '../../shared/images';
 
-import { ROUTE_TTC_100, ROUTE_TTC_200, ROUTE_TTC_300 } from '../routesConstants';
+import { ROUTE_TTC_100, ROUTE_TTC_200, ROUTE_TTC_300 } from '../../shared/routes';
 
 // ===========================================
 // HERO SECTION CONSTANTS

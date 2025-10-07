@@ -6,7 +6,7 @@
  * This file contains all constants for the Teachers carousel section.
  */
 
-import { TEACHER_IMAGES_FLAT } from './imageConstants';
+import { TEACHER_IMAGES_FLAT } from '$constants/shared/images';
 
 // ===========================================
 // TEACHERS DATA

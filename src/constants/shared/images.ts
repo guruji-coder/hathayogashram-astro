@@ -266,9 +266,6 @@ export const COURSE_IMAGES_FLAT = {
   YOGA_SCHOOL: COURSE_IMAGES.SCHOOL.MAIN_BUILDING,
 } as const;
 
-// Backward compatibility for training references
-export const TRAINING_200_CAROUSEL_IMAGES = OFFICIAL_CAROUSEL_IMAGES;
-
 // ===========================================
 // EXPORTS
 // ===========================================

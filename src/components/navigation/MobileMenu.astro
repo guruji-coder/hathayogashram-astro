@@ -1,10 +1,11 @@
 ---
+import type { MenuItem } from '$types/navigation';
 import {
   HEADER_NAVIGATION_ITEMS,
   HEADER_CTA_BUTTON,
   HEADER_STYLES,
   HEADER_ANIMATIONS,
-} from '../../constants/headerConstants';
+} from '$constants/components/navigation';
 ---
 
 <!-- Mobile Menu -->
@@ -40,7 +41,7 @@ import {
               </svg>
             </button>
             <div class="mobile-dropdown-content hidden pl-4">
-              {item.items.map(subItem => (
+              {item.items.map((subItem: MenuItem) => (
                 <a
                   class:list={[`block py-2 text-gray-600`, `${HEADER_STYLES.NAV_LINK_COLORS}`]}
                   href={subItem.href}

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ICON_IMAGES } from "$constants/imageConstants";
+  import { ICON_IMAGES } from "$constants/shared/images";
   // FAQ data and styles passed as props
   export let sectionData: {
     TITLE: string;

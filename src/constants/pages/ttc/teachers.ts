@@ -1,4 +1,4 @@
-import { TEACHER_IMAGES } from '../imageConstants';
+import { TEACHER_IMAGES } from '$constants/shared/images';
 
 export const TTC_TEACHERS = [
   {

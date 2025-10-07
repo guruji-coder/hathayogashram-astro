@@ -15,7 +15,9 @@
     "lint": "eslint . --ext .js,.ts,.astro,.svelte",
     "lint:fix": "eslint . --ext .js,.ts,.astro,.svelte --fix",
     "lint:format": "bun run format && bun run lint:fix",
-    "validate": "bun run check && bun run lint && bun run format:check"
+    "validate": "bun run check && bun run lint && bun run format:check",
+    "constants:validate": "node scripts/validate-constants.cjs",
+    "constants:check": "node scripts/validate-constants.cjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

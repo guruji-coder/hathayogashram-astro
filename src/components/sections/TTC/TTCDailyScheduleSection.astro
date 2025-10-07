@@ -1,13 +1,13 @@
 ---
 import { Image } from 'astro:assets';
-import type { DailyScheduleSectionData } from '../../../constants/TTC/200hour';
+import type { DailyScheduleSectionData } from '$constants/pages/ttc/200hour';
 
 interface Props {
   sectionData: DailyScheduleSectionData;
 }
 
 const { sectionData } = Astro.props;
-import { ROUTE_CONTACT, ROUTE_PAYMENT } from '../../../constants/routesConstants';
+import { ROUTE_CONTACT, ROUTE_PAYMENT } from '$constants/shared/routes';
 import Button from '../../ui/Button.astro';
 import SectionHeader from '../../ui/SectionHeader.astro';
 import ScheduleItem from '$ui/ScheduleItem.astro';
@@ -19,7 +19,7 @@ import ScheduleItem from '$ui/ScheduleItem.astro';
   <div class="flex w-full flex-col lg:flex-row">
     <div class="mt-0 w-full space-y-6 lg:mt-24 lg:w-1/3">
       {
-        sectionData.schedule.slice(0, 5).map(({ time, activity }) => (
+        sectionData.schedule.slice(0, 5).map(({ time, activity }: { time: string; activity: string }) => (
           <ScheduleItem activity={activity} time={time} />
         ))
       }
@@ -55,7 +55,7 @@ import ScheduleItem from '$ui/ScheduleItem.astro';
     </div>
     <div class="mt-5 w-full space-y-6 lg:mt-24 lg:w-1/3">
       {
-        sectionData.schedule.slice(5).map(({ time, activity }) => (
+        sectionData.schedule.slice(5).map(({ time, activity }: { time: string; activity: string }) => (
           <ScheduleItem activity={activity} alignRight time={time} />
         ))
       }

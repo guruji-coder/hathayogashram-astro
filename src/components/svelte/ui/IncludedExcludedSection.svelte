@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { BACKGROUND_IMAGES, ICON_IMAGES } from '../../../constants/imageConstants';
+  import { BACKGROUND_IMAGES, ICON_IMAGES } from '$constants/shared/images';
 
   // Receive section data via prop
   export let section: {

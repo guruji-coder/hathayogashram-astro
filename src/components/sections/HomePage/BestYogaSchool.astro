@@ -6,7 +6,7 @@ import type {
   HOME_GALLERY,
   HOME_COURSES,
   HOME_STYLES,
-} from '$constants/HomePage/homePageConstants';
+} from '$constants/pages/home';
 
 interface Props {
   hero: typeof HOME_HERO;
@@ -18,7 +18,7 @@ interface Props {
 }
 
 const { hero, highlights, content, gallery, courses, styles } = Astro.props as Props;
-import { BUTTON_STYLES } from '$constants/uiConstants';
+import { BUTTON_STYLES } from '$constants/shared/ui';
 import SectionHeader from '$ui/SectionHeader.astro';
 ---
 

@@ -9,7 +9,7 @@ import {
   CERTIFICATE_IMAGES,
   ALL_EXCURSION_IMAGES,
   YOGA_CAROUSEL_IMAGES,
-} from '../imageConstants';
+} from '$constants/shared/images';
 
 // ===========================================
 // TYPES
