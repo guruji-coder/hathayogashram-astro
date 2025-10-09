@@ -2,7 +2,7 @@
 // SEO Constants Showcase Page
 // Development/Testing page to display all SEO constants and keywords
 import Layout from '../components/layout/Layout.astro';
-import { ROUTE_HOME } from '../constants/routesConstants';
+import { ROUTE_HOME } from '$constants/shared/routes';
 
 // Import all SEO constants and keyword files
 import { SITE_METADATA, SEO_PATTERNS } from '../lib/yoga-seo-constants';
@@ -31,28 +31,28 @@ try {
 }
 
 try {
-  const carouselModule = await import('../constants/carousel');
+  const carouselModule = await import('$constants/components/carousel');
   carouselConstants = carouselModule;
 } catch (e) {
   console.log('carousel constants not found');
 }
 
 try {
-  const faqModule = await import('../constants/faqConstants');
+  const faqModule = await import('$constants/pages/home/faq');
   faqConstants = faqModule;
 } catch (e) {
   console.log('FAQ constants not found');
 }
 
 try {
-  const reviewsModule = await import('../constants/reviewsConstants');
+  const reviewsModule = await import('$constants/features/reviews/testimonials');
   reviewsConstants = reviewsModule;
 } catch (e) {
   console.log('Reviews constants not found');
 }
 
 try {
-  const homePageModule = await import('../constants/HomePage/homePageConstants');
+  const homePageModule = await import('$constants/pages/home');
   homePageConstants = homePageModule;
 } catch (e) {
   console.log('Homepage constants not found');

@@ -7,7 +7,7 @@
  * Main YTTC courses are in homePageConstants.ts under YOGA_COURSES_CARDS_SECTION
  */
 
-import { COURSE_IMAGES_FLAT } from './imageConstants';
+import { COURSE_IMAGES_FLAT } from '$constants/shared/images';
 
 // ===========================================
 // SPECIALIZED COURSE TYPES

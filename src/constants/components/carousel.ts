@@ -1,6 +1,6 @@
-import type { CarouselSlide } from '../types';
-import { ROUTE_COURSES, ROUTE_TTC_200 } from './routesConstants';
-import { CERTIFICATE_IMAGES } from './imageConstants';
+import type { CarouselSlide } from '$types/components';
+import { ROUTE_COURSES, ROUTE_TTC_200 } from '$constants/shared/routes';
+import { CERTIFICATE_IMAGES } from '$constants/shared/images';
 
 export const carouselSlides: CarouselSlide[] = [
   {

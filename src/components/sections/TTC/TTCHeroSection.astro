@@ -47,7 +47,7 @@ import Button from '$components/ui/Button.astro';
       <div class="grid grid-cols-2 grid-rows-2 h-full w-full gap-5 p-5" id="carousel-container-grid">
         <img
           alt={getImageAlt(images[0])}
-          class="h-full w-full object-cover object-center rounded-lg"
+          class="h-full w-full object-cover object-center rounded-lg transition-all duration-500 ease-out transform-gpu will-change-transform"
           decoding="async"
           height="300"
           id="img-0"
@@ -57,7 +57,7 @@ import Button from '$components/ui/Button.astro';
         />
         <img
           alt={getImageAlt(images[1] || images[0])}
-          class="h-full w-full object-cover object-center rounded-lg"
+          class="h-full w-full object-cover object-center rounded-lg transition-all duration-500 ease-out transform-gpu will-change-transform"
           decoding="async"
           height="300"
           id="img-1"
@@ -67,7 +67,7 @@ import Button from '$components/ui/Button.astro';
         />
         <img
           alt={getImageAlt(images[2] || images[0])}
-          class="h-full w-full object-cover object-center rounded-lg"
+          class="h-full w-full object-cover object-center rounded-lg transition-all duration-500 ease-out transform-gpu will-change-transform"
           decoding="async"
           height="300"
           id="img-2"
@@ -77,7 +77,7 @@ import Button from '$components/ui/Button.astro';
         />
         <img
           alt={getImageAlt(images[3] || images[0])}
-          class="h-full w-full object-cover object-center rounded-lg"
+          class="h-full w-full object-cover object-center rounded-lg transition-all duration-500 ease-out transform-gpu will-change-transform"
           decoding="async"
           height="300"
           id="img-3"
@@ -191,11 +191,38 @@ import Button from '$components/ui/Button.astro';
   let autoSlideInterval;
 
   function updateGrid() {
-    // Show 4 images in 2x2 grid starting from currentIndex
-    if (img0) img0.src = imageSources[currentIndex % imageSources.length];
-    if (img1) img1.src = imageSources[(currentIndex + 1) % imageSources.length];
-    if (img2) img2.src = imageSources[(currentIndex + 2) % imageSources.length];
-    if (img3) img3.src = imageSources[(currentIndex + 3) % imageSources.length];
+    const images = [img0, img1, img2, img3];
+    
+    // Diagonal wave fade out (top-left to bottom-right)
+    images.forEach((img, index) => {
+      if (img) {
+        setTimeout(() => {
+          img.style.transform = 'scale(0.9) rotate(2deg)';
+          img.style.opacity = '0';
+          img.style.filter = 'blur(3px)';
+        }, index * 80); // Stagger by 80ms
+      }
+    });
+    
+    // Update sources and animate back
+    setTimeout(() => {
+      // Update all sources
+      if (img0) img0.src = imageSources[currentIndex % imageSources.length];
+      if (img1) img1.src = imageSources[(currentIndex + 1) % imageSources.length];
+      if (img2) img2.src = imageSources[(currentIndex + 2) % imageSources.length];
+      if (img3) img3.src = imageSources[(currentIndex + 3) % imageSources.length];
+      
+      // Diagonal wave fade in
+      images.forEach((img, index) => {
+        if (img) {
+          setTimeout(() => {
+            img.style.transform = 'scale(1) rotate(0deg)';
+            img.style.opacity = '1';
+            img.style.filter = 'blur(0px)';
+          }, index * 80);
+        }
+      });
+    }, 400);
   }
 
   function startAutoSlide() {

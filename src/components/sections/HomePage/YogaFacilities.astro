@@ -1,7 +1,13 @@
 ---
 import FocusCards from '$ui/FocusCards.astro';
-import { FACILITIES_CARDS_SECTION } from '$constants/HomePage/homePageConstants';
 import { FacilityCards } from '$components/svelte';
+import type { FACILITIES_CARDS_SECTION } from '$constants/pages/home';
+
+interface Props {
+  section: typeof FACILITIES_CARDS_SECTION;
+}
+
+const { section } = Astro.props as Props;
 ---
 
 <!-- Focus Cards Gallery Section -->
@@ -9,8 +15,8 @@ import { FacilityCards } from '$components/svelte';
   <div class="container mx-auto px-4">
     <!-- Section Header -->
     <div class="mb-16 text-center">
-      <h2 class="mb-4 text-center text-3xl font-bold text-purple-900 md:text-4xl">
-        {FACILITIES_CARDS_SECTION.TITLE}
+    <h2 class="mb-4 text-center text-3xl font-bold text-purple-900 md:text-4xl">
+      {section.TITLE}
       </h2>
 
       <div class="mb-6 flex justify-center">
@@ -23,6 +29,6 @@ import { FacilityCards } from '$components/svelte';
     </div>
 
     <!-- Focus Cards Component -->
-    <FacilityCards cards={FACILITIES_CARDS_SECTION.CARDS} client:load />
+  <FacilityCards cards={section.CARDS} client:load />
   </div>
 </section>

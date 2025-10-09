@@ -1,7 +1,9 @@
 ---
-import type { BestCourseSectionData } from '../../../constants/TTC/200hour';
-import { YOGA_CAROUSEL_IMAGES } from '../../../constants/imageConstants';
+import type { BestCourseSectionData } from '$constants/pages/ttc/200hour';
+import { YOGA_CAROUSEL_IMAGES } from '$constants/shared/images';
 import SectionHeader from '../../ui/SectionHeader.astro';
+import CarouselImage  from '../../ui/CarouselImage.astro';
+import { fade } from 'astro:transitions';
 
 interface Props {
   sectionData: BestCourseSectionData;
@@ -14,7 +16,7 @@ const { sectionData } = Astro.props;
   <SectionHeader containerClass="px-10" title={sectionData.title} />
 
   <div class:list={[sectionData.styling.containerClass]}>
-    <div class:list={[sectionData.styling.textContainerClass]}>
+  <div class:list={[sectionData.styling.textContainerClass, "order-2 lg:order-1"]}>
       <h5 class:list={[sectionData.styling.shortDescriptionClass]}>
         {sectionData.shortDescription}
       </h5>
@@ -22,51 +24,31 @@ const { sectionData } = Astro.props;
         {sectionData.button.text}
       </button>
     </div>
-    <div class:list={[sectionData.styling.imageContainerClass]}>
-      <!-- SEO-Optimized Auto Carousel with Fixed Height -->
-      <div class="relative overflow-hidden rounded-lg shadow-lg h-64">
-        <!-- Main carousel image with fixed height and object-cover -->
-        <img
-          alt={YOGA_CAROUSEL_IMAGES[0].alt}
-          class="w-full h-full object-cover"
-          decoding="async"
-          id="carousel-image"
-          loading="eager"
-          src={YOGA_CAROUSEL_IMAGES[0].src}
+  <div class="p-0 m-0 w-full h-full order-1 lg:order-2" class:list={[sectionData.styling.imageContainerClass]}>
+      <!-- Two Adjacent Carousels with Half-Half Width, no gaps -->
+      <div class="flex gap-0 w-full h-full">
+        <!-- First Carousel (Left Half) -->
+        <CarouselImage
+          autoPlayInterval={2500}
+          class="w-1/2 h-full"
+          id="1"
+          images={YOGA_CAROUSEL_IMAGES}
+          showNavButtons={false}
+          startIndex={0}
         />
-        
-        <!-- Carousel indicators -->
-        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-          {YOGA_CAROUSEL_IMAGES.map((_, index) => (
-            <button
-              aria-label={`Go to slide ${index + 1}`}
-              class="w-3 h-3 rounded-full bg-white/50 hover:bg-white/80 transition-colors carousel-indicator"
-              data-index={index}
-            />
-          ))}
-        </div>
-        
-        
-        <!-- Navigation arrows -->
-        <button
-          aria-label="Previous image"
-          class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-colors"
-          id="carousel-prev"
-        >
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        
-        <button
-          aria-label="Next image"
-          class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-colors"
-          id="carousel-next"
-        >
-          <i class="fas fa-chevron-right"></i>
-        </button>
+        <!-- Second Carousel (Right Half) -->
+        <CarouselImage
+          autoPlayInterval={2700}
+          class="w-1/2 h-full"
+          id="2"
+          images={YOGA_CAROUSEL_IMAGES}
+          showNavButtons={false}
+          startIndex={3}
+        />
       </div>
     </div>
-  </div>
 
+  <!-- Expanded description after carousel grid -->
   <div class:list={[sectionData.styling.expandedDescriptionClass]} id="read-more-content">
     {sectionData.expandedDescription}
   </div>
@@ -83,7 +65,7 @@ const { sectionData } = Astro.props;
     }
   </script>
 
-  <!-- Auto-Carousel Script with SEO optimizations -->
+  <!-- Auto-Carousel Script with SEO optimizations for both carousels -->
   <script type="module">
     // Import carousel images data
     const carouselImages = [
@@ -98,12 +80,12 @@ const { sectionData } = Astro.props;
       { src: '/images/carousel/UtithaHasthaPandungathasnahelp.jpg', alt: 'Utthita Hasta Padangusthasana with support - Assisted balance yoga posture' }
     ];
     
-    // Wait for DOM to be ready
-    document.addEventListener('DOMContentLoaded', () => {
-      const carouselImage = document.getElementById('carousel-image');
-      const prevButton = document.getElementById('carousel-prev');
-      const nextButton = document.getElementById('carousel-next');
-      const indicators = document.querySelectorAll('.carousel-indicator');
+    // Function to initialize carousel
+    const initCarousel = (carouselId) => {
+      const carouselImage = document.getElementById(`carousel-image-${carouselId}`);
+      const prevButton = document.getElementById(`carousel-prev-${carouselId}`);
+      const nextButton = document.getElementById(`carousel-next-${carouselId}`);
+      const indicators = document.querySelectorAll(`.carousel-indicator-${carouselId}`);
       
       let currentIndex = 0;
       let intervalId;
@@ -130,12 +112,13 @@ const { sectionData } = Astro.props;
         }
       };
       
-      // Auto-advance carousel every 2.5 seconds
+      // Auto-advance carousel every 2.5 seconds (with slight offset for second carousel)
       const startAutoCarousel = () => {
+        const interval = carouselId === '1' ? 2500 : 2700; // Slight offset for second carousel
         intervalId = setInterval(() => {
           const nextIndex = (currentIndex + 1) % carouselImages.length;
           updateCarousel(nextIndex);
-        }, 2500);
+        }, interval);
       };
       
       // Stop auto-carousel
@@ -186,15 +169,23 @@ const { sectionData } = Astro.props;
       });
       
       // Pause on hover, resume on mouse leave for better UX
-      const carouselContainer = document.querySelector('.relative.overflow-hidden');
+      const carouselContainer = carouselImage.closest('.relative.overflow-hidden');
       if (carouselContainer) {
         carouselContainer.addEventListener('mouseenter', stopAutoCarousel);
         carouselContainer.addEventListener('mouseleave', startAutoCarousel);
       }
       
-      // Initialize carousel
-      updateCarousel(0);
+      // Initialize carousel with different starting images for visual variety
+      const startIndex = carouselId === '1' ? 0 : 3;
+      updateCarousel(startIndex);
       startAutoCarousel();
+    };
+    
+    // Wait for DOM to be ready
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize both carousels
+      initCarousel('1');
+      initCarousel('2');
     });
   </script>
 </section>

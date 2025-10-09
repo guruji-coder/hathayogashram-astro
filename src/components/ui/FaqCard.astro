@@ -14,11 +14,7 @@ const { question, answer, category } = Astro.props;
     <!-- Front Side - Question -->
     <div class="absolute inset-0 flex flex-col items-center justify-center p-2 md:p-4 bg-gradient-to-br from-purple-500 to-primary text-white rounded-xl shadow-lg [backface-visibility:hidden]">
       <div class="text-center">
-        {category && (
-          <span class="text-base md:text-xs font-medium opacity-80 uppercase tracking-wide mb-2 block">{category}</span>
-        )}
-        <i class="fas fa-question-circle text-5xl md:text-3xl mb-2 md:mb-4 opacity-90"></i>
-        <h3 class="text-lg md:text-sm lg:text-base font-semibold leading-tight">{question}</h3>
+        <h1 class="text-lg md:text-sm lg:text-2xl font-semibold leading-tight font-space">{question}</h1>
       </div>
     </div>
 

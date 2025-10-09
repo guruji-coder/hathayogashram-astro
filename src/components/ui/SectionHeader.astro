@@ -1,6 +1,6 @@
 ---
 import DecorativeUnderline from '$components/ui/DecorativeUnderline.astro';
-import { BACKGROUND_IMAGES, ICON_IMAGES } from '$constants/imageConstants';
+import { BACKGROUND_IMAGES, ICON_IMAGES } from '$constants/shared/images';
 import type { SectionHeaderProps } from '../../types';
 
 export interface Props extends SectionHeaderProps {}
@@ -18,18 +18,18 @@ const {
 <!-- Section Header with Decorative Underline -->
 <div class:list={containerClass}>
     {BACKGROUND_IMAGES?.HIGH_JEWEL && (
-    <img class="block mx-auto  w-[400px] h-[75px]" src={BACKGROUND_IMAGES.HIGH_JEWEL} />
+    <img class="block mx-auto  w-[700px] h-[45px]" src={BACKGROUND_IMAGES.HIGH_JEWEL} />
   )}
   <p
     class:list={[
       titleClass,
-      'bg-gradient-to-r from-primary to-purple-600 px-5 py-2 text-white rounded-full w-full max-w-md mx-auto text-center',
+      'bg-gradient-to-r from-primary to-purple-600 px-10 text-white rounded-full w-full max-w-full mx-auto text-center whitespace-nowrap text-sm',
     ]}
   >
     {title}
   </p>
   {BACKGROUND_IMAGES?.LOW_JEWEL && (
-    <img class="block mx-auto  w-[400px] h-[55px]" src={BACKGROUND_IMAGES.LOW_JEWEL} />
+    <img class="block mx-auto  w-[1200px] h-[55px]" src={BACKGROUND_IMAGES.LOW_JEWEL} />
   )}
 
 </div>

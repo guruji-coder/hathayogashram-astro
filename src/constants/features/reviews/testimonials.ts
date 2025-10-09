@@ -1,4 +1,4 @@
-import { GALLERY_IMAGES_FLAT } from './imageConstants';
+import { GALLERY_IMAGES_FLAT } from '$constants/shared/images';
 
 export const REVIEWS_SECTION = {
   TITLE: 'See What Our Students Say About Us!',

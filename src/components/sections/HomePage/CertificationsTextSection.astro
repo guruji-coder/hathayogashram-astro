@@ -1,19 +1,26 @@
 ---
-import { CERTIFICATIONS_SECTION, HOME_STYLES } from '$constants/HomePage/homePageConstants';
+import { BUTTON_STYLES } from '$constants/shared/ui';
 import SectionHeader from '$components/ui/SectionHeader.astro';
+
+interface Props {
+  section: typeof import('$constants/pages/home').CERTIFICATIONS_SECTION;
+  styles: typeof import('$constants/pages/home').HOME_STYLES;
+}
+
+const { section, styles } = Astro.props as Props;
 ---
 
 <!-- Certifications & Accreditations Section -->
-<section class:list={[`${HOME_STYLES.SECTION_PADDING}`, `bg-white`]}>
-  <div class:list={HOME_STYLES.CONTAINER}>
+<section class:list={[`${styles.SECTION_PADDING}`, `bg-white`]}>
+  <div class:list={styles.CONTAINER}>
     <!-- Section Header -->
-    <SectionHeader title={CERTIFICATIONS_SECTION.TITLE} />
+    <SectionHeader title={section.TITLE} />
 
     <!-- Content Paragraphs -->
     <div class="mx-auto mb-12 max-w-full space-y-6">
       {
-        CERTIFICATIONS_SECTION.PARAGRAPHS.slice(0, 4).map(paragraph => (
-          <p class:list={`${HOME_STYLES.CERTIFICATION_PARAGRAPH}`}>{paragraph}</p>
+        section.PARAGRAPHS.slice(0, 4).map((paragraph: string) => (
+          <p class:list={`${styles.CERTIFICATION_PARAGRAPH}`}>{paragraph}</p>
         ))
       }
 
@@ -31,8 +38,8 @@ import SectionHeader from '$components/ui/SectionHeader.astro';
 
       <!-- Remaining paragraphs after the logo -->
       {
-        CERTIFICATIONS_SECTION.PARAGRAPHS.slice(4).map(paragraph => (
-          <p class:list={`${HOME_STYLES.CERTIFICATION_PARAGRAPH}`}>{paragraph}</p>
+        section.PARAGRAPHS.slice(4).map((paragraph: string) => (
+          <p class:list={`${styles.CERTIFICATION_PARAGRAPH}`}>{paragraph}</p>
         ))
       }
     </div>

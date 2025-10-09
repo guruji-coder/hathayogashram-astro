@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Course } from "$constants/courseConstants";
-  import { BUTTON_STYLES } from "$constants/uiConstants";
+  import { BUTTON_STYLES } from "$constants/shared/ui";
 
   export let course: Course;
 </script>
