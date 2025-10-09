@@ -54,12 +54,22 @@ export default defineConfig({
         $svelte: fileURLToPath(new URL('./src/components/svelte', import.meta.url)),
         $schemas: fileURLToPath(new URL('./src/schemas', import.meta.url)),
       },
+      preserveSymlinks: true,
+    },
+    ssr: {
+      noExternal: ['@astrojs/*'],
+    },
+    build: {
+      target: 'esnext',
     },
   },
   // Performance optimizations
   build: {
     inlineStylesheets: 'auto',
+    assets: '_astro',
   },
+  // Disable client hydration if causing issues
+  output: 'static',
   // Image optimization
   image: {
     domains: ['hathayogashram.com'],

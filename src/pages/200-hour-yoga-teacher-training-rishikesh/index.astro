@@ -24,7 +24,9 @@ import {
   TRAINING_200_DAILY_SCHEDULE_SECTION_DATA,
   TRAINING_200_BEST_TRAINING_SECTION,
 } from '$constants/pages/ttc/200hour';
-import { FaqSection } from '$components/svelte';
+import ScrollableCurriculumSection from '$components/sections/TTC/ScrollableCurriculumSection.astro';
+
+import { FaqSection, FAQFlipSection } from '$svelte/sections';
 import {
   TTCHeroSection,
   TTCDailyScheduleSection,
@@ -54,7 +56,6 @@ import {
 } from '$components/sections';
 import IncludedExcludedSection from '$svelte/ui/IncludedExcludedSection.svelte';
 import { TEACHERS_SECTION } from '$constants/index';
-import FAQFlipSection from '$components/sections/FAQFlipSection.astro';
 ---
 
 <Layout
@@ -92,7 +93,7 @@ import FAQFlipSection from '$components/sections/FAQFlipSection.astro';
   <TTCDatesSection />
   <IncludedExcludedSection client:load section={TRAINING_200_INCLUDED_EXCLUDED_SECTION} />
   <TTCExcursionsSection section={TRAINING_200_EXCURSIONS_SECTION} />
-  <TTC_CurriculumSection curriculumData={TRAINING_200_CURRICULUM_SECTION} />
+\  <ScrollableCurriculumSection curriculumData={TRAINING_200_CURRICULUM_SECTION} />
 
   <TTCAccommodation accommodationData={TRAINING_200_ACCOMMODATION_SECTION} />
 

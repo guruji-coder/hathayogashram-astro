@@ -1,12 +1,13 @@
 {
   "extends": "astro/tsconfigs/strict",
   "include": [".astro/types.d.ts", "**/*", ".eslintrc.json"],
-  "exclude": ["dist"],
+  "exclude": ["dist", "node_modules", ".astro"],
   "compilerOptions": {
     "jsx": "preserve",
     "jsxImportSource": "astro",
     "types": ["astro/client", "astro/astro-jsx", "svelte"],
     "baseUrl": ".",
+    "skipLibCheck": true,
     "paths": {
       "$lib/*": ["src/lib/*"],
       "$constants/*": ["src/constants/*"],

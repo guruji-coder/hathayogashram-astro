@@ -37,9 +37,8 @@ import {
   TRAINING_200_BLOGS_SECTION,
   TRAINING_200_COMBO_SECTION,
 } from '$constants/pages/ttc/200hour';
-import { FaqSection } from '$svelte/sections';
+import { FaqSection, FAQFlipSection } from '$svelte/sections';
 import { TEACHERS_SECTION } from '../constants';
-import FAQFlipSection from '$components/sections/FAQFlipSection.astro';
 // Generate schemas for home page
 const homeSchemas = pageSchemas.home();
 ---
@@ -101,7 +100,7 @@ const homeSchemas = pageSchemas.home();
 
   <!-- <FaqSection client:load sectionData={FAQ_SECTION} styles={FAQ_STYLES} /> -->
 
-  <FAQFlipSection />
+  <FAQFlipSection client:load />
 
 
   <!-- Location Section -->

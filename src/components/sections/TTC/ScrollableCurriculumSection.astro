@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import { ICON_IMAGES } from '$constants/shared/images';
+
 
 export interface Props {
   curriculumData: {
@@ -16,6 +19,11 @@ export interface Props {
 }
 
 const { curriculumData } = Astro.props;
+
+// Validate props - Error boundary with user-friendly fallback
+if (!curriculumData?.items?.length) {
+  throw new Error('ScrollableCurriculumSection: No curriculum data provided');
+}
 
 // Smart image mapping based on content
 const contentImageMap = {
@@ -96,48 +104,49 @@ const contentImageMap = {
       '/images/carousel/Classroom.jpeg'
     ],
     textColor: 'text-teal-300'
-  },
-  // Science of Mantra category
-  mantra: {
-    keywords: ['mantra', 'chant', 'sound', 'om', 'science of mantra'],
-    images: ['/images/carousel/UpwardLotusPose.jpeg'],
-    textColor: 'text-red-800'
   }
 };
 
-// Smart image selection function with colors
+// Smart image selection function with colors and error handling
 function getSmartImageAndColors(sectionTitle: string, items: string[]): { image: string; textColor: string } {
-  const allText = (sectionTitle + ' ' + items.join(' ')).toLowerCase();
-  
-  // Find the best matching category
-  let bestMatch = { category: '', score: 0 };
-  
-  for (const [category, data] of Object.entries(contentImageMap)) {
-    const matchCount = data.keywords.filter(keyword => 
-      allText.includes(keyword.toLowerCase())
-    ).length;
+  try {
+    const allText = (sectionTitle + ' ' + items.join(' ')).toLowerCase();
     
-    if (matchCount > bestMatch.score) {
-      bestMatch = { category, score: matchCount };
+    // Find the best matching category
+    let bestMatch = { category: '', score: 0 };
+    
+    for (const [category, data] of Object.entries(contentImageMap)) {
+      const matchCount = data.keywords.filter(keyword => 
+        allText.includes(keyword.toLowerCase())
+      ).length;
+      
+      if (matchCount > bestMatch.score) {
+        bestMatch = { category, score: matchCount };
+      }
     }
-  }
-  
-  if (bestMatch.score > 0) {
-    const categoryData = contentImageMap[bestMatch.category as keyof typeof contentImageMap];
+    
+    if (bestMatch.score > 0) {
+      const categoryData = contentImageMap[bestMatch.category as keyof typeof contentImageMap];
+      return {
+        image: categoryData.images[Math.floor(Math.random() * categoryData.images.length)],
+        textColor: categoryData.textColor
+      };
+    }
+    
+    // Fallback
     return {
-      image: categoryData.images[Math.floor(Math.random() * categoryData.images.length)],
-      textColor: categoryData.textColor
+      image: '/images/carousel/Classroom2.jpeg',
+      textColor: 'text-gray-300'
+    };
+  } catch (error) {
+    console.error('Error in getSmartImageAndColors:', error);
+    return {
+      image: '/images/carousel/Classroom2.jpeg',
+      textColor: 'text-gray-300'
     };
   }
-  
-  // Fallback
-  return {
-    image: '/images/carousel/Classroom2.jpeg',
-    textColor: 'text-gray-300'
-  };
 }
 
-// No chunking - keep all items together for flexible layout
 // Process curriculum with smart image selection
 const scrollableChunks: Array<{
   id: string;
@@ -163,14 +172,153 @@ curriculumData.items.forEach((item) => {
     });
   });
 });
+
+// Preload first 3 images for better performance
+const imagesToPreload = [...new Set(scrollableChunks.slice(0, 3).map(chunk => chunk.backgroundImage))];
+
+// Generate comprehensive curriculum for SEO
+const allCurriculumTopics = scrollableChunks.map(chunk => chunk.sectionTitle).join(', ');
+const totalItems = scrollableChunks.reduce((sum, chunk) => sum + chunk.items.length, 0);
 ---
+
+<!-- Preload critical images -->
+{imagesToPreload.map((img, index) => (
+  <link as="image" href={img} rel={index === 0 ? "preload" : "prefetch"} />
+))}
+
+<!-- Enhanced Structured Data for SEO -->
+<script is:inline type="application/ld+json">
+{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": curriculumData.title || "Yoga Teacher Training Curriculum",
+  "description": `Comprehensive ${totalItems}-component yoga teacher training curriculum covering ${allCurriculumTopics}`,
+  "provider": {
+    "@type": "EducationalOrganization",
+    "name": "Hatha Yoga Ashram",
+    "sameAs": "https://hathayogashram.com"
+  },
+  "educationalCredentialAwarded": "200-Hour Yoga Teacher Training Certificate",
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "onsite",
+    "courseWorkload": "PT200H"
+  },
+  "occupationalCredentialAwarded": {
+    "@type": "EducationalOccupationalCredential",
+    "credentialCategory": "certificate",
+    "recognizedBy": {
+      "@type": "Organization",
+      "name": "Yoga Alliance"
+    }
+  },
+  "teaches": scrollableChunks.map(chunk => chunk.sectionTitle),
+  "inLanguage": "en",
+  "coursePrerequisites": "Basic understanding of yoga practice",
+  "educationalLevel": "Intermediate to Advanced"
+})}
+</script>
+
+<!-- ItemList Schema for Curriculum Items -->
+<script is:inline type="application/ld+json">
+{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Yoga Teacher Training Curriculum Topics",
+  "description": "Complete list of topics covered in the yoga teacher training program",
+  "numberOfItems": scrollableChunks.length,
+  "itemListElement": scrollableChunks.map((chunk, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": chunk.sectionTitle,
+    "description": `${chunk.items.length} topics including ${chunk.items.slice(0, 3).join(', ')}${chunk.items.length > 3 ? ' and more' : ''}`
+  }))
+})}
+</script>
+
+<!-- BreadcrumbList Schema for Navigation -->
+<script is:inline type="application/ld+json">
+{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://hathayogashram.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Teacher Training",
+      "item": "https://hathayogashram.com/teacher-training"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Curriculum",
+      "item": "https://hathayogashram.com/teacher-training#curriculum"
+    }
+  ]
+})}
+</script>
+
+<!-- FAQ Schema for Common Questions -->
+<script is:inline type="application/ld+json">
+{JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What topics are covered in the yoga teacher training curriculum?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `The curriculum covers ${scrollableChunks.length} major sections including ${allCurriculumTopics}.`
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many hours is the yoga teacher training program?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The program is a comprehensive 200-hour yoga teacher training course recognized by Yoga Alliance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What will I learn in the yoga teacher training?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `You will learn ${totalItems} different topics across multiple disciplines including asanas, pranayama, meditation, philosophy, anatomy, and teaching methodology.`
+      }
+    }
+  ]
+})}
+</script>
+
+<!-- Skip navigation for accessibility -->
+<a class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-white focus:text-black" href="#curriculum-end">
+  Skip curriculum section
+</a>
 
 <!-- Scroll Container -->
 <section 
   aria-label="Yoga Teacher Training Curriculum"
   class="min-h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth"
   id="ScrollableCurriculum"
+  itemscope
+  itemtype="https://schema.org/Course"
+  role="region"
+  tabindex="0"
 >
+  <!-- Hidden meta for SEO crawlers -->
+  <meta content={curriculumData.title || "Yoga Teacher Training Curriculum"} itemprop="name" />
+  <meta content={`Complete curriculum covering ${allCurriculumTopics}`} itemprop="description" />
+  <meta content="Hatha Yoga Ashram" itemprop="provider" />
+  <meta content="Professional Development" itemprop="educationalLevel" />
+  
   {scrollableChunks.map((slide, index) => (
     <article 
       aria-labelledby={`heading-${slide.id}`}
@@ -178,28 +326,33 @@ curriculumData.items.forEach((item) => {
       data-bg-image={slide.backgroundImage}
       data-slide-index={index}
       id={slide.id}
+      itemscope
+      itemtype="https://schema.org/LearningResource"
     >
+      <!-- SEO meta for individual topics -->
+      <meta content="Curriculum Module" itemprop="learningResourceType" />
+      <meta content="Professional Training" itemprop="educationalLevel" />
+      <meta content={slide.sectionTitle} itemprop="about" />
+      
       <!-- Background Images -->
       <!-- Mobile: Single background -->
       <div 
-        aria-label={`${slide.sectionTitle} background`}
+        aria-hidden="true"
         class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-700 ease-out opacity-0 scale-105 md:hidden"
         role="img"
         style={`background-image: url('${slide.backgroundImage}');`}
       />
       
       <!-- Laptop: Split background (2 images side by side) -->
-      <div class="absolute inset-0 hidden md:flex">
+      <div aria-hidden="true" class="absolute inset-0 hidden md:flex">
         <!-- Left half -->
         <div 
-          aria-label={`${slide.sectionTitle} background left`}
           class="w-1/2 bg-cover bg-center bg-no-repeat transition-all duration-700 ease-out opacity-0 scale-105"
           role="img"
           style={`background-image: url('${slide.backgroundImage}');`}
         />
         <!-- Right half -->
         <div 
-          aria-label={`${slide.sectionTitle} background right`}
           class="w-1/2 bg-cover bg-center bg-no-repeat transition-all duration-700 ease-out opacity-0 scale-105"
           role="img"
           style={`background-image: url('${getSmartImageAndColors(slide.sectionTitle, slide.items).image}');`}
@@ -216,13 +369,17 @@ curriculumData.items.forEach((item) => {
         <!-- Header -->
         <header class="text-center mb-8 transition-all duration-700 opacity-0 -translate-y-4">
           <h2 
-            class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2 drop-shadow-2xl"
+            class="text-3xl sm:text-4xl flex md:text-5xl items-center  w-full justify-center font-bold text-white mb-2 drop-shadow-2xl"
             id={`heading-${slide.id}`}
+            itemprop="name"
           >
             
-            {slide.title}
+          <img class=" w-20 h-20 bg-black rounded-full" src={ICON_IMAGES.OM_SYMBOL}  />  {slide.title}<img class=" w-20 h-20" src={ICON_IMAGES.OM_SYMBOL}  />
           </h2>
-          <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold text-orange-400 mb-3 drop-shadow-lg">
+          <h3 
+            class="text-xl sm:text-2xl md:text-3xl font-semibold text-orange-400 mb-3 drop-shadow-lg"
+            itemprop="educationalAlignment"
+          >
             {slide.sectionTitle}
           </h3>
           {/* <div class="w-20 h-20 bg-gradient-to-r from-transparent via-orange-500 to-transparent mx-auto rounded-full shadow-lg shadow-orange-500/50" /> */}
@@ -231,11 +388,13 @@ curriculumData.items.forEach((item) => {
         <!-- 2 Rows Grid - Auto-fit columns with minimal space -->
         <div 
           class="two-row-grid transition-all duration-700 opacity-0 translate-y-4" 
+          itemprop="syllabusSections"
           role="list"
         >
           {slide.items.map((item, itemIndex) => (
             <div 
-              class="rounded-xl transition-all duration-300 hover:-translate-y-1 opacity-0 translate-y-6 scale-95 hover:bg-white"
+              class=" rounded-xl   transition-all duration-300 hover:scale-125  opacity-0 translate-y-6 scale-95 hover:bg-white"
+              itemprop="teaches"
               role="listitem"
               style={`animation-delay: ${itemIndex * 50}ms`}
             >
@@ -253,58 +412,102 @@ curriculumData.items.forEach((item) => {
   ))}
 </section>
 
+<!-- Anchor for skip navigation -->
+<div class="sr-only" id="curriculum-end">End of curriculum section</div>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const slides = document.querySelectorAll('.curriculum-slide');
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const slide = entry.target as HTMLElement;
-          const mobileBg = slide.querySelector('div[role="img"].md\\:hidden') as HTMLElement;
-          const leftBg = slide.querySelector('.md\\:flex > div:first-child[role="img"]') as HTMLElement;
-          const rightBg = slide.querySelector('.md\\:flex > div:last-child[role="img"]') as HTMLElement;
-          const header = slide.querySelector('header') as HTMLElement;
-          const grid = slide.querySelector('[role="list"]') as HTMLElement;
-          const cards = slide.querySelectorAll('[role="listitem"]');
-          
-          // Animate mobile background
-          mobileBg?.classList.remove('opacity-0', 'scale-105');
-          mobileBg?.classList.add('opacity-100', 'scale-100');
-          
-          // Animate laptop backgrounds
-          leftBg?.classList.remove('opacity-0', 'scale-105');
-          leftBg?.classList.add('opacity-100', 'scale-100');
-          rightBg?.classList.remove('opacity-0', 'scale-105');
-          rightBg?.classList.add('opacity-100', 'scale-100');
-          
-          header?.classList.remove('opacity-0', '-translate-y-4');
-          header?.classList.add('opacity-100', 'translate-y-0');
-          grid?.classList.remove('opacity-0', 'translate-y-4');
-          grid?.classList.add('opacity-100', 'translate-y-0');
-          
-          cards.forEach((card, i) => {
-            setTimeout(() => {
-              card.classList.remove('opacity-0', 'translate-y-6', 'scale-95');
-              card.classList.add('opacity-100', 'translate-y-0', 'scale-100');
-            }, i * 100);
-          });
+    try {
+      const slides = document.querySelectorAll('.curriculum-slide');
+      
+      if (!slides.length) {
+        console.warn('No curriculum slides found');
+        return;
+      }
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const slide = entry.target as HTMLElement;
+            const mobileBg = slide.querySelector('div[role="img"].md\\:hidden') as HTMLElement;
+            const leftBg = slide.querySelector('.md\\:flex > div:first-child[role="img"]') as HTMLElement;
+            const rightBg = slide.querySelector('.md\\:flex > div:last-child[role="img"]') as HTMLElement;
+            const header = slide.querySelector('header') as HTMLElement;
+            const grid = slide.querySelector('[role="list"]') as HTMLElement;
+            const cards = slide.querySelectorAll('[role="listitem"]');
+            
+            // Animate mobile background
+            mobileBg?.classList.remove('opacity-0', 'scale-105');
+            mobileBg?.classList.add('opacity-100', 'scale-100');
+            
+            // Animate laptop backgrounds
+            leftBg?.classList.remove('opacity-0', 'scale-105');
+            leftBg?.classList.add('opacity-100', 'scale-100');
+            rightBg?.classList.remove('opacity-0', 'scale-105');
+            rightBg?.classList.add('opacity-100', 'scale-100');
+            
+            header?.classList.remove('opacity-0', '-translate-y-4');
+            header?.classList.add('opacity-100', 'translate-y-0');
+            grid?.classList.remove('opacity-0', 'translate-y-4');
+            grid?.classList.add('opacity-100', 'translate-y-0');
+            
+            cards.forEach((card, i) => {
+              setTimeout(() => {
+                card.classList.remove('opacity-0', 'translate-y-6', 'scale-95');
+                card.classList.add('opacity-100', 'translate-y-0', 'scale-100');
+              }, i * 50);
+            });
+          }
+        });
+      }, { threshold: 0.3, rootMargin: '0px 0px -10% 0px' });
+      
+      slides.forEach(slide => {
+        observer.observe(slide);
+        const bgImage = (slide as HTMLElement).dataset.bgImage;
+        if (bgImage) {
+          const img = new Image();
+          img.src = bgImage;
         }
       });
-    }, { threshold: 0.5 });
-    
-    slides.forEach(slide => {
-      observer.observe(slide);
-      const bgImage = (slide as HTMLElement).dataset.bgImage;
-      if (bgImage) new Image().src = bgImage;
-    });
-    
-    // Dot navigation
-    document.querySelectorAll('[data-dot-index]').forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        slides[index]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // Keyboard navigation
+      const container = document.getElementById('ScrollableCurriculum');
+      container?.addEventListener('keydown', (e) => {
+        const key = e.key;
+        if (key === 'ArrowDown' || key === 'PageDown') {
+          e.preventDefault();
+          const currentSlide = document.querySelector('.curriculum-slide.in-view') || slides[0];
+          const nextSlide = currentSlide?.nextElementSibling as HTMLElement;
+          nextSlide?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else if (key === 'ArrowUp' || key === 'PageUp') {
+          e.preventDefault();
+          const currentSlide = document.querySelector('.curriculum-slide.in-view') || slides[0];
+          const prevSlide = currentSlide?.previousElementSibling as HTMLElement;
+          prevSlide?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else if (key === 'Home') {
+          e.preventDefault();
+          slides[0]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else if (key === 'End') {
+          e.preventDefault();
+          slides[slides.length - 1]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       });
-    });
+
+      // Track currently visible slide for keyboard nav
+      const slideObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            document.querySelectorAll('.curriculum-slide').forEach(s => s.classList.remove('in-view'));
+            entry.target.classList.add('in-view');
+          }
+        });
+      }, { threshold: 0.5 });
+
+      slides.forEach(slide => slideObserver.observe(slide));
+
+    } catch (error) {
+      console.error('Error initializing curriculum section:', error);
+    }
   });
 </script>
 
@@ -326,11 +529,44 @@ curriculumData.items.forEach((item) => {
     }
   }
   
+  /* Performance optimizations */
+  .curriculum-slide {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+  
+  .two-row-grid > div {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+  }
+  
+  /* Smooth scrolling */
+  #ScrollableCurriculum {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  
   /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
     * {
-      animation: none !important;
-      transition: none !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  
+  /* Focus visible styles for accessibility */
+  #ScrollableCurriculum:focus-visible {
+    outline: 3px solid #f97316;
+    outline-offset: 2px;
+  }
+  
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .two-row-grid > div {
+      border: 2px solid currentColor;
     }
   }
 </style>
