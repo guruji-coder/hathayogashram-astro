@@ -1,109 +1,212 @@
 ---
+/**
+ * HOME PAGE - Simplified Version
+ * 
+ * Reduced from 40+ imports to just 3 main imports.
+ * Uses consolidated content and generic reusable components.
+ */
+
 import Layout from '../components/layout/Layout.astro';
 import { pageSchemas } from '../schemas';
+import { HOME_PAGE } from '../content/pages/home';
+import Section from '../components/generic/Section.astro';
+import Card from '../components/generic/Card.astro';
 
-// Import all home page sections from centralized location
+// Keep existing components that are already well-optimized
 import {
-  BestYogaSchool,
-  CertificationsTextSection,
-  FounderSection,
   HeroSection,
-  LocationSection,
-  ObjectiveTTC,
   ReviewSection,
-  TeacherSection,
-  TTCBlogs,
-  TTCCourseCombo,
-  YogaAllianceRegisteredSchool,
-  YogaFacilities,
+  LocationSection,
   YTTCourseSection,
- } from '$components/sections';
-import {
-  HOME_HERO,
-  HOME_HIGHLIGHTS,
-  HOME_CONTENT,
-  HOME_GALLERY,
-  HOME_COURSES,
-  HOME_STYLES,
-  OBJECTIVE_SECTION,
-  TTC_COURSES_SECTION,
-  CERTIFICATIONS_SECTION,
-  FACILITIES_CARDS_SECTION,
-  FOUNDER_SECTION,
-} from '$constants/pages/home';
+  YogaAllianceRegisteredSchool,
+} from '../components/sections';
 
-import { FAQ_SECTION, FAQ_STYLES } from '$constants/pages/home/faq';
-import {
-  TRAINING_200_BLOGS_SECTION,
-  TRAINING_200_COMBO_SECTION,
-} from '$constants/pages/ttc/200hour';
-import { FaqSection, FAQFlipSection } from '$svelte/sections';
+import { FAQFlipSection } from '../components/svelte/sections';
 import { TEACHERS_SECTION } from '../constants';
+
 // Generate schemas for home page
 const homeSchemas = pageSchemas.home();
 ---
 
 <Layout
   additionalSchemas={homeSchemas}
-  canonical="https://hathayogashram.com/"
-  description="Join authentic 200/300 hour Yoga Teacher Training in Rishikesh with Hatha Yogashram. Yoga Alliance RYS certified residential programs with Indian masters. Traditional Hatha & Ashtanga Yoga, Sanskrit mantras, philosophy from ancient texts."
-  image="https://hathayogashram.com/yogaschoolpic.jpg"
-  title="Best Yoga Teacher Training in Rishikesh, India - Hatha Yogashram"
+  canonical={HOME_PAGE.seo.canonical}
+  description={HOME_PAGE.seo.description}
+  image={HOME_PAGE.seo.image}
+  title={HOME_PAGE.seo.title}
 >
+  <!-- Hero Section -->
   <HeroSection />
 
   <!-- Best Yoga School Section -->
-  <BestYogaSchool
-    content={HOME_CONTENT}
-    courses={HOME_COURSES}
-    gallery={HOME_GALLERY}
-    hero={HOME_HERO}
-    highlights={HOME_HIGHLIGHTS}
-    styles={HOME_STYLES}
-  />
+  <Section title="Welcome to Hatha Yogashram" bgColor="bg-gray-50">
+    <!-- Highlights -->
+    <div class="grid md:grid-cols-2 gap-6 mb-12">
+      {HOME_PAGE.highlights.map((highlight) => (
+        <div class="border-2 border-purple-900 bg-purple-50 p-6 rounded-lg flex items-center">
+          <i class={`${highlight.icon} text-purple-900 text-2xl mr-4`}></i>
+          <span class="text-sm font-semibold text-gray-800">{highlight.text}</span>
+        </div>
+      ))}
+    </div>
 
-  <!-- Objective + TTC Courses Section -->
-  <ObjectiveTTC
-    coursesSection={TTC_COURSES_SECTION}
-    objective={OBJECTIVE_SECTION}
-    styles={HOME_STYLES}
-  />
+    <!-- Content -->
+    <div class="space-y-4">
+      <p class="text-gray-700 leading-relaxed text-justify">
+        {HOME_PAGE.content.intro}
+      </p>
+      {HOME_PAGE.content.paragraphs.map((paragraph) => (
+        <p class="text-gray-700 leading-relaxed text-justify">{paragraph}</p>
+      ))}
+    </div>
 
-  <!-- Certifications & Accreditations Section -->
-  <CertificationsTextSection
-    section={CERTIFICATIONS_SECTION}
-    styles={HOME_STYLES}
-  />
+    <!-- Course Buttons -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+      {HOME_PAGE.courses.map((course) => (
+        <a
+          href={course.url}
+          class="px-8 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-center font-semibold"
+        >
+          {course.title}
+        </a>
+      ))}
+    </div>
+  </Section>
+
+  <!-- Objective Section -->
+  <Section title={HOME_PAGE.objective.title} bgColor="bg-white">
+    <div class="max-w-4xl mx-auto space-y-4">
+      {HOME_PAGE.objective.paragraphs.map((paragraph) => (
+        <p class="text-gray-700 leading-relaxed text-justify">{paragraph}</p>
+      ))}
+
+      <!-- Mantras -->
+      <div class="my-8 p-6 bg-purple-50 rounded-lg">
+        {HOME_PAGE.objective.mantras.map((mantra) => (
+          <p class="text-lg mb-2">
+            <span class="font-semibold text-purple-900">{mantra.sanskrit}</span>
+            <span class="text-gray-700"> - {mantra.english}</span>
+          </p>
+        ))}
+        <p class="mt-4 text-gray-600 italic">{HOME_PAGE.objective.closingText}</p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- TTC Courses Section -->
+  <Section title="Our Yoga Teacher Training Courses" bgColor="bg-gray-50">
+    <div class="grid md:grid-cols-3 gap-8">
+      {HOME_PAGE.ttcCourses.map((course) => (
+        <Card
+          title={course.title}
+          description={course.description}
+          image={course.image}
+          href={course.url}
+          buttonText={course.buttonText}
+        />
+      ))}
+    </div>
+  </Section>
+
+  <!-- Certifications Section -->
+  <Section title={HOME_PAGE.certifications.title} bgColor="bg-white">
+    <div class="max-w-4xl mx-auto space-y-4">
+      {HOME_PAGE.certifications.paragraphs.map((paragraph) => (
+        <p class="text-gray-700 leading-relaxed text-justify">{paragraph}</p>
+      ))}
+    </div>
+  </Section>
 
   <!-- Founder Section -->
-  <FounderSection
-    section={FOUNDER_SECTION}
-    styles={HOME_STYLES}
-  />
+  <Section title={HOME_PAGE.founder.title} bgColor="bg-gray-50">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-gray-700 leading-relaxed text-justify mb-6">
+        {HOME_PAGE.founder.intro}
+      </p>
+
+      <!-- Founder Images -->
+      <div class="grid grid-cols-3 gap-4 my-8">
+        {HOME_PAGE.founder.images.map((img) => (
+          <img
+            src={img.src}
+            alt={img.alt}
+            class="w-full h-auto rounded-lg shadow-md"
+            loading="lazy"
+          />
+        ))}
+      </div>
+
+      {HOME_PAGE.founder.paragraphs.map((paragraph) => (
+        <p class="text-gray-700 leading-relaxed text-justify mb-4">{paragraph}</p>
+      ))}
+
+      <!-- Awards -->
+      <div class="grid md:grid-cols-2 gap-4 mt-8">
+        {HOME_PAGE.founder.awards.map((award) => (
+          <div class={`${award.bgColor} p-4 rounded-lg flex items-center`}>
+            <span class="text-3xl mr-4">{award.icon}</span>
+            <span class="text-sm font-semibold text-gray-800">{award.title}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </Section>
+
+  <!-- YTT Course Section -->
   <YTTCourseSection />
 
+  <!-- Yoga Alliance -->
   <YogaAllianceRegisteredSchool />
 
+  <!-- Reviews -->
   <ReviewSection />
 
-  <TeacherSection teachersData={TEACHERS_SECTION} />
+  <!-- Teachers Section -->
+  <Section title={HOME_PAGE.teachers.title} bgColor="bg-gray-50">
+    <div class="max-w-4xl mx-auto mb-8">
+      <p class="text-gray-700 leading-relaxed text-center mb-4">
+        {HOME_PAGE.teachers.intro}
+      </p>
+      <p class="text-purple-600 font-semibold text-center">
+        ✨ {HOME_PAGE.teachers.didYouKnow}
+      </p>
+    </div>
 
-  <YogaFacilities section={FACILITIES_CARDS_SECTION} />
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {HOME_PAGE.teachers.list.map((teacher) => (
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+          <img
+            src={teacher.image}
+            alt={teacher.name}
+            class="w-full h-48 object-cover"
+            loading="lazy"
+          />
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-2">{teacher.name}</h3>
+            <p class="text-sm text-gray-600 mb-1">{teacher.specialty}</p>
+            <p class="text-sm text-purple-600 font-semibold">{teacher.experience}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </Section>
 
-  <!-- TTC Blogs Section -->
-  <TTCBlogs blogsData={TRAINING_200_BLOGS_SECTION} />
+  <!-- Facilities Section -->
+  <Section title={HOME_PAGE.facilities.title} bgColor="bg-white">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {HOME_PAGE.facilities.cards.map((facility) => (
+        <Card
+          title={facility.title}
+          description={facility.description}
+          image={facility.image}
+        />
+      ))}
+    </div>
+  </Section>
 
-  <!-- Training Combo Section -->
-  <TTCCourseCombo comboData={TRAINING_200_COMBO_SECTION} />
-
-  <!-- Instagram Feed Section -->
-
-  <!-- <FaqSection client:load sectionData={FAQ_SECTION} styles={FAQ_STYLES} /> -->
-
+  <!-- FAQ Section -->
   <FAQFlipSection client:load />
 
-
   <!-- Location Section -->
-
   <LocationSection />
 </Layout>

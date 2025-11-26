@@ -47,6 +47,7 @@ export default defineConfig({
     resolve: {
       alias: {
         $lib: fileURLToPath(new URL('./src/lib', import.meta.url)),
+        $content: fileURLToPath(new URL('./src/content', import.meta.url)),
         $constants: fileURLToPath(new URL('./src/constants', import.meta.url)),
         $components: fileURLToPath(new URL('./src/components', import.meta.url)),
         $ui: fileURLToPath(new URL('./src/components/ui', import.meta.url)),
